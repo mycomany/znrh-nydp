@@ -1,0 +1,67 @@
+<#assign goods="gas" />
+<#include "/inc/base.html" />
+<#macro head>
+    <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
+    <script src="${host}/static/lib/echarts/map/world.js"></script>
+    <script src="${host}/static/data/public/country.json"></script>
+    <script src="${host}/static/js/statecn/gasTrade.js"></script>
+</#macro>
+
+<#macro body>
+    <@topbar title="国内篇" tab="<div class='circlebox'><div class='circle' title='石油' onclick=\"gourl('trade')\">石油</div><div class='circle2' title='天然气' onclick=\"gourl('gasTrade')\">天然气</div></div>">
+    <div class="btn-group" style="width:70px;">
+        <button class="btn btn-default barbtn" type="button" onclick="gourl('gasIndex')">供需态势</button>
+    </div>
+    <div class="btn-group" style="width:70px;">
+        <button class="btn btn-default barbtn" type="button" onclick="gourl('gasMarket')">市场监测</button>
+    </div>
+    <div class="btn-group" style="width:70px;">
+        <button class="btn btn-default barbtn" type="button" onclick="gourl('invest')">能源投资</button>
+    </div>
+    <div class="btn-group" style="width:70px;">
+        <button class="btn btn-default barbtn" type="button" onclick="gourl('main')">市场主体</button>
+    </div>
+    <div class="btn-group" style="width:70px;">
+        <button class="btn btn-primary barbtn" type="button" onclick="gourl('gasTrade')">贸易发展</button>
+    </div>
+    <div class="btn-group" style="width:70px;">
+        <button class="btn btn-default barbtn" type="button" onclick="gourl('gasSecurity')">能源安全</button>
+    </div>
+    <div class="btn-group" style="width:70px;">
+        <button class="btn btn-default barbtn" type="button" onclick="gourl('opinions')">能源舆情</button>
+    </div>
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="row qpage">
+        <div class="w12 h7">
+            <div id="main" class="w12 h12 qpanel0" style="padding-bottom:0px;"></div>
+        </div>
+        <div class="w12 h5">
+            <div class="w3 h12">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国LNG主要来源国结构(2017)</span></div>
+                    <div id="chart1" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w3 h12">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国PNG来源国结构(2017)</span></div>
+                    <div id="chart2" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w3 h12">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">管道进口输气能力</span></div>
+                    <div id="chart3" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w3 h12">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">2017天然气进出口数据</span></div>
+                    <div id="chart4" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</#macro>

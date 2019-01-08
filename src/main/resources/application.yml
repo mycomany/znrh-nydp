@@ -1,0 +1,42 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8800
+  servlet:
+    context-path: /znrh-nydp
+  
+template:
+    cache: false
+
+spring:
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  freemarker:
+    request-context-attribute: request  #req访问request
+    suffix: .html  #后缀名
+    content-type: text/html
+    enabled: true
+    cache: false #缓存配置
+    template-loader-path: classpath:/templates/ #模板加载路径 按需配置
+    charset: UTF-8 #编码格式
+    settings:
+      number_format: '0.####'   #数字格式化，无小数点
+  mvc:
+    static-path-pattern: /static/**
+    
+logging:
+  level: debug
+  level.io.dfjx: debug
+  path: logs/
+  file: admin.log

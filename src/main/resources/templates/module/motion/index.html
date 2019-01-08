@@ -1,0 +1,114 @@
+<#include "/inc/base.html" />
+<#macro head>
+    <script src="${host}/static/lib/echarts/extension/ecStat.min.js"></script>
+    <script src="${host}/static/js/motion/index.js"></script>
+    <link href="${host}/static/css/motion/index.css" rel="stylesheet">
+</#macro>
+
+<#macro body>
+    <@topbar title="运营平台">
+    <div class="btn-group" style="width:100px;">
+        <button class="btn btn-default barbtn" type="button" onclick="gourl('mounthReport')">月度监测</button>
+    </div>
+    <div class="btn-group" style="width:100px;">
+        <button class="btn btn-default barbtn" type="button" onclick="gourl('state')">发展态势</button>
+    </div>
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="row qpage">
+        <div class="w35 h12">
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">月度交易概览</span></div>
+                    <div  class="callActionChart callActionScreenCharts ">
+                        <div id="callActionAsp" class="callActionScreenChart base_float "></div>
+                        <div id="callActionDeep" class="callActionScreenChart base_float "></div>
+                    </div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">竞价申报价格正态分布</span></div>
+                    <div id="callActionSubAmountChart" class="qs_body"></div><!--竞价申报价格正态分布-->
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">竞价交易量分布</span></div>
+                    <div id="callActionTradCountChart" class="qs_body"></div><!--竞价交易量分布-->
+                </div>
+            </div>
+        </div>
+        <div class="w5 h12">
+            <div class="basic_info_fonts">
+                <div id="basic_info_fonts_title" class="">
+                    <!--<div><span class="font-color-changed">升贴水均价</span></div>-->
+                    <!--<div><span class="font-color-changed">结算均价</span></div>-->
+                    <!--<div><span class="font-color-changed">最大成价金额</span></div>-->
+                    <!--<div><span class="font-color-changed">笔均成交金额</span></div>-->
+                </div>
+                <div id="basic_info_font_values" class="basic_info_font_values ">
+                    <!--<div><span class="basic_info_font_value">0.2</span>(元)</div>-->
+                    <!--<div><span class="basic_info_font_value">2.45</span>(元)</div>-->
+                    <!--<div><span class="basic_info_font_value">800</span>(万元)</div>-->
+                    <!--<div><span class="basic_info_font_value">120</span>(万元)</div>-->
+                </div>
+            </div>
+            <div id="report_china_map" class="map_chart"></div>
+        </div>
+        <div class="w35 h12">
+            <div class="w12 h8">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">竞价行为监测</span></div>
+
+                    <div class="callActionCheckBtnGrp base_float"><!-- 35PX -->
+                        <div onclick="initCallActionFlowRecord('callCount')" class="check_btn_option_status_l check_btn_option_checked">竞价与申报量</div>
+                        <div onclick="initCallActionFlowRecord('callTime')"  class="check_btn_option_status_r "> 竞价与申报时点 </div>
+                    </div>
+                    <div class="qs_body callActionFlowRecordChart base_float"><!-- margin-top:20px-->
+                        <div id="callActionFlowRecordChartP1" class="callActionFlowRecordChartP1"></div><!--竞价行为监测-->
+                        <div id="callActionFlowRecordChartP2" class="callActionFlowRecordChartP2"></div><!--竞价行为监测-->
+                    </div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">竞价企业列表</span></div>
+                    <div id="callActionCompanyLstTable" class="qs_body callActionCompanyLstTable">
+                        <table width="100%" style="table-layout: fixed;">
+                            <thead>
+                            <tr>
+                                <td>申报企业</td>
+                                <td>申报单价</td>
+                                <td>申报量</td>
+                                <td>申报时间</td>
+                                <td>累计量</td>
+                                <td>累计占比</td>
+                            </tr>
+                            </thead>
+                            <!--<tr>-->
+                            <!--<td>供应商名称</td>-->
+                            <!--<td>交易品种</td>-->
+                            <!--<td>响应会员数</td>-->
+                            <!--<td>省份名称</td>-->
+                            <!--</tr>-->
+                            <tbody id="callActionCompanyLstTableBody">
+
+                            </tbody>
+                            <!--<tr>-->
+                            <!--<td>企业名称</td>-->
+                            <!--<td>4830</td>-->
+                            <!--<td>66</td>-->
+                            <!--<td>200</td>-->
+                            <!--<td>66</td>-->
+                            <!--<td>2%</td>-->
+                            <!--</tr>-->
+
+                        </table>
+                    </div><!--竞价企业列表-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</#macro>

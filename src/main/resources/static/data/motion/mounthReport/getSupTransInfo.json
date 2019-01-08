@@ -1,0 +1,13 @@
+{"supTransInfo":[
+	{"grpID":"01","grpNm":"中石化","indxID":"01","indxNm":"LNG占比","indxVal":8816000,"limit":0,"stattDt":"2018-07"},
+	{"grpID":"01","grpNm":"中石化","indxID":"02","indxNm":"PNG占比","indxVal":1.331792E8,"limit":0,"stattDt":"2018-07"},
+	{"grpID":"01","grpNm":"中石化","indxID":"03","indxNm":"竞价占比","indxVal":8816000,"limit":0,"stattDt":"2018-07"},
+	{"grpID":"01","grpNm":"中石化","indxID":"04","indxNm":"挂牌占比","indxVal":1.331792E8,"limit":0,"stattDt":"2018-07"},
+	{"grpID":"02","grpNm":"中石油","indxID":"01","indxNm":"LNG占比","indxVal":1.744328E7,"limit":0,"stattDt":"2018-07"},
+	{"grpID":"02","grpNm":"中石油","indxID":"02","indxNm":"PNG占比","indxVal":1.11282854E9,"limit":0,"stattDt":"2018-07"},
+	{"grpID":"02","grpNm":"中石油","indxID":"03","indxNm":"竞价占比","indxVal":1.744328E7,"limit":0,"stattDt":"2018-07"},
+	{"grpID":"02","grpNm":"中石油","indxID":"04","indxNm":"挂牌占比","indxVal":1.11282854E9,"limit":0,"stattDt":"2018-07"}],
+"supTransSumInfo":[
+	{"grpID":"01","grpNm":"中石化","indxID":"01","indxNm":"成交金额","indxVal":1.419952E8,"limit":0,"stattDt":"2018-07"},
+	{"grpID":"02","grpNm":"中石油","indxID":"01","indxNm":"成交金额","indxVal":1.13027174E9,"limit":0,"stattDt":"2018-07"}]
+}

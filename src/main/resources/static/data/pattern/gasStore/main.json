@@ -1,0 +1,7 @@
+[{"name":"东部","value":["-121.514","43.91","459","20.9"],"itemStyle":{"normal":{"color":"#ffa24c"}},"label":{"normal":{"position":"top"}}},
+  {"name":"中西部","value":["-92.22","43.78","456","20.8"],"itemStyle":{"normal":{"color":"#ffa24c"}},"label":{"normal":{"position":"top"}}},
+  {"name":"中南部","value":["-91.337 ","31.798","850","38.7"],"itemStyle":{"normal":{"color":"#ffa24c"}},"label":{"normal":{"position":"bottom"}}},
+  {"name":"洛基山","value":["-102.155", "36.921","138","6.3"],"itemStyle":{"normal":{"color":"#8ff202"}},"label":{"normal":{"position":"right"}}},
+  {"name":"太平洋地区","value":["-155.507","37.7","256","11.7"],"itemStyle":{"normal":{"color":"#8ff202"}},"label":{"normal":{"position":"bottom"}}},
+  {"name":"阿拉斯加","value":["-154.40", "66.04","34","1.6"],"itemStyle":{"normal":{"color":"#8ff202"}},"label":{"normal":{"position":"right"}}}
+]

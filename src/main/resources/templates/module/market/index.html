@@ -1,0 +1,79 @@
+<#include "/inc/base.html" />
+<#macro head>
+    <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
+    <script src="${host}/static/lib/echarts/map/world.js"></script>
+    <script src="${host}/static/js/market/index.js"></script>
+</#macro>
+
+<#macro body>
+<@topbar title="国际篇">
+	<div class="btn-group" style="width:70px;">
+		<button class="btn btn-default barbtn" type="button" onclick="gourl('../pattern/index')">储量分布</button>
+	</div>
+	<div class="btn-group" style="width:70px;">
+		<button class="btn btn-default barbtn" type="button" onclick="gourl('../pattern/supply')">供给格局</button>
+	</div>
+	<div class="btn-group" style="width:70px;">
+		<button class="btn btn-default barbtn" type="button" onclick="gourl('../pattern/require')">需求态势</button>
+	</div>
+	<div class="btn-group" style="width:70px;">
+		<button class="btn btn-default barbtn" type="button" onclick="gourl('../pattern/store')">库存监测</button>
+	</div>
+	<div class="btn-group" style="width:70px;">
+		<button class="btn btn-primary barbtn" type="button" onclick="gourl('../market/index')">市场总体</button>
+	</div>
+	<div class="btn-group" style="width:70px;">
+		<button class="btn btn-default barbtn" type="button" onclick="gourl('../market/price')">产品动态</button>
+	</div>
+	<div class="btn-group" style="width:70px;">
+		<button class="btn btn-default barbtn" type="button" onclick="gourl('../market/finance')">金融市场</button>
+	</div>
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="row qpage" >
+     	<div class="w12 h8">
+      	 <div id="main" class="w9 h12 qpanel0 left"></div>
+      	 <div class="w3 h12">
+            <div class="w12 h6">
+            	<div class="qpanel">
+	                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">国际油价与供需缺口分析</span></div>
+	                <div id="chart1" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h6">
+            	<div class="qpanel">
+	                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">全球石油需求三个月移动平均与油价关系</span></div>
+	                <div id="chart2" class="qs_body"></div>
+                </div>
+            </div>
+           </div>
+        </div>
+		<div class="w12 h4">
+			<div class="w3 h12">
+				<div class="qpanel">
+					<div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">OPEC剩余产能与WTI油价</span></div>
+					<div id="chart6" class="qs_body"></div>
+				</div>
+			</div>
+			<div class="w3 h12">
+				<div class="qpanel">
+					<div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">OPEC产量变化与Brent-Dubai差价</span></div>
+					<div id="chart5" class="qs_body"></div>
+				</div>
+			</div>
+			<div class="w3 h12">
+				<div class="qpanel">
+					<div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">OECD总库存与油价</span></div>
+					<div id="chart4" class="qs_body"></div>
+				</div>
+			</div>
+			<div class="w3 h12">
+				<div class="qpanel">
+					<div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">美国产量增长与钻机数增长</span></div>
+					<div id="chart3" class="qs_body"></div>
+				</div>
+			</div>
+        </div>  
+    </div>
+</div>
+</#macro>

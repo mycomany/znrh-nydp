@@ -1,0 +1,5 @@
+[{"name":"美国原油","value":["-119.045172","36.998","58007.67","-953.63"],"itemStyle":{"normal":{"color":"#8ff202"}},"label":{"normal":{"position":"top"}}},
+{"name":"美国汽油","value":["-86.128","41.992","32645.44","-369.65"],"itemStyle":{"normal":{"color":"#8ff202"}},"label":{"normal":{"position":"bottom","distance":20}}},
+{"name":"ARA汽油","value":["15.525 ","58.40","1063.00","202.00"],"itemStyle":{"normal":{"color":"#ffa24c"}},"label":{"normal":{"position":"left"}}},
+{"name":"ARA柴油","value":["4.4", "50.8","1985.00","-326.00"],"itemStyle":{"normal":{"color":"#8ff202"}},"label":{"normal":{"position":"right"}}},
+{"name":"全球浮仓","value":["103.819","1.264","20906.1376","213.0503466"],"itemStyle":{"normal":{"color":"#ffa24c"}},"label":{"normal":{"position":"bottom"}}}]

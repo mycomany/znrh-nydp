@@ -1,0 +1,46 @@
+<#macro topbar title tab="">
+	<div class="qheader">
+		<div class="qheader1">
+			<div class="left" style="width:50px;">
+				<div class="qmenu-ico" onclick="$('.qmenu').toggle();"><i class="fa fa-list-ul"></i></div>
+			</div>
+			<div class="qheader-title1 left">国家智慧能源平台</div>
+			<div class="qheader-icon2 left"><div class="ico2">&nbsp;</div></div>
+			<div class="qheader-title2 left">${title}</div>
+			<div class="rollingDiv right"><div id="rollingBtn" class="rollingBtn"><div class="rollingStop">开始轮播</div><div class="rollingPlay">自动<span class="rollingTime">60</span>秒</div></div></div>
+		</div>
+		<div class="qheader0">
+			${tab}
+			<!--<div class="qheader-title">
+				<div class="qheader-line1">
+				</div>
+			</div>-->
+		</div>
+		<div id="qt2" class="qheader-line2"></div>
+		<div class="qheader1">
+			<div class="right" style="z-index:7;height:50px;line-height: 50px;">
+				<#nested />
+				<!--<div class="btn-group" style="width:50px;">
+                    <div class="qmenu-ico"><i class="fa fa-sign-out"></i></div>
+                </div>-->
+			</div>
+		</div>
+	</div>
+	<div class="qmenu" style="display:none;"><ul id="appmenu" class="sidenav"></ul></div>
+</#macro>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<#include "/inc/baseInclude.html" />
+	<#if head?exists>
+		<@head />
+	</#if>
+</head>
+
+<body class="qbody">
+<#if body?exists>
+	<@body/>
+</#if>
+</body>
+</html>

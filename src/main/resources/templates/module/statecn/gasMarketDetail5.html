@@ -1,0 +1,53 @@
+<#assign goods="gas" />
+<#include "/inc/base.html" />
+<#macro head>
+    <script src="${host}/static/js/statecn/gasMarketDetail5.js"></script>
+</#macro>
+
+<#macro body>
+<@topbar title="国内篇（LNG气价走势）">
+    <div class="btn-group" style="width:100px;">
+        <button class="btn btn-primary barbtn" type="button" onclick="gourl('gasMarket')">返回</button>
+    </div>
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="row qpage">
+        <div class="w4 h6">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">东北地区气价走势</span></div>
+                <div id="chart1" class="qs_body"></div>
+            </div>
+        </div>
+        <div class="w4 h6">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">华北地区气价走势</span></div>
+                <div id="chart2" class="qs_body"></div>
+            </div>
+        </div>
+        <div class="w4 h6">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">华东地区气价走势</span></div>
+                <div id="chart3" class="qs_body"></div>
+            </div>
+        </div>
+        <div class="w4 h6">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">华中地区气价走势</span></div>
+                <div id="chart4" class="qs_body"></div>
+            </div>
+        </div>
+        <div class="w4 h6">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">西南地区气价走势</span></div>
+                <div id="chart5" class="qs_body"></div>
+            </div>
+        </div>
+        <div class="w4 h6">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">华南地区气价走势</span></div>
+                <div id="chart6" class="qs_body"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</#macro>
