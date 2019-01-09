@@ -1,10 +1,10 @@
-package com.seaboxdata.web.module.energy.oil;
+package com.seaboxdata.web.energy.oil;
 
 import com.seaboxdata.core.base.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/oil/ha")
-public class HaController extends BaseController {
+@RequestMapping("/oil/security")
+public class SecurityController extends BaseController {
 }
