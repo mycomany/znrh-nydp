@@ -94,6 +94,16 @@ function main(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                }
+                return res;
+
             }
         },
         xAxis: {
@@ -163,6 +173,20 @@ function chart1(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
+
             }
         },
         grid: {
@@ -326,6 +350,20 @@ function chart2(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
+
             }
         },
         grid: {
@@ -487,6 +525,20 @@ function chart3(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
+
             }
         },
         grid: {
@@ -651,6 +703,19 @@ function chart4(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
             }
         },
         grid: {
@@ -814,6 +879,19 @@ function chart5(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
             }
         },
         grid: {
@@ -976,6 +1054,19 @@ function chart6(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
             }
         },
         grid: {
@@ -1138,6 +1229,19 @@ function chart7(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
             }
         },
         grid: {
@@ -1300,6 +1404,19 @@ function chart8(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
             }
         },
         grid: {

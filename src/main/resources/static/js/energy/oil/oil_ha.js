@@ -35,6 +35,19 @@ function main(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
             }
         },
         grid: {
@@ -209,6 +222,15 @@ function chart1(data){
             "axisPointer": {
                 "type": "shadow"
             },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                }
+                return res;
+            }
         },
         grid: {
             left: '5%',
@@ -258,10 +280,10 @@ function chart1(data){
         ],
         "yAxis": {
             type: 'value',
-            name: "万千瓦",
+            name: "%",
             nameGap:-5,
             nameTextStyle:{
-                padding:[0,0,0,45],
+                padding:[0,0,0,20],
                 align:'center',
                 color:'#fff',
             },
@@ -308,6 +330,21 @@ function chart2(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][1];
+                    }else {
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
             }
         },
         grid: {
@@ -484,6 +521,21 @@ function chart3(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                    }else if(params[i].seriesName == data[0][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][1];
+                    }else {
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
+                }
+                return res;
             }
         },
         grid: {
@@ -678,6 +730,15 @@ function chart4(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                }
+                return res;
             }
         },
         grid: {
