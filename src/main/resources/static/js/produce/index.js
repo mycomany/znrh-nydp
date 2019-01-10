@@ -4,8 +4,8 @@ const _default_select_date = "2017-01-01"
 
 $(document).ready(function(){
     // getdata('/product/index/productIndex.json',initEnergyRatio);
-    getdata('/product/index/installAndGeneration.json',installAndGeneration);
-    getdata('/product/index/installCapacity.json',installCapacity);
+    getdata('/produce/index/installAndGeneration.json',installAndGeneration);
+    getdata('/produce/index/installCapacity.json',installCapacity);
 
 });
 

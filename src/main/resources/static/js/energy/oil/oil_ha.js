@@ -3,7 +3,7 @@ $(document).ready(function(){
     getdata('/energy/oil/ha/main.json' + __time,main);
     getdata('/energy/oil/ha/chart1.json' + __time,chart1);
     getdata('/energy/oil/ha/chart2.json' + __time,chart2);
-    getdata('/energy/oil/ha/chart3.json' + __time,chart3);
+    getdata('/energy/oil/ha/near10Order.json' + __time,chart3);
     getdata('/energy/oil/ha/chart4.json' + __time,chart4);
 });
 

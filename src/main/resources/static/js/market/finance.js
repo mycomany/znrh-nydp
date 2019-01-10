@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	getdata('/market/finance/chart1.json',chart1);
 	getdata('/market/finance/chart2.json',chart2);
-	getdata('/market/finance/chart3.json',chart3);
+	getdata('/market/finance/near10Order.json',chart3);
 	getdata('/market/finance/chart4.json',chart4);
 	getdata('/market/finance/chart5.json',chart5);
 	getdata('/market/finance/chart6.json',chart6);

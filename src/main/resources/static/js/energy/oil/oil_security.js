@@ -3,7 +3,7 @@ $(document).ready(function(){
     getdata('/energy/oil/security/main.json' + __time, main);
     getdata('/energy/oil/security/chart1.json' + __time, chart1);
     getdata('/energy/oil/security/chart2.json' + __time, chart2);
-    getdata('/energy/oil/security/chart3.json' + __time, chart3);
+    getdata('/energy/oil/security/near10Order.json' + __time, chart3);
     getdata('/energy/oil/security/chart4.json' + __time, chart4);
     getdata('/energy/oil/security/chart5.json' + __time, chart5);
     getdata('/energy/oil/security/chart6.json' + __time, chart6);
