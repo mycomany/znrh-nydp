@@ -26,6 +26,7 @@ function changeMap(param){
 function main(data){
 
     var chartId = "main";
+    var yf = "11";
 
     option = {
         "tooltip": {
@@ -155,7 +156,7 @@ function main(data){
             {
                 "name": data[0][0],
                 "type": "bar",
-                "data": data[3],
+                "data": data[3][yf].dl,
                 barWidth: "50%",
                 "itemStyle": {
                     "normal": {
@@ -168,7 +169,7 @@ function main(data){
                 "type": "line",
                 symbol: 'circle',
                 "yAxisIndex": 1,
-                "data": data[4],
+                "data": data[3][yf].tb,
                 "itemStyle": {
                     "normal": {
                         "color": "#ffaa00"
