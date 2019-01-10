@@ -514,6 +514,7 @@ function chart2(data){
 function chart3(data){
 
     var chartId = "chart3";
+    var yf = "11"
 
     option = {
         "tooltip": {
@@ -678,7 +679,7 @@ function chart3(data){
             {
                 "name": data[0][0],
                 "type": "line",
-                "data": data[3],
+                "data": data[3][yf]["fd"],
                 "barWidth": "auto",
                 itemStyle: {
                     "normal": {
@@ -689,7 +690,7 @@ function chart3(data){
             {
                 "name": data[0][1],
                 "type": "line",
-                "data": data[4],
+                "data": data[3][yf]["rj"],
                 "barWidth": "auto",
                 itemStyle: {
                     "normal": {
@@ -703,7 +704,7 @@ function chart3(data){
                 barWidth: "50%",
                 symbol: 'circle',
                 "yAxisIndex": 1,
-                "data": data[5],
+                "data": data[3][yf]["tb"],
                 "itemStyle": {
                     "normal": {
                         "color": "#ffaa00"
