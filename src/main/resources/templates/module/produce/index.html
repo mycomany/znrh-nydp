@@ -1,0 +1,89 @@
+<#include "/inc/base.html" />
+<#macro head>
+<script src="${host}/static/lib/echarts/extension/ecStat.min.js"></script>
+<script src="${host}/static/js/product/index.js"></script>
+</#macro>
+
+<#macro body>
+<@topbar title="生产">
+
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="row qpage">
+        <div class="w35 h8">
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span>
+                        <span class="qs_title2">全国发电量与装机量对比</span>
+                        <div class="right">
+                            <select id="installAndGeneraSelected" class="chart-selector" onchange="installAndGeneration('select',this)">
+                                <option>全国</option>
+                                <option>中国华能集团</option>
+                                <option>中国大唐集团公司</option>
+                                <option>中国华电集团公司</option>
+                                <option>中国国电集团公司</option>
+                                <option>国投电力</option>
+                                <option>国华电力</option>
+                                <option>华润电力</option>
+                                <option>中广核</option>
+                                <option>中国神华</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div id="energyRatio" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">发电设备累计平均利用小时对比</span></div>
+                    <div id="deviceUsedRatio" class="qs_body"></div><!--竞价申报价格正态分布-->
+                </div>
+            </div>
+        </div>
+        <div class="w5 h8">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">清洁能源发电情况</span></div>
+                <div id="callActionSubAmountChart" class="qs_body"></div><!--竞价申报价格正态分布-->
+            </div>
+        </div>
+        <div class="w35 h8">
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">供热量与供热装机容量比</span></div>
+                    <div id="callActionSubAmountChart1" class="qs_body"></div><!--竞价申报价格正态分布-->
+                </div>
+            </div>
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">供热消耗原煤量</span></div>
+                    <div id="callActionSubAmountChart1" class="qs_body"></div><!--竞价申报价格正态分布-->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="w4 h4">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">装机容量排名</span></div>
+                <div id="installCapacity" class="qs_body"></div><!--竞价申报价格正态分布-->
+
+            </div>
+        </div>
+        <div class="w4 h4">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">发电量排名</span></div>
+            </div>
+        </div>
+        <div class="w4 h4">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">上网电量排名</span></div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</#macro>

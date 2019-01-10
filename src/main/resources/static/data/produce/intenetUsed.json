@@ -1,0 +1,32 @@
+[
+  {
+    "recordType":"上网电量",
+    "recordInfos":[
+      {
+        "energyType": "总量",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"6.30"},
+          {"year":"2017","month":"3","ratio":"6.70"},
+          {"year":"2017","month":"4","ratio":"6.60"},
+          {"year":"2017","month":"5","ratio":"6.40"},
+          {"year":"2017","month":"6","ratio":"6.30"},
+          {"year":"2017","month":"7","ratio":"6.80"},
+          {"year":"2017","month":"8","ratio":"6.50"},
+          {"year":"2017","month":"9","ratio":"6.40"},
+          {"year":"2017","month":"10","ratio":"6"},
+          {"year":"2017","month":"11","ratio":"5.70"},
+          {"year":"2018","month":"2","ratio":"11.00"},
+          {"year":"2018","month":"3","ratio":"8.00"},
+          {"year":"2018","month":"4","ratio":"7.70"},
+          {"year":"2018","month":"5","ratio":"8.50"},
+          {"year":"2018","month":"6","ratio":"8.30"},
+          {"year":"2018","month":"7","ratio":"7.80"},
+          {"year":"2018","month":"8","ratio":"7.70"},
+          {"year":"2018","month":"9","ratio":"7.40"},
+          {"year":"2018","month":"10","ratio":"7.20"},
+          {"year":"2018","month":"11","ratio":"6.90"}
+        ]
+      }
+    ]
+  }
+]
