@@ -38,4 +38,13 @@ public class HomeController {
         map.addAttribute("host", host);
         return "/module/" + module + "/" + url;
     }
+
+    @RequestMapping("/energy/{type}/{url}")
+    public String energyModule(@PathVariable("type") String type, @PathVariable("url") String url, HttpServletRequest request, ModelMap map){
+        String host = request.getScheme() + "://" + request.getServerName()
+                + ":" + request.getServerPort() + request.getContextPath();
+
+        map.addAttribute("host", host);
+        return "/energy/" + type + "/" + type + "_" + url;
+    }
 }

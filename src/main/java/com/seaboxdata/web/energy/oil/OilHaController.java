@@ -5,6 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/oil/security")
-public class SecurityController extends BaseController {
+@RequestMapping("/energy/oil/ha")
+public class OilHaController extends BaseController {
 }
