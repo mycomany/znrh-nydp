@@ -48,24 +48,9 @@ function main(data){
         symbol: 'circle',
         data: data[3][1],
         "barWidth": "auto",
-        itemStyle: {
-            normal: {
-                barBorderRadius: [30, 30, 0, 0],
-                color: new echarts.graphic.LinearGradient(
-                    0, 0, 0, 1, [{
-                        offset: 0,
-                        color: '#00feff'
-                    },
-                        {
-                            offset: 0.5,
-                            color: '#027eff'
-                        },
-                        {
-                            offset: 1,
-                            color: '#0286ff'
-                        }
-                    ]
-                )
+        "itemStyle": {
+            "normal": {
+                "color": "#00feff"
             }
         }
     });
