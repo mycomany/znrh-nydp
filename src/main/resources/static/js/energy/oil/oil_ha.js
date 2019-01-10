@@ -736,7 +736,11 @@ function chart4(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }else {
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + '%';
+                    }
                 }
                 return res;
             }
@@ -789,7 +793,7 @@ function chart4(data){
         "yAxis": [
             {
                 type: 'value',
-                // name:data[1][0],
+                name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -806,7 +810,7 @@ function chart4(data){
                         color: '#ffffff',
                         fontSize: 10
                     },
-                    formatter: data[1][0]
+                    // formatter: data[1][0]
                 },
                 //去掉辅助线
                 "splitLine": {
@@ -822,7 +826,7 @@ function chart4(data){
             },
             {
                 "type": "value",
-                //"name": "完成率",
+                // "name": "完成率",
                 "show": true,
                 axisLine: {
                     lineStyle: {
@@ -857,9 +861,22 @@ function chart4(data){
             {
                 "name": data[0][1],
                 "type": "line",
-                symbol: 'circle',
+                // symbol: 'circle',
                 "yAxisIndex": 1,
                 "data": data[4],
+                "itemStyle": {
+                    "normal": {
+                        "color": "#669933"
+                    }
+                },
+                // "smooth": true
+            },
+            {
+                "name": data[0][2],
+                "type": "line",
+                symbol: 'circle',
+                "yAxisIndex": 1,
+                "data": data[5],
                 "itemStyle": {
                     "normal": {
                         "color": "#1E90FF"
