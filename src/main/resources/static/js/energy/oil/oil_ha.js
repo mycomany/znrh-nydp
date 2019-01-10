@@ -85,7 +85,7 @@ function main(data){
         "yAxis": [
             {
                 type: 'value',
-                // name:data[1][0],
+                name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -102,7 +102,7 @@ function main(data){
                         color: '#ffffff',
                         fontSize: 10
                     },
-                    formatter: data[1][0]
+                    // formatter: data[1][0]
                 },
                 //去掉辅助线
                 "splitLine": {
@@ -143,7 +143,7 @@ function main(data){
                 "name": data[0][0],
                 "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                barWidth: "50%",
                 "itemStyle": {
                     "normal": {
                         "color": "#00feff"
@@ -181,6 +181,7 @@ function chart1(data){
             {
                 "name": data[1][i],
                 "type": "bar",
+                barWidth: "50%",
                 "stack": "总量",
                 // "barMaxWidth": 50,
                 // "barGap": "10%",
@@ -645,6 +646,7 @@ function chart3(data){
             {
                 "name": data[0][2],
                 "type": "bar",
+                barWidth: "50%",
                 symbol: 'circle',
                 "yAxisIndex": 1,
                 "data": data[5],
@@ -784,7 +786,7 @@ function chart4(data){
                 "name": data[0][0],
                 "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                barWidth: "50%",
                 "itemStyle": {
                     "normal": {
                         "color": "#9AC0CD"
