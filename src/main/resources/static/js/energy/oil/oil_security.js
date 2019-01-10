@@ -1,14 +1,14 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
-    getdata('/energy/oil/security/main.json' + __time, main);
-    getdata('/energy/oil/security/chart1.json' + __time, chart1);
-    getdata('/energy/oil/security/chart2.json' + __time, chart2);
-    getdata('/energy/oil/security/chart3.json' + __time, chart3);
-    getdata('/energy/oil/security/chart4.json' + __time, chart4);
-    getdata('/energy/oil/security/chart5.json' + __time, chart5);
-    getdata('/energy/oil/security/chart6.json' + __time, chart6);
-    getdata('/energy/oil/security/chart7.json' + __time, chart7);
-    getdata('/energy/oil/security/chart8.json' + __time, chart8);
+    getdata('/energy/elec/security/main.json' + __time, main);
+    getdata('/energy/elec/security/chart1.json' + __time, chart1);
+    getdata('/energy/elec/security/chart2.json' + __time, chart2);
+    getdata('/energy/elec/security/chart3.json' + __time, chart3);
+    getdata('/energy/elec/security/chart4.json' + __time, chart4);
+    getdata('/energy/elec/security/chart5.json' + __time, chart5);
+    getdata('/energy/elec/security/chart6.json' + __time, chart6);
+    getdata('/energy/elec/security/chart7.json' + __time, chart7);
+    getdata('/energy/elec/security/chart8.json' + __time, chart8);
 });
 
 function setH(id){

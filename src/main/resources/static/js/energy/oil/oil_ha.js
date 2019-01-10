@@ -1,10 +1,10 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
-    getdata('/energy/oil/ha/main.json' + __time,main);
-    getdata('/energy/oil/ha/chart1.json' + __time,chart1);
-    getdata('/energy/oil/ha/chart2.json' + __time,chart2);
-    getdata('/energy/oil/ha/chart3.json' + __time,chart3);
-    getdata('/energy/oil/ha/chart4.json' + __time,chart4);
+    getdata('/energy/elec/ha/main.json' + __time,main);
+    getdata('/energy/elec/ha/chart1.json' + __time,chart1);
+    getdata('/energy/elec/ha/chart2.json' + __time,chart2);
+    getdata('/energy/elec/ha/chart3.json' + __time,chart3);
+    getdata('/energy/elec/ha/chart4.json' + __time,chart4);
 });
 
 function setH(id){
