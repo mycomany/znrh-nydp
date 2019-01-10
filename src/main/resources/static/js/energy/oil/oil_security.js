@@ -59,8 +59,7 @@ function main(data){
         name: data[0][2],
         type: 'bar',
         smooth: true,
-        symbolSize: 8,
-        // symbol: 'circle',
+        barWidth: "50%",
         data: data[3][2],
         color: "#43eec6",
         "smooth": true
@@ -620,7 +619,7 @@ function chart3(data){
             {
                 "name": data[0][1],
                 "type": "bar",
-                symbol: 'circle',
+                barWidth: "50%",
                 "yAxisIndex": 1,
                 "data": data[4],
                 "itemStyle": {
