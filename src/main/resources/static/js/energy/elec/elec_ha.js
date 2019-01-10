@@ -188,6 +188,7 @@ function main(data){
 function chart1(data){
 
     var chartId = "chart1";
+    var yf = "11";
 
     var seriArray = [];
     for(var i=0; i<data[1].length; i++){
@@ -212,7 +213,7 @@ function chart1(data){
                         }
                     }
                 },
-                "data": data[i + 3],
+                "data": data[4][yf][data[3][i]],
             }
         );
     }
