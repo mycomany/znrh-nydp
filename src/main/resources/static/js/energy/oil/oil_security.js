@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
     getdata('/energy/oil/security/chart1.json' + __time,chart1);
-    // getdata('/energy/oil/security/chart2.json' + __time,chart2);
+    getdata('/energy/oil/security/chart2.json' + __time,chart2);
     getdata('/energy/oil/security/chart3.json' + __time,chart3);
     getdata('/energy/oil/security/chart4.json' + __time,chart4);
     getdata('/energy/oil/security/chart5.json' + __time,chart5);
@@ -365,135 +365,135 @@ function chart1(data){
 }
 
 function chart2(data){
-    var xData = data[2];
-    var lineData = data[4];
-    var barData = data[3];
-    var option =  {
-        textStyle: {
-            color: '#38b8ff'
-        },
-        grid: {
-            left: '5%',
-            right:'5%',
+    var dataShadow = [], yMax = 12000;
+    for(var i = 0; i < data[3].length; i++){
+        dataShadow.push(yMax);
+    }
+    var option = {
+        tooltip:{},
+        grid:{
             top:'10%',
-            bottom:'18%',
+            left:'5%',
+            right:'5%',
+            bottom:'20%',
             containLabel: true
         },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        legend: {
+        legend:{
             show:true,
-            bottom : '2%',
-            itemGap: 12, //图例每项之间的间隔
-            itemWidth: 16, //图例宽度
-            itemHeight: 8, //图例高度
-            textStyle: {
+            bottom : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
                 color:'#fff',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
-            data:['石油消费总量','石油消费比重']
+            data:data[0]
         },
-        xAxis: [{
-            position: "bottom",
-            type: "category",
+        xAxis: {
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            splitLine: {
+                show: false
+            },
             axisLine: {
                 lineStyle: {
                     color: '#38b8ff'
                 }
             },
+            type: 'category',
+            data:$chart.xtime(data[1])
+        },
+        yAxis: [{
+            axisLine: {
+                lineStyle: {
+                    color: '#38b8ff'
+                }
+            },
+            splitLine:{
+                show:false
+            },
+            splitNumber:4,
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
-                },
-                //rotate: 30
+                    color: '#fff'
+                }
             },
-            data: xData,
-        }],
-        yAxis: [{
-            type: 'value',
-            name:'       万吨标准煤',
+            name:'千桶/天',
             nameGap:-5,
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
                 color:'#fff',
             },
-            position: 'left',
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
-                }
-            },
-            //单位
-            axisTick: {
-                color: '#0177d4',
-                show: true
-            },
-            splitLine: {
-                show: false
-            }
+            type: 'value',
+            z:10,
         },{
-            type: "value",
-            position: 'right',
-            min:16,
-            max:23,
-            axisTick: {
-                show: true
-            },
-            splitLine: {
-                show: false
-            },
             axisLine: {
                 lineStyle: {
                     color: '#38b8ff'
                 }
             },
+            splitLine:{
+                show:false
+            },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#fff'
                 },
-                formatter: '{value}%'
+                formatter:function(v){
+                    return v + '%';
+                }
             },
-            //单位
+            splitNumber:4,
+            type: 'value'
         }],
-        series: [{
-            name: "石油消费总量",
-            type: "bar",
-            barWidth: '30%',
-            itemStyle: {
-                normal: {
-                    color: '#1E90FF',
-                    barBorderRadius: 50,
+        series: [
+            {
+                type: 'bar',
+                yAxisIndex:0,
+                itemStyle: {
+                    normal: {color: 'rgba(12,15,34,0.8)'}
                 },
+                barGap:'-100%',
+                barCategoryGap:'40%',
+                data: dataShadow,
+                animation: false
             },
-            data: barData,
-
-        }, {
-            name: "石油消费比重",
-            type: "line",
-            yAxisIndex: 1,
-            itemStyle: {
-                normal: {
-                    color: '#E9DC37'
+            {
+                name:data[0][0],
+                type: 'bar',
+                yAxisIndex:0,
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: '#83bff6'},
+                                {offset: 0.5, color: '#2874ff'},
+                                {offset: 1, color: '#188df0'}
+                            ]
+                        )
+                    },
                 },
+                data: data[3]
             },
-            data: lineData,
-
-        }]
-    }
+            {
+                name:data[0][1],
+                yAxisIndex:1,
+                type:'line',
+                itemStyle:{
+                    normal:{
+                        color:'#8121dd'
+                    }
+                },
+                data: data[4]
+            }
+        ]
+    };
     var myChart = echarts.init($('#chart2')[0]);
     myChart.setOption(option);
 }
