@@ -366,7 +366,6 @@ function chart3(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    console.log(params[i]);
                     if(params[i].axisValueLabel == data[3][0] || params[i].axisValueLabel == data[3][1]){//能耗
                         res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
                     }else if(params[i].axisValueLabel == data[3][2]){//电耗
@@ -442,7 +441,7 @@ function chart3(data){
                     },
                     formatter:"{value}%"
                 },
-                name: data[0][1],
+                // name: data[0][1],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -489,6 +488,25 @@ function chart3(data){
 
 function chart4(data){
     var option = {
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross",
+                "crossStyle": {
+                    "color": "#384757"
+                }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                }
+                return res;
+
+            }
+        },
         grid:{
             top:'10%',
             left:'5%',
@@ -496,14 +514,50 @@ function chart4(data){
             bottom:'20%',
             containLabel: true
         },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        xAxis: {
+            axisLine: {
+                lineStyle: {
+                    color: '#0177d4'
+                }
+            },
+            axisLabel: {
+                color: '#fff',
+                fontSize: 14
+            },
+            type: 'category',
+            data: data[1]
         },
+        yAxis: [
+            {
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                splitLine:{
+                    show:false
+                },
+                splitNumber:4,
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    formatter:"{value}%"
+                },
+                // name: data[0][0],
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,25],
+                    align:'center',
+                    color:'#fff',
+                },
+                type: 'value',
+                z:10,
+            },
+        ],
         legend:{
-            show:true,
-            x: 'left',
-            orient: 'vertical',
+            show:false,
+            bottom : 10,
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{
@@ -511,33 +565,24 @@ function chart4(data){
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
-            data: data[1]
+            data: data[2]
         },
         series: [
             {
-                name:'产能占比',
-                type:'pie',
-                radius: ['35%', '55%'],
-                avoidLabelOverlap: false,
-                label: {
-                    normal: {
-                        show: false,
-                        position: 'center'
-                    },
-                    emphasis: {
-                        show: true,
-                        textStyle: {
-                            fontSize: '10',
-                            fontWeight: 'bold'
-                        }
+                type: 'bar',
+                barWidth: "20%",
+                itemStyle:{
+                    normal:{
+                        color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#00b0ff'
+                        }, {
+                            offset: 0.8,
+                            color: '#7052f4'
+                        }], false)
                     }
                 },
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                data:data[2]
+                data: data[3]
             }
         ]
     };
