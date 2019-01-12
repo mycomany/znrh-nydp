@@ -453,55 +453,38 @@ function chart2(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
-                itemStyle: {
-                    normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
-                    }
-                }
-            },
-            {
-                "name": data[0][1],
-                "type": "line",
-                symbol: 'circle',
-                "data": data[4],
-                "barWidth": "auto",
+                "yAxisIndex": 0,
+                "barWidth": "20%",
                 "itemStyle": {
                     "normal": {
                         "color": "#43eec6"
                     }
                 },
-                "smooth": true
+            },
+            {
+                "name": data[0][1],
+                "type": "bar",
+                "barWidth": "20%",
+                "yAxisIndex": 0,
+                "data": data[4],
+                "itemStyle": {
+                    "normal": {
+                        color: '#0286ff'
+                    }
+                }
             },
             {
                 "name": data[0][2],
                 "type": "line",
-                symbol: 'circle',
-                "yAxisIndex": 1,
                 "data": data[5],
-                "itemStyle": {
-                    "normal": {
+                "yAxisIndex": 1,
+                itemStyle: {
+                    normal: {
                         "color": "#ffaa00"
                     }
-                },
-                "smooth": true
+                }
             }
         ]
     };
@@ -678,9 +661,9 @@ function chart3(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3][yf]["fd"],
-                "barWidth": "auto",
+                "barWidth": "20%",
                 itemStyle: {
                     "normal": {
                         "color": "#0f375f"
@@ -689,9 +672,9 @@ function chart3(data){
             },
             {
                 "name": data[0][1],
-                "type": "line",
+                "type": "bar",
                 "data": data[3][yf]["rj"],
-                "barWidth": "auto",
+                "barWidth": "20%",
                 itemStyle: {
                     "normal": {
                         "color": "#43eec6"
@@ -700,7 +683,7 @@ function chart3(data){
             },
             {
                 "name": data[0][2],
-                "type": "bar",
+                "type": "line",
                 barWidth: "50%",
                 symbol: 'circle',
                 "yAxisIndex": 1,

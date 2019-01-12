@@ -301,6 +301,7 @@ function chart1(data){
                 "type": "bar",
                 "data": data[3],
                 barWidth: "50%",
+                "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
                         color: '#0286ff'
@@ -462,6 +463,7 @@ function chart2(data){
                 "type": "bar",
                 "data": data[3],
                 "barWidth": "50%",
+                "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
                         color: '#0286ff'
@@ -622,6 +624,7 @@ function chart3(data){
                 "type": "bar",
                 "data": data[3],
                 "barWidth": "50%",
+                "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
                         color: '#0286ff'
@@ -784,6 +787,7 @@ function chart4(data){
                 "type": "bar",
                 "data": data[3],
                 "barWidth": "50%",
+                "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
                         color: '#0286ff'
@@ -945,6 +949,7 @@ function chart5(data){
                 "type": "bar",
                 "data": data[3],
                 "barWidth": "50%",
+                "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
                         color: '#0286ff'
@@ -1105,6 +1110,7 @@ function chart6(data){
                 "type": "bar",
                 "data": data[3],
                 "barWidth": "50%",
+                "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
                         color: '#0286ff'
@@ -1265,6 +1271,7 @@ function chart7(data){
                 "type": "bar",
                 "data": data[3],
                 "barWidth": "50%",
+                "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
                         color: '#0286ff'
@@ -1425,6 +1432,7 @@ function chart8(data){
                 "type": "bar",
                 "data": data[3],
                 "barWidth": "50%",
+                "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
                         color: '#0286ff'
