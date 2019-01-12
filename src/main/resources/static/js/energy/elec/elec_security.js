@@ -298,27 +298,12 @@ function chart1(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                barWidth: "50%",
                 itemStyle: {
                     normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
+                        color: '#0286ff'
                     }
                 }
             },
@@ -474,27 +459,12 @@ function chart2(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                "barWidth": "50%",
                 itemStyle: {
                     normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
+                        color: '#0286ff'
                     }
                 }
             },
@@ -649,33 +619,18 @@ function chart3(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                "barWidth": "50%",
                 itemStyle: {
                     normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
+                        color: '#0286ff'
                     }
                 }
             },
             {
                 "name": data[0][1],
-                "type": "bar",
+                "type": "line",
                 barWidth: "50%",
                 "yAxisIndex": 1,
                 "data": data[4],
@@ -826,27 +781,12 @@ function chart4(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                "barWidth": "50%",
                 itemStyle: {
                     normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
+                        color: '#0286ff'
                     }
                 }
             },
@@ -1002,27 +942,12 @@ function chart5(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                "barWidth": "50%",
                 itemStyle: {
                     normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
+                        color: '#0286ff'
                     }
                 }
             },
@@ -1177,27 +1102,12 @@ function chart6(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                "barWidth": "50%",
                 itemStyle: {
                     normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
+                        color: '#0286ff'
                     }
                 }
             },
@@ -1352,27 +1262,12 @@ function chart7(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                "barWidth": "50%",
                 itemStyle: {
                     normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
+                        color: '#0286ff'
                     }
                 }
             },
@@ -1527,27 +1422,12 @@ function chart8(data){
         "series": [
             {
                 "name": data[0][0],
-                "type": "line",
+                "type": "bar",
                 "data": data[3],
-                "barWidth": "auto",
+                "barWidth": "50%",
                 itemStyle: {
                     normal: {
-                        barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
-                        )
+                        color: '#0286ff'
                     }
                 }
             },
