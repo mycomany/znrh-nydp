@@ -18,6 +18,9 @@ function dwz(data, name){
 }
 
 function main(data){
+
+    var nf = "2013"
+
     var option = {
         "tooltip": {
             "trigger": "axis",
@@ -101,7 +104,22 @@ function main(data){
             type: 'value',
             z:10,
         },
-        series:data[4]
+        series:[
+            {
+                "name":"理论值",
+                "type":"bar",
+                "barWidth":40,
+                "color":"#4682B4",
+                "data":data[4][nf]["th"]
+            },
+            {
+                "name":"实际值",
+                "type":"bar",
+                "barWidth":40,
+                "color":"#00BFFF",
+                "data":data[4][nf]["sj"]
+            }
+        ]
     };
     var myChart = echarts.init($('#main')[0]);
     myChart.setOption(option);
