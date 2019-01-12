@@ -366,7 +366,12 @@ function chart3(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    console.log(params[i]);
+                    if(params[i].axisValueLabel == data[3][0] || params[i].axisValueLabel == data[3][1]){//能耗
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    }else if(params[i].axisValueLabel == data[3][2]){//电耗
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
+                    }
                 }
                 return res;
 
@@ -396,7 +401,7 @@ function chart3(data){
             type: 'category',
             data: data[3]
         },
-        yAxis: {
+        yAxis: [{
             axisLine: {
                 lineStyle: {
                     color: '#38b8ff'
@@ -414,13 +419,40 @@ function chart3(data){
             name: data[0][0],
             nameGap:-5,
             nameTextStyle:{
-                padding:[0,0,0,15],
+                padding:[0,0,0,25],
                 align:'center',
                 color:'#fff',
             },
             type: 'value',
             z:10,
         },
+            {
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                splitLine:{
+                    show:false
+                },
+                splitNumber:4,
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    formatter:"{value}%"
+                },
+                name: data[0][1],
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,25],
+                    align:'center',
+                    color:'#fff',
+                },
+                type: 'value',
+                z:10,
+            },
+        ],
         legend:{
             show:true,
             bottom : 10,
@@ -437,14 +469,16 @@ function chart3(data){
             {
                 name: data[1][0],
                 color:data[2][0],
-                type: 'line',
-                data: data[4]
+                type: 'bar',
+                barWidth: "20%",
+                data: data[4]["ly"]
             },
             {
                 name: data[1][1],
-                color: data[2][1],
-                type: 'line',
-                data: data[5]
+                color:data[2][1],
+                type: 'bar',
+                barWidth: "20%",
+                data: data[4]["yx"]
             }
         ]
     };
