@@ -538,10 +538,9 @@ function chart3(data){
         "series": [
             {
                 "name": data[1][0],
-                "type": "line",
-                symbol: 'circle',
+                "type": "bar",
                 "data": data[4],
-                "barWidth": "auto",
+                "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
                         "color": "#43eec6"
@@ -665,16 +664,8 @@ function chart4(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
-
             {
                 "type": "value",
                 //"name": "完成率",
@@ -700,10 +691,9 @@ function chart4(data){
         "series": [
             {
                 "name": data[1][0],
-                "type": "line",
-                symbol: 'circle',
+                "type": "bar",
                 "data": data[4],
-                "barWidth": "auto",
+                "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
                         "color": "#43eec6"
@@ -1099,16 +1089,8 @@ function chart7(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
-
             {
                 "type": "value",
                 //"name": "完成率",
@@ -1134,10 +1116,9 @@ function chart7(data){
         "series": [
             {
                 "name": data[1][0],
-                "type": "line",
-                symbol: 'circle',
+                "type": "bar",
                 "data": data[4],
-                "barWidth": "auto",
+                "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
                         "color": "#43eec6"
