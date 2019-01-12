@@ -811,14 +811,7 @@ function chart5(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
         ],
         legend:{
@@ -931,14 +924,7 @@ function chart6(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
             {
                 type: 'value',
@@ -964,14 +950,7 @@ function chart6(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             }
         ],
         legend:{
