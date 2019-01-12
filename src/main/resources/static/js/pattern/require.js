@@ -2,7 +2,7 @@ $(document).ready(function(){
 	main();
 	chart1();
 	chart2();
-	getdata('/pattern/supply/chart3.json',chart3);
+	getdata('/pattern/supply/near10Order.json',chart3);
 	chart4();
 	chart5();
 });
