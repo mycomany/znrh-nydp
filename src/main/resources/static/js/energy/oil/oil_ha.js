@@ -203,6 +203,7 @@ function chart1(data){
 }
 
 
+
 function chart2(data){
     var option = {
         "tooltip": {
@@ -303,6 +304,7 @@ function chart2(data){
     var myChart = echarts.init($('#chart2')[0]);
     myChart.setOption(option);
 }
+
 
 
 function chart3(data){
@@ -465,6 +467,7 @@ function chart4(data){
     myChart.setOption(option);
 }
 
+
 function chart5(data){
     var option = {
         "tooltip": {
@@ -565,3 +568,5 @@ function chart5(data){
     var myChart = echarts.init($('#chart5')[0]);
     myChart.setOption(option);
 }
+
+
