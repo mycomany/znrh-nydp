@@ -116,7 +116,11 @@ function chart1(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    if(params[i].seriesName == data[1][0] || params[i].seriesName == data[1][1]){//能耗
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    }else if(params[i].seriesName == data[1][2] || params[i].seriesName == data[1][3]){//电耗
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
+                    }
                 }
                 return res;
 
@@ -146,31 +150,57 @@ function chart1(data){
             type: 'category',
             data: data[3]
         },
-        yAxis: {
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
+        yAxis: [{
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                splitLine:{
+                    show:false
+                },
+                splitNumber:4,
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                name: data[0][0],
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,55],
+                    align:'center',
+                    color:'#fff',
+                },
+                type: 'value',
+                z:10,
             },
-            splitLine:{
-                show:false
+            {
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                splitLine:{
+                    show:false
+                },
+                splitNumber:4,
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                name: data[0][1],
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,55],
+                    align:'center',
+                    color:'#fff',
+                },
+                type: 'value',
+                z:10,
             },
-            splitNumber:4,
-            axisLabel: {
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            name: data[0][0],
-            nameGap:-5,
-            nameTextStyle:{
-                padding:[0,0,0,55],
-                align:'center',
-                color:'#fff',
-            },
-            type: 'value',
-            z:10,
-        },
+        ],
         legend:{
             show:true,
             bottom : 10,
@@ -187,14 +217,28 @@ function chart1(data){
             {
                 name: data[1][0],
                 color:data[2][0],
-                type: 'line',
-                data: data[4]
+                type: 'bar',
+                barWidth: "20%",
+                data: data[4]["nh"][0]
             },
             {
                 name: data[1][1],
-                color: data[2][1],
+                color:data[2][1],
+                type: 'bar',
+                barWidth: "20%",
+                data: data[4]["nh"][1]
+            },
+            {
+                name: data[1][2],
+                color:data[2][0],
                 type: 'line',
-                data: data[5]
+                data: data[4]["dh"][0]
+            },
+            {
+                name: data[1][3],
+                color:data[2][1],
+                type: 'line',
+                data: data[4]["dh"][1]
             }
         ]
     };
