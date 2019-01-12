@@ -733,6 +733,25 @@ function chart4(data){
 
 
 function chart5(data){
+
+    var seriesItems = [];
+
+    for(var i=0; i<data[2].length; i++){
+        seriesItems.push(
+            {
+                name: data[2][i],
+                type: 'bar',
+                barWidth: "8%",
+                itemStyle:{
+                    normal:{
+                        color: data[4][i]
+                    }
+                },
+                data: data[3][i]
+            }
+        );
+    }
+
     var option = {
         "tooltip": {
             "trigger": "axis",
@@ -824,63 +843,7 @@ function chart5(data){
             },
             data: data[2]
         },
-        series: [
-            {
-                name: data[2][0],
-                type: 'bar',
-                barWidth: "10%",
-                itemStyle:{
-                    normal:{
-                        color: '#00b0ff'
-                    }
-                },
-                data: data[3][0]
-            },
-            {
-                name: data[2][1],
-                type: 'bar',
-                barWidth: "10%",
-                itemStyle:{
-                    normal:{
-                        color: '#7052f4'
-                    }
-                },
-                data: data[3][1]
-            },
-            {
-                name: data[2][2],
-                type: 'bar',
-                barWidth: "10%",
-                itemStyle:{
-                    normal:{
-                        color: '#fdb91a'
-                    }
-                },
-                data: data[3][2]
-            },
-            {
-                name: data[2][3],
-                type: 'bar',
-                barWidth: "10%",
-                itemStyle:{
-                    normal:{
-                        color: '#40eaf9'
-                    }
-                },
-                data: data[3][3]
-            },
-            {
-                name: data[2][4],
-                type: 'bar',
-                barWidth: "10%",
-                itemStyle:{
-                    normal:{
-                        color: '#4138e1'
-                    }
-                },
-                data: data[3][4]
-            }
-        ]
+        series: seriesItems
     };
     var myChart = echarts.init($('#chart5')[0]);
     myChart.setOption(option);
