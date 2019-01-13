@@ -534,9 +534,14 @@ function chart3(data){
             */
         },
             {
-                "type": "value",
-                "name": "%",
-                "show": true,
+                type: 'value',
+                name: "%",
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,-15],
+                    align:'center',
+                    color:'#fff',
+                },
                 axisLine: {
                     lineStyle: {
                         color: '#38b8ff'
@@ -546,13 +551,12 @@ function chart3(data){
                     textStyle: {
                         color: '#ffffff',
                         fontSize: 10
-                    },
-                    // formatter: "{value}%"
+                    }
                 },
                 //去掉辅助线
-                splitLine: {
-                    show: false
-                },
+                "splitLine": {
+                    "show": false
+                }
             }
         ],
         legend:{
@@ -573,6 +577,7 @@ function chart3(data){
                 color:data[2][0],
                 type: 'bar',
                 barWidth: "20%",
+                "yAxisIndex": 0,
                 data: data[4]["ly"]
             },
             {
@@ -580,6 +585,7 @@ function chart3(data){
                 color:data[2][1],
                 type: 'bar',
                 barWidth: "20%",
+                "yAxisIndex": 1,
                 data: data[4]["yx"]
             }
         ]
