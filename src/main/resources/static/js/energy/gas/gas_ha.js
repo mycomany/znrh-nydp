@@ -111,14 +111,14 @@ function main(data){
             {
                 "name":"理论值",
                 "type":"bar",
-                "barWidth":40,
+                "barWidth":30,
                 "color":"#4682B4",
                 "data":data[4][nf]["th"]
             },
             {
                 "name":"实际值",
                 "type":"bar",
-                "barWidth":40,
+                "barWidth":30,
                 "color":"#00BFFF",
                 "data":data[4][nf]["sj"]
             }
@@ -903,19 +903,45 @@ function chart5(data){
 function chart6(data){
 
     var seriesItems = [];
-    for(var i=0; i<data[2].length; i++){
-        seriesItems.push({
-            name: data[2][i],
-            type: 'bar',
-            barWidth: "8%",
-            itemStyle:{
-                normal:{
-                    color: data[4][i]
-                }
-            },
-            data: data[3][i]
-        });
-    }
+
+    seriesItems.push({
+        name: data[2][0],
+        type: 'bar',
+        barWidth: "20%",
+        "yAxisIndex": 0,
+        itemStyle:{
+            normal:{
+                color: data[4][0]
+            }
+        },
+        data: data[3][0]
+    });
+
+    seriesItems.push({
+        name: data[2][1],
+        type: 'bar',
+        barWidth: "20%",
+        "yAxisIndex": 0,
+        itemStyle:{
+            normal:{
+                color: data[4][1]
+            }
+        },
+        data: data[3][1]
+    });
+
+    seriesItems.push({
+        name: data[2][2],
+        type: 'line',
+        // barWidth: "7%",
+        "yAxisIndex": 1,
+        itemStyle:{
+            normal:{
+                color: data[4][2]
+            }
+        },
+        data: data[3][2]
+    });
 
     var option = {
         "tooltip": {
@@ -931,9 +957,9 @@ function chart6(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    if(params[i].name == data[1][0] || params[i].name == data[1][1]){
+                    if(params[i].seriesName == data[2][0] || params[i].seriesName == data[2][1]){
                         res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
-                    }else if(params[i].name == data[1][2]){
+                    }else if(params[i].seriesName == data[2][2]){
                         res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
                     }
                 }
@@ -945,7 +971,7 @@ function chart6(data){
             top:'5%',
             left:'5%',
             right:'5%',
-            bottom:'40%',
+            bottom:'25%',
             containLabel: true
         },
         xAxis: {
@@ -1022,7 +1048,7 @@ function chart6(data){
         legend:{
             show:true,
             bottom : 10,
-            itemWidth: 10,
+            itemWidth: 16,
             itemHeight: 6,
             textStyle:{
                 color:'#fff',
