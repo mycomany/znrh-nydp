@@ -21,7 +21,7 @@ html,body {
 .w7{width:58.3333%;}.w8{width:66.6667%;}.w9{width:75%;}.w10{width:83.3333%;}.w11{width:91.6667%;}.w12{width:100%;}.w35{width:29.1%;}
 .h0{height:0;}.h1{height:8.3333%;}.h2{height:16.6667%;}.h3{height:25%;}.h4{height:33%;}.h5{height:41.6667%;}.h6{height:50%;}.h35{width:29.1%;}
 .h7{height:58.3333%;}.h8{height:66.6667%;}.h9{height:75%;}.h10{height:83.3333%;}.h11{height:91.6667%;}.h12{height:100%;}
-.w1,.w2,.w3,.w4,.w5,.w6,.w7,.w8,.w9.w10,.w11,.w12,.w35{float:left;}
+.w1,.w2,.w3,.w4,.w5,.w6,.w7,.w8,.w9,.w10,.w11,.w12,.w35{float:left;}
 div.h1,div.h2,div.h3,div.h4,div.h5,div.h6,div.h7{margin-top:0px;margin-bottom:0px;font-size:12px;}
 
 @media (max-width: 1199px) {
