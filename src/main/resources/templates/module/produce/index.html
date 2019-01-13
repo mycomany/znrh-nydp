@@ -1,0 +1,542 @@
+<#include "/inc/base.html" />
+<#macro head>
+<script src="${host}/static/lib/echarts/extension/ecStat.min.js"></script>
+<script src="${host}/static/js/produce/index.js"></script>
+<style>
+    .overw{
+        width:33.333333% !important;
+    }
+
+    .clean_power{
+        width:48% !important;
+        float:left;
+    }
+
+    .main_order_bg{
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-attachment: fixed;
+        background-size: 100% 100%;padding: 0;
+        background-image: url('${host}/static/theme/green/produce/orderbg.png');
+        color:white;
+        font-weight: bold;
+        position:relative;
+    }
+
+    .main_show_tabs{
+        width:100%;
+        height:30px;
+        margin:20px 0 0 10px;
+    }
+
+    .main_order_type{
+        width:100%;
+        height:30px;
+    }
+
+    .main_show_tab_data{
+        margin-right: 20px;
+        float: left;
+    }
+
+    .main_show_type{
+        height:30px;
+        line-height: 35px;
+        float: left;
+        margin-right:20px;
+        font-weight:normal;
+        cursor: pointer;
+        color:#2b88ff;
+    }
+
+    .main_show_type>span{
+        margin:0 10px 0 30px;
+    }
+
+    .main_show_power{
+
+        background-size: 100% 100%;padding: 0;
+        background-image: url('${host}/static/theme/green/produce/powerratio.png');
+    }
+
+    .main_show_power:hover,.main_show_power_checked{
+        background-image: url('${host}/static/theme/green/produce/powerratiocheck.png');
+        color:#52fcfc;
+    }
+
+    .main_show_installed{
+        background-size: 100% 100%;padding: 0;
+        background-image: url('${host}/static/theme/green/produce/installcount.png');
+    }
+
+    .main_show_installed:hover,.main_show_installed_checked{
+        background-image: url('${host}/static/theme/green/produce/installcountcheck.png');
+        color:#52fcfc;
+    }
+
+    .main_show_tab_before{
+        position:relative;
+        /*margin:50px auto;*/
+        margin-top:10px;
+        width:10px;
+        height:10px;
+        box-sizing:border-box;
+        background:linear-gradient(45deg, transparent 49.5%, rgb(64,148,255) 49.5%, rgb(64,148,255) 52%, transparent 50%);
+        float: left;
+    }
+
+    .main_show_tab{
+        padding:0 10px 0 5px;
+        height:20px;
+        border-bottom: 1px solid rgba(64,148,255,1);
+        float: left;
+        color:#a4d6fe;
+        font-size:13px;
+        font-weight: normal;
+        position: relative;
+    }
+
+    .main_show_tab:after{
+        content: "";
+        width:100%;
+        height:3px;
+        border-bottom:1px dashed rgba(64,148,255,1);
+        position:absolute;
+        left:0px;
+        top:20px;
+    }
+
+    .main_order_name{
+        width:45px;
+        height:20px;
+        font-size:12px;
+        cursor: pointer;
+        padding-top:5px;
+        text-align: center;
+        position: absolute;
+        z-index: 9999;
+    }
+
+    .main_order_name1{
+        left:38.5%;
+        width:130px;
+        height:150px;
+        padding-top:20px;
+    }
+
+    .main_order_name2{
+        left:68.5%;
+        height:100px;
+    }
+
+    .main_order_name3{
+        left:29.5%;
+        height:80px;
+    }
+
+    .main_order_name4{
+        left:27%;
+        height:75px;
+    }
+
+    .main_order_name5{
+        left:70.6%;
+        height:73px;
+    }
+
+    .main_order_name6{
+        left:10.8%;
+        height:70px;
+    }
+
+    .main_order_name7{
+        left:14.5%;
+        height:65px;
+    }
+
+    .main_order_name8{
+        left:52%;
+        height:57px;
+    }
+
+    .main_order_name9{
+        left:47.5%;
+        height:50px;
+    }
+
+    .main_order_name10{
+        left:81.5%;
+        height:48px;
+    }
+
+    .main_order_name11{
+        position: absolute;
+        left:82%;
+        height:47px;
+    }
+
+</style>
+</#macro>
+
+<#macro body>
+<@topbar title="国内篇" tab="<div class='circlebox'><div class='circle1' title='电力' onclick=\"gourl('index')\">电力</div><div class='circle1' title='石油' onclick=\"gourl('oilIndex')\">石油</div><div class='circle' title='天然气' onclick=\"gourl('gasIndex')\">天然气</div></div>">
+<div class="btn-group" style="width:70px;">
+    <button class="btn btn-primary barbtn" type="button" onclick="gourl('index')">供需态势</button>
+</div>
+<div class="btn-group" style="width:70px;">
+    <button class="btn btn-default barbtn" type="button" onclick="gourl('market')">市场监测</button>
+</div>
+<div class="btn-group" style="width:70px;">
+    <button class="btn btn-default barbtn" type="button" onclick="gourl('invest')">能源投资</button>
+</div>
+<div class="btn-group" style="width:70px;">
+    <button class="btn btn-default barbtn" type="button" onclick="gourl('main')">市场主体</button>
+</div>
+<div class="btn-group" style="width:70px;">
+    <button class="btn btn-default barbtn" type="button" onclick="gourl('trade')">贸易发展</button>
+</div>
+<div class="btn-group" style="width:70px;">
+    <button class="btn btn-default barbtn" type="button" onclick="gourl('security')">能源安全</button>
+</div>
+<div class="btn-group" style="width:70px;">
+    <button class="btn btn-default barbtn" type="button" onclick="gourl('opinions')">能源舆情</button>
+</div>
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="row qpage">
+        <div class="w35 h8">
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span>
+                        <span class="qs_title2">全国发电量与装机量对比</span>
+                        <div class="right">
+                            <select id="installAndGeneraSelected" class="chart-selector" onchange="installAndGeneration('select',this)">
+                                <option>全国</option>
+                                <option>国电投</option>
+                                <option>中国华能集团</option>
+                                <option>中国大唐集团公司</option>
+                                <option>中国华电集团公司</option>
+                                <option>中国国电集团公司</option>
+                                <option>国投电力</option>
+                                <option>国华电力</option>
+                                <option>华润电力</option>
+                                <option>中广核</option>
+                                <option>中国神华</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div id="energyRatio" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">发电设备累计平均利用小时对比</span>
+                        <div class="right">
+                            <select id="deviceUsedRatioSelected" class="chart-selector" onchange="deviceUsedRatio('select',this)">
+                                <!--<option>2017-1</option>-->
+                                <!--<option>2017-2</option>-->
+                                <!--<option>2017-3</option>-->
+                                <!--<option>2017-4</option>-->
+                                <!--<option>2017-5</option>-->
+                                <!--<option>2017-6</option>-->
+                                <!--<option>2017-7</option>-->
+                                <!--<option>2017-8</option>-->
+                                <!--<option>2017-9</option>-->
+                                <!--<option>2017-10</option>-->
+                                <!--<option>2017-11</option>-->
+                                <!--<option>2017-12</option>-->
+                                <!--<option>2018-1</option>-->
+                                <!--<option>2018-2</option>-->
+                                <!--<option>2018-3</option>-->
+                                <!--<option>2018-4</option>-->
+                                <!--<option>2018-5</option>-->
+                                <!--<option>2018-6</option>-->
+                                <option>2018-7</option>
+                                <option>2018-8</option>
+                                <option>2018-9</option>
+                                <option>2018-10</option>
+                                <option>2018-11</option>
+                                <option>2018-12</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="deviceUsedRatio" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w5 h8">
+            <div class="qpanel" style="background-color: rgba(0,0,0,0)">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">清洁能源发电情况</span>
+                    <div class="right">
+                        <select id="cleanPowerSelected" class="chart-selector" onchange="cleanPowerInfos('select',this)">
+                            <!--<option>2017-1</option>-->
+                            <!--<option>2017-2</option>-->
+                            <!--<option>2017-3</option>-->
+                            <!--<option>2017-4</option>-->
+                            <!--<option>2017-5</option>-->
+                            <!--<option>2017-6</option>-->
+                            <!--<option>2017-7</option>-->
+                            <!--<option>2017-8</option>-->
+                            <!--<option>2017-9</option>-->
+                            <!--<option>2017-10</option>-->
+                            <!--<option>2017-11</option>-->
+                            <!--<option>2017-12</option>-->
+                            <!--<option>2018-1</option>-->
+                            <!--<option>2018-2</option>-->
+                            <!--<option>2018-3</option>-->
+                            <!--<option>2018-4</option>-->
+                            <!--<option>2018-5</option>-->
+                            <!--<option>2018-6</option>-->
+                            <!--<option>2018-7</option>-->
+                            <!--<option>2018-8</option>-->
+                            <!--<option>2018-9</option>-->
+                            <!--<option>2018-10</option>-->
+                            <option>2018-11</option>
+                            <option>2018-12</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="qs_body main_order_bg">
+                    <div class="main_show_tabs">
+                        <div class="main_show_tab_data">
+                            <div class="main_show_tab_before"></div>
+                            <div class="main_show_tab">弃光:<span id="qg">0%</span></div>
+                        </div>
+                        <div class="main_show_tab_data">
+                            <div class="main_show_tab_before"></div>
+                            <div class="main_show_tab">风:<span id="qf">0%</span></div>
+                        </div>
+                        <div class="main_show_tab_data">
+                            <div class="main_show_tab_before"></div>
+                            <div class="main_show_tab">水:<span id="qs">0%</span></div>
+                        </div>
+                        <div class="main_show_tab_data">
+                            <div class="main_show_tab_before"></div>
+                            <div class="main_show_tab">核能:<span id="qhn">0%</span></div>
+                        </div>
+                    </div>
+
+                    <div class="main_order_name main_order_name1" index="0"></div>
+                    <div class="main_order_name main_order_name2" index="1"></div>
+                    <div class="main_order_name main_order_name3" index="2"></div>
+                    <div class="main_order_name main_order_name4" index="3"></div>
+                    <div class="main_order_name main_order_name5" index="4"></div>
+                    <div class="main_order_name main_order_name6" index="5"></div>
+                    <div class="main_order_name main_order_name7" index="6"></div>
+                    <div class="main_order_name main_order_name8" index="7"></div>
+                    <div class="main_order_name main_order_name9" index="8"></div>
+                    <div class="main_order_name main_order_name10" index="9"></div>
+                    <div class="main_order_name main_order_name11" index="10"></div>
+
+
+                    <div class="main_order_type">
+                        <div orderType="makePower" class=" main_show_type main_show_power main_show_power_checked">
+                            <span>发电量占比</span>
+                            <!--<div class="main_show_tab_before"></div>-->
+                            <!--<div class="main_show_tab">发电量</div>-->
+                        </div>
+                        <div orderType="installed" class=" main_show_type main_show_installed">
+                            <span>装机量占比</span>
+                            <!--<div class="main_show_tab_before"></div>-->
+                            <!--<div class="main_show_tab">装机量</div>-->
+                        </div>
+                    </div>
+
+                </div>
+                <!--<div id="cleanPowerMaked" class="qs_body clean_power main_order_bg"></div>-->
+                <!--<div id="cleanPowerInstall" class="qs_body clean_power"></div>-->
+            </div>
+        </div>
+        <div class="w35 h8">
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">供热量与供热装机容量比</span>
+                        <div class="right">
+                            <select id="makeWarmingRecordSelected" class="chart-selector" onchange="makeWarmingRecord('select',this)">
+                                <!--<option>2017-1</option>-->
+                                <!--<option>2017-2</option>-->
+                                <!--<option>2017-3</option>-->
+                                <!--<option>2017-4</option>-->
+                                <!--<option>2017-5</option>-->
+                                <!--<option>2017-6</option>-->
+                                <!--<option>2017-7</option>-->
+                                <!--<option>2017-8</option>-->
+                                <!--<option>2017-9</option>-->
+                                <!--<option>2017-10</option>-->
+                                <!--<option>2017-11</option>-->
+                                <!--<option>2017-12</option>-->
+                                <!--<option>2018-1</option>-->
+                                <!--<option>2018-2</option>-->
+                                <!--<option>2018-3</option>-->
+                                <!--<option>2018-4</option>-->
+                                <!--<option>2018-5</option>-->
+                                <!--<option>2018-6</option>-->
+                                <option>2018-7</option>
+                                <option>2018-8</option>
+                                <option>2018-9</option>
+                                <option>2018-10</option>
+                                <option>2018-11</option>
+                                <option>2018-12</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="makeWarmingRecord" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">供热消耗原煤量</span>
+                        <div class="right">
+                            <select id="consumeSelected" class="chart-selector" onchange="consume('select',this)">
+                                <!--<option>2017-1</option>-->
+                                <!--<option>2017-2</option>-->
+                                <!--<option>2017-3</option>-->
+                                <!--<option>2017-4</option>-->
+                                <!--<option>2017-5</option>-->
+                                <!--<option>2017-6</option>-->
+                                <!--<option>2017-7</option>-->
+                                <!--<option>2017-8</option>-->
+                                <!--<option>2017-9</option>-->
+                                <!--<option>2017-10</option>-->
+                                <!--<option>2017-11</option>-->
+                                <!--<option>2017-12</option>-->
+                                <!--<option>2018-1</option>-->
+                                <!--<option>2018-2</option>-->
+                                <!--<option>2018-3</option>-->
+                                <!--<option>2018-4</option>-->
+                                <!--<option>2018-5</option>-->
+                                <!--<option>2018-6</option>-->
+                                <option>2018-7</option>
+                                <option>2018-8</option>
+                                <option>2018-9</option>
+                                <option>2018-10</option>
+                                <option>2018-11</option>
+                                <option>2018-12</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div id="consume" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="w4 h4 overw">
+            <div class="qpanel">
+                <div class="qs_header">
+                    <span class="qs_title1">&nbsp;</span>
+                    <span class="qs_title2">装机容量排名</span>
+                    <div class="right">
+                        <select id="installCapacitySelect" class="chart-selector" onchange="installCapacity('select',this)">
+                            <!--<option>2017-1</option>-->
+                            <!--<option>2017-2</option>-->
+                            <!--<option>2017-3</option>-->
+                            <!--<option>2017-4</option>-->
+                            <!--<option>2017-5</option>-->
+                            <!--<option>2017-6</option>-->
+                            <!--<option>2017-7</option>-->
+                            <!--<option>2017-8</option>-->
+                            <!--<option>2017-9</option>-->
+                            <!--<option>2017-10</option>-->
+                            <!--<option>2017-11</option>-->
+                            <!--<option>2017-12</option>-->
+                            <!--<option>2018-1</option>-->
+                            <!--<option>2018-2</option>-->
+                            <!--<option>2018-3</option>-->
+                            <!--<option>2018-4</option>-->
+                            <!--<option>2018-5</option>-->
+                            <!--<option>2018-6</option>-->
+                            <option>2018-7</option>
+                            <option>2018-8</option>
+                            <option>2018-9</option>
+                            <option>2018-10</option>
+                            <option>2018-11</option>
+                            <option>2018-12</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="installCapacity" class="qs_body"></div>
+
+            </div>
+        </div>
+        <div class="w4 h4 overw">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">发电量排名</span>
+                    <div class="right">
+                        <select id="powerMakedSelected" class="chart-selector" onchange="powerMaked('select',this)">
+                            <!--<option>2017-1</option>-->
+                            <!--<option>2017-2</option>-->
+                            <!--<option>2017-3</option>-->
+                            <!--<option>2017-4</option>-->
+                            <!--<option>2017-5</option>-->
+                            <!--<option>2017-6</option>-->
+                            <!--<option>2017-7</option>-->
+                            <!--<option>2017-8</option>-->
+                            <!--<option>2017-9</option>-->
+                            <!--<option>2017-10</option>-->
+                            <!--<option>2017-11</option>-->
+                            <!--<option>2017-12</option>-->
+                            <!--<option>2018-1</option>-->
+                            <!--<option>2018-2</option>-->
+                            <!--<option>2018-3</option>-->
+                            <!--<option>2018-4</option>-->
+                            <!--<option>2018-5</option>-->
+                            <!--<option>2018-6</option>-->
+                            <option>2018-7</option>
+                            <option>2018-8</option>
+                            <option>2018-9</option>
+                            <option>2018-10</option>
+                            <option>2018-11</option>
+                            <option>2018-12</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="powerMaked" class="qs_body"></div>
+
+            </div>
+        </div>
+        <div class="w4 h4 overw">
+            <div class="qpanel">
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">上网电量排名</span>
+                    <div class="right">
+                        <select id="internetUsedSelected" class="chart-selector" onchange="internetUsed('select',this)">
+                            <!--<option>2017-1</option>-->
+                            <!--<option>2017-2</option>-->
+                            <!--<option>2017-3</option>-->
+                            <!--<option>2017-4</option>-->
+                            <!--<option>2017-5</option>-->
+                            <!--<option>2017-6</option>-->
+                            <!--<option>2017-7</option>-->
+                            <!--<option>2017-8</option>-->
+                            <!--<option>2017-9</option>-->
+                            <!--<option>2017-10</option>-->
+                            <!--<option>2017-11</option>-->
+                            <!--<option>2017-12</option>-->
+                            <!--<option>2018-1</option>-->
+                            <!--<option>2018-2</option>-->
+                            <!--<option>2018-3</option>-->
+                            <!--<option>2018-4</option>-->
+                            <!--<option>2018-5</option>-->
+                            <!--<option>2018-6</option>-->
+                            <!--<option>2018-7</option>-->
+                            <!--<option>2018-8</option>-->
+                            <!--<option>2018-9</option>-->
+                            <!--<option>2018-10</option>-->
+                            <option>2018-11</option>
+                            <!--<option>2018-12</option>-->
+                        </select>
+                    </div>
+                </div>
+                <div id="internetUsed" class="qs_body"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</#macro>

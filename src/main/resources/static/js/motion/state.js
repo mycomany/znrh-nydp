@@ -2,7 +2,7 @@ $(document).ready(function(){
     getdata('/motion/state/main.json',main);
     getdata('/motion/state/chart1.json',chart1);
     getdata('/motion/state/chart2.json',chart2);
-    getdata('/motion/state/chart3.json',chart3);
+    getdata('/motion/state/near10Order.json',chart3);
 });
 
 function main(data){

@@ -1,0 +1,978 @@
+[
+  {
+    "recordType":"全国装机容量",
+    "recordInfos":[
+      {
+        "energyType": "总量",
+        "energyValues": [
+          {
+            "year": "2017",
+            "month": "2",
+            "ratio": "7.9"
+          },
+          {
+            "year": "2017",
+            "month": "3",
+            "ratio": "7.7"
+          },
+          {
+            "year": "2017",
+            "month": "4",
+            "ratio": "7.6"
+          },
+          {
+            "year": "2017",
+            "month": "5",
+            "ratio": "7.3"
+          },
+          {
+            "year": "2017",
+            "month": "6",
+            "ratio": "6.9"
+          },
+          {
+            "year": "2017",
+            "month": "7",
+            "ratio": "7.2"
+          },
+          {
+            "year": "2017",
+            "month": "8",
+            "ratio": "7.5"
+          },
+          {
+            "year": "2017",
+            "month": "9",
+            "ratio": "7.6"
+          },
+          {
+            "year": "2017",
+            "month": "10",
+            "ratio": "7.3"
+          },
+          {
+            "year": "2017",
+            "month": "11",
+            "ratio": "7.2"
+          },
+          {
+            "year": "2018",
+            "month": "2",
+            "ratio": "6.3"
+          },
+          {
+            "year": "2018",
+            "month": "3",
+            "ratio": "6.1"
+          },
+          {
+            "year": "2018",
+            "month": "4",
+            "ratio": "6.0"
+          },
+          {
+            "year": "2018",
+            "month": "5",
+            "ratio": "6.1"
+          },
+          {
+            "year": "2018",
+            "month": "6",
+            "ratio": "6.2"
+          },
+          {
+            "year": "2018",
+            "month": "7",
+            "ratio": "5.9"
+          },
+          {
+            "year": "2018",
+            "month": "8",
+            "ratio": "5.4"
+          },
+          {
+            "year": "2018",
+            "month": "9",
+            "ratio": "5.3"
+          },
+          {
+            "year": "2018",
+            "month": "10",
+            "ratio": "5.2"
+          },
+          {
+            "year": "2018",
+            "month": "11",
+            "ratio": "5.2"
+          }
+        ]
+      },
+      {
+        "energyType": "水电",
+        "energyValues": [
+          {
+            "year": "2017",
+            "month": "2",
+            "ratio": "4.2"
+          },
+          {
+            "year": "2017",
+            "month": "3",
+            "ratio": "4.2"
+          },
+          {
+            "year": "2017",
+            "month": "4",
+            "ratio": "4.4"
+          },
+          {
+            "year": "2017",
+            "month": "5",
+            "ratio": "4.2"
+          },
+          {
+            "year": "2017",
+            "month": "6",
+            "ratio": "4.2"
+          },
+          {
+            "year": "2017",
+            "month": "7",
+            "ratio": "4.2"
+          },
+          {
+            "year": "2017",
+            "month": "8",
+            "ratio": "3.8"
+          },
+          {
+            "year": "2017",
+            "month": "9",
+            "ratio": "3.5"
+          },
+          {
+            "year": "2017",
+            "month": "10",
+            "ratio": "3.5"
+          },
+          {
+            "year": "2017",
+            "month": "11",
+            "ratio": "3.8"
+          },
+          {
+            "year": "2018",
+            "month": "2",
+            "ratio": "3.1"
+          },
+          {
+            "year": "2018",
+            "month": "3",
+            "ratio": "3.0"
+          },
+          {
+            "year": "2018",
+            "month": "4",
+            "ratio": "2.9"
+          },
+          {
+            "year": "2018",
+            "month": "5",
+            "ratio": "2.7"
+          },
+          {
+            "year": "2018",
+            "month": "6",
+            "ratio": "2.7"
+          },
+          {
+            "year": "2018",
+            "month": "7",
+            "ratio": "3.1"
+          },
+          {
+            "year": "2018",
+            "month": "8",
+            "ratio": "3.2"
+          },
+          {
+            "year": "2018",
+            "month": "9",
+            "ratio": "3.2"
+          },
+          {
+            "year": "2018",
+            "month": "10",
+            "ratio": "3.2"
+          },
+          {
+            "year": "2018",
+            "month": "11",
+            "ratio": "1.2"
+          }
+        ]
+
+      },
+      {
+        "energyType": "火电",
+        "energyValues": [
+          {
+            "year": "2017",
+            "month": "2",
+            "ratio": "5.3"
+          },
+          {
+            "year": "2017",
+            "month": "3",
+            "ratio": "5.0"
+          },
+          {
+            "year": "2017",
+            "month": "4",
+            "ratio": "4.9"
+          },
+          {
+            "year": "2017",
+            "month": "5",
+            "ratio": "4.8"
+          },
+          {
+            "year": "2017",
+            "month": "6",
+            "ratio": "4.6"
+          },
+          {
+            "year": "2017",
+            "month": "7",
+            "ratio": "4.7"
+          },
+          {
+            "year": "2017",
+            "month": "8",
+            "ratio": "5.2"
+          },
+          {
+            "year": "2017",
+            "month": "9",
+            "ratio": "5.1"
+          },
+          {
+            "year": "2017",
+            "month": "10",
+            "ratio": "5.0"
+          },
+          {
+            "year": "2017",
+            "month": "11",
+            "ratio": "4.6"
+          },
+          {
+            "year": "2018",
+            "month": "2",
+            "ratio": "3.9"
+          },
+          {
+            "year": "2018",
+            "month": "3",
+            "ratio": "3.7"
+          },
+          {
+            "year": "2018",
+            "month": "4",
+            "ratio": "3.7"
+          },
+          {
+            "year": "2018",
+            "month": "5",
+            "ratio": "3.7"
+          },
+          {
+            "year": "2018",
+            "month": "6",
+            "ratio": "4.1"
+          },
+          {
+            "year": "2018",
+            "month": "7",
+            "ratio": "3.8"
+          },
+          {
+            "year": "2018",
+            "month": "8",
+            "ratio": "3.2"
+          },
+          {
+            "year": "2018",
+            "month": "9",
+            "ratio": "3.1"
+          },
+          {
+            "year": "2018",
+            "month": "10",
+            "ratio": "2.9"
+          },
+          {
+            "year": "2018",
+            "month": "11",
+            "ratio": "3.4"
+          }
+        ]
+
+      },
+      {
+        "energyType": "核电",
+        "energyValues": [
+          {
+            "year": "2017",
+            "month": "2",
+            "ratio": "19.6"
+          },
+          {
+            "year": "2017",
+            "month": "3",
+            "ratio": "23.4"
+          },
+          {
+            "year": "2017",
+            "month": "4",
+            "ratio": "23.4"
+          },
+          {
+            "year": "2017",
+            "month": "5",
+            "ratio": "21.9"
+          },
+          {
+            "year": "2017",
+            "month": "6",
+            "ratio": "17.3"
+          },
+          {
+            "year": "2017",
+            "month": "7",
+            "ratio": "13.1"
+          },
+          {
+            "year": "2017",
+            "month": "8",
+            "ratio": "10.8"
+          },
+          {
+            "year": "2017",
+            "month": "9",
+            "ratio": "14.3"
+          },
+          {
+            "year": "2017",
+            "month": "10",
+            "ratio": "6.8"
+          },
+          {
+            "year": "2017",
+            "month": "11",
+            "ratio": "6.8"
+          },
+          {
+            "year": "2018",
+            "month": "2",
+            "ratio": "9.1"
+          },
+          {
+            "year": "2018",
+            "month": "3",
+            "ratio": "6.4"
+          },
+          {
+            "year": "2018",
+            "month": "4",
+            "ratio": "6.4"
+          },
+          {
+            "year": "2018",
+            "month": "5",
+            "ratio": "6.4"
+          },
+          {
+            "year": "2018",
+            "month": "6",
+            "ratio": "6.4"
+          },
+          {
+            "year": "2018",
+            "month": "7",
+            "ratio": "9.5"
+          },
+          {
+            "year": "2018",
+            "month": "8",
+            "ratio": "9.5"
+          },
+          {
+            "year": "2018",
+            "month": "9",
+            "ratio": "9.7"
+          },
+          {
+            "year": "2018",
+            "month": "10",
+            "ratio": "13.2"
+          },
+          {
+            "year": "2018",
+            "month": "11",
+            "ratio": "16.6"
+          }
+        ]
+
+      },
+      {
+        "energyType": "风电",
+        "energyValues": [
+          {
+            "year": "2017",
+            "month": "2",
+            "ratio": "13.2"
+          },
+          {"year":"2017","month":"3","ratio":"12.9"},
+          {"year":"2017","month":"4","ratio":"12.8"},
+          {"year":"2017","month":"5","ratio":"12.2"},
+          {"year":"2017","month":"6","ratio":"12.0"},
+          {"year":"2017","month":"7","ratio":"12.5"},
+          {"year":"2017","month":"8","ratio":"12.6"},
+          {"year":"2017","month":"9","ratio":"12.8"},
+          {"year":"2017","month":"10","ratio":"12.2"},
+          {"year":"2017","month":"11","ratio":"11.9"},
+          {"year":"2018","month":"2","ratio":"10.3"},
+          {"year":"2018","month":"3","ratio":"10.2"},
+          {"year":"2018","month":"4","ratio":"10.6"},
+          {"year":"2018","month":"5","ratio":"11.0"},
+          {"year":"2018","month":"6","ratio":"11.3"},
+          {"year":"2018","month":"7","ratio":"11.4"},
+          {"year":"2018","month":"8","ratio":"11.5"},
+          {"year":"2018","month":"9","ratio":"11.4"},
+          {"year":"2018","month":"10","ratio":"11.6"},
+          {"year":"2018","month":"11","ratio":"12.2"}
+        ]
+
+      },
+      {
+        "energyType": "光伏",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"0"},
+          {"year":"2018","month":"8","ratio":"0"},
+          {"year":"2018","month":"9","ratio":"0"},
+          {"year":"2018","month":"10","ratio":"24"},
+          {"year":"2018","month":"11","ratio":"21.9"}
+        ]
+
+      }
+    ]
+  },
+  {
+    "recordType":"10家装机容量",
+    "recordInfos":[
+      {
+        "energyType": "总量",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"9.69"},
+          {"year":"2018","month":"8","ratio":"9.29"},
+          {"year":"2018","month":"9","ratio":"8.40"},
+          {"year":"2018","month":"10","ratio":"8.40"},
+          {"year":"2018","month":"11","ratio":"9.40"}
+        ]
+      },
+      {
+        "energyType": "水电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"9.08"},
+          {"year":"2018","month":"8","ratio":"8.00"},
+          {"year":"2018","month":"9","ratio":"8.00"},
+          {"year":"2018","month":"10","ratio":"8.00"},
+          {"year":"2018","month":"11","ratio":"8.00"}
+        ]
+
+      },
+      {
+        "energyType": "火电",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"5.04"},
+          {"year":"2018","month":"8","ratio":"5.08"},
+          {"year":"2018","month":"9","ratio":"3.64"},
+          {"year":"2018","month":"10","ratio":"3.65"},
+          {"year":"2018","month":"11","ratio":"3.20"}
+        ]
+
+      },
+      {
+        "energyType": "核电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"0"},
+          {"year":"2018","month":"8","ratio":"0"},
+          {"year":"2018","month":"9","ratio":"0"},
+          {"year":"2018","month":"10","ratio":"0"},
+          {"year":"2018","month":"11","ratio":"27.93"}
+        ]
+
+      },
+      {
+        "energyType": "风电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"14.15"},
+          {"year":"2018","month":"8","ratio":"14.78"},
+          {"year":"2018","month":"9","ratio":"15.08"},
+          {"year":"2018","month":"10","ratio":"14.70"},
+          {"year":"2018","month":"11","ratio":"17.97"}
+        ]
+
+      },
+
+      {
+        "energyType": "光伏",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"44.91"},
+          {"year":"2018","month":"8","ratio":"40.05"},
+          {"year":"2018","month":"9","ratio":"39.26"},
+          {"year":"2018","month":"10","ratio":"39.39"},
+          {"year":"2018","month":"11","ratio":"38.24"}
+        ]
+
+      }
+    ]
+  },
+  {
+    "recordType":"全国发电量",
+    "recordInfos":[
+      {
+        "energyType": "总量",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"6.30"},
+          {"year":"2017","month":"3","ratio":"6.70"},
+          {"year":"2017","month":"4","ratio":"6.60"},
+          {"year":"2017","month":"5","ratio":"6.40"},
+          {"year":"2017","month":"6","ratio":"6.30"},
+          {"year":"2017","month":"7","ratio":"6.80"},
+          {"year":"2017","month":"8","ratio":"6.50"},
+          {"year":"2017","month":"9","ratio":"6.40"},
+          {"year":"2017","month":"10","ratio":"6"},
+          {"year":"2017","month":"11","ratio":"5.70"},
+          {"year":"2018","month":"2","ratio":"11.00"},
+          {"year":"2018","month":"3","ratio":"8.00"},
+          {"year":"2018","month":"4","ratio":"7.70"},
+          {"year":"2018","month":"5","ratio":"8.50"},
+          {"year":"2018","month":"6","ratio":"8.30"},
+          {"year":"2018","month":"7","ratio":"7.80"},
+          {"year":"2018","month":"8","ratio":"7.70"},
+          {"year":"2018","month":"9","ratio":"7.40"},
+          {"year":"2018","month":"10","ratio":"7.20"},
+          {"year":"2018","month":"11","ratio":"6.90"}
+        ]
+      },
+      {
+        "energyType": "水电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"9.08"},
+          {"year":"2018","month":"8","ratio":"8.00"},
+          {"year":"2018","month":"9","ratio":"8.00"},
+          {"year":"2018","month":"10","ratio":"8.00"},
+          {"year":"2018","month":"11","ratio":"8.00"}
+        ]
+
+      },
+      {
+        "energyType": "火电",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"5.04"},
+          {"year":"2018","month":"8","ratio":"5.08"},
+          {"year":"2018","month":"9","ratio":"3.64"},
+          {"year":"2018","month":"10","ratio":"3.65"},
+          {"year":"2018","month":"11","ratio":"3.20"}
+        ]
+
+      },
+      {
+        "energyType": "核电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"0"},
+          {"year":"2018","month":"8","ratio":"0"},
+          {"year":"2018","month":"9","ratio":"0"},
+          {"year":"2018","month":"10","ratio":"0"},
+          {"year":"2018","month":"11","ratio":"27.93"}
+        ]
+
+      },
+      {
+        "energyType": "风电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"14.15"},
+          {"year":"2018","month":"8","ratio":"14.78"},
+          {"year":"2018","month":"9","ratio":"15.08"},
+          {"year":"2018","month":"10","ratio":"14.70"},
+          {"year":"2018","month":"11","ratio":"17.97"}
+        ]
+
+      },
+      {
+        "energyType": "光伏",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"0"},
+          {"year":"2018","month":"8","ratio":"0"},
+          {"year":"2018","month":"9","ratio":"0"},
+          {"year":"2018","month":"10","ratio":"0"},
+          {"year":"2018","month":"11","ratio":"0"}
+        ]
+
+      }
+    ]
+  },
+  {
+    "recordType":"10家发电量",
+    "recordInfos":[
+      {
+        "energyType": "总量",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"17.69"},
+          {"year":"2018","month":"8","ratio":"18.09"},
+          {"year":"2018","month":"9","ratio":"18.37"},
+          {"year":"2018","month":"10","ratio":"18.15"},
+          {"year":"2018","month":"11","ratio":"18.13"}
+        ]
+      },
+      {
+        "energyType": "水电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"20.91"},
+          {"year":"2018","month":"8","ratio":"25.39"},
+          {"year":"2018","month":"9","ratio":"28.29"},
+          {"year":"2018","month":"10","ratio":"30.89"},
+          {"year":"2018","month":"11","ratio":"32.17"}
+        ]
+
+      },
+      {
+        "energyType": "火电",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"13.51"},
+          {"year":"2018","month":"8","ratio":"13.28"},
+          {"year":"2018","month":"9","ratio":"13.22"},
+          {"year":"2018","month":"10","ratio":"12.41"},
+          {"year":"2018","month":"11","ratio":"11.54"}
+        ]
+
+      },
+      {
+        "energyType": "核电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"30.62"},
+          {"year":"2018","month":"8","ratio":"28.90"},
+          {"year":"2018","month":"9","ratio":"25.06"},
+          {"year":"2018","month":"10","ratio":"24.20"},
+          {"year":"2018","month":"11","ratio":"34.63"}
+        ]
+
+      },
+      {
+        "energyType": "风电",
+        "energyValues": [
+
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"29.41"},
+          {"year":"2018","month":"8","ratio":"28.52"},
+          {"year":"2018","month":"9","ratio":"28.24"},
+          {"year":"2018","month":"10","ratio":"26.27"},
+          {"year":"2018","month":"11","ratio":"24.63"}
+        ]
+
+      },
+      {
+        "energyType": "光伏",
+        "energyValues": [
+          {"year":"2017","month":"2","ratio":"0"},
+          {"year":"2017","month":"3","ratio":"0"},
+          {"year":"2017","month":"4","ratio":"0"},
+          {"year":"2017","month":"5","ratio":"0"},
+          {"year":"2017","month":"6","ratio":"0"},
+          {"year":"2017","month":"7","ratio":"0"},
+          {"year":"2017","month":"8","ratio":"0"},
+          {"year":"2017","month":"9","ratio":"0"},
+          {"year":"2017","month":"10","ratio":"0"},
+          {"year":"2017","month":"11","ratio":"0"},
+          {"year":"2018","month":"2","ratio":"0"},
+          {"year":"2018","month":"3","ratio":"0"},
+          {"year":"2018","month":"4","ratio":"0"},
+          {"year":"2018","month":"5","ratio":"0"},
+          {"year":"2018","month":"6","ratio":"0"},
+          {"year":"2018","month":"7","ratio":"52.17"},
+          {"year":"2018","month":"8","ratio":"51.46"},
+          {"year":"2018","month":"9","ratio":"50.90"},
+          {"year":"2018","month":"10","ratio":"50.59"},
+          {"year":"2018","month":"11","ratio":"48.20"}
+        ]
+
+      }
+    ]
+  }
+
+]

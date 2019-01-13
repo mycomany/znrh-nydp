@@ -1,7 +1,7 @@
 $(document).ready(function(){
     getdata('/market/price/chart1.json',function(df){ init_table(df,'tb1');  });
     getdata('/market/price/chart2.json',function(df){ init_table(df,'tb2');  });
-    getdata('/market/price/chart3.json',function(df){ init_table(df,'tb3');  });
+    getdata('/market/price/near10Order.json',function(df){ init_table(df,'tb3');  });
     $(this).click(function(){
         for(var n in _tdmap)
             _tdmap[n].auto = true;

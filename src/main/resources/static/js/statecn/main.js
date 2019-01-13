@@ -1,7 +1,7 @@
 $(document).ready(function(){
     getdata('/statecn/main/chart1.json',chart1);
     getdata('/statecn/main/chart2.json',chart2);
-    getdata('/statecn/main/chart3.json',chart3);
+    getdata('/statecn/main/near10Order.json',chart3);
     getdata('/statecn/main/main.json',main);
     getdata('/statecn/main/chart41.json',chart41);
    // getdata('/statecn/main/chart42.json',chart42);
