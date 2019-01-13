@@ -1,7 +1,8 @@
 const _data_cache = {}
 const _default_company_name = "全国"
 const _default_select_date = "2017-1"
-
+let main_type="makePower" //makePower||installed
+const _default_clean_power_company = '全国'
 $(document).ready(function(){
     // getdata('/product/index/productIndex.json',initEnergyRatio);
     getdata('/produce/index/installAndGeneration.json',installAndGeneration);
@@ -12,9 +13,13 @@ $(document).ready(function(){
     getdata('/produce/index/makeWarmingRecord.json',makeWarmingRecord);
     getdata('/produce/index/consumeForMakeWarming.json',consume);
 
-    getdata('/produce/index/cleanPowerMaked.json',cleanPowerMaked);
-    getdata('/produce/index/cleanPowerInstall.json',cleanPowerInstall);
-
+    getdata('/produce/index/cleanPowerInstall.json',cleanPowerInstallInfos);
+    getdata('/produce/index/cleanPowerMaked.json',cleanPowerInfos);
+    getdata('/produce/index/cleanPowerDetails.json',loadTabInfo);
+    // getdata('/produce/index/cleanPowerMaked.json',cleanPowerMaked);
+    // getdata('/produce/index/cleanPowerInstall.json',cleanPowerInstall);
+    mainAreaStyles()
+    mainAreaLister()
 });
 
 
@@ -28,6 +33,52 @@ function isSelect(jsonData){
 
 function checkInitDate(checkedSelected){
     return $("#"+checkedSelected).val()
+}
+
+function mainAreaStyles(){
+    const mainHeight = $(".main_order_bg").height()
+
+    const topPercentArray = [
+        0.25,
+        0.105,
+        0.59,
+        0.125,
+        0.58,
+        0.27,
+        0.52,
+        0.675,
+        0.13,
+        0.535,
+        0.33]
+
+    topPercentArray.forEach((topPercent,i)=>{
+        const companyTop = mainHeight*topPercent
+        $(".main_order_name"+(i+1)).attr("style","top:"+companyTop+'px')
+    })
+
+    $(".main_order_type").css('margin-top',(mainHeight-100)+'px')
+
+}
+
+function mainAreaLister(){
+    $(".main_order_name").click(function(){
+        const index = $(this).attr("index")
+        if(main_type==='makePower'){
+            const clickName = _data_cache.cleanPowerInfos[index]
+            loadTabInfo('select',clickName['type'],$("#cleanPowerSelected").val())
+        }else{
+
+        }
+    })
+
+    $(".main_show_tab_data").click(function(){
+        const makePower = $(this).attr('makePower')
+        if(makePower==='makePower'){
+            cleanPowerInfos('select',$(".qmain").find("#cleanPowerSelected"))
+        }else{
+            cleanPowerInstallInfos('select',$(".qmain").find("#cleanPowerSelected"))
+        }
+    })
 }
 
 function installAndGeneration(jsonData,selectObj){
@@ -818,197 +869,10 @@ function makeWarmingRecord(jsonData,selectObj){
         series: seriesData
     };
 
-    // let option = {
-    //     grid: {
-    //         left: '3%',
-    //         right:'3%',
-    //         top:'10%',
-    //         bottom:'5%',
-    //         containLabel: true
-    //     },
-    //
-    //     tooltip:{
-    //         trigger:'axis'
-    //     },
-    //     xAxis : {
-    //         type: "category",
-    //         axisLine: {
-    //             lineStyle: {
-    //                 color: '#38b8ff',
-    //             }
-    //         },
-    //         splitLine: {
-    //             show: false,
-    //             lineStyle: {
-    //                 color: '#fff ',
-    //             }
-    //         },
-    //         axisTick: {
-    //             show: false
-    //         },
-    //         splitArea: {
-    //             show: false
-    //         },
-    //         axisLabel: {
-    //             inside: false,
-    //             textStyle: {
-    //                 color: '#fff',
-    //                 fontWeight: 'normal',
-    //                 fontSize: 10
-    //             },
-    //         },
-    //         data : Object.keys(xArrayObj)
-    //     },
-    //     yAxis : [{
-    //         type: 'value',
-    //         axisLine: {
-    //             lineStyle: {
-    //                 color: '#38b8ff'
-    //             }
-    //         },
-    //         axisLabel: {
-    //             color: '#fff',
-    //             fontSize: 10
-    //         },
-    //         splitLine: {
-    //             show:false,
-    //             lineStyle: {
-    //                 color: '#0177d4'
-    //             }
-    //         }
-    //     },{
-    //         type: 'value',
-    //         axisLabel: {
-    //             color: 'white',
-    //             formatter:'{value} %',
-    //         },
-    //         axisLine: {
-    //             show: false,
-    //             lineStyle: {
-    //                 color: 'white'
-    //             }
-    //         },
-    //         axisTick:{
-    //             show:false
-    //         },
-    //         splitLine:{
-    //             show:false
-    //         }
-    //     }],
-    //     series : seriesData
-    // };
-
     var myChart = echarts.init($('#makeWarmingRecord')[0]);
     myChart.setOption(option);
 
 }
-
-// function consume(jsonData,selectObj){
-//     let selectPoint = _default_select_date
-//     if(isSelect(jsonData)){
-//         selectPoint = $(selectObj).val()
-//     }else{
-//         _data_cache.consume = jsonData
-//         selectPoint = checkInitDate("consumeSelected")
-//
-//     }
-//     let lineObject = {}
-//     let xArray = []
-//     _data_cache.consume.forEach((productInfo)=>{
-//         const areaName = productInfo["type"]
-//         const year = productInfo["year"]
-//         const month = productInfo["month"]
-//         const val = productInfo["val"]
-//         const ratio = productInfo["ratio"]
-//
-//         if((year+'-'+month)===selectPoint){
-//             if(lineObject[areaName]!=null){}
-//             else{
-//                 lineObject[areaName]=[]
-//                 lineObject[areaName] = val
-//             }
-//         }
-//     })
-//
-//     xArray = Object.keys(lineObject)
-//
-//     let seriesData = [];
-//
-//     seriesData.push({
-//         name:"同比",
-//         type:'line',
-//         data:Object.values(lineObject)
-//     })
-//
-//
-//     // console.log(JSON.stringify(seriesData))
-//
-//     let option = {
-//         grid: {
-//             left: '3%',
-//             right:'3%',
-//             top:'10%',
-//             bottom:'5%',
-//             containLabel: true
-//         },
-//
-//         tooltip:{
-//             trigger:'axis'
-//         },
-//         xAxis : {
-//             type: "category",
-//             axisLine: {
-//                 lineStyle: {
-//                     color: '#38b8ff',
-//                 }
-//             },
-//             splitLine: {
-//                 show: false,
-//                 lineStyle: {
-//                     color: '#fff ',
-//                 }
-//             },
-//             axisTick: {
-//                 show: false
-//             },
-//             splitArea: {
-//                 show: false
-//             },
-//             axisLabel: {
-//                 inside: false,
-//                 textStyle: {
-//                     color: '#fff',
-//                     fontWeight: 'normal',
-//                     fontSize: 10
-//                 },
-//             },
-//             data : xArray
-//         },
-//         yAxis : [{
-//             type: 'value',
-//             axisLine: {
-//                 lineStyle: {
-//                     color: '#38b8ff'
-//                 }
-//             },
-//             axisLabel: {
-//                 color: '#fff',
-//                 fontSize: 10
-//             },
-//             splitLine: {
-//                 show:false,
-//                 lineStyle: {
-//                     color: '#0177d4'
-//                 }
-//             }
-//         }],
-//         series : seriesData
-//     };
-//
-//
-//     var myChart = echarts.init($('#consume')[0]);
-//     myChart.setOption(option);
-// }
 
 function consume(jsonData,selectObj){
     let selectPoint = _default_select_date
@@ -1166,6 +1030,97 @@ function consume(jsonData,selectObj){
     myChart.setOption(option);
 }
 
+
+function cleanPowerInfos(jsonData,selectObj){
+    let selectPoint = _default_select_date
+    if(isSelect(jsonData)){
+        selectPoint = $(selectObj).val()
+        loadTabInfo('select',_default_clean_power_company,selectPoint)
+    }else{
+        _data_cache.cleanPowerInfos = jsonData
+        selectPoint = checkInitDate("cleanPowerSelected")
+
+    }
+
+    cleanPowerMake(_data_cache.cleanPowerInfos,selectPoint)
+}
+
+function cleanPowerInstallInfos(jsonData,selectObj){
+    let selectPoint = _default_select_date
+    if(isSelect(jsonData)){
+        selectPoint = $(selectObj).val()
+        loadTabInfo('select',_default_clean_power_company,selectPoint)
+    }else{
+        _data_cache.cleanPowerInstallInfos = jsonData
+        selectPoint = checkInitDate("cleanPowerSelected")
+
+    }
+
+    cleanPowerMake(_data_cache.cleanPowerInstallInfos,selectPoint)
+}
+
+function cleanPowerMake(datas,selectPoint){
+    let showDatas = []
+
+    datas.forEach(cleanPowerInfo=>{
+        const year = cleanPowerInfo['year']
+        const month = cleanPowerInfo['month']
+        if((year+'-'+month)===selectPoint) {
+            showDatas.push(cleanPowerInfo)
+        }
+        // sort(compare("val"))
+    })
+
+    showDatas.sort(compare('val'))
+
+    showDatas.forEach((showData,i)=>{
+        $(".main_order_name"+(i+1)).empty()
+        // $(".main_order_name"+(i+1)).html(showData['val'])
+        $(".main_order_name"+(i+1)).html(showData['type'])
+        // $(".main_order_name"+(i+1)).html(showData['type']+i)
+    })
+
+    function compare(property){
+        return function(obj1,obj2){
+            var value1 = obj1[property];
+            var value2 = obj2[property];
+            return value2 - value1;     // 降
+        }
+    }
+}
+
+function loadTabInfo(jsonData,selectedCompanyName,selectDate){
+    if(isSelect(jsonData)){
+    }else{
+        _data_cache.cleanPowerDetailDatas = jsonData
+        selectDate = checkInitDate("cleanPowerSelected")
+        selectedCompanyName = _default_company_name
+    }
+
+    _data_cache.cleanPowerDetailDatas.forEach(cleanPowerDetail=>{
+        const year = cleanPowerDetail['year']
+        const month = cleanPowerDetail['month']
+        if((year+'-'+month)===selectDate) {
+            const companyName = cleanPowerDetail['companyName']
+            if(companyName===selectedCompanyName){
+                if(cleanPowerDetail['type']==='弃光率'){
+                    $("#qg").empty()
+                    $("#qg").html(cleanPowerDetail['val'])
+                }else if(cleanPowerDetail['type']==='弃风率'){
+                    $("#qf").empty()
+                    $("#qf").html(cleanPowerDetail['val'])
+                }else if(cleanPowerDetail['type']==='弃水率'){
+                    $("#qs").empty()
+                    $("#qs").html(cleanPowerDetail['val'])
+                }else if(cleanPowerDetail['type']==='弃核率'){
+                    $("#qhn").empty()
+                    $("#qhn").html(cleanPowerDetail['val'])
+                }
+
+            }
+        }
+    })
+}
 
 function cleanPowerMaked(jsonData,selectObj){
 
