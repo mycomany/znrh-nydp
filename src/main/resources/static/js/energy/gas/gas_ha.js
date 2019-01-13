@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
+    getdata('/energy/gas/ha/main.json' + __time,main);
     getdata('/energy/gas/ha/chart1.json' + __time,chart1);
     getdata('/energy/gas/ha/chart1.json' + __time,chart1_1);
     getdata('/energy/gas/ha/chart2.json' + __time,chart2);
@@ -8,7 +9,6 @@ $(document).ready(function(){
     getdata('/energy/gas/ha/chart5.json' + __time,chart5);
     getdata('/energy/gas/ha/chart6.json' + __time,chart6);
     getdata('/energy/gas/ha/chart7.json' + __time,chart7);
-    getdata('/energy/gas/ha/main.json' + __time,main);
 });
 
 function dwz(data, name){
@@ -111,15 +111,15 @@ function main(data){
             {
                 "name":"理论值",
                 "type":"bar",
-                "barWidth":40,
-                "color":"#4682B4",
+                "barWidth":30,
+                "color":"#25e4a3",
                 "data":data[4][nf]["th"]
             },
             {
                 "name":"实际值",
                 "type":"bar",
-                "barWidth":40,
-                "color":"#00BFFF",
+                "barWidth":30,
+                "color":"#2b88ff",
                 "data":data[4][nf]["sj"]
             }
         ]
@@ -132,14 +132,26 @@ function main(data){
 
 function chart1(data){
     var option = {
-        title:{
+        title:[{
             text:data[0][1][0],
-            bottom:'3%',
-            left:'50%',
+            right:'0%',
+            top:'0%',
             textStyle: {
                 color: '#59EBE8',
                 fontSize:10,
             }
+        }],
+        legend: {
+            show:true,
+            bottom : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data:data[0][2]
         },
         "tooltip": {
             "trigger": "axis",
@@ -233,14 +245,26 @@ function chart1(data){
 
 function chart1_1(data){
     var option = {
-        title:{
+        title:[{
             text:data[1][1][0],
-            bottom:'3%',
-            left:'50%',
+            right:'0%',
+            top:'0%',
             textStyle: {
                 color: '#59EBE8',
                 fontSize:10,
             }
+        }],
+        legend: {
+            show:true,
+            bottom : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data:data[1][2]
         },
         "tooltip": {
             "trigger": "axis",
@@ -431,13 +455,7 @@ function chart2(data){
                 barWidth: "20%",
                 itemStyle:{
                     normal:{
-                        color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: '#00b0ff'
-                        }, {
-                            offset: 0.8,
-                            color: '#7052f4'
-                        }], false)
+                        color: '#25e4a3'
                     }
                 },
                 data: data[3]
@@ -585,7 +603,7 @@ function chart3(data){
                 "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
-                        "color": "#43eec6"
+                        "color": "#2b88ff"
                     }
                 },
                 "smooth": true
@@ -598,7 +616,7 @@ function chart3(data){
                 "data": data[5],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#25e4a3"
                     }
                 },
                 "smooth": true
@@ -738,7 +756,7 @@ function chart4(data){
                 "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
-                        "color": "#43eec6"
+                        "color": "#2b88ff"
                     }
                 },
                 "smooth": true
@@ -751,7 +769,7 @@ function chart4(data){
                 "data": data[5],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#25e4a3"
                     }
                 },
                 "smooth": true
@@ -879,19 +897,45 @@ function chart5(data){
 function chart6(data){
 
     var seriesItems = [];
-    for(var i=0; i<data[2].length; i++){
-        seriesItems.push({
-            name: data[2][i],
-            type: 'bar',
-            barWidth: "8%",
-            itemStyle:{
-                normal:{
-                    color: data[4][i]
-                }
-            },
-            data: data[3][i]
-        });
-    }
+
+    seriesItems.push({
+        name: data[2][0],
+        type: 'bar',
+        barWidth: "20%",
+        "yAxisIndex": 0,
+        itemStyle:{
+            normal:{
+                color: data[4][0]
+            }
+        },
+        data: data[3][0]
+    });
+
+    seriesItems.push({
+        name: data[2][1],
+        type: 'bar',
+        barWidth: "20%",
+        "yAxisIndex": 0,
+        itemStyle:{
+            normal:{
+                color: data[4][1]
+            }
+        },
+        data: data[3][1]
+    });
+
+    seriesItems.push({
+        name: data[2][2],
+        type: 'line',
+        // barWidth: "7%",
+        "yAxisIndex": 1,
+        itemStyle:{
+            normal:{
+                color: data[4][2]
+            }
+        },
+        data: data[3][2]
+    });
 
     var option = {
         "tooltip": {
@@ -907,9 +951,9 @@ function chart6(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    if(params[i].name == data[1][0] || params[i].name == data[1][1]){
+                    if(params[i].seriesName == data[2][0] || params[i].seriesName == data[2][1]){
                         res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
-                    }else if(params[i].name == data[1][2]){
+                    }else if(params[i].seriesName == data[2][2]){
                         res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
                     }
                 }
@@ -921,7 +965,7 @@ function chart6(data){
             top:'5%',
             left:'5%',
             right:'5%',
-            bottom:'40%',
+            bottom:'25%',
             containLabel: true
         },
         xAxis: {
@@ -998,7 +1042,7 @@ function chart6(data){
         legend:{
             show:true,
             bottom : 10,
-            itemWidth: 10,
+            itemWidth: 16,
             itemHeight: 6,
             textStyle:{
                 color:'#fff',
@@ -1142,7 +1186,7 @@ function chart7(data){
                 "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
-                        "color": "#43eec6"
+                        "color": "#2b88ff"
                     }
                 },
                 "smooth": true
@@ -1155,7 +1199,7 @@ function chart7(data){
                 "data": data[5],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#25e4a3"
                     }
                 },
                 "smooth": true

@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
     getdata('/energy/elec/security/main.json' + __time, main);
+    getdata('/energy/elec/security/main.json' + __time, main_1);
     getdata('/energy/elec/security/chart1.json' + __time, chart1);
     getdata('/energy/elec/security/chart2.json' + __time, chart2);
     getdata('/energy/elec/security/chart3.json' + __time, chart3);
@@ -29,6 +30,15 @@ function changeMap(param){
 
 function main(data){
     var option = {
+        // title:[{
+        //     text:data[0][0][0],
+        //     right:'1%',
+        //     top:'0%',
+        //     textStyle: {
+        //         color: '#59EBE8',
+        //         fontSize:12,
+        //     }
+        // }],
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -58,7 +68,7 @@ function main(data){
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
-            data:data[0]
+            data:data[0][0]
         },
         grid:{
             top:'10%',
@@ -83,7 +93,7 @@ function main(data){
                     }
                 },
                 type: 'category',
-                data: data[2]
+                data: data[0][2]
             }
         ],
         yAxis: {
@@ -101,7 +111,7 @@ function main(data){
                     color: '#fff'
                 }
             },
-            // name: data[0][0],
+            name: "%",
             nameGap:-5,
             nameTextStyle:{
                 padding:[0,0,0,15],
@@ -113,45 +123,23 @@ function main(data){
         },
         series:[
             {
-                "name": data[0][0],
+                "name": data[0][0][0],
                 "type":"bar",
                 "barWidth":15,
-                "color":"#4682B4",
-                "data":data[3][0]
+                "color":"#4138e1",
+                "data":data[0][3][0]
             },
             {
-                name: data[0][1],
+                name: data[0][0][1],
                 type: 'line',
                 // smooth: true,
                 // symbolSize: 8,
                 // symbol: 'circle',
-                data: data[3][1],
+                data: data[0][3][1],
                 "barWidth": "auto",
                 "itemStyle": {
                     "normal": {
-                        "color": "#66CD00"
-                    }
-                }
-            },
-            {
-                "name":data[0][2],
-                "type":"bar",
-                "barWidth":15,
-                "color":"#00BFFF",
-                "data":data[4][0]
-            },
-
-            {
-                name: data[0][3],
-                type: 'line',
-                smooth: true,
-                symbolSize: 8,
-                symbol: 'circle',
-                data: data[4][1],
-                "barWidth": "auto",
-                "itemStyle": {
-                    "normal": {
-                        "color": "#9370DB"
+                        "color": "#4094ff"
                     }
                 }
             }
@@ -162,7 +150,126 @@ function main(data){
 }
 
 
+function main_1(data){
+    var option = {
+        // title:[{
+        //     text:data[1][0][0],
+        //     right:'1%',
+        //     top:'0%',
+        //     textStyle: {
+        //         color: '#59EBE8',
+        //         fontSize:12,
+        //     }
+        // }],
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross",
+                "crossStyle": {
+                    "color": "#384757"
+                }
+            },
+            formatter: function(params, ticket, callback) {
 
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + "%";
+                }
+                return res;
+
+            }
+        },
+        legend: {
+            show:true,
+            bottom : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data:data[1][0]
+        },
+        grid:{
+            top:'10%',
+            left:'5%',
+            right:'5%',
+            bottom:'20%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                type: 'category',
+                data: data[1][2]
+            }
+        ],
+        yAxis: {
+            axisLine: {
+                lineStyle: {
+                    color: '#38b8ff'
+                }
+            },
+            splitLine:{
+                show:false
+            },
+            splitNumber:4,
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            name: "%",
+            nameGap:-5,
+            nameTextStyle:{
+                padding:[0,0,0,15],
+                align:'center',
+                color:'#fff',
+            },
+            type: 'value',
+            z:10,
+        },
+        series:[
+            {
+                "name": data[1][0][0],
+                "type":"bar",
+                "barWidth":15,
+                "color":"#3ae276",
+                "data":data[1][3][0]
+            },
+            {
+                name: data[1][0][1],
+                type: 'line',
+                // smooth: true,
+                // symbolSize: 8,
+                // symbol: 'circle',
+                data: data[1][3][1],
+                "barWidth": "auto",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#4df3f3"
+                    }
+                }
+            }
+        ]
+    };
+    var myChart = echarts.init($('#main_1')[0]);
+    myChart.setOption(option);
+}
 
 
 
@@ -304,7 +411,7 @@ function chart1(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -316,7 +423,7 @@ function chart1(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -466,7 +573,7 @@ function chart2(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -478,7 +585,7 @@ function chart2(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -587,14 +694,7 @@ function chart3(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
             {
                 "type": "value",
@@ -627,7 +727,7 @@ function chart3(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -639,7 +739,7 @@ function chart3(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -790,7 +890,7 @@ function chart4(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -802,7 +902,7 @@ function chart4(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -952,7 +1052,7 @@ function chart5(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -964,7 +1064,7 @@ function chart5(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -1073,14 +1173,7 @@ function chart6(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
             {
                 "type": "value",
@@ -1113,7 +1206,7 @@ function chart6(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -1125,7 +1218,7 @@ function chart6(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -1274,7 +1367,7 @@ function chart7(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -1286,7 +1379,7 @@ function chart7(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -1395,14 +1488,7 @@ function chart8(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
             {
                 "type": "value",
@@ -1435,7 +1521,7 @@ function chart8(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -1447,7 +1533,7 @@ function chart8(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true

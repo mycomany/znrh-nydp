@@ -1201,6 +1201,7 @@ function chart4(data){
             x:'center',
             bottom:'1%',
             data: data[0],
+            type:'scroll',
             textStyle: {
                 color: '#fff',
                 fontSize: 10,

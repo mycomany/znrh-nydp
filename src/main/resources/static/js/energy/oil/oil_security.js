@@ -12,7 +12,7 @@ $(document).ready(function(){
 function main(data){
     option = {
         title:[{
-            text:'石油安全仪表盘  (2017)',
+            text:'石油安全仪表盘  (2018)',
             top:'3%',
             left:'2%',
             textStyle: {
@@ -342,7 +342,7 @@ function chart1(data){
                 yAxisIndex:1,
                 itemStyle: {
                     normal: {
-                        color: '#FFD700'
+                        color: '#40eaf9'
                     },
                 },
                 data: lineData
@@ -352,7 +352,7 @@ function chart1(data){
                 barWidth: '30%',
                 itemStyle: {
                     normal: {
-                        color: '#1E90FF',
+                        color: '#4138e1',
                         barBorderRadius: 50,
                     },
                 },
@@ -487,7 +487,7 @@ function chart2(data){
                 type:'line',
                 itemStyle:{
                     normal:{
-                        color:'#8121dd'
+                        color:'#40eaf9'
                     }
                 },
                 data: data[4]
@@ -635,7 +635,7 @@ function chart3(data){
                 showSymbol: false,//true 为拐点处有点  false 为没有
                 itemStyle: {
                     normal: {
-                        color: '#00FFFF'
+                        color: '#40eaf9'
                     },
                 },
                 data: lineData2
@@ -755,7 +755,7 @@ function chart4(data){
             barWidth: '30%',
             itemStyle: {
                 normal: {
-                    color: '#1E90FF',
+                    color: '#4138e1',
                     barBorderRadius: 50,
                 },
             },
@@ -767,7 +767,7 @@ function chart4(data){
             yAxisIndex: 1,
             itemStyle: {
                 normal: {
-                    color: '#E9DC37'
+                    color: '#40eaf9'
                 },
             },
             data: lineData,
@@ -871,7 +871,7 @@ function chart5(data){
                 yAxisIndex:0,
                 itemStyle: {
                     normal: {
-                        color: '#61ffff'
+                        color: '#2baffb'
                     },
                 },
                 data: data[2]
@@ -882,7 +882,7 @@ function chart5(data){
                 yAxisIndex:0,
                 itemStyle: {
                     normal: {
-                        color: '#2874ff'
+                        color: '#4138e1'
                     },
                 },
                 data: data[3]
@@ -893,7 +893,7 @@ function chart5(data){
                 type:'line',
                 itemStyle:{
                     normal:{
-                        color:'#ff0'
+                        color:'#40eaf9'
                     }
                 },
                 data: data[4]
@@ -1019,7 +1019,7 @@ function chart6(data){
             barWidth: '30%',
             itemStyle: {
                 normal: {
-                    color: '#1E90FF',
+                    color: '#2baffb',
                     barBorderRadius: 50,
                 },
             },
@@ -1031,7 +1031,7 @@ function chart6(data){
             barWidth: '30%',
             itemStyle: {
                 normal: {
-                    color: '#FFD844',
+                    color: '#4138e1',
                     barBorderRadius: 50,
                 },
             },
@@ -1043,7 +1043,7 @@ function chart6(data){
             yAxisIndex: 1,
             itemStyle: {
                 normal: {
-                    color: '#E9DC37'
+                    color: '#40eaf9'
                 },
             },
             data: lineData,
