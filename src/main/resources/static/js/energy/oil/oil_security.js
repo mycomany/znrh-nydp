@@ -1019,7 +1019,7 @@ function chart6(data){
             barWidth: '30%',
             itemStyle: {
                 normal: {
-                    color: '#1E90FF',
+                    color: '#2baffb',
                     barBorderRadius: 50,
                 },
             },
@@ -1031,7 +1031,7 @@ function chart6(data){
             barWidth: '30%',
             itemStyle: {
                 normal: {
-                    color: '#FFD844',
+                    color: '#4138e1',
                     barBorderRadius: 50,
                 },
             },
@@ -1043,7 +1043,7 @@ function chart6(data){
             yAxisIndex: 1,
             itemStyle: {
                 normal: {
-                    color: '#E9DC37'
+                    color: '#40eaf9'
                 },
             },
             data: lineData,
