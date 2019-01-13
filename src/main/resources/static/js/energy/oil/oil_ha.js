@@ -104,6 +104,15 @@ function main(data){
 
 function chart1(data){
     var option = {
+        title:[{
+            text:data[0][1][0],
+            right:'0%',
+            top:'0%',
+            textStyle: {
+                color: '#59EBE8',
+                fontSize:10,
+            }
+        }],
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -209,6 +218,15 @@ function chart1(data){
 
 function chart1_1(data){
     var option = {
+        title:[{
+            text:data[1][1][0],
+            right:'0%',
+            top:'0%',
+            textStyle: {
+                color: '#59EBE8',
+                fontSize:10,
+            }
+        }],
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
