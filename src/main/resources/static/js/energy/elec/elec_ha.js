@@ -626,7 +626,7 @@ function chart3(data){
                 "name": data[0][0][0],
                 "type": "bar",
                 "data": data[0][3][yf]["fd"],
-                "barWidth": "20%",
+                "barWidth": "30%",
                 yAxisIndex:0,
                 itemStyle: {
                     "normal": {
@@ -784,7 +784,7 @@ function chart3_3(data){
                 "name": data[1][0][0],
                 "type": "bar",
                 "data": data[1][3][yf]["rj"],
-                "barWidth": "20%",
+                "barWidth": "30%",
                 yAxisIndex:0,
                 itemStyle: {
                     "normal": {
