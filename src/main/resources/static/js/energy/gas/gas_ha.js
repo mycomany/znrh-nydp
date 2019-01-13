@@ -132,14 +132,26 @@ function main(data){
 
 function chart1(data){
     var option = {
-        title:{
+        title:[{
             text:data[0][1][0],
-            bottom:'3%',
-            left:'50%',
+            right:'0%',
+            top:'0%',
             textStyle: {
                 color: '#59EBE8',
                 fontSize:10,
             }
+        }],
+        legend: {
+            show:true,
+            bottom : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data:data[0][2]
         },
         "tooltip": {
             "trigger": "axis",
@@ -233,14 +245,26 @@ function chart1(data){
 
 function chart1_1(data){
     var option = {
-        title:{
+        title:[{
             text:data[1][1][0],
-            bottom:'3%',
-            left:'50%',
+            right:'0%',
+            top:'0%',
             textStyle: {
                 color: '#59EBE8',
                 fontSize:10,
             }
+        }],
+        legend: {
+            show:true,
+            bottom : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data:data[1][2]
         },
         "tooltip": {
             "trigger": "axis",
