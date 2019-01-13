@@ -630,7 +630,7 @@ function chart3(data){
                 yAxisIndex:0,
                 itemStyle: {
                     "normal": {
-                        "color": "#0f375f"
+                        "color": "#43eec6"
                     }
                 }
             },
@@ -788,7 +788,7 @@ function chart3_3(data){
                 yAxisIndex:0,
                 itemStyle: {
                     "normal": {
-                        "color": "#0f375f"
+                        "color": "#43eec6"
                     }
                 }
             },
@@ -800,7 +800,7 @@ function chart3_3(data){
                 yAxisIndex:1,
                 itemStyle: {
                     "normal": {
-                        "color": "#ffaa00"//"#43eec6"
+                        "color": "#ffaa00"
                     }
                 }
             }
