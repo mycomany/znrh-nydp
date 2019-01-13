@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
+    getdata('/energy/gas/ha/main.json' + __time,main);
     getdata('/energy/gas/ha/chart1.json' + __time,chart1);
     getdata('/energy/gas/ha/chart1.json' + __time,chart1_1);
     getdata('/energy/gas/ha/chart2.json' + __time,chart2);
@@ -8,7 +9,6 @@ $(document).ready(function(){
     getdata('/energy/gas/ha/chart5.json' + __time,chart5);
     getdata('/energy/gas/ha/chart6.json' + __time,chart6);
     getdata('/energy/gas/ha/chart7.json' + __time,chart7);
-    getdata('/energy/gas/ha/main.json' + __time,main);
 });
 
 function dwz(data, name){
@@ -112,14 +112,14 @@ function main(data){
                 "name":"理论值",
                 "type":"bar",
                 "barWidth":30,
-                "color":"#4682B4",
+                "color":"#25e4a3",
                 "data":data[4][nf]["th"]
             },
             {
                 "name":"实际值",
                 "type":"bar",
                 "barWidth":30,
-                "color":"#00BFFF",
+                "color":"#2b88ff",
                 "data":data[4][nf]["sj"]
             }
         ]
@@ -455,13 +455,7 @@ function chart2(data){
                 barWidth: "20%",
                 itemStyle:{
                     normal:{
-                        color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: '#00b0ff'
-                        }, {
-                            offset: 0.8,
-                            color: '#7052f4'
-                        }], false)
+                        color: '#25e4a3'
                     }
                 },
                 data: data[3]
@@ -609,7 +603,7 @@ function chart3(data){
                 "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
-                        "color": "#43eec6"
+                        "color": "#2b88ff"
                     }
                 },
                 "smooth": true
@@ -622,7 +616,7 @@ function chart3(data){
                 "data": data[5],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#25e4a3"
                     }
                 },
                 "smooth": true
@@ -762,7 +756,7 @@ function chart4(data){
                 "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
-                        "color": "#43eec6"
+                        "color": "#2b88ff"
                     }
                 },
                 "smooth": true
@@ -775,7 +769,7 @@ function chart4(data){
                 "data": data[5],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#25e4a3"
                     }
                 },
                 "smooth": true
@@ -1192,7 +1186,7 @@ function chart7(data){
                 "barWidth": "30%",
                 "itemStyle": {
                     "normal": {
-                        "color": "#43eec6"
+                        "color": "#2b88ff"
                     }
                 },
                 "smooth": true
@@ -1205,7 +1199,7 @@ function chart7(data){
                 "data": data[5],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#25e4a3"
                     }
                 },
                 "smooth": true
