@@ -3,26 +3,19 @@
 <link href="${host}/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="${host}/static/font/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="${host}/static/css/style.css" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
 <link href="${host}/static/theme/znrh/style.css" rel="stylesheet" type="text/css" />
 <link href="${host}/static/theme/znrh/${goods!"elec"}/style.css" rel="stylesheet" type="text/css" />
-=======
-<link href="${host}/static/theme/green/style.css" rel="stylesheet" type="text/css" />
-<link href="${host}/static/theme/green/${goods!"oil"}/style.css" rel="stylesheet" type="text/css" />
 <link href="${host}/static/lib/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
-
->>>>>>> 062e0f9527867dd8495f54976b72071f1f62a133
 <script src="${host}/static/lib/jquery.min.js" type="text/javascript"></script>
 <script src="${host}/static/lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="${host}/static/lib/echarts/echarts.min.js"></script>
 <script src="${host}/static/lib/common.js" type="text/javascript"></script>
 <script src="${host}/static/js/tool/creatSelect.js" type="text/javascript"></script>
-
 <script src="${host}/static/lib/bootstrap-select/dist/js/bootstrap-select.js" type="text/javascript"></script>
 <!--<link href="${host}/static/css/animate.min.css" rel="stylesheet">-->
 <script type="text/javascript">
 	var __host = '${host}';
-	var __menu = {'elec':['/module/produce/index','','/module/clean/elecIndex','/module/lc/elecIndex','/energy/elec/security','/energy/elec/ha'],'oil':['/module/produce/oilIndex','','/module/clean/oilIndex','/module/lc/oilIndex','/energy/oil/security','/energy/oil/ha'],'gas':['/module/produce/gasIndex','','/module/clean/gasIndex','/module/lc/gasIndex','/energy/gas/security','/energy/gas/ha'],'coal':['','','','','','']};
+	var __menu = {'elec':['/module/produce/index','/module/consume/elec','/module/clean/elecIndex','/module/lc/elecIndex','/energy/elec/security','/energy/elec/ha'],'oil':['/module/produce/oilIndex','/module/consume/oil','/module/clean/oilIndex','/module/lc/oilIndex','/energy/oil/security','/energy/oil/ha'],'gas':['/module/produce/gasIndex','/module/consume/gas','/module/clean/gasIndex','/module/lc/gasIndex','/energy/gas/security','/energy/gas/ha'],'coal':['','','','','','']};
 	var _mnm = -1, _mnt = '';
 	function initMenu(){
 		var dt = [{"name":"能源平台",url:"/module/clean/elecIndex"},{"name":"国际篇",url:"/module/pattern/index"},{"name":"国内篇",url:"/module/statecn/index"}];
