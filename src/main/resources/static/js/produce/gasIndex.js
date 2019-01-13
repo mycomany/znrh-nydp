@@ -4,8 +4,29 @@ $(document).ready(function(){
     chart2();
     // chart3();
     chart4();
-    // chart5();
+    getdata('/produce/gasIndex/areaRatioOrder.json',chart5);
+    getdata('/produce/gasIndex/wordTop10Machining.json',chart6);
+    getdata('/produce/gasIndex/cnTop10Machining.json',chart7);
 });
+
+function isSelect(jsonData){
+    if(jsonData!=null&&jsonData==='select'){
+        return true
+    }else
+        return false
+}
+
+function checkInitDate(checkedSelected){
+    return $("#"+checkedSelected).val()
+}
+
+function compare(property){
+    return function(obj1,obj2){
+        var value1 = obj1[property];
+        var value2 = obj2[property];
+        return value1 - value2;     // 降
+    }
+}
 
 function main(param){
     var c2 = [{"name":"北京","value":15.4},
@@ -750,71 +771,216 @@ function chart4(){
     myChart.setOption(option);
 }
 
-function chart5(){
-    option = {
-
-        textStyle: {
-            color: '#59ebe8'
-        },
+function chart5(data){
+    var pieData = data[3];
+    var option = {
         tooltip : {
             trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} %"
+            formatter: "{a} <br/>{b} : ({d}%)"
         },
-        //color:['#8fc31f','#f35833','#00ccff','#ffcc00'],
-        color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
-
-        legend: {
-            show:true,
-            bottom : '2%',
-            itemGap: 12, //图例每项之间的间隔
-            itemWidth: 16, //图例宽度
-            itemHeight: 8, //图例高度
-            textStyle: {
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
+        color: ['#c487ee', '#deb140', '#49dff0', '#034079', '#6f81da', '#00ffb4','#0007ff'],
+        series: [{
+            name: '储量占比',
+            type: 'pie',
+            //roseType : 'radius',
+            radius: ['30%','60%'],
+            center: ["50%", "55%"], //圆心坐标
+            labelLine: {
+                length: 8,
+                length2: 4
             },
-            data: ['中石油','中石化','中海油','其他'],
-        },
-
-        series : [
-            {
-                name: '国内天然气产量构成',
-                type: 'pie',
-                radius : '60%',
-                center: ['50%', '50%'],
-                data:[
-                    {value:70, name:'中石油'},
-                    {value:17, name:'中石化'},
-                    {value:10, name:'中海油'},
-                    {value:3, name:'其他'}
-                ],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+            label: {
+                normal: {
+                    show: true,
+                    position: 'outside',
+                    formatter: "{b}\n{c}%",
+                    textStyle: {
+                        color:'#fff',
+                        //fontSize: 8
                     }
                 },
-                itemStyle: {
-                    normal: {
-                        label:{
-                            show: true,
-                            //position:'inside',
-                            formatter: '{b} : {c}%' ,
-                            textStyle:{
-                                color:'#fff',
-                                //fontSize: 10
-                            },
-                        }
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 9,
+                        fontWeight: 'bold'
                     }
                 }
-            }
-        ]
+            },
+            data: pieData
+        }]
     };
     var myChart = echarts.init($('#chart5')[0]);
     myChart.setOption(option);
 }
+
+function chart6(jsonData){
+    jsonData.sort(compare('value'))
+
+    let data = {}
+    jsonData.forEach(oldData=>{
+        data[oldData['name']] = oldData['value']
+    })
+    var option = {
+        tooltip:{
+            formatter:'{b}: {c}',
+        },
+        grid:{
+            top:'10%',
+            bottom:'10%',
+            left:'5%',
+            right:'5%',
+            containLabel:true,
+        },
+        xAxis: [{
+            type: 'category',
+            data: Object.keys(data),
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
+        }],
+        yAxis: [{
+            splitLine: {
+                show: false
+            },
+            type: 'value',
+            splitNumber:3,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+                formatter:'{value}',
+
+                textStyle: {
+                    color: '#ffffff',
+                }
+            }
+        }],
+        series: [{
+            name: '探明储量',
+            type: 'bar',
+            barWidth: '40%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(40,161,255,1)'
+                        }, {
+                            offset: 0.4,
+                            color: 'rgba(40,161,255,0.5)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(40,161,255,0.1)'
+                        }]
+                    ),
+                    barBorderRadius: [3, 3, 0, 0]
+                }
+            },
+            z: -12,
+            data: Object.values(data)
+        }]
+    };
+    var myChart = echarts.init($('#chart6')[0]);
+    myChart.setOption(option);
+}
+
+function chart7(jsonData){
+    jsonData.sort(compare('value'))
+
+    let data = {}
+    jsonData.forEach(oldData=>{
+        data[oldData['name']] = oldData['value']
+    })
+    var option = {
+        tooltip:{
+            formatter:'{b}: {c}',
+        },
+        grid:{
+            top:'10%',
+            bottom:'10%',
+            left:'5%',
+            right:'5%',
+            containLabel:true,
+        },
+        xAxis: [{
+            type: 'category',
+            data: Object.keys(data),
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
+        }],
+        yAxis: [{
+            splitLine: {
+                show: false
+            },
+            type: 'value',
+            splitNumber:3,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+                formatter:'{value}',
+
+                textStyle: {
+                    color: '#ffffff',
+                }
+            }
+        }],
+        series: [{
+            name: '探明储量',
+            type: 'bar',
+            barWidth: '40%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(40,161,255,1)'
+                        }, {
+                            offset: 0.4,
+                            color: 'rgba(40,161,255,0.5)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(40,161,255,0.1)'
+                        }]
+                    ),
+                    barBorderRadius: [3, 3, 0, 0]
+                }
+            },
+            z: -12,
+            data: Object.values(data)
+        }]
+    };
+    var myChart = echarts.init($('#chart7')[0]);
+    myChart.setOption(option);
+}
+
+
 function changeMap(param){
     var id ="#"+param;
     $(".c"). removeClass("check_btn_option_checked");
