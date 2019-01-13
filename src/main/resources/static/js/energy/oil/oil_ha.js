@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
     getdata('/energy/oil/ha/chart1.json' + __time,chart1);
+    getdata('/energy/oil/ha/chart1.json' + __time,chart1_1);
     getdata('/energy/oil/ha/chart2.json' + __time,chart2);
     getdata('/energy/oil/ha/chart3.json' + __time,chart3);
     getdata('/energy/oil/ha/chart4.json' + __time,chart4);
@@ -116,11 +117,7 @@ function chart1(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    if(params[i].seriesName == data[1][0] || params[i].seriesName == data[1][1]){//能耗
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
-                    }else if(params[i].seriesName == data[1][2] || params[i].seriesName == data[1][3]){//电耗
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
-                    }
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0][0];
                 }
                 return res;
 
@@ -148,44 +145,11 @@ function chart1(data){
                 }
             },
             type: 'category',
-            data: data[3]
+            data: data[0][4]
         },
         yAxis: [{
-            type: 'value',
-            name:data[0][0],
-            nameGap:-5,
-            nameTextStyle:{
-                padding:[0,0,0,55],
-                align:'center',
-                color:'#fff',
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
-                },
-                // formatter: data[1][0]
-            },
-            //去掉辅助线
-            "splitLine": {
-                "show": false
-            },
-            /*
-            "splitLine": {
-              "lineStyle": {
-                "color": "#7d838b"
-              }
-            }
-            */
-        },
-            {
                 type: 'value',
-                name:data[0][1],
+                name:data[0][0][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,55],
@@ -201,21 +165,13 @@ function chart1(data){
                     textStyle: {
                         color: '#ffffff',
                         fontSize: 10
-                    },
-                    // formatter: data[1][0]
+                    }
                 },
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
-            },
+            }
         ],
         legend:{
             show:true,
@@ -227,38 +183,131 @@ function chart1(data){
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
-            data: data[1]
+            data: data[0][2]
         },
         series: [
             {
-                name: data[1][0],
-                color:data[2][0],
+                name: data[0][2][0],
+                color:data[0][3][0],
                 type: 'bar',
                 barWidth: "20%",
-                data: data[4]["nh"][0]
+                data: data[0][5]["nh"][0]
             },
             {
-                name: data[1][1],
-                color:data[2][1],
+                name: data[0][2][1],
+                color:data[0][3][1],
                 type: 'bar',
                 barWidth: "20%",
-                data: data[4]["nh"][1]
-            },
-            {
-                name: data[1][2],
-                color:data[2][0],
-                type: 'line',
-                data: data[4]["dh"][0]
-            },
-            {
-                name: data[1][3],
-                color:data[2][1],
-                type: 'line',
-                data: data[4]["dh"][1]
+                data: data[0][5]["nh"][1]
             }
         ]
     };
     var myChart = echarts.init($('#chart1')[0]);
+    myChart.setOption(option);
+}
+
+
+function chart1_1(data){
+    var option = {
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross",
+                "crossStyle": {
+                    "color": "#384757"
+                }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0][0];
+                }
+                return res;
+
+            }
+        },
+        grid:{
+            top:'10%',
+            left:'5%',
+            right:'5%',
+            bottom:'20%',
+            containLabel: true
+        },
+        xAxis: {
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#38b8ff'
+                }
+            },
+            type: 'category',
+            data: data[1][4]
+        },
+        yAxis: [{
+            type: 'value',
+            name:data[1][0][0],
+            nameGap:-5,
+            nameTextStyle:{
+                padding:[0,0,0,55],
+                align:'center',
+                color:'#fff',
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#38b8ff'
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize: 10
+                }
+            },
+            //去掉辅助线
+            "splitLine": {
+                "show": false
+            }
+        }
+        ],
+        legend:{
+            show:true,
+            bottom : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data: data[1][2]
+        },
+        series: [
+            {
+                name: data[1][2][0],
+                color:data[1][3][0],
+                type: 'bar',
+                barWidth: "20%",
+                data: data[1][5]["dh"][0]
+            },
+            {
+                name: data[1][2][1],
+                color:data[1][3][1],
+                type: 'bar',
+                barWidth: "20%",
+                data: data[1][5]["dh"][1]
+            }
+        ]
+    };
+    var myChart = echarts.init($('#chart1_1')[0]);
     myChart.setOption(option);
 }
 
