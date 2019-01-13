@@ -56,7 +56,7 @@ function mainAreaStyles(){
         $(".main_order_name"+(i+1)).attr("style","top:"+companyTop+'px')
     })
 
-    $(".main_order_type").css('margin-top',(mainHeight-100)+'px')
+    $(".main_order_type").css('margin-top',(mainHeight-90)+'px')
 
 }
 
@@ -71,12 +71,21 @@ function mainAreaLister(){
         }
     })
 
-    $(".main_show_tab_data").click(function(){
-        const makePower = $(this).attr('makePower')
-        if(makePower==='makePower'){
+    $(".main_show_type").click(function(){
+        const orderType = $(this).attr('orderType')
+        $(".main_show_type").removeClass("main_show_power_checked")
+        $(".main_show_type").removeClass("main_show_installed_checked")
+
+        if(orderType==='makePower'){
             cleanPowerInfos('select',$(".qmain").find("#cleanPowerSelected"))
+            loadTabInfo('select',_default_clean_power_company,$("#cleanPowerSelected").val())
+            $(".main_show_power").addClass("main_show_power_checked")
+
         }else{
             cleanPowerInstallInfos('select',$(".qmain").find("#cleanPowerSelected"))
+            loadTabInfo('select',_default_clean_power_company,$("#cleanPowerSelected").val())
+            $(".main_show_installed").addClass("main_show_installed_checked")
+
         }
     })
 }

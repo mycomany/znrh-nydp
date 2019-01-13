@@ -1,11 +1,13 @@
+let _data_cache = {}
+
 $(document).ready(function(){
     main("c1");
     chart1();
     getdata('/produce/oilIndex/near10Order.json',near10Order);
-    getdata('/produce/oilIndex/near10Order.json',cnTop10Order);
-    getdata('/produce/oilIndex/near10Order.json',worldTop10Order);
-    getdata('/produce/oilIndex/near10Order.json',machiningTop10Order);
-    getdata('/produce/oilIndex/near10Order.json',machiningCount);
+    getdata('/produce/oilIndex/cnTop10Order.json',cnTop10Order);
+    getdata('/produce/oilIndex/worldTop10Order.json',worldTop10Order);
+    getdata('/produce/oilIndex/cnOilMachining.json',machiningTop10Order);
+    getdata('/produce/oilIndex/machiningCount.json',machiningCount);
 
     chart2();
     getdata('/produce/oilIndex/worldTop10Machining.json',worldTop10Machining);
@@ -14,6 +16,25 @@ $(document).ready(function(){
     // chart4();
     // chart5();
 });
+
+function isSelect(jsonData){
+    if(jsonData!=null&&jsonData==='select'){
+        return true
+    }else
+        return false
+}
+
+function checkInitDate(checkedSelected){
+    return $("#"+checkedSelected).val()
+}
+
+function compare(property){
+    return function(obj1,obj2){
+        var value1 = obj1[property];
+        var value2 = obj2[property];
+        return value1 - value2;     // 降
+    }
+}
 
 function chart1(){
     var option = {
@@ -249,7 +270,7 @@ function chart1(){
 
 
 function chart2(){
-    option = {
+    const option = {
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -584,130 +605,6 @@ function chart3(data){
     var myChart = echarts.init($('#chart3')[0]);
     myChart.setOption(option);
     setH('chart3');
-}
-
-function chart4(){
-    option = {
-        textStyle: {
-            color: '#38b8ff'
-        },
-        color: ["#37A2DA", "#E062AE", "#96BFFF"],
-        //color: ["#37A2DA", "#32C5E9", "#67E0E3", "#9FE6B8", "#FFDB5C", "#ff9f7f", "#fb7293", "#E062AE", "#E690D1", "#e7bcf3", "#9d96f5", "#8378EA", "#96BFFF"],
-
-        tooltip: {
-            trigger: 'axis',
-        },
-        legend: {
-            show:true,
-            bottom : '2%',
-            itemGap: 12, //图例每项之间的间隔
-            itemWidth: 16, //图例宽度
-            itemHeight: 8, //图例高度
-            textStyle: {
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
-            },
-            data:['太阳能','风能','地热、生物能'],
-        },
-        grid: {
-            left: '5%',
-            right:'5%',
-            top:'10%',
-            bottom:'18%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['2003年','2004年','2005年','2006年','2007年','2008年','2009年','2010年','2011年','2012年','2013年','2014年','2015年','2016年','2017年'],
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
-                }
-            },
-            //去掉辅助线
-            splitLine: {
-                show: false
-            },
-        },
-        yAxis: {
-            type: 'value',
-            name:'  太瓦时',
-            nameGap:-5,
-            nameTextStyle:{
-                padding:[0,0,0,45],
-                align:'center',
-                color:'#fff',
-            },
-            //去掉辅助线
-            splitLine: {
-                show: false
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
-                },
-                formatter: '{value}'
-            },
-            //单位
-        },
-        series: [{
-            name:'太阳能',
-            type: 'line',
-            smooth: true,
-            // stack: '总量',
-            symbolSize: 1,
-            symbol: 'circle',
-            /*areaStyle: {
-                normal: {
-                    opacity: "0.4",
-                }
-            },*/
-            data: [0.1,0.1,0.1,0.1,0.1,0.2,0.3,0.7,2.6,3.6,8.4,23.5,43.6,61.7,108.2]
-        }, {
-            name:'风能',
-            type: 'line',
-            smooth: true,
-            //stack: '总量',
-            symbolSize: 1,
-            symbol: 'circle',
-            /*areaStyle: {
-                normal: {
-                    opacity: "0.4",
-                }
-            },*/
-            data: [1.0,1.3,1.9,3.7,5.5,13.1,27.6,44.6,70.3,96.0,141.2,156.1,185.8,237.1,286.1]
-        }, {
-            name:'地热、生物能',
-            type: 'line',
-            smooth: true,
-            //stack: '总量',
-            symbolSize: 1,
-            symbol: 'circle',
-            /*areaStyle: {
-                normal: {
-                    opacity: "0.4",
-                }
-            },*/
-            data: [2.5,2.5,5.3,7.1,9.9,14.9,20.9,24.9,27.7,30.5,37.3,46.4,54.1,62.1,77.4]
-        }]
-    };
-    var myChart = echarts.init($('#chart4')[0]);
-    myChart.setOption(option);
-    setH('chart4');
 }
 
 function main(param){
@@ -1076,148 +973,629 @@ function changeMap(param){
 
 
 //近10年新增探明储量贡献
-function near10Order(data){
-    var dataStyle = {
-        normal: {
-            label: {
-                show: true,
-                color: '#fff',
-                fontSize: 9,
-            },
-            labelLine: {
-                length: 12,
-                length2: 12
-            },
-        }
-    };
-    var labelShow = {
-        show: true,
-        color: '#fff',
-        fontSize: 10,
-        formatter: [
-            '{b| {b} }',
-            '{d| {d}% }'
-        ].join('\n'),
-        rich: {
-            d: {
-                fontSize: 10,
-                color: '#fff'
-            },
-            b: {
-                fontSize: 12,
-                color: '#fff'
-            },
-        }
-    };
-    var placeHolderStyle = {
-        normal: {
-            color: 'rgba(0,0,0,0)',
-            label: {
-                show: false
-            },
-            labelLine: {
-                show: false
-            }
-        },
-        emphasis: {
-            color: 'rgba(0,0,0,0)'
-        }
-    };
-    var seriesData = [], x0 = 360, x1 = 0, rs = [[45,47],[30,47],[47,57],[37,47],[15,40],[15,40]], sa = [121,59.33,19.94,341.25,307.08, 276.60];
-    data.forEach(function(d, i){
-        var x = 3.6 * d.value;
-        x0 = sa[i];
-        x1 = 360 - x - x0;
-        var arr = [{
-            value: x0,
-            name: '',
-            itemStyle: placeHolderStyle
-        }, {
-            value: x,
-            name: d.name,
-            label: labelShow,
-        }, {
-            value:x1,
-            name: '',
-            itemStyle: placeHolderStyle
-        }];
-        var o = {
-            name: 'Line '+(i+1),
-            type: 'pie',
-            clockWise: false,
-            radius: rs[i],
-            itemStyle: dataStyle,
-            hoverAnimation: false,
-            data:arr
-        };
-        seriesData.push(o);
-    });
-    seriesData.push({
-        type: 'bar',
-        data: [0],
-        coordinateSystem: 'polar',
-        name: '06a',
-        stack: 'a'
-    });
-    var option = {
-        color: ['#2078d1', '#8a00ec', '#ff00f3', '#fb0065', '#ff941b', '#ac9857'],
-        tooltip: {
-            show: true,
-            formatter: function(param){
-                if (param.name.length>0) {
-                    return param.name+'<br/>'+Math.round(param.value*10,2)+' 亿吨';
-                }
-            }
-        },
-        angleAxis: {
-            type: 'category',
-            z: 10,
-            axisLine: {
-                color: '#fff',
-                lineStyle: {
-                    width: 3,
-                    color: '#fff',
-                }
-            },
-        },
-        radiusAxis: {
-            axisTick: {
-                show: false
-            },
-            axisLabel: {
-                show: false,
-                color: '#fff'
-            },
-            axisLine: {
-                show: false,
-                color: '#fff',
-                lineStyle: {
-                    color: '#fff',
-                }
-            },
-            splitLine: {
-                color: '#000',
-                lineStyle: {
-                    type: 'dotted',
-                    color: 'rgba(170,170,170,.5)',
-                }
-            },
+function near10Order(jsonData){
+    let groupDataObj = {}
 
+    let legendArray = []
+    jsonData.forEach((eachData,i)=>{
+        const group = eachData['group']
+        legendArray.push(group)
+        const groupDatas = eachData['groupDatas']
+        // groupDatas.sort(compare('value'))
+        groupDatas.forEach(eachGroupData=>{
+            const eachGroupDataName = eachGroupData['name']
+            const eachGroupDataValue = eachGroupData['value']
+            if(groupDataObj[eachGroupDataName]!=null){}else{
+                groupDataObj[eachGroupDataName] = [0,0]
+            }
+            groupDataObj[eachGroupDataName][i] = eachGroupDataValue
+        })
+    })
+
+    const xArray = Object.keys(groupDataObj)
+    let barArray = []
+
+    Object.values(groupDataObj).forEach(groupData=>{
+        groupData.forEach((eachGroupData,i)=>{
+            if(barArray[i]!=null){
+                barArray[i].data.push(eachGroupData)
+            }else{
+                barArray[i] = {
+                    "name": legendArray[i],
+                    "type": "bar",
+                    "data": [eachGroupData],
+                    "barWidth": "auto"
+                }
+            }
+        })
+    })
+
+    const option = {
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross",
+                "crossStyle": {
+                    "color": "#384757"
+                }
+            }
         },
-        polar: {
-            center: ['50%', '50%'],
-            radius: 64,
+        grid: {
+            left: '1%',
+            right:'1%',
+            top:'10%',
+            bottom:'18%',
+            containLabel: true
         },
-        legend: {
-            show:false
+        "legend": {
+            show:true,
+            bottom : '2%',
+            itemGap: 12, //图例每项之间的间隔
+            itemWidth: 16, //图例宽度
+            itemHeight: 8, //图例高度
+            textStyle: {
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data: legendArray,
         },
-        series: seriesData
+        "xAxis": [
+            {
+                "type": "category",
+                "data": xArray,
+                "axisPointer": {
+                    "type": "shadow"
+                },
+                boundaryGap: true,
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    }
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                },
+            }
+        ],
+        "yAxis": [
+            {
+                type: 'value',
+                name:'  千桶/日',
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,45],
+                    align:'center',
+                    color:'#fff',
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    }
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                },
+                /*
+                "splitLine": {
+                  "lineStyle": {
+                    "color": "#7d838b"
+                  }
+                }
+                */
+            }
+        ],
+        "series": barArray
     };
     var myChart = echarts.init($('#near10Order')[0]);
     myChart.setOption(option);
+
+    // var option = {
+    //     color: ['#2078d1', '#8a00ec', '#ff00f3', '#fb0065', '#ff941b', '#ac9857'],
+    //     tooltip: {
+    //         show: true,
+    //         formatter: function(param){
+    //             if (param.name.length>0) {
+    //                 return param.name+'<br/>'+Math.round(param.value*10,2)+' 亿吨';
+    //             }
+    //         }
+    //     },
+    //     angleAxis: {
+    //         type: 'category',
+    //         z: 10,
+    //         axisLine: {
+    //             color: '#fff',
+    //             lineStyle: {
+    //                 width: 3,
+    //                 color: '#fff',
+    //             }
+    //         },
+    //     },
+    //     radiusAxis: {
+    //         axisTick: {
+    //             show: false
+    //         },
+    //         axisLabel: {
+    //             show: false,
+    //             color: '#fff'
+    //         },
+    //         axisLine: {
+    //             show: false,
+    //             color: '#fff',
+    //             lineStyle: {
+    //                 color: '#fff',
+    //             }
+    //         },
+    //         splitLine: {
+    //             color: '#000',
+    //             lineStyle: {
+    //                 type: 'dotted',
+    //                 color: 'rgba(170,170,170,.5)',
+    //             }
+    //         },
+    //
+    //     },
+    //     polar: {
+    //         center: ['50%', '50%'],
+    //         radius: 64,
+    //     },
+    //     legend: {
+    //         show:false
+    //     },
+    //     series: seriesData
+    // };
+    // var myChart = echarts.init($('#near10Order')[0]);
+    // myChart.setOption(option);
 }
 
-function cnTop10Order(data){
+function cnTop10Order(jsonData){
+    jsonData.sort(compare('value'))
+
+    let data = {}
+    jsonData.forEach(oldData=>{
+        data[oldData['name']] = oldData['value']
+    })
+    var option = {
+        tooltip:{
+            formatter:'{b}: {c}',
+        },
+        grid:{
+            top:'10%',
+            bottom:'10%',
+            left:'5%',
+            right:'5%',
+            containLabel:true,
+        },
+        xAxis: [{
+            type: 'category',
+            data: Object.keys(data),
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
+        }],
+        yAxis: [{
+            splitLine: {
+                show: false
+            },
+            type: 'value',
+            splitNumber:3,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+                formatter:'{value}',
+
+                textStyle: {
+                    color: '#ffffff',
+                }
+            }
+        }],
+        series: [{
+            name: '探明储量',
+            type: 'bar',
+            barWidth: '40%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(40,161,255,1)'
+                        }, {
+                            offset: 0.4,
+                            color: 'rgba(40,161,255,0.5)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(40,161,255,0.1)'
+                        }]
+                    ),
+                    barBorderRadius: [3, 3, 0, 0]
+                }
+            },
+            z: -12,
+            data: Object.values(data)
+        }]
+    };
+    var myChart = echarts.init($('#cnTop10Order')[0]);
+    myChart.setOption(option);
+}
+
+function worldTop10Order(jsonData){
+    jsonData.sort(compare('value'))
+
+    let data = {}
+    jsonData.forEach(oldData=>{
+        data[oldData['name']] = oldData['value']
+    })
+    var option = {
+        tooltip:{
+            formatter:'{b}: {c}',
+        },
+        grid:{
+            top:'10%',
+            bottom:'10%',
+            left:'5%',
+            right:'5%',
+            containLabel:true,
+        },
+        xAxis: [{
+            type: 'category',
+            data: Object.keys(data),
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
+        }],
+        yAxis: [{
+            splitLine: {
+                show: false
+            },
+            type: 'value',
+            splitNumber:3,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+                formatter:'{value}',
+
+                textStyle: {
+                    color: '#ffffff',
+                }
+            }
+        }],
+        series: [{
+            name: '探明储量',
+            type: 'bar',
+            barWidth: '40%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(40,161,255,1)'
+                        }, {
+                            offset: 0.4,
+                            color: 'rgba(40,161,255,0.5)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(40,161,255,0.1)'
+                        }]
+                    ),
+                    barBorderRadius: [3, 3, 0, 0]
+                }
+            },
+            z: -12,
+            data: Object.values(data)
+        }]
+    };
+    var myChart = echarts.init($('#worldTop10Order')[0]);
+    myChart.setOption(option);
+}
+
+function machiningTop10Order(jsonData){
+    jsonData.sort(compare('value'))
+
+    let data = {}
+    jsonData.forEach(oldData=>{
+        data[oldData['name']] = oldData['value']
+    })
+    var option = {
+        tooltip:{
+            formatter:'{b}: {c}',
+        },
+        grid:{
+            top:'10%',
+            bottom:'10%',
+            left:'5%',
+            right:'5%',
+            containLabel:true,
+        },
+        xAxis: [{
+            type: 'category',
+            data: Object.keys(data),
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
+        }],
+        yAxis: [{
+            splitLine: {
+                show: false
+            },
+            type: 'value',
+            splitNumber:3,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+                formatter:'{value}',
+
+                textStyle: {
+                    color: '#ffffff',
+                }
+            }
+        }],
+        series: [{
+            name: '探明储量',
+            type: 'bar',
+            barWidth: '40%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(40,161,255,1)'
+                        }, {
+                            offset: 0.4,
+                            color: 'rgba(40,161,255,0.5)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(40,161,255,0.1)'
+                        }]
+                    ),
+                    barBorderRadius: [3, 3, 0, 0]
+                }
+            },
+            z: -12,
+            data: Object.values(data)
+        }]
+    };
+    var myChart = echarts.init($('#machiningTop10Order')[0]);
+    myChart.setOption(option);
+}
+
+function worldTop10Machining(jsonData){
+    jsonData.sort(compare('value'))
+
+    let data = {}
+    jsonData.forEach(oldData=>{
+        data[oldData['name']] = oldData['value']
+    })
+    var option = {
+        tooltip:{
+            formatter:'{b}: {c}',
+        },
+        grid:{
+            top:'10%',
+            bottom:'10%',
+            left:'5%',
+            right:'5%',
+            containLabel:true,
+        },
+        xAxis: [{
+            type: 'category',
+            data: Object.keys(data),
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
+        }],
+        yAxis: [{
+            splitLine: {
+                show: false
+            },
+            type: 'value',
+            splitNumber:3,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+                formatter:'{value}',
+
+                textStyle: {
+                    color: '#ffffff',
+                }
+            }
+        }],
+        series: [{
+            name: '探明储量',
+            type: 'bar',
+            barWidth: '40%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(40,161,255,1)'
+                        }, {
+                            offset: 0.4,
+                            color: 'rgba(40,161,255,0.5)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(40,161,255,0.1)'
+                        }]
+                    ),
+                    barBorderRadius: [3, 3, 0, 0]
+                }
+            },
+            z: -12,
+            data: Object.values(data)
+        }]
+    };
+    var myChart = echarts.init($('#chart4')[0]);
+    myChart.setOption(option);
+}
+
+function machiningCount(jsonData,selectObj){
+    let selectPoint = ""
+    if(isSelect(jsonData)){
+        selectPoint = $(selectObj).val()
+    }else{
+        _data_cache.machiningCount = jsonData
+        selectPoint = checkInitDate("machiningCountSelected")
+
+    }
+
+    // data.sort(compare('value'))
+
+    let data = {}
+    _data_cache.machiningCount.forEach(machiningCountData=>{
+        const year = machiningCountData['year']
+        if(year===selectPoint) {
+            data[machiningCountData['name']] = machiningCountData['value']
+        }
+    })
+
+    var option = {
+        tooltip:{
+            formatter:'{b}: {c}',
+        },
+        grid:{
+            top:'10%',
+            bottom:'10%',
+            left:'5%',
+            right:'5%',
+            containLabel:true,
+        },
+        xAxis: [{
+            type: 'category',
+            data: Object.keys(data),
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+
+                textStyle: {
+                    color: '#ffffff'
+                }
+            }
+        }],
+        yAxis: [{
+            splitLine: {
+                show: false
+            },
+            type: 'value',
+            splitNumber:3,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#87CEFF'
+                }
+            },
+            axisLabel: {
+                formatter:'{value}',
+
+                textStyle: {
+                    color: '#ffffff',
+                }
+            }
+        }],
+        series: [{
+            name: '探明储量',
+            type: 'bar',
+            barWidth: '40%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(40,161,255,1)'
+                        }, {
+                            offset: 0.4,
+                            color: 'rgba(40,161,255,0.5)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(40,161,255,0.1)'
+                        }]
+                    ),
+                    barBorderRadius: [3, 3, 0, 0]
+                }
+            },
+            z: -12,
+            data: Object.values(data)
+        }]
+    };
+    var myChart = echarts.init($('#machiningCount')[0]);
+    myChart.setOption(option);
+}
+
+function cnTop10OrderBak(jsonData){
+    let data = []
+    jsonData.forEach(oldData=>{
+        data.push({'name':oldData['name'],'value':oldData['value']/200})
+    })
+
     var dataStyle = {
         normal: {
             label: {
@@ -1264,7 +1642,9 @@ function cnTop10Order(data){
             color: 'rgba(0,0,0,0)'
         }
     };
-    var seriesData = [], x0 = 360, x1 = 0, rs = [[45,47],[30,47],[47,57],[37,47],[15,40],[15,40]], sa = [121,59.33,19.94,341.25,307.08, 276.60];
+    var seriesData = [], x0 = 360, x1 = 0,
+        rs = [[45,47],[30,47],[47,57],[37,47],[15,40],[15,40],[50,57],[50,57],[30,47],[50,57]],
+        sa = [121,59.33,19.94,341.25,307.08, 276.60,420.60,200,240,480];
     data.forEach(function(d, i){
         var x = 3.6 * d.value;
         x0 = sa[i];
@@ -1358,7 +1738,12 @@ function cnTop10Order(data){
     myChart.setOption(option);
 }
 
-function worldTop10Order(data){
+function worldTop10OrderBak(jsonData){
+    let data = []
+    jsonData.forEach(oldData=>{
+        data.push({'name':oldData['name'],'value':oldData['value']/10})
+    })
+
     var dataStyle = {
         normal: {
             label: {
@@ -1405,7 +1790,9 @@ function worldTop10Order(data){
             color: 'rgba(0,0,0,0)'
         }
     };
-    var seriesData = [], x0 = 360, x1 = 0, rs = [[45,47],[30,47],[47,57],[37,47],[15,40],[15,40]], sa = [121,59.33,19.94,341.25,307.08, 276.60];
+    var seriesData = [], x0 = 360, x1 = 0,
+        rs = [[45,47],[30,47],[47,57],[37,47],[15,40],[15,40],[50,57],[50,57],[30,47],[50,57]],
+        sa = [121,59.33,19.94,341.25,307.08, 276.60,420.60,200,240,480];
     data.forEach(function(d, i){
         var x = 3.6 * d.value;
         x0 = sa[i];
@@ -1499,7 +1886,12 @@ function worldTop10Order(data){
     myChart.setOption(option);
 }
 
-function machiningTop10Order(data){
+function machiningTop10OrderBak(jsonData){
+    let data = []
+    jsonData.forEach(oldData=>{
+        data.push({'name':oldData['name'],'value':oldData['value']/30})
+    })
+
     var dataStyle = {
         normal: {
             label: {
@@ -1546,7 +1938,9 @@ function machiningTop10Order(data){
             color: 'rgba(0,0,0,0)'
         }
     };
-    var seriesData = [], x0 = 360, x1 = 0, rs = [[45,47],[30,47],[47,57],[37,47],[15,40],[15,40]], sa = [121,59.33,19.94,341.25,307.08, 276.60];
+    var seriesData = [], x0 = 360, x1 = 0,
+        rs = [[45,47],[30,47],[47,57],[37,47],[15,40],[15,40],[50,57],[50,57],[30,47],[50,57]],
+        sa = [121,59.33,19.94,341.25,307.08, 276.60,420.60,200,240,480];
     data.forEach(function(d, i){
         var x = 3.6 * d.value;
         x0 = sa[i];
@@ -1640,7 +2034,24 @@ function machiningTop10Order(data){
     myChart.setOption(option);
 }
 
-function machiningCount(data){
+function machiningCountBak(jsonData,selectObj){
+    let selectPoint = ""
+    if(isSelect(jsonData)){
+        selectPoint = $(selectObj).val()
+    }else{
+        _data_cache.machiningCount = jsonData
+        selectPoint = checkInitDate("machiningCountSelected")
+
+    }
+
+    let data = []
+    _data_cache.machiningCount.forEach(machiningCountData=>{
+        const year = machiningCountData['year']
+        if(year===selectPoint) {
+            data.push(machiningCountData)
+        }
+    })
+
     var dataStyle = {
         normal: {
             label: {
@@ -1687,7 +2098,7 @@ function machiningCount(data){
             color: 'rgba(0,0,0,0)'
         }
     };
-    var seriesData = [], x0 = 360, x1 = 0, rs = [[45,47],[30,47],[47,57],[37,47],[15,40],[15,40]], sa = [121,59.33,19.94,341.25,307.08, 276.60];
+    var seriesData = [], x0 = 360, x1 = 0, rs = [[53,55],[20,37],[37,47],[27,37],[15,40],[15,40]], sa = [121,59.33,400.94,341.25,307.08, 276.60];
     data.forEach(function(d, i){
         var x = 3.6 * d.value;
         x0 = sa[i];
@@ -1781,10 +2192,10 @@ function machiningCount(data){
     myChart.setOption(option);
 }
 
-function worldTop10Machining(data){
+function worldTop10MachiningBak(data){
     var option = {
         tooltip:{
-            formatter:'{b}: {c}%',
+            formatter:'{b}: {c}',
         },
         grid:{
             top:'10%',
@@ -1802,12 +2213,7 @@ function worldTop10Machining(data){
                 }
             },
             axisLabel: {
-                rotate: 45,
-                interval: function(index){
-                    if(index<4)
-                        return true;
-                    return index % 2 == 0;
-                },
+
                 textStyle: {
                     color: '#ffffff'
                 }
@@ -1828,7 +2234,7 @@ function worldTop10Machining(data){
                 }
             },
             axisLabel: {
-                formatter:'{value}%',
+                formatter:'{value}',
 
                 textStyle: {
                     color: '#ffffff',

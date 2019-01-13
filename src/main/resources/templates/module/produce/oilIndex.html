@@ -87,7 +87,18 @@
         </div>
         <div class="w3 h4">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">原油加工产量</span></div>
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">原油加工产量</span>
+                    <div class="right">
+                        <select id="machiningCountSelected" class="chart-selector" onchange="machiningCount('select',this)">
+                            <option>2000</option>
+                            <option>2010</option>
+                            <option>2013</option>
+                            <option>2014</option>
+                            <option>2015</option>
+                            <option>2016</option>
+                        </select>
+                    </div>
+                </div>
                 <div id="machiningCount" class="qs_body"></div>
 
             </div>

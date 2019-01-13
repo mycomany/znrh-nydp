@@ -39,6 +39,41 @@
         float: left;
     }
 
+    .main_show_type{
+        height:30px;
+        line-height: 35px;
+        float: left;
+        margin-right:20px;
+        font-weight:normal;
+        cursor: pointer;
+        color:#2b88ff;
+    }
+
+    .main_show_type>span{
+        margin:0 10px 0 30px;
+    }
+
+    .main_show_power{
+
+        background-size: 100% 100%;padding: 0;
+        background-image: url('${host}/static/theme/green/produce/powerratio.png');
+    }
+
+    .main_show_power:hover,.main_show_power_checked{
+        background-image: url('${host}/static/theme/green/produce/powerratiocheck.png');
+        color:#52fcfc;
+    }
+
+    .main_show_installed{
+        background-size: 100% 100%;padding: 0;
+        background-image: url('${host}/static/theme/green/produce/installcount.png');
+    }
+
+    .main_show_installed:hover,.main_show_installed_checked{
+        background-image: url('${host}/static/theme/green/produce/installcountcheck.png');
+        color:#52fcfc;
+    }
+
     .main_show_tab_before{
         position:relative;
         /*margin:50px auto;*/
@@ -297,13 +332,15 @@
 
 
                     <div class="main_order_type">
-                        <div orderType="makePower" class="main_show_tab_data">
-                            <div class="main_show_tab_before"></div>
-                            <div class="main_show_tab">发电量</div>
+                        <div orderType="makePower" class=" main_show_type main_show_power main_show_power_checked">
+                            <span>发电量占比</span>
+                            <!--<div class="main_show_tab_before"></div>-->
+                            <!--<div class="main_show_tab">发电量</div>-->
                         </div>
-                        <div orderType="installed" class="main_show_tab_data">
-                            <div class="main_show_tab_before"></div>
-                            <div class="main_show_tab">装机量</div>
+                        <div orderType="installed" class=" main_show_type main_show_installed">
+                            <span>装机量占比</span>
+                            <!--<div class="main_show_tab_before"></div>-->
+                            <!--<div class="main_show_tab">装机量</div>-->
                         </div>
                     </div>
 
