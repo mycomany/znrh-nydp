@@ -11,8 +11,8 @@
 <script src="${host}/static/lib/common.js" type="text/javascript"></script>
 <!--<link href="${host}/static/css/animate.min.css" rel="stylesheet">-->
 <script type="text/javascript">
-	var __host = '${host}';/*{"name":"重庆篇",url:"/motion/state"}*/
-	var __menu = {'elec':['','','clean/elecIndex','lc/elecIndex','',''],'oil':['','','clean/oilIndex','lc/oilIndex','',''],'gas':['','','clean/gasIndex','lc/gasIndex','',''],'coal':['','','','','','']};
+	var __host = '${host}';
+	var __menu = {'elec':['/module/produce/index','','/module/clean/elecIndex','/module/lc/elecIndex','/energy/elec/security','/energy/elec/ha'],'oil':['/module/produce/oilIndex','','/module/clean/oilIndex','/module/lc/oilIndex','/energy/oil/security','/energy/oil/ha'],'gas':['/module/produce/gasIndex','','/module/clean/gasIndex','/module/lc/gasIndex','/energy/gas/security','/energy/gas/ha'],'coal':['','','','','','']};
 	var _mnm = -1, _mnt = '';
 	function initMenu(){
 		var dt = [{"name":"能源平台",url:"/module/clean/elecIndex"},{"name":"国际篇",url:"/module/pattern/index"},{"name":"国内篇",url:"/module/statecn/index"}];
@@ -28,7 +28,7 @@
 		it(".engtab");
 	}
 	function setCurrPage(){
-		var url = location.href.replace('${host}/module/','');
+		var url = location.href.replace('${host}','');
 		var a = 0, n0 = $(".qnav"), t0 = $(".engtab");
 		for(var u in __menu){
 			for(var i = 0, l = __menu[u].length; i < l; i++){
@@ -46,7 +46,7 @@
 	function gopage(tp, mod){
 		var t = tp || _mnt, m = mod == -1 ? _mnm : mod;
 		var u = __menu[t][m];
-		if(u) gourl('${host}/module/'+u);
+		if(u) gourl('${host}'+u);
 	}
 	$(document).ready(function(){
 		initMenu();

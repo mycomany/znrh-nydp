@@ -1,38 +1,12 @@
+<#assign goods="oil" />
 <#include "/inc/base.html" />
 <#macro head>
 <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
 <script src="${host}/static/js/energy/oil/oil_ha.js"></script>
 <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
-<style>
-    .box{position:relative;}
-    .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
-</style>
 </#macro>
 
 <#macro body>
-<@topbar title="国内篇" tab="<div class='circlebox'><div class='circle1' title='石油' onclick=\"gourl('index')\">石油</div><div class='circle' title='天然气' onclick=\"gourl('gasIndex')\">天然气</div></div>">
-<div class="btn-group" style="width:70px;">
-    <button class="btn btn-primary barbtn" type="button" onclick="gourl('index')">供需态势</button>
-</div>
-<div class="btn-group" style="width:70px;">
-    <button class="btn btn-default barbtn" type="button" onclick="gourl('market')">市场监测</button>
-</div>
-<div class="btn-group" style="width:70px;">
-    <button class="btn btn-default barbtn" type="button" onclick="gourl('invest')">能源投资</button>
-</div>
-<div class="btn-group" style="width:70px;">
-    <button class="btn btn-default barbtn" type="button" onclick="gourl('main')">市场主体</button>
-</div>
-<div class="btn-group" style="width:70px;">
-    <button class="btn btn-default barbtn" type="button" onclick="gourl('trade')">贸易发展</button>
-</div>
-<div class="btn-group" style="width:70px;">
-    <button class="btn btn-default barbtn" type="button" onclick="gourl('security')">能源安全</button>
-</div>
-<div class="btn-group" style="width:70px;">
-    <button class="btn btn-default barbtn" type="button" onclick="gourl('opinions')">能源舆情</button>
-</div>
-</@topbar>
 
 <div class="qmain container-fluid animated fadeInRight">
     <div id="page" class="row qpage"  style="margin-top: 2px">
