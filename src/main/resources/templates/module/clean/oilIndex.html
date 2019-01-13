@@ -1,0 +1,73 @@
+<#assign goods="oil" />
+<#include "/inc/base.html" />
+<#macro head>
+    <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
+    <script src="${host}/static/lib/echarts/map/world.js"></script>
+    <script src="${host}/static/data/public/country.json"></script>
+    <script src="${host}/static/js/clean/oilIndex.js"></script>
+    <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
+</#macro>
+
+<#macro body>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="gc row qpage">
+        <div class="w3 h12">
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油开采资源综合利用情况</span></div>
+                    <div id="chart1" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油开采其他污染物产生情况</span></div>
+                    <div id="chart2" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油开采其他污染物产生情况</span></div>
+                    <div id="chart3" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w6 h12">
+            <div class="box w12 h8">
+                <div class="qpanel">
+                    <div class="tabbtn check_btn_grp check_btn_grp_float_left" style="float:none;z-index:10"><!-- 35PX -->
+                        <div onclick="changeMain('c1')" id = "c1" class="c check_btn_option_status_l check_btn_option_checked " >石油开采</div>
+                        <div onclick="changeMain('c3')" id = "c3" class="c check_btn_option_status_r">石油加工</div>
+                    </div>
+                    <div id="main" class="w12 h12"></div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油开采加工综合能耗企业排名</span></div>
+                    <div id="chart4" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w3 h12">
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油加工资源消耗情况</span></div>
+                    <div id="chart5" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油加工资源综合利用情况</span></div>
+                    <div id="chart6" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油加工污染物产生情况</span></div>
+                    <div id="chart7" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</#macro>

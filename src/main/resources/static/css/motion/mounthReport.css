@@ -372,3 +372,5 @@ div.qpanel{margin:5px;height:calc(100% - 10px);}
 .check_btn_option_checked{
     background-color: #40A3D5;
 }
+.box{position:relative;}
+.tabbtn{position:absolute;z-index:11;top:0px;left:0px;}

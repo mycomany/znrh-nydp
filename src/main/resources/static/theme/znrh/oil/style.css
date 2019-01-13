@@ -1,0 +1,37 @@
+.qbody{
+    background: url(bg.jpg) no-repeat fixed 50%;
+    background-size: 100% 100%;
+}
+div.qpanel{
+    background-color:rgba(43, 175, 251,0.08);
+    border:2px solid #40eaf9;
+}
+div.qpanel:before{
+    border-left: 2px solid rgba(43, 175, 251,1);
+    border-right: 2px solid rgba(43, 175, 251,1);
+}
+div.qpanel:after{
+    border-top: 2px solid rgba(43, 175, 251,1);
+    border-bottom: 2px solid rgba(43, 175, 251,1);
+}
+.qheader-title1{
+    background-image: -webkit-gradient(linear,0 0,0 bottom,from(#fff),to(#05ffd5));
+}
+.qs_header{
+    height:30px;line-height: 30px;
+}
+
+.qs_title1{
+    margin:0 10px 0 10px; font-size: 1.25em;
+}
+
+.qs_title2{
+    font-size: 1.25em;
+    /*color: #2baffb;*/
+    font-family: "Microsoft YaHei" !important;
+}
+.qs_body{
+    height:calc(100% - 30px);
+}
+/******bootstrap theme******/
+.btn-primary, .btn-primary:hover{background-color:#05ffd5;}

@@ -1,0 +1,63 @@
+<#assign goods="elec" />
+<#include "/inc/base.html" />
+<#macro head>
+    <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
+    <script src="${host}/static/lib/echarts/map/world.js"></script>
+    <script src="${host}/static/data/public/country.json"></script>
+    <script src="${host}/static/js/clean/elecIndex.js"></script>
+</#macro>
+
+<#macro body>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="gc row qpage">
+        <div class="w4 h12">
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title2">非化石能源发电量趋势</span></div>
+                    <div id="chart1" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title2">清洁能源增长率</span></div>
+                    <div id="chart2" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w5 h12">
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title2">污染物排放完成率</span></div>
+                    <div id="chart3" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h6">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title2">污染物排放趋势</span></div>
+                    <div id="chart4" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w3 h12">
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title2">脱硫效率排名</span></div>
+                    <div id="chart5" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title2">脱硝效率排名</span></div>
+                    <div id="chart6" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w12 h4">
+                <div class="qpanel">
+                    <div class="qs_header"><span class="qs_title2">淘汰落后产能结构</span></div>
+                    <div id="chart7" class="qs_body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</#macro>

@@ -11,11 +11,42 @@ var $style = {
     oil:{
         color:'#59ebe8'
     },
+    merge:function(opt, style){
+        style = style || 'bas';
+        if(typeof(style)=="string"){
+            style = $style[style];
+            if(style == null)
+                style = {};
+        }
+        var option = $.extend(true, {}, style, opt);
+        return option;
+    },
     setTheme:function(g){
         if(g!='gas') return;
         var c = $style[g].color;
         $style.bar.xAxis.axisLine.lineStyle.color = c;
         $style.bar.yAxis.axisLine.lineStyle.color = c;
+    },
+    bas:{
+        legend: {  //图例组件，颜色和名字
+            show:true,
+            type:'scroll',
+            bottom : '2%',
+            itemGap: 6, //图例每项之间的间隔
+            itemWidth: 16, //图例宽度
+            itemHeight: 8, //图例高度
+            textStyle: {
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            pageButtonItemGap:1,
+            pageTextStyle:{
+                color:'#fff',
+            },
+        },
+    },
+    pie:{
     },
     bar:{
         grid:{
@@ -78,13 +109,7 @@ var $chart = {
         return d;
     },
     init:function(id, option, style){
-        style = style || {};
-        if(typeof(style)=="string"){
-            style = $style[style];
-            if(style == null)
-                style = {};
-        }
-        option = $.extend(true, style, option);
+        option = $style.merge(option, style);
         var myChart = echarts.init($(id)[0]);
         myChart.setOption(option);
         return myChart;
@@ -116,7 +141,7 @@ function getdata(url, o){
 }
 
 var RollingPlay = {
-    ts : 61,
+    ts : 11,
     uri:['market/finance','pattern/gasIndex','pattern/gasStore','statecn/index','statecn/opinions','statecn/gasIndex','statecn/gasSecurity','pattern/index','pattern/gasMarket'],
     rollPlayInit:function(id){
         this.timespan = this.ts;
@@ -183,9 +208,57 @@ var RollingPlay = {
                 }else{
                     var x = this.uri.indexOf(curr);
                     var nextu = x<=this.uri.length - 2 ? this.uri[x+1] : this.uri[0];
-                    gourl(__host + '/' + nextu);
+                    gourl(__host + '/module/' + nextu);
                 }
             }
         }
     }
 };
+var dui = {};
+dui.imgtab = function(o,p){
+    o = $(o);
+    var li = o.find("li");
+    var a = o.find("a");
+    var cur = li.find(".active");
+    var idx = cur.size() == 0 ? '' : cur.text();
+    o.data("ix", idx);
+    a.on("mouseover",function(){
+        var t = $(this);
+        if(!t.parent().hasClass("active")){
+            t.parent().addClass("active");
+            setImg(t, true);
+        }
+    }).on("mouseout",function(){
+        var t = $(this).parent(), ix = o.data("ix");
+        if(ix != t.text()){
+            $(this).parent().removeClass("active");
+            setImg(t, false);
+        }
+    });
+    li.find("a").on("click", function(){
+        setActive($(this));
+    });
+    function setImg(n,b){
+        var h = n.parent().hasClass("active");
+        var i = n.find("img");
+        if(i.size()==0) return;
+        var str = i.attr("src");
+        var a = str.split('.');
+        if(!b && !h){
+            str = str.replace('.active', '');
+            i.attr("src", str);
+        }else if(b && h){
+            str = str.replace(a[a.length - 1], 'active.'+a[a.length-1]);
+            i.attr("src", str);
+        }
+    }
+    function setActive(t){
+        var li = o.find("li");
+        li.removeClass("active");
+        t.addClass("active");
+        setImg(t.find("a"), true);
+        o.data("ix", t.text());
+    }
+    o[0].setImg = setImg;
+    o[0].setActive = setActive;
+}
