@@ -994,7 +994,7 @@ function near10Order(jsonData){
 
     const xArray = Object.keys(groupDataObj)
     let barArray = []
-
+    const colorArray = [['#37a705','#00ffcb'],['#00feff','#027eff']]
     Object.values(groupDataObj).forEach(groupData=>{
         groupData.forEach((eachGroupData,i)=>{
             if(barArray[i]!=null){
@@ -1004,7 +1004,23 @@ function near10Order(jsonData){
                     "name": legendArray[i],
                     "type": "bar",
                     "data": [eachGroupData],
-                    "barWidth": "auto"
+                    "barWidth": "auto",
+                    "itemStyle": {
+                        normal: {
+                            barBorderRadius: [30, 30, 0, 0],
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: colorArray[i][0]
+                                },
+                                    {
+                                        offset: 1,
+                                        color: colorArray[i][1]
+                                    }
+                                ]
+                            )
+                        }
+                    }
                 }
             }
         })
@@ -1104,63 +1120,7 @@ function near10Order(jsonData){
     var myChart = echarts.init($('#near10Order')[0]);
     myChart.setOption(option);
 
-    // var option = {
-    //     color: ['#2078d1', '#8a00ec', '#ff00f3', '#fb0065', '#ff941b', '#ac9857'],
-    //     tooltip: {
-    //         show: true,
-    //         formatter: function(param){
-    //             if (param.name.length>0) {
-    //                 return param.name+'<br/>'+Math.round(param.value*10,2)+' 亿吨';
-    //             }
-    //         }
-    //     },
-    //     angleAxis: {
-    //         type: 'category',
-    //         z: 10,
-    //         axisLine: {
-    //             color: '#fff',
-    //             lineStyle: {
-    //                 width: 3,
-    //                 color: '#fff',
-    //             }
-    //         },
-    //     },
-    //     radiusAxis: {
-    //         axisTick: {
-    //             show: false
-    //         },
-    //         axisLabel: {
-    //             show: false,
-    //             color: '#fff'
-    //         },
-    //         axisLine: {
-    //             show: false,
-    //             color: '#fff',
-    //             lineStyle: {
-    //                 color: '#fff',
-    //             }
-    //         },
-    //         splitLine: {
-    //             color: '#000',
-    //             lineStyle: {
-    //                 type: 'dotted',
-    //                 color: 'rgba(170,170,170,.5)',
-    //             }
-    //         },
-    //
-    //     },
-    //     polar: {
-    //         center: ['50%', '50%'],
-    //         radius: 64,
-    //     },
-    //     legend: {
-    //         show:false
-    //     },
-    //     series: seriesData
-    // };
-    // var myChart = echarts.init($('#near10Order')[0]);
-    // myChart.setOption(option);
-}
+ }
 
 function cnTop10Order(jsonData){
     jsonData.sort(compare('value'))
