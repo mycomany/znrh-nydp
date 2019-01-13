@@ -624,14 +624,18 @@ function chart4(data){
             containLabel: true
         },
         xAxis: {
-            axisLine: {
-                lineStyle: {
-                    color: '#0177d4'
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
                 }
             },
-            axisLabel: {
-                color: '#fff',
-                fontSize: 14
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#38b8ff'
+                }
             },
             type: 'category',
             data: data[1]
@@ -661,14 +665,7 @@ function chart4(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
         ],
         legend:{
@@ -689,13 +686,7 @@ function chart4(data){
                 barWidth: "20%",
                 itemStyle:{
                     normal:{
-                        color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: '#00b0ff'
-                        }, {
-                            offset: 0.8,
-                            color: '#7052f4'
-                        }], false)
+                        color: '#2baffb'
                     }
                 },
                 data: data[3]
@@ -737,14 +728,18 @@ function chart5(data){
             containLabel: true
         },
         xAxis: {
-            axisLine: {
-                lineStyle: {
-                    color: '#0177d4'
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
                 }
             },
-            axisLabel: {
-                color: '#fff',
-                fontSize: 14
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#38b8ff'
+                }
             },
             type: 'category',
             data: data[1]
@@ -802,13 +797,7 @@ function chart5(data){
                 barWidth: "20%",
                 itemStyle:{
                     normal:{
-                        color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: '#00b0ff'
-                        }, {
-                            offset: 0.8,
-                            color: '#7052f4'
-                        }], false)
+                        color: '#4138e1'
                     }
                 },
                 data: data[3][nf]

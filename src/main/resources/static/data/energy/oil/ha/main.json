@@ -8,14 +8,14 @@
       "name":"中国",
       "type":"bar",
       "barWidth":40,
-      "color":"#4682B4",
+      "color":"#2baffb",
       "data":[11.96, 10.64, 14.74, 38.93, 14.67]
     },
     {
       "name":"国际先进水平",
       "type":"bar",
       "barWidth":40,
-      "color":"#00BFFF",
+      "color":"#4138e1",
       "data":[100, 100, 100, 100, 100, 100]
     }
   ]
