@@ -126,7 +126,7 @@ function main(data){
                 "name": data[0][0][0],
                 "type":"bar",
                 "barWidth":15,
-                "color":"#4682B4",
+                "color":"#4138e1",
                 "data":data[0][3][0]
             },
             {
@@ -139,7 +139,7 @@ function main(data){
                 "barWidth": "auto",
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4094ff"
                     }
                 }
             }
@@ -248,7 +248,7 @@ function main_1(data){
                 "name": data[1][0][0],
                 "type":"bar",
                 "barWidth":15,
-                "color":"#00BFFF",
+                "color":"#3ae276",
                 "data":data[1][3][0]
             },
             {
@@ -261,7 +261,7 @@ function main_1(data){
                 "barWidth": "auto",
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 }
             }
@@ -411,7 +411,7 @@ function chart1(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -423,7 +423,7 @@ function chart1(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -573,7 +573,7 @@ function chart2(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -585,7 +585,7 @@ function chart2(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -694,14 +694,7 @@ function chart3(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
             {
                 "type": "value",
@@ -734,7 +727,7 @@ function chart3(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -746,7 +739,7 @@ function chart3(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -897,7 +890,7 @@ function chart4(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -909,7 +902,7 @@ function chart4(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -1059,7 +1052,7 @@ function chart5(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -1071,7 +1064,7 @@ function chart5(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -1180,14 +1173,7 @@ function chart6(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
             {
                 "type": "value",
@@ -1220,7 +1206,7 @@ function chart6(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -1232,7 +1218,7 @@ function chart6(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -1381,7 +1367,7 @@ function chart7(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -1393,7 +1379,7 @@ function chart7(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
@@ -1502,14 +1488,7 @@ function chart8(data){
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
             {
                 "type": "value",
@@ -1542,7 +1521,7 @@ function chart8(data){
                 "yAxisIndex": 0,
                 itemStyle: {
                     normal: {
-                        color: '#0286ff'
+                        color: '#4138e1'
                     }
                 }
             },
@@ -1554,7 +1533,7 @@ function chart8(data){
                 "data": data[4],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#4df3f3"
                     }
                 },
                 "smooth": true
