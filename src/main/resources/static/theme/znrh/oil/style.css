@@ -2,7 +2,7 @@
     background: url(bg.jpg) no-repeat fixed 50%;
     background-size: 100% 100%;
 }
-div.qpanel{
+/*div.qpanel{
     background-color:rgba(43, 175, 251,0.08);
     border:2px solid #40eaf9;
 }
@@ -13,7 +13,7 @@ div.qpanel:before{
 div.qpanel:after{
     border-top: 2px solid rgba(43, 175, 251,1);
     border-bottom: 2px solid rgba(43, 175, 251,1);
-}
+}*/
 .qheader-title1{
     background-image: -webkit-gradient(linear,0 0,0 bottom,from(#fff),to(#05ffd5));
 }
@@ -22,7 +22,7 @@ div.qpanel:after{
 }
 
 .qs_title1{
-    margin:0 10px 0 10px; font-size: 1.25em;
+    font-size: 1.25em;
 }
 
 .qs_title2{

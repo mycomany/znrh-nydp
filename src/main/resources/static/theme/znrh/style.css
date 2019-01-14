@@ -97,43 +97,45 @@
     overflow: hidden;
 }
 .qpage{
-    height:calc(100vh - 98px);width:100%;margin-left:0px;margin-right:0px;
+    height:calc(100vh - 88px);width:100%;margin-left:0px;margin-right:0px;
 }
 div.qpanel0{padding:0 0 20px 0;}
 div.qpanel{
-    width:calc(100% - 20px);
-    height:calc(100% - 20px);
-    margin:10px;
-    background-color:rgba(29, 78, 198,0.08);
-    border:2px solid #4094ff;
+    width:calc(100% - 16px);
+    height:calc(100% - 8px);
+    margin:4px 10px;
+    /*background-color:rgba(29, 78, 198,0.12);*/
+    /*border:2px solid #1d4ec6;*/
+    background: url(border.png) no-repeat center center;
+    background-size: 100% 100%;
     border-radius:5px;
     position:relative;
 }
-div.qpanel:before{
-    width:calc(100% + 4px);
-    height:calc(100% - 40px);
+/*div.qpanel:before{
+    width:calc(100% + 3px);
+    height:calc(100% - 16px);
     position: absolute;
     background-color: transparent;
     content: '';
-    border-left: 2px solid rgba(29, 78, 198,1);
-    border-right: 2px solid rgba(29, 78, 198,1);
-    top:20px;
-    left:-2px;
+    border-left: 1px solid rgba(135, 160, 221,1);
+    border-right: 1px solid rgba(135, 160, 221,1);
+    top:8px;
+    left:-1px;
 }
 div.qpanel:after{
-    width: calc(100% - 40px);
-    height: calc(100% + 4px);
+    width: calc(100% - 16px);
+    height: calc(100% + 3px);
     background-color: transparent;
-    border-top: 2px solid rgba(29, 78, 198,1);
-    border-bottom: 2px solid rgba(29, 78, 198,1);
+    border-top: 1px solid rgba(135, 160, 221,1);
+    border-bottom: 1px solid rgba(135, 160, 221,1);
     position: absolute;
     content: '';
-    left:20px;
-    top:-2px;
+    left:8px;
+    top:-1px;
 }
-div.qpanel div{z-index:1;}
+div.qpanel div{z-index:1;}*/
 
-.qs_title2{padding-left:15px;color:#a4d6fe;}
+.qs_title2{padding-left:5px;color:#a4d6fe;}
 
 .qtitle{height:60px;line-height:60px;width:100%;background-color:#fff;}
 ._qborder {
@@ -237,3 +239,5 @@ div.qpanel div{z-index:1;}
 .engtab>li.active{background: url(navtag.active.png) no-repeat 50% 50%;background-size: 100% 100%;}
 .engtab>li a{color:#fff;cursor: pointer;}
 .engtab>li a div{width:14px;line-height:1;margin:0 auto;}
+
+.qs_comb{min-width:40px;height:24px;margin-right: 20px;float:right;}
