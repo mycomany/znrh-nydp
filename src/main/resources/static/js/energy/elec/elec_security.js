@@ -768,6 +768,13 @@ function chart5(data){
                     textStyle: {
                         color: '#ffffff',
                         fontSize: 10
+                    },
+                    formatter: function(value){
+                        if(pdInteger(value)){
+                            return value;
+                        }else{
+                            return "";
+                        }
                     }
                 },
                 //去掉辅助线
