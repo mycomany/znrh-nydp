@@ -24,6 +24,19 @@ public class HomeController {
         return "redirect:module/pattern/index";
     }
 
+    @RequestMapping(value = "/portal")
+    public String portal(HttpServletRequest request, ModelMap map){
+        return view("portal", request, map);
+    }
+
+    private String view(String viewName, HttpServletRequest request, ModelMap map){
+        String host = request.getScheme() + "://" + request.getServerName()
+                + ":" + request.getServerPort() + request.getContextPath();
+
+        map.addAttribute("host", host);
+        return viewName;
+    }
+
     /**
      * 分屏页面
      * @param module
@@ -32,11 +45,7 @@ public class HomeController {
      */
     @RequestMapping("/module/{module}/{url}")
     public String module(@PathVariable("module") String module, @PathVariable("url") String url, HttpServletRequest request, ModelMap map){
-        String host = request.getScheme() + "://" + request.getServerName()
-                + ":" + request.getServerPort() + request.getContextPath();
-
-        map.addAttribute("host", host);
-        return "/module/" + module + "/" + url;
+        return view("/module/" + module + "/" + url, request, map);
     }
 
     @RequestMapping("/energy/{type}/{url}")
