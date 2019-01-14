@@ -9,6 +9,11 @@ $(document).ready(function(){
     getdata('/energy/oil/security/main.json' + __time,main);
 });
 
+//判断是否为整数
+function pdInteger(value){
+    return value % 1 === 0;
+}
+
 function main(data){
     option = {
         title:[{
@@ -583,6 +588,13 @@ function chart3(data){
                 textStyle: {
                     color: '#ffffff',
                     fontSize: 10
+                },
+                formatter: function(value){
+                    if(pdInteger(value)){
+                        return value;
+                    }else{
+                        return "";
+                    }
                 }
             },
             //单位

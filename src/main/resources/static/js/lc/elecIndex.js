@@ -2,7 +2,7 @@ $(document).ready(function(){
 	getdata('/lc/elecIndex/chart1.json',chart1);
 	getdata('/lc/elecIndex/chart2.json',chart2);
 	getdata('/lc/elecIndex/chart3.json',chart3);
-	getdata('/lc/elecIndex/chart4.json',chart4);
+	getdatax('/lc/elecIndex/chart4.json',chart4);
 	getdata('/lc/elecIndex/chart5.json',chart5);
 	getdata('/lc/elecIndex/main.json',main);
 });
@@ -12,15 +12,33 @@ function main(data){
 		legend: {
 			labels:{
 				text:'{category}',
+				fill:'none',
 				stroke:'#fff',
 				fontSize:12,
-				fontWeight:'lighter',
+				fontFamily: 'sans-serif',
+				fontWeight:100,
 			}
 		},
-		angle:42,
+		angle:32,
 		innerRadius: "30%",
 		series: [{
 			"type": "PieSeries3D",
+			"legendSettings": {
+				"valueText": "{valueY.close}"
+			},
+			"labels":{
+				stroke:'#fff',
+				fontSize:12,
+				fontFamily: 'sans-serif',
+				fontWeight:100,
+				//"disabled":true
+			},
+			"ticks":{
+				"disabled":true
+			},
+			"slices":{
+				"strokeWidth":0
+			},
 			"dataFields": {
 				"value": "value",
 				"category": "name"
@@ -365,10 +383,10 @@ function chart3(data){
 	$chart.init('#chart3', option);
 }
 //CO2排放量排名
-function chart4(data){
+function chart4(data, ix){
 	var option = {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -386,7 +404,7 @@ function chart4(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -399,10 +417,10 @@ function chart4(data){
 		}],
 		yAxis: [
 			{
-				name:'吨',
-				nameGap:-5,
+				name:'千克/千瓦时',
+				nameGap:-1,
 				nameTextStyle:{
-					padding:[0,0,0,45],
+					padding:[0,0,0,65],
 					align:'center',
 					color:'#fff',
 				},
@@ -452,7 +470,7 @@ function chart4(data){
 						color: '#2c18f3',
 					},
 				},
-				data: data[2],
+				data: data.data[ix][2],
 			},
 			{
 				name: "本月同比",
@@ -463,7 +481,7 @@ function chart4(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[3],
+				data: data.data[ix][3],
 			},
 		]
 	};

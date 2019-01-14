@@ -141,6 +141,16 @@ function changeMap(param){
 
 function chart1_nh(data){
     var option = {
+        title: {
+            text: '中国天然气开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -246,6 +256,16 @@ function chart1_nh(data){
 
 function chart1_dh(data){
     var option = {
+        title: {
+            text: '中国天然气开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -351,6 +371,20 @@ function chart1_dh(data){
 
 
 function chart2(data){
+
+    //排序，名称data[1]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<data[1].length; i++){
+        dataArray.push({"name": data[1][i], "value": data[3][i]});
+    }
+    dataArray.sort(function(a,b){
+        return a.value - b.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+        data[1][i] = dataArray[i].name;
+        data[3][i] = dataArray[i].value;
+    }
+
     var option = {
         "tooltip": {
             "trigger": "axis",
@@ -894,7 +928,7 @@ function chart6(data){
     seriesItems.push({
         name: data[2][0],
         type: 'bar',
-        barWidth: "20%",
+        barWidth: "15%",
         "yAxisIndex": 0,
         itemStyle:{
             normal:{
@@ -907,7 +941,7 @@ function chart6(data){
     seriesItems.push({
         name: data[2][1],
         type: 'bar',
-        barWidth: "20%",
+        barWidth: "15%",
         "yAxisIndex": 0,
         itemStyle:{
             normal:{
@@ -919,8 +953,8 @@ function chart6(data){
 
     seriesItems.push({
         name: data[2][2],
-        type: 'line',
-        // barWidth: "7%",
+        type: 'bar',
+        barWidth: "15%",
         "yAxisIndex": 1,
         itemStyle:{
             normal:{
