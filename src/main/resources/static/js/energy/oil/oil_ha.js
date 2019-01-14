@@ -32,21 +32,21 @@ function main(data){
         },
         legend: {
             show:true,
-            bottom : 10,
+            bottom : 20,
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{
                 color:'#fff',
                 fontFamily: '微软雅黑',
-                fontSize: 10,
+                fontSize: 12,
             },
             data:data[1]
         },
         grid:{
-            top:'10%',
+            top:'5%',
             left:'5%',
             right:'5%',
-            bottom:'20%',
+            bottom:'15%',
             containLabel: true
         },
         xAxis: [
@@ -86,7 +86,7 @@ function main(data){
             name: data[0][0],
             nameGap:-5,
             nameTextStyle:{
-                padding:[0,0,0,55],
+                padding:[0,0,0,15],
                 align:'center',
                 color:'#fff',
             },
