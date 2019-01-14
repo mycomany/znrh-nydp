@@ -1,7 +1,9 @@
+let _data_cache = {}
+
 $(document).ready(function(){
     main("c1");
     chart1();
-    chart2();
+    getdata('/produce/gasIndex/near10Order.json',near10Order);
     // chart3();
     chart4();
     getdata('/produce/gasIndex/areaRatioOrder.json',chart5);
@@ -24,7 +26,7 @@ function compare(property){
     return function(obj1,obj2){
         var value1 = obj1[property];
         var value2 = obj2[property];
-        return value1 - value2;     // 降
+        return value2 - value1;     // 降
     }
 }
 
@@ -327,6 +329,175 @@ function chart1(data){
     myChart.setOption(option);
 }
 
+function near10Order(jsonData,selectObj){
+
+    let selectPoint = ""
+    if(isSelect(jsonData)){
+        selectPoint = $(selectObj).val()
+    }else{
+        _data_cache.near10OrderDatas = jsonData
+        selectPoint = checkInitDate("near10OrderSelected")
+
+    }
+
+    let groupDataObj = {}
+
+    let legendArray = []
+    let point= ''
+    _data_cache.near10OrderDatas.forEach((eachData,i)=>{
+        const group = eachData['group']
+        if(group!=selectPoint){
+            return
+        }
+        point = eachData['point']
+
+        legendArray.push(group)
+        const groupDatas = eachData['groupDatas']
+        groupDatas.sort(compare('value'))
+        groupDatas.forEach(eachGroupData=>{
+            const eachGroupDataName = eachGroupData['name']
+            const eachGroupDataValue = eachGroupData['value']
+            if(groupDataObj[eachGroupDataName]!=null){}else{
+                groupDataObj[eachGroupDataName] = [0]
+                // groupDataObj[eachGroupDataName] = [0,0]
+            }
+
+            // groupDataObj[eachGroupDataName][i] = eachGroupDataValue
+            groupDataObj[eachGroupDataName][0] = eachGroupDataValue
+        })
+    })
+
+    const xArray = Object.keys(groupDataObj)
+    let barArray = []
+    const colorArray = [['#37a705','#00ffcb'],['#00feff','#027eff']]
+    Object.values(groupDataObj).forEach(groupData=>{
+        groupData.forEach((eachGroupData,i)=>{
+            if(barArray[i]!=null){
+                barArray[i].data.push(eachGroupData)
+            }else{
+                barArray[i] = {
+                    "name": legendArray[i],
+                    "type": "bar",
+                    "data": [eachGroupData],
+                    "barWidth": "15",
+                    "itemStyle": {
+                        normal: {
+                            barBorderRadius: [30, 30, 0, 0],
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: colorArray[i][0]
+                                },
+                                    {
+                                        offset: 1,
+                                        color: colorArray[i][1]
+                                    }
+                                ]
+                            )
+                        }
+                    }
+                }
+            }
+        })
+    })
+
+    const option = {
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross",
+                "crossStyle": {
+                    "color": "#384757"
+                }
+            }
+        },
+        grid: {
+            left: '1%',
+            right:'1%',
+            top:'10%',
+            bottom:'8%',
+            containLabel: true
+        },
+        // "legend": {
+        //     show:true,
+        //     bottom : '2%',
+        //     itemGap: 12, //图例每项之间的间隔
+        //     itemWidth: 16, //图例宽度
+        //     itemHeight: 8, //图例高度
+        //     textStyle: {
+        //         color:'#fff',
+        //         fontFamily: '微软雅黑',
+        //         fontSize: 10,
+        //     },
+        //     data: legendArray,
+        // },
+        "xAxis": [
+            {
+                "type": "category",
+                "data": xArray,
+                "axisPointer": {
+                    "type": "shadow"
+                },
+                boundaryGap: true,
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    }
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                },
+            }
+        ],
+        "yAxis": [
+            {
+                type: 'value',
+                name:point,
+                nameGap:3,
+                nameTextStyle:{
+                    padding:[0,0,0,45],
+                    align:'center',
+                    color:'#fff',
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    }
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                },
+                /*
+                "splitLine": {
+                  "lineStyle": {
+                    "color": "#7d838b"
+                  }
+                }
+                */
+            }
+        ],
+        "series": barArray
+    };
+    var myChart = echarts.init($('#near10Order')[0]);
+    myChart.setOption(option);
+
+}
+
+
 function chart2(data){
     option = {
         "tooltip": {
@@ -386,7 +557,7 @@ function chart2(data){
             {
                 type: 'value',
                 name:'          万亿立方米',
-                nameGap:-5,
+                nameGap:1,
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
@@ -694,7 +865,7 @@ function chart4(){
         yAxis: [{
             type: 'value',
             name:'        百万吨油当量',
-            nameGap:-5,
+            nameGap:1,
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
@@ -822,6 +993,7 @@ function chart6(jsonData){
         data[oldData['name']] = oldData['value']
     })
     var option = {
+
         tooltip:{
             formatter:'{b}: {c}',
         },
@@ -848,6 +1020,13 @@ function chart6(jsonData){
             }
         }],
         yAxis: [{
+            name:'亿立方米',
+            nameGap:1,
+            nameTextStyle:{
+                padding:[0,0,0,45],
+                align:'center',
+                color:'#fff',
+            },
             splitLine: {
                 show: false
             },
@@ -931,6 +1110,13 @@ function chart7(jsonData){
             }
         }],
         yAxis: [{
+            name:'亿立方米',
+            nameGap:1,
+            nameTextStyle:{
+                padding:[0,0,0,45],
+                align:'center',
+                color:'#fff',
+            },
             splitLine: {
                 show: false
             },

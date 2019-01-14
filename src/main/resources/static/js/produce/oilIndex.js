@@ -32,7 +32,7 @@ function compare(property){
     return function(obj1,obj2){
         var value1 = obj1[property];
         var value2 = obj2[property];
-        return value1 - value2;     // 降
+        return value2 - value1;     // 降
     }
 }
 
@@ -330,7 +330,7 @@ function chart2(){
             {
                 type: 'value',
                 name:'  千桶/日',
-                nameGap:-5,
+                nameGap:1,
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
@@ -973,22 +973,40 @@ function changeMap(param){
 
 
 //近10年新增探明储量贡献
-function near10Order(jsonData){
+function near10Order(jsonData,selectObj){
+
+    let selectPoint = ""
+    if(isSelect(jsonData)){
+        selectPoint = $(selectObj).val()
+    }else{
+        _data_cache.near10OrderDatas = jsonData
+        selectPoint = checkInitDate("near10OrderSelected")
+
+    }
+
     let groupDataObj = {}
 
     let legendArray = []
-    jsonData.forEach((eachData,i)=>{
+    let point = ''
+    _data_cache.near10OrderDatas.forEach((eachData,i)=>{
         const group = eachData['group']
+        if(group!=selectPoint){
+            return
+        }
+        point = eachData['point']
+
         legendArray.push(group)
         const groupDatas = eachData['groupDatas']
-        // groupDatas.sort(compare('value'))
+        groupDatas.sort(compare('value'))
         groupDatas.forEach(eachGroupData=>{
             const eachGroupDataName = eachGroupData['name']
             const eachGroupDataValue = eachGroupData['value']
             if(groupDataObj[eachGroupDataName]!=null){}else{
-                groupDataObj[eachGroupDataName] = [0,0]
+                groupDataObj[eachGroupDataName] = [0]
+                // groupDataObj[eachGroupDataName] = [0,0]
             }
-            groupDataObj[eachGroupDataName][i] = eachGroupDataValue
+            // groupDataObj[eachGroupDataName][i] = eachGroupDataValue
+            groupDataObj[eachGroupDataName][0] = eachGroupDataValue
         })
     })
 
@@ -1004,7 +1022,7 @@ function near10Order(jsonData){
                     "name": legendArray[i],
                     "type": "bar",
                     "data": [eachGroupData],
-                    "barWidth": "auto",
+                    "barWidth": 15,
                     "itemStyle": {
                         normal: {
                             barBorderRadius: [30, 30, 0, 0],
@@ -1040,22 +1058,22 @@ function near10Order(jsonData){
             left: '1%',
             right:'1%',
             top:'10%',
-            bottom:'18%',
+            bottom:'8%',
             containLabel: true
         },
-        "legend": {
-            show:true,
-            bottom : '2%',
-            itemGap: 12, //图例每项之间的间隔
-            itemWidth: 16, //图例宽度
-            itemHeight: 8, //图例高度
-            textStyle: {
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
-            },
-            data: legendArray,
-        },
+        // "legend": {
+        //     show:true,
+        //     bottom : '2%',
+        //     itemGap: 12, //图例每项之间的间隔
+        //     itemWidth: 16, //图例宽度
+        //     itemHeight: 8, //图例高度
+        //     textStyle: {
+        //         color:'#fff',
+        //         fontFamily: '微软雅黑',
+        //         fontSize: 10,
+        //     },
+        //     data: legendArray,
+        // },
         "xAxis": [
             {
                 "type": "category",
@@ -1084,8 +1102,8 @@ function near10Order(jsonData){
         "yAxis": [
             {
                 type: 'value',
-                name:'  千桶/日',
-                nameGap:-5,
+                name:point,
+                nameGap:1,
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
@@ -1117,6 +1135,9 @@ function near10Order(jsonData){
         ],
         "series": barArray
     };
+
+    console.log(option)
+
     var myChart = echarts.init($('#near10Order')[0]);
     myChart.setOption(option);
 
@@ -1156,6 +1177,13 @@ function cnTop10Order(jsonData){
             }
         }],
         yAxis: [{
+            name:'万吨',
+            nameGap:1,
+            nameTextStyle:{
+                padding:[0,0,0,45],
+                align:'center',
+                color:'#fff',
+            },
             splitLine: {
                 show: false
             },
@@ -1239,6 +1267,13 @@ function worldTop10Order(jsonData){
             }
         }],
         yAxis: [{
+            name:'Mt',
+            nameGap:1,
+            nameTextStyle:{
+                padding:[0,0,0,45],
+                align:'center',
+                color:'#fff',
+            },
             splitLine: {
                 show: false
             },
@@ -1322,6 +1357,13 @@ function machiningTop10Order(jsonData){
             }
         }],
         yAxis: [{
+            name:'Mt',
+            nameGap:1,
+            nameTextStyle:{
+                padding:[0,0,0,45],
+                align:'center',
+                color:'#fff',
+            },
             splitLine: {
                 show: false
             },
@@ -1405,6 +1447,13 @@ function worldTop10Machining(jsonData){
             }
         }],
         yAxis: [{
+            name:'万吨/年',
+            nameGap:1,
+            nameTextStyle:{
+                padding:[0,0,0,45],
+                align:'center',
+                color:'#fff',
+            },
             splitLine: {
                 show: false
             },
@@ -1501,6 +1550,13 @@ function machiningCount(jsonData,selectObj){
             }
         }],
         yAxis: [{
+            name:'Mt',
+            nameGap:1,
+            nameTextStyle:{
+                padding:[0,0,0,45],
+                align:'center',
+                color:'#fff',
+            },
             splitLine: {
                 show: false
             },
@@ -2180,6 +2236,13 @@ function worldTop10MachiningBak(data){
             }
         }],
         yAxis: [{
+            name:'Mt',
+            nameGap:1,
+            nameTextStyle:{
+                padding:[0,0,0,45],
+                align:'center',
+                color:'#fff',
+            },
             splitLine: {
                 show: false
             },
