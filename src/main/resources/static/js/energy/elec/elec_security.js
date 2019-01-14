@@ -102,7 +102,8 @@ function main(data){
                 lineStyle: {
                     color: '#38b8ff'
                 }
-            }
+            },
+            min: 'dataMin'
         },
         yAxis: {
             type: 'category',
@@ -197,7 +198,8 @@ function main_1(data){
                 lineStyle: {
                     color: '#38b8ff'
                 }
-            }
+            },
+            min: 'dataMin'
         },
         yAxis: {
             type: 'category',
