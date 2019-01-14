@@ -6,7 +6,7 @@ $(document).ready(function(){
 	getdata('/consume/elec/chart3.json',chart3);
 	getdata('/consume/elec/chart4.json',getChart4);
 	getdata('/consume/elec/chart5.json',getChart5);
-	getdata('/consume/elec/chart6.json',chart6);
+	getdata('/consume/elec/chart6.json',getChart6);
 });
 
 
@@ -666,10 +666,18 @@ function chart5(xData,barData,lineData,legend){
     myChart.setOption(option);
 }
 
-function chart6(data){
-	var xData = data[2];
-	var lineData = data[4];
-	var barData = data[3];
+var data6 = [];
+function getChart6(data){
+	data6 = data;
+	chart6(data,'2018-11');
+}
+function change6(date){
+	chart6(data6,date);
+}
+
+function chart6(data,date){
+	var xData = data.legend;
+	var value = data.data[date];
 	var option =  {
 		grid: {
 			left: '3%',
@@ -712,7 +720,7 @@ function chart6(data){
 					color: '#0177d4'
 				}
 			},
-			data: xData,
+			data: data.xData,
 		}],
 		yAxis: [{
 			name: '',
@@ -775,7 +783,7 @@ function chart6(data){
 					barBorderRadius: 50,
 				},
 			},
-			data: data[3]
+			data: value[0]
 		},{
 			name: "本年累计用电量",
 			type: "bar",
@@ -786,7 +794,7 @@ function chart6(data){
 					barBorderRadius: 50,
 				},
 			},
-			data: data[4]
+			data: value[1]
 		}, {
 			name: "本月同比",
 			type: "line",
@@ -796,7 +804,7 @@ function chart6(data){
 					color: '#ff9b00'
 				},
 			},
-			data: data[5]
+			data: value[2]
 
 		}, {
 			name: "本年同比",
@@ -807,8 +815,7 @@ function chart6(data){
 					color: '#4bac0a'
 				},
 			},
-			data: data[6]
-
+			data: value[3]
 		}]
 	};
 	var myChart = echarts.init($('#chart6')[0]);
@@ -829,8 +836,8 @@ function change12(param){
 		main(mainDta,1,'2018-11');
 	}
 }
-function change11(){
-	var date = $("#select").val();
+function change11(date){
+	//var date = $("#select").val();
 	var type = $("#ch").val();
 	if (type == 'main1') {
 		main1(main1Dta,date);
@@ -1161,17 +1168,17 @@ function main(data,type,date){
 			'进口': [104.099352,46.390782],
 		    '进口1': [100.487732,19.44585]
 		};
-	var pieces1 = [{
+	var pieces2 = [{
         max: -8,
         color: '#3ab62c'
     },{
     	min: -8,
         max: -7,
-        color: '#cac8d8'
+        color: 'rgba(95,201,248,0.3)'
     }, {
         min: -7,
         max: -6,
-        color: '#798bf4'
+        color: 'rgba(0,91,255,0.3)'
     }, {
         min: -6,
         max: -5,
@@ -1191,7 +1198,7 @@ function main(data,type,date){
     },{
         min: -2,
         max: -1,
-        color: '#c7cf72'
+        color: '#57849b'
     },{
         min: -1,
         max: 0,
@@ -1217,7 +1224,7 @@ function main(data,type,date){
         color: '#ff4f00'
     }];
 	
-	var pieces2 = [{
+	var pieces1 = [{
         max: -8,
         color: '#3ab62c'
     },{
@@ -1235,7 +1242,7 @@ function main(data,type,date){
     }, {
         min: -5,
         max: -4,
-        color: '#b5a2bf'
+        color: '#b0b7ee'
     }, {
         min: -4,
         max: -3,
@@ -1243,39 +1250,36 @@ function main(data,type,date){
     },{
         min: -3,
         max: -2,
-        color: '#03dcdf'
+        color: '#d0d3e9'
     },{
         min: -2,
         max: -1,
-        color: '#c7cf72'
+        color: '#8391fc'
     },{
         min: -1,
-        max: 10,
-        color: '#035af6'
+        max: 0,
+        color: '#1dc004'
     },{
-        min: 10,
+        min: 0,
         max: 1000,
-        color: '#53bc0e'
+        color: '#078cda'
     },{
         min: 1000,
         max: 10000,
-        color: '#e0ff00'
+        color: '#afb506'
     },{
         min: 10000,
         max: 100000,
-        color: '#e0ff00'
+        color: '#bc7b06'
     },{
         min: 100000,
-        max: 1000000,
-        color: '#ffba00'
-    },{
-        min: 1000000,
-        max: 5000000,
+        max: 500000,
         color: '#a800ff'
     },{
-        min: 5000000,
+        min: 500000,
         color: '#ff4f00'
     }];
+	
 	
 	var das = [];
 	if (type == "1") {
@@ -1323,6 +1327,8 @@ function main(data,type,date){
 
 		var color = ['#a6c84c', '#ffa022', '#46bee9'];
 		var series = [];
+		var s = convertMapDta(province[1], db);
+		alert(JSON.stringify(s));
 		[['华北', data1], ['东北', data2], ['华东', data3], ['华中', data4], ['西北', data5], ['西南', data6], ['华南', data7]].forEach(function (item, i) {
 		    //console.log(item,i);
 		    series.push(
@@ -1341,11 +1347,6 @@ function main(data,type,date){
 		            symbolSize: 15
 		            
 		        },
-		        itemStyle: {
-		            normal: {
-		                color: 'red'
-		            }
-		        },
 		        lineStyle: {
 		            normal: {
 		                width: 3,
@@ -1357,7 +1358,6 @@ function main(data,type,date){
 		        data: convertData(item[1])
 		    },
 		    {
-		        name: item[0] + ' Top10',
 		        type: 'effectScatter',
 		        coordinateSystem: 'geo',
 		        zlevel: 2,
@@ -1385,12 +1385,12 @@ function main(data,type,date){
 		            }
 		        },
 		        symbolSize: function (val) {
-		            return 15;//val[2] / 8;
+		            return 18;//val[2] / 8;
 		        },
 		        itemStyle: {
-		            normal: {
-		                color: 'red'
-		            }
+		            emphasis:{
+	                	color:'#00ff7f'
+	                }
 		        },
 		        data: item[1].map(function (dataItem) {
 		            return {
@@ -1415,6 +1415,15 @@ function main(data,type,date){
                 emphasis: {
                     show: false
                 }
+            },
+            itemStyle:{
+            	normal: {
+            		 borderColor:'#fff'
+                },
+            	 emphasis: {
+	            	 borderColor:'#55e6fc',
+	                 areaColor: '#4c70f7'
+	            }
             },
             data: convertMapDta(province[1], db),
         });
@@ -1520,11 +1529,12 @@ function main(data,type,date){
 		        roam: false,
 		        itemStyle: {
 		            normal: {
-		                areaColor: '#323c48',
-		                borderColor: '#404a59'
+		                areaColor: '#59b6f4',
+		                borderColor: '#59b6f4'
 		            },
 		            emphasis: {
-		                areaColor: '#2a333d'
+		            	 borderColor:'#fff',
+		                    areaColor: 'red',
 		            }
 		        }
 		    },
