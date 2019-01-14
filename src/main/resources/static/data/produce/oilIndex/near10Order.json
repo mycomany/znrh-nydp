@@ -1,6 +1,7 @@
 [
   {
     "group" : "储量",
+    "point": "十亿吨",
     "groupDatas" :
     [{"name":"委内瑞拉","value":"47.3 "},
       {"name":"沙特阿拉伯","value":"36.6 "},
@@ -18,6 +19,7 @@
   },
   {
     "group" : "产量",
+    "point": "百万吨",
     "groupDatas" : [{"name":"美国","value":"571.0"},
       {"name":"沙特阿拉伯","value":"561.7"},
       {"name":"俄罗斯","value":"554.4"},
