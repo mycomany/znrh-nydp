@@ -894,7 +894,7 @@ function chart6(data){
     seriesItems.push({
         name: data[2][0],
         type: 'bar',
-        barWidth: "20%",
+        barWidth: "15%",
         "yAxisIndex": 0,
         itemStyle:{
             normal:{
@@ -907,7 +907,7 @@ function chart6(data){
     seriesItems.push({
         name: data[2][1],
         type: 'bar',
-        barWidth: "20%",
+        barWidth: "15%",
         "yAxisIndex": 0,
         itemStyle:{
             normal:{
@@ -919,8 +919,8 @@ function chart6(data){
 
     seriesItems.push({
         name: data[2][2],
-        type: 'line',
-        // barWidth: "7%",
+        type: 'bar',
+        barWidth: "15%",
         "yAxisIndex": 1,
         itemStyle:{
             normal:{
