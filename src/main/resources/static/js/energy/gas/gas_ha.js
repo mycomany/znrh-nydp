@@ -141,6 +141,16 @@ function changeMap(param){
 
 function chart1_nh(data){
     var option = {
+        title: {
+            text: '中国天然气开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -246,6 +256,16 @@ function chart1_nh(data){
 
 function chart1_dh(data){
     var option = {
+        title: {
+            text: '中国天然气开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {

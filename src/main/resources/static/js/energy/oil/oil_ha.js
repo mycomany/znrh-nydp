@@ -114,6 +114,16 @@ function changeMap(param){
 
 function chart1_nh(data){
     var option = {
+        title: {
+            text: '中国石油开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -137,7 +147,7 @@ function chart1_nh(data){
             show:true,
             top : 3,
             right:5,
-            itemWidth: 16,
+            itemWidth: 10,
             itemHeight: 8,
             textStyle:{
                 color:'#fff',
@@ -219,6 +229,16 @@ function chart1_nh(data){
 
 function chart1_dh(data){
     var option = {
+        title: {
+            text: '中国石油开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -242,7 +262,7 @@ function chart1_dh(data){
             show:true,
             top : 3,
             right:5,
-            itemWidth: 16,
+            itemWidth: 10,
             itemHeight: 8,
             textStyle:{
                 color:'#fff',
