@@ -17,9 +17,12 @@
 
                 <div class="w12 h6">
                     <div class="qpanel">
-                        <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国天然气开采综合能耗对比</span></div>
-                        <div id="chart1" style="height:calc(100% - 30px); width:48%; float:left;"></div>
-                        <div id="chart1_1" style="height:calc(100% - 30px); width:48%; float:left;"></div>
+                        <!--<div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国天然气开采综合能耗对比</span></div>-->
+                        <div class="tabbtn check_btn_grp check_btn_grp_float_left" style="float:none;z-index:10"><!-- 35PX -->
+                            <div onclick="changeMap('nh')" id = "nh" class="c check_btn_option_status_l check_btn_option_checked " >能耗</div>
+                            <div onclick="changeMap('dh')" id = "dh" class="c check_btn_option_status_r " >电耗</div>
+                        </div>
+                        <div id="chart1" class="w12 h12 qpanel0"></div>
                     </div>
                 </div>
 

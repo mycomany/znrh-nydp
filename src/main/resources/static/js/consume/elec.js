@@ -1327,8 +1327,6 @@ function main(data,type,date){
 
 		var color = ['#a6c84c', '#ffa022', '#46bee9'];
 		var series = [];
-		var s = convertMapDta(province[1], db);
-		alert(JSON.stringify(s));
 		[['华北', data1], ['东北', data2], ['华东', data3], ['华中', data4], ['西北', data5], ['西南', data6], ['华南', data7]].forEach(function (item, i) {
 		    //console.log(item,i);
 		    series.push(
