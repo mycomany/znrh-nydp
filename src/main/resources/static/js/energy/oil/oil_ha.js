@@ -1,7 +1,6 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
-    getdata('/energy/oil/ha/chart1.json' + __time,chart1);
-    getdata('/energy/oil/ha/chart1.json' + __time,chart1_1);
+    changeMap('nh');//chart1
     getdata('/energy/oil/ha/chart2.json' + __time,chart2);
     getdata('/energy/oil/ha/chart3.json' + __time,chart3);
     getdata('/energy/oil/ha/chart4.json' + __time,chart4);
@@ -101,18 +100,20 @@ function main(data){
 }
 
 
+function changeMap(param){
+    var id ="#"+param;
+    $(".c"). removeClass("check_btn_option_checked");
+    $(id). addClass("check_btn_option_checked");
+    var __time = "?__time=" + new Date();
+    if("nh" == param){
+        getdata('/energy/oil/ha/chart1.json' + __time,chart1_nh);
+    }else if("dh" == param){
+        getdata('/energy/oil/ha/chart1.json' + __time,chart1_dh);
+    }
+}
 
-function chart1(data){
+function chart1_nh(data){
     var option = {
-        title:[{
-            text:data[0][1][0],
-            right:'0%',
-            top:'0%',
-            textStyle: {
-                color: '#59EBE8',
-                fontSize:10,
-            }
-        }],
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -132,11 +133,24 @@ function chart1(data){
 
             }
         },
+        legend:{
+            show:true,
+            top : 3,
+            right:5,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data: data[0][2]
+        },
         grid:{
-            top:'10%',
+            top:'25%',
             left:'5%',
             right:'5%',
-            bottom:'20%',
+            bottom:'1%',
             containLabel: true
         },
         xAxis: {
@@ -182,18 +196,6 @@ function chart1(data){
                 }
             }
         ],
-        legend:{
-            show:true,
-            bottom : 10,
-            itemWidth: 16,
-            itemHeight: 8,
-            textStyle:{
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
-            },
-            data: data[0][2]
-        },
         series: [
             {
                 name: data[0][2][0],
@@ -215,18 +217,8 @@ function chart1(data){
     myChart.setOption(option);
 }
 
-
-function chart1_1(data){
+function chart1_dh(data){
     var option = {
-        title:[{
-            text:data[1][1][0],
-            right:'0%',
-            top:'0%',
-            textStyle: {
-                color: '#59EBE8',
-                fontSize:10,
-            }
-        }],
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -246,11 +238,24 @@ function chart1_1(data){
 
             }
         },
+        legend:{
+            show:true,
+            top : 3,
+            right:5,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data: data[1][2]
+        },
         grid:{
-            top:'10%',
+            top:'25%',
             left:'5%',
             right:'5%',
-            bottom:'20%',
+            bottom:'1%',
             containLabel: true
         },
         xAxis: {
@@ -296,18 +301,6 @@ function chart1_1(data){
             }
         }
         ],
-        legend:{
-            show:true,
-            bottom : 10,
-            itemWidth: 16,
-            itemHeight: 8,
-            textStyle:{
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
-            },
-            data: data[1][2]
-        },
         series: [
             {
                 name: data[1][2][0],
@@ -325,10 +318,9 @@ function chart1_1(data){
             }
         ]
     };
-    var myChart = echarts.init($('#chart1_1')[0]);
+    var myChart = echarts.init($('#chart1')[0]);
     myChart.setOption(option);
 }
-
 
 
 function chart2(data){

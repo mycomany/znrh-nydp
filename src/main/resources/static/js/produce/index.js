@@ -739,11 +739,15 @@ function makeWarmingRecord(jsonData,selectObj){
         animation: false
     },)
 
-    makeSerDatas(barDatas,'bar')
-    makeSerDatas(lineDatas,'line')
+    let legNames = []
 
-    function makeSerDatas(fromDatas,makeType){
-        Object.keys(fromDatas).forEach((barGroupName)=>{
+    const barColors = [['#83bff6','#2874ff','#188df0'],['#37a705','#37a705','#00ffcb']]
+
+    makeSerDatas(barDatas,legNames,'bar')
+    makeSerDatas(lineDatas,legNames,'line')
+    
+    function makeSerDatas(fromDatas,legNames,makeType){
+        Object.keys(fromDatas).forEach((barGroupName,i)=>{
             const barArray = makeType==='bar'?barDatas[barGroupName]:lineDatas[barGroupName]
             let barSerData = []
             barArray.forEach(bar=>{
@@ -756,6 +760,7 @@ function makeWarmingRecord(jsonData,selectObj){
                 barSerData.push(typeVal)
             })
             const serName = makeType=='line'?barGroupName+"同比":barGroupName
+            legNames.push(serName)
             const whichY = makeType=='line'?"1":"0"
             const d = {
                 name:serName,
@@ -770,9 +775,9 @@ function makeWarmingRecord(jsonData,selectObj){
                         color: new echarts.graphic.LinearGradient(
                             0, 0, 0, 1,
                             [
-                                {offset: 0, color: '#83bff6'},
-                                {offset: 0.5, color: '#2874ff'},
-                                {offset: 1, color: '#188df0'}
+                                {offset: 0, color: barColors[i][0]},
+                                {offset: 0.5, color: barColors[i][1]},
+                                {offset: 1, color: barColors[i][2]}
                             ]
                         )
                     }
@@ -788,6 +793,8 @@ function makeWarmingRecord(jsonData,selectObj){
         })
     }
 
+    console.log(JSON.stringify(legNames))
+
     let option = {
         tooltip: {
             trigger: 'axis',
@@ -795,25 +802,26 @@ function makeWarmingRecord(jsonData,selectObj){
                 type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
             }
         },
-        grid:{
-            top:'10%',
-            left:'5%',
+        color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+        legend: { //图例组件，颜色和名字
+            itemGap: 5, //图例每项之间的间隔
+            itemWidth: 16,
+            itemHeight: 8,
+            x:'center',
+            bottom:'2%',
+            data: legNames,
+            textStyle: {
+                color: '#fff',
+                fontSize: 10,
+            }
+        },
+        grid: {
+            left: '5%',
             right:'5%',
-            bottom:'20%',
+            top:'10%',
+            bottom:'18%',
             containLabel: true
         },
-        // legend:{
-        //     show:true,
-        //     bottom : 10,
-        //     itemWidth: 16,
-        //     itemHeight: 8,
-        //     textStyle:{
-        //         color:'#fff',
-        //         fontFamily: '微软雅黑',
-        //         fontSize: 10,
-        //     },
-        //     data:data[0]
-        // },
         xAxis: {
             axisLabel: {
                 textStyle: {
