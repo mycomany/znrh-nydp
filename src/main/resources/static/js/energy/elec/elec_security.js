@@ -80,7 +80,7 @@ function main(data){
             data:data[0][0]
         },
         grid:{
-            top:'1%',
+            top:'2%',
             left:'5%',
             right:'5%',
             bottom:'20%',
@@ -117,7 +117,7 @@ function main(data){
             {
                 name: data[0][0],
                 type: 'bar',
-                "barWidth": "50%",
+                "barWidth": "40%",
                 data: data[0][3],
                 "color": "#4094ff"
             }
@@ -175,7 +175,7 @@ function main_1(data){
             data:data[1][0]
         },
         grid:{
-            top:'1%',
+            top:'2%',
             left:'5%',
             right:'5%',
             bottom:'20%',
@@ -212,7 +212,7 @@ function main_1(data){
             {
                 name: data[1][0],
                 type: 'bar',
-                "barWidth": "50%",
+                "barWidth": "40%",
                 data: data[1][3],
                 "color": "#3ae276"
             }
