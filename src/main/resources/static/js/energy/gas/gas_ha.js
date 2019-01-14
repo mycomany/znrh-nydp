@@ -371,6 +371,20 @@ function chart1_dh(data){
 
 
 function chart2(data){
+
+    //排序，名称data[1]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<data[1].length; i++){
+        dataArray.push({"name": data[1][i], "value": data[3][i]});
+    }
+    dataArray.sort(function(a,b){
+        return a.value - b.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+        data[1][i] = dataArray[i].name;
+        data[3][i] = dataArray[i].value;
+    }
+
     var option = {
         "tooltip": {
             "trigger": "axis",
