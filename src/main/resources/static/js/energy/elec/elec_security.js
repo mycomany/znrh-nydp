@@ -301,10 +301,12 @@ function chart1(data){
                 data: data[3],
                 axisLabel: {
                     textStyle: {
-                        fontSize: 12,
+                        fontSize: 10,
                         color: '#fff',
                     },
-                    formatter: "{value}起"
+                    formatter: function(v){
+                        return v + data[1][0];
+                    }
                 },
                 axisLine: {
                     show: false
@@ -456,10 +458,10 @@ function chart2(data){
                 type: 'scatter',
                 color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
                     offset: 0,
-                    color: '#4df3f3'
+                    color: '#5acbff'
                 }, {
                     offset: 1,
-                    color: '#4df3f3'
+                    color: '#5acbff'
                 }]),
                 "yAxisIndex": 0,
                 data:data[3]
@@ -545,10 +547,12 @@ function chart3(data){
                 data: data[3],
                 axisLabel: {
                     textStyle: {
-                        fontSize: 12,
+                        fontSize: 10,
                         color: '#fff',
                     },
-                    formatter: "{value}起"
+                    formatter: function(v){
+                        return v + data[1][0];
+                    }
                 },
                 axisLine: {
                     show: false
@@ -702,10 +706,10 @@ function chart4(data){
                 type: 'scatter',
                 color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
                     offset: 0,
-                    color: '#4df3f3'
+                    color: '#5acbff'
                 }, {
                     offset: 1,
-                    color: '#4df3f3'
+                    color: '#5acbff'
                 }]),
                 "yAxisIndex": 0,
                 data:data[3]
