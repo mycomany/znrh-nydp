@@ -287,7 +287,7 @@ function main(data, lx){
                 realtime: true,
                 calculable: true,
                 inRange: {
-                    color: ['skyblue','orangered']
+                    color: ['#33C9FB','#1F68A7']
                 }
             },
             series: [{
@@ -295,10 +295,12 @@ function main(data, lx){
                 map: 'world',
                 roam: true,
                 itemStyle:{
-                    emphasis:{label:{show:false}}
+                    emphasis:{
+                        label:{show:false},
+                        areaColor: '#676767'
+                    }
                 },
                 nameMap: nameMap
-
             }]
         },
 

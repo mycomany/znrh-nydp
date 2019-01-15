@@ -554,7 +554,7 @@ function chart3(data, selectName){
                     name: '02',
                     itemStyle: {
                         emphasis: {
-                            color: 'red'
+                            color: '#fdb91a'
                         }
                     }
                 }, {

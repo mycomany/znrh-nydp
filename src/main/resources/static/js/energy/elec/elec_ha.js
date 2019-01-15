@@ -411,7 +411,7 @@ function chart2(data){
                 yAxisIndex:0,
                 itemStyle: {
                     "normal": {
-                        "color": "#4094ff"
+                        "color": "#2b88ff"
                     }
                 }
             }
@@ -535,7 +535,7 @@ function chart3(data, selectName){
                 "yAxisIndex": 0,
                 "itemStyle": {
                     "normal": {
-                        "color": "#4094ff"
+                        "color": "#4138e1"
                     }
                 },
             }
@@ -669,7 +669,7 @@ function chart4(data){
                 barWidth: "40%",
                 "itemStyle": {
                     "normal": {
-                        "color": "#4138e1"
+                        "color": "#40eaf9"
                     }
                 },
             }
