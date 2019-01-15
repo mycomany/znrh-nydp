@@ -88,6 +88,12 @@ function mainAreaLister(){
 
         }
     })
+
+    $(".main_order_name").mouseover(function(){
+        $(this).find(".main_order_name_val").show()
+    }).mouseout(function(){
+        $(this).find(".main_order_name_val").hide()
+    })
 }
 
 function installAndGeneration(jsonData,selectObj){
@@ -582,13 +588,13 @@ function deviceUsedRatio(jsonData,selectObj){
         //stack: '总量',
         symbolSize: 1,
         symbol: 'circle',
-        // barWidth:15,
+        barWidth:10,
         data:Object.values(lineObject)
     })
 
     seriesData.push({
         name:"同比",
-        type:'bar',
+        type:'line',
         smooth: true,
         yAxisIndex: 1,
         //stack: '总量',
@@ -686,7 +692,8 @@ function deviceUsedRatio(jsonData,selectObj){
             }
         },{
             type: 'value',
-            nameGap:-5,
+            // name:' %',
+            nameGap:1,
             gridIndex: 0,
             nameTextStyle:{
                 padding:[0,0,0,45],
@@ -707,7 +714,7 @@ function deviceUsedRatio(jsonData,selectObj){
                     color: '#ffffff',
                     fontSize: 10
                 },
-                formatter: '{value}'
+                formatter: '{value} %'
             }
         }],
         series : seriesData
@@ -1152,10 +1159,11 @@ function cleanPowerMake(datas,selectPoint){
 
     showDatas.forEach((showData,i)=>{
         $(".main_order_name"+(i+1)).empty()
-        // $(".main_order_name"+(i+1)).html(showData['val'])
-        $(".main_order_name"+(i+1)).html(showData['type'])
+        $(".main_order_name"+(i+1)).html(showData['type']+'<br><span class="main_order_name_val">'+showData['val']+'%</span>')
         // $(".main_order_name"+(i+1)).html(showData['type']+i)
     })
+
+    $(".main_order_name_val").hide()
 
     function compare(property){
         return function(obj1,obj2){

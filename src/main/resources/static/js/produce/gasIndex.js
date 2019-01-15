@@ -330,6 +330,175 @@ function chart1(data){
     myChart.setOption(option);
 }
 
+// function near10Order(jsonData,selectObj){
+//
+//     let selectPoint = ""
+//     if(isSelect(jsonData)){
+//         selectPoint = $(selectObj).val()
+//     }else{
+//         _data_cache.near10OrderDatas = jsonData
+//         selectPoint = checkInitDate("near10OrderSelected")
+//
+//     }
+//
+//     let groupDataObj = {}
+//
+//     let legendArray = []
+//     let point= ''
+//     _data_cache.near10OrderDatas.forEach((eachData,i)=>{
+//         const group = eachData['group']
+//         if(group!=selectPoint){
+//             return
+//         }
+//         point = eachData['point']
+//
+//         legendArray.push(group)
+//         const groupDatas = eachData['groupDatas']
+//         groupDatas.sort(compare('value'))
+//         groupDatas.forEach(eachGroupData=>{
+//             const eachGroupDataName = eachGroupData['name']
+//             const eachGroupDataValue = eachGroupData['value']
+//             if(groupDataObj[eachGroupDataName]!=null){}else{
+//                 groupDataObj[eachGroupDataName] = [0]
+//                 // groupDataObj[eachGroupDataName] = [0,0]
+//             }
+//
+//             // groupDataObj[eachGroupDataName][i] = eachGroupDataValue
+//             groupDataObj[eachGroupDataName][0] = eachGroupDataValue
+//         })
+//     })
+//
+//     const xArray = Object.keys(groupDataObj)
+//     let barArray = []
+//     const colorArray = [['rgba(67,147,250,1)','rgba(67,147,250,0.5)','rgba(67,147,250,0.1)'],['#00feff','#027eff']]
+//     Object.values(groupDataObj).forEach(groupData=>{
+//         groupData.forEach((eachGroupData,i)=>{
+//             if(barArray[i]!=null){
+//                 barArray[i].data.push(eachGroupData)
+//             }else{
+//                 barArray[i] = {
+//                     "name": legendArray[i],
+//                     "type": "bar",
+//                     "data": [eachGroupData],
+//                     "barWidth": "10",
+//                     "itemStyle": {
+//                         normal: {
+//                             // barBorderRadius: [30, 30, 0, 0],
+//                             color: new echarts.graphic.LinearGradient(
+//                                 0, 0, 0, 1, [{
+//                                     offset: 0,
+//                                     color: colorArray[i][0]
+//                                 }, {
+//                                     offset: 0.4,
+//                                     color: colorArray[i][1]
+//                                 }, {
+//                                     offset: 1,
+//                                     color: colorArray[i][2]
+//                                 }
+//                                 ]
+//                             )
+//                         }
+//                     }
+//                 }
+//             }
+//         })
+//     })
+//
+//     const option = {
+//         "tooltip": {
+//             "trigger": "axis",
+//             "axisPointer": {
+//                 "type": "cross",
+//                 "crossStyle": {
+//                     "color": "#384757"
+//                 }
+//             }
+//         },
+//         grid: {
+//             left: '1%',
+//             right:'1%',
+//             top:'10%',
+//             bottom:'8%',
+//             containLabel: true
+//         },
+//         // "legend": {
+//         //     show:true,
+//         //     bottom : '2%',
+//         //     itemGap: 12, //图例每项之间的间隔
+//         //     itemWidth: 16, //图例宽度
+//         //     itemHeight: 8, //图例高度
+//         //     textStyle: {
+//         //         color:'#fff',
+//         //         fontFamily: '微软雅黑',
+//         //         fontSize: 10,
+//         //     },
+//         //     data: legendArray,
+//         // },
+//         "xAxis": [
+//             {
+//                 "type": "category",
+//                 "data": xArray,
+//                 "axisPointer": {
+//                     "type": "shadow"
+//                 },
+//                 boundaryGap: true,
+//                 axisLine: {
+//                     lineStyle: {
+//                         color: '#38b8ff'
+//                     }
+//                 },
+//                 axisLabel: {
+//                     textStyle: {
+//                         color: '#ffffff',
+//                         fontSize: 10
+//                     }
+//                 },
+//                 //去掉辅助线
+//                 "splitLine": {
+//                     "show": false
+//                 },
+//             }
+//         ],
+//         "yAxis": [
+//             {
+//                 type: 'value',
+//                 name:point,
+//                 nameGap:3,
+//                 nameTextStyle:{
+//                     padding:[0,0,0,45],
+//                     align:'center',
+//                     color:'#fff',
+//                 },
+//                 axisLine: {
+//                     lineStyle: {
+//                         color: '#38b8ff'
+//                     }
+//                 },
+//                 axisLabel: {
+//                     textStyle: {
+//                         color: '#ffffff',
+//                         fontSize: 10
+//                     }
+//                 },
+//                 //去掉辅助线
+//                 "splitLine": {
+//                     "show": false
+//                 },
+//                 /*
+//                 "splitLine": {
+//                   "lineStyle": {
+//                     "color": "#7d838b"
+//                   }
+//                 }
+//                 */
+//             }
+//         ],
+//         "series": barArray
+//     };
+//     var myChart = echarts.init($('#near10Order')[0]);
+//     myChart.setOption(option);
+//
+// }
 function near10Order(jsonData,selectObj){
 
     let selectPoint = ""
@@ -344,12 +513,12 @@ function near10Order(jsonData,selectObj){
     let groupDataObj = {}
 
     let legendArray = []
-    let point= ''
+    let point = ''
     _data_cache.near10OrderDatas.forEach((eachData,i)=>{
         const group = eachData['group']
-        if(group!=selectPoint){
-            return
-        }
+        // if(group!=selectPoint){
+        //     return
+        // }
         point = eachData['point']
 
         legendArray.push(group)
@@ -359,18 +528,19 @@ function near10Order(jsonData,selectObj){
             const eachGroupDataName = eachGroupData['name']
             const eachGroupDataValue = eachGroupData['value']
             if(groupDataObj[eachGroupDataName]!=null){}else{
-                groupDataObj[eachGroupDataName] = [0]
-                // groupDataObj[eachGroupDataName] = [0,0]
+                // groupDataObj[eachGroupDataName] = [0]
+                groupDataObj[eachGroupDataName] = [0,0]
             }
-
-            // groupDataObj[eachGroupDataName][i] = eachGroupDataValue
-            groupDataObj[eachGroupDataName][0] = eachGroupDataValue
+            groupDataObj[eachGroupDataName][i] = eachGroupDataValue
+            // groupDataObj[eachGroupDataName][0] = eachGroupDataValue
         })
     })
 
     const xArray = Object.keys(groupDataObj)
     let barArray = []
-    const colorArray = [['rgba(67,147,250,1)','rgba(67,147,250,0.5)','rgba(67,147,250,0.1)'],['#00feff','#027eff']]
+    const colorArray = [
+        ['rgba(43,175,251,1)','rgba(43,175,251,0.5)','rgba(43,175,251,0.1)'],
+        ['rgba(58,243,196,1)','rgba(58,243,196,0.5)','rgba(58,243,196,0.1)']]
     Object.values(groupDataObj).forEach(groupData=>{
         groupData.forEach((eachGroupData,i)=>{
             if(barArray[i]!=null){
@@ -380,12 +550,12 @@ function near10Order(jsonData,selectObj){
                     "name": legendArray[i],
                     "type": "bar",
                     "data": [eachGroupData],
-                    "barWidth": "10",
+                    // "barWidth": 10,
+                    "yAxisIndex": i,
                     "itemStyle": {
                         normal: {
-                            // barBorderRadius: [30, 30, 0, 0],
-                            color: new echarts.graphic.LinearGradient(
-                                0, 0, 0, 1, [{
+                            // color: '#3af3c4'
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                                     offset: 0,
                                     color: colorArray[i][0]
                                 }, {
@@ -393,9 +563,8 @@ function near10Order(jsonData,selectObj){
                                     color: colorArray[i][1]
                                 }, {
                                     offset: 1,
-                                    color: colorArray[i][2]
-                                }
-                                ]
+                                    color: colorArray[i][1]
+                                }]
                             )
                         }
                     }
@@ -405,35 +574,32 @@ function near10Order(jsonData,selectObj){
     })
 
     const option = {
-        "tooltip": {
-            "trigger": "axis",
-            "axisPointer": {
-                "type": "cross",
-                "crossStyle": {
-                    "color": "#384757"
-                }
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
             }
         },
         grid: {
             left: '1%',
             right:'1%',
             top:'10%',
-            bottom:'8%',
+            bottom:'18%',
             containLabel: true
         },
-        // "legend": {
-        //     show:true,
-        //     bottom : '2%',
-        //     itemGap: 12, //图例每项之间的间隔
-        //     itemWidth: 16, //图例宽度
-        //     itemHeight: 8, //图例高度
-        //     textStyle: {
-        //         color:'#fff',
-        //         fontFamily: '微软雅黑',
-        //         fontSize: 10,
-        //     },
-        //     data: legendArray,
-        // },
+        "legend": {
+            show:true,
+            bottom : '2%',
+            itemGap: 12, //图例每项之间的间隔
+            itemWidth: 16, //图例宽度
+            itemHeight: 8, //图例高度
+            textStyle: {
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data: legendArray,
+        },
         "xAxis": [
             {
                 "type": "category",
@@ -462,11 +628,42 @@ function near10Order(jsonData,selectObj){
         "yAxis": [
             {
                 type: 'value',
-                name:point,
-                nameGap:3,
+                name:'万亿立方米',
+                nameGap:1,
                 nameTextStyle:{
-                    padding:[0,0,0,45],
+                    padding:[0,0,0,55],
                     align:'center',
+                    color:'#fff',
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    }
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                },
+                /*
+                "splitLine": {
+                  "lineStyle": {
+                    "color": "#7d838b"
+                  }
+                }
+                */
+            },{
+                type: 'value',
+                name:'百万吨石油当量',
+                nameGap:0,
+                nameTextStyle:{
+                    padding:[0,80,0,0],
+                    align:'left',
                     color:'#fff',
                 },
                 axisLine: {
@@ -495,6 +692,9 @@ function near10Order(jsonData,selectObj){
         ],
         "series": barArray
     };
+
+    console.log(option)
+
     var myChart = echarts.init($('#near10Order')[0]);
     myChart.setOption(option);
 
