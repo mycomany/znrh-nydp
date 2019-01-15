@@ -9,7 +9,7 @@
     background: url(header.png) no-repeat 50% 0%;
     background-size: 100% 120%;
 }
-.qheader1{width:50%;float:left;padding-top:12px;}
+.qheader1{width:50%;float:left;}
 .qheader0{
     width: 280px;
     left: calc(50% - 128px);
@@ -174,22 +174,29 @@ div.qpanel div{z-index:1;}*/
     height:100%;
 }
 .qmenu-ico{
+    position:absolute;
+    top:10px;
+    left:5px;
+    z-index:1;
+    height:50px;
+    width:50px;
     cursor: pointer;
-    padding: 0px 20px;
     line-height: 24px;
     color: #fff;
     font-size:24px;
 }
+.qmenu-ico img{width:42px;height:42px;}
 .qmenu{
     position: absolute;
     margin: 0;
     padding: 0;
-    top: 41px;
-    height: calc(100vh - 48px);
+    top: 47px;
+    height: calc(100vh - 47px);
     z-index: 100;
 }
 .sidenav{
     padding: 6px 10px 6px 0;
+    margin:0;
     list-style: initial;
     top: 0;
     width: 220px;
@@ -211,29 +218,90 @@ div.qpanel div{z-index:1;}*/
 .circle1,.f1{color:#05ffd5;}
 .circle2,.f2{color: #38b8ff;}
 
-.rollingDiv{height:50px;line-height:50px;text-align:center;cursor:pointer;}
+.rollingDiv{text-align:center;cursor:pointer;}
 .rollingBtn{width:55px;height:25px;line-height:25px;padding-left: 15px;color:#fff;background: url(play.png) no-repeat 50% 50%;font-weight:bold;}
 .rollingTime{color:#00cef1;margin:0 5px 0 5px;}
 .rollingStop{display:none;}
 
-.qnav{
-    width:calc(100% - 180px);
+.qnav0{position: relative; }
+.qnav0:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    /*background: url(navbtn.png) no-repeat 50% 50%;background-size:100% 100%;*/
+    border:1px solid #28b1f9;
+    transform: skew(30deg);
 }
-.qnav>li{
+.qnav1{  width:100%;margin:0;padding:0; }
+
+.qnav1>li{
     float:left;
-    width:33%;
+    width:calc(25% - 5px);
     text-align: center;
-    height:50px;
-    line-height: 50px;
-    color:#2ab7ff;
-    font-size:1.75rem;
+    height:45px;
+    line-height: 45px;
+    font-size:1.25rem;
+    position: relative;
+    margin-right: 1%;
 }
-.qnav>li span{padding-left:5px;}
-.qnav>li.active{color:#fff;background: url(navbtn.png) no-repeat 50% 50%;background-size:85% 75%;}
-.qnav>li a:hover,.qnav>li.active a{color:#fff;}
+.qnav1>li:not(:last-child) a::after{
+    border: 1px dashed #28b1f9;
+    width: 0.1rem;
+    height: 25px;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+.qnav1>li span{padding-left:5px;}
+.qnav1>li a{color:#efefef;}
+.qnav1>li.active{background: url(navbtn2.active.png) no-repeat 30% 50%;background-size:80% 50%;}
+.qnav1>li.active:before{border:1px solid #28b1f9; }
+.qnav1>li a:hover,.qnav1>li.active a{color:#2ab7ff;}
+.qnav2{  width:calc(100% - 150px);margin:0  }
+.qnav2>li{
+    float:left;
+    width:calc(16.667% - 10px);
+    text-align: center;
+    height:45px;
+    line-height: 45px;
+    font-size:1.5rem;
+    position: relative;
+    margin-right: 1%;
+}
+.qnav2>li:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: url(navbtn.png) no-repeat 50% 50%;background-size:100% 100%;
+    transform: skew(-30deg);
+}
+.qnav2>li span{padding-left:5px;}
+.qnav2>li a{color:#efefef;}
+.qnav2>li.active{}
+.qnav2>li.active:before{border:1px solid #28b1f9; background: url(navbtn.active.png) no-repeat 50% 50%;background-size:100% 100%;}
+.qnav2>li a:hover,.qnav2>li.active a{color:#2ab7ff;}
 .qright{
     position: absolute;right:0;top:150px;padding-left:20px;
 }
+.qlogo{background: url(navlogo.png) no-repeat 50% 50%;background-size:80% 80%;position: relative;}
+.qlogo:before{content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border:1px solid #28b1f9;
+    transform: skew(30deg);}
 .engtab{height:280px;overflow:hidden;}
 .engtab>li{background: url(navtag.png) no-repeat 50% 50%;background-size: 100% 100%;height:25%;line-height: 25%; width:32px;text-align:center;display: flex;-webkit-align-items: center;align-items: center;-webkit-justify-content: center;justify-content: center;}
 .engtab>li.active{background: url(navtag.active.png) no-repeat 50% 50%;background-size: 100% 100%;}

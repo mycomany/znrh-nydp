@@ -14,6 +14,7 @@ function chart1(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#2b88ff','#5acbff','#4be698','#40eaf9'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -94,7 +95,6 @@ function chart1(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 						barBorderRadius: 50,
 					},
 				},
@@ -106,7 +106,6 @@ function chart1(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 						barBorderRadius: 50,
 					},
 				},
@@ -118,7 +117,6 @@ function chart1(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][2],
@@ -129,7 +127,6 @@ function chart1(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#e7572d'
 					},
 				},
 				data: data.data[ix][3],
@@ -147,6 +144,7 @@ function chart2(data){
 		legend:{
 			data:data[0]
 		},
+		color:['#2b88ff','#4138e1','#4be698','#40eaf9'],
 		grid:{
 			top:'10%',
 			bottom:'20%',
@@ -221,7 +219,6 @@ function chart2(data){
 			showSymbol: false,
 			itemStyle: {
 				normal: {
-					color: '#2c18f3'
 				},
 			},
 			data: data[2]
@@ -234,19 +231,12 @@ function chart2(data){
 			showSymbol: false,
 			itemStyle: {
 				normal: {
-					color: '#00FFFF'
 				},
 			},
 			data: data[3]
 		}]
 	};
 	$chart.init('#chart2', option);
-}
-function xbar(d){
-	for(var i = 0; i < d.length; i++){
-		d[i] = d[i].length > 3 ? d[i].substr(0, 2) + '\n' + d[i].substring(2) : d[i];
-	}
-	return d;
 }
 //污染物排放完成率
 function chart3(data){
@@ -289,7 +279,7 @@ function chart3(data){
 				radius: '80%',
 				axisLine: {            // 坐标轴线
 					lineStyle: {
-						color:  [[0.3, '#6ced91'],[0.5, '#F4923F'],[1, '#fe6b7d']],// 属性lineStyle控制线条样式
+						color:  [[0.3, '#25e4a3'],[0.5, '#faf13f'],[1, '#f7355e']],// 属性lineStyle控制线条样式
 						width: 10
 					}
 				},
@@ -336,7 +326,7 @@ function chart3(data){
 				splitNumber:10,
 				axisLine: {            // 坐标轴线
 					lineStyle: {       // 属性lineStyle控制线条样式
-						color:  [[0.3, '#6ced91'],[0.5, '#F4923F'],[1, '#fe6b7d']],
+						color:  [[0.3, '#25e4a3'],[0.5, '#faf13f'],[1, '#f7355e']],
 						width: 8
 					}
 				},
@@ -398,7 +388,6 @@ function chart3(data){
 						color: 'auto'
 					}
 				},
-
 				splitLine: {           // 分隔线
 					length: 15,         // 属性length控制线长
 					lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
@@ -431,7 +420,7 @@ function chart3(data){
 				type:'pie',
 				radius: 0,
 				center: ['-30%', '-50%'],
-				color: ["#6ced91","#F4923F", "#fe6b7d"],
+				color: ["#25e4a3","#faf13f", "#f7355e"],
 				itemStyle:{
 					normal: {
 						show:false,
@@ -465,6 +454,7 @@ function chart4(data, ix){
 		legend:{
 			data:data.legend
 		},
+		color:['#50ef9f','#2b88ff','#3ee4f3','#40eaf9'],
 		grid:{
 			top:'10%',
 			bottom:'20%',
@@ -549,7 +539,6 @@ function chart4(data, ix){
 			areaStyle:{},
 			itemStyle: {
 				normal: {
-					color: '#2c18f3'
 				},
 			},
 			data: data.data[ix][0]
@@ -564,7 +553,6 @@ function chart4(data, ix){
 				areaStyle:{},
 				itemStyle: {
 					normal: {
-						color: '#00FFFF'
 					},
 				},
 				data: data.data[ix][1]
@@ -579,7 +567,6 @@ function chart4(data, ix){
 				areaStyle:{},
 				itemStyle: {
 					normal: {
-						color: '#CDDC39'
 					},
 				},
 				data: data.data[ix][2]
@@ -601,6 +588,7 @@ function chart5(data, ix){
 			bottom:'18%',
 			containLabel: true
 		},
+		color:['#2b88ff','#5acbff','#50ef9f','#e8e745'],
 		tooltip: {
 			trigger: 'axis',
 			axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -672,7 +660,6 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 						barBorderRadius: 50,
 					},
 				},
@@ -684,7 +671,6 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 						barBorderRadius: 50,
 					},
 				},
@@ -696,7 +682,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][2],
@@ -707,7 +692,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#e7572d'
 					},
 				},
 				data: data.data[ix][3],
@@ -735,6 +719,7 @@ function chart6(data, ix){
 				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
 			}
 		},
+		color:['#2b88ff','#52fcfc','#3ee4f3','#40eaf9'],
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
@@ -800,7 +785,6 @@ function chart6(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 						barBorderRadius: 50,
 					},
 				},
@@ -812,7 +796,6 @@ function chart6(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][1],
@@ -831,7 +814,7 @@ function chart7(data, ix){
 			trigger: 'item',
 			formatter: "{a} <br/>{b}: {c}千瓦 ({d}%)"
 		},
-		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
+		color: ['#2b88ff','#4138e1','#50ef9f','#3ee4f3','#5c54ea'  ,'#e8e745','#dca93c','#e45698','#8954ea','#549eea'],
 		legend: {
 			show:true,
 			bottom : '2%',
