@@ -1,106 +1,59 @@
 $(document).ready(function(){
-	getdata('/clean/gasIndex/chart1.json',chart1);
-	getdata('/clean/gasIndex/chart2.json',chart2);
-	getdata('/clean/gasIndex/chart3.json',chart3);
-	getdata('/clean/gasIndex/chart4.json',chart4);
-	getdata('/clean/gasIndex/chart5.json',chart5);
-	getdata('/clean/gasIndex/chart6.json',chart6);
-	getdata('/clean/gasIndex/chart7.json',chart7);
+	getdatax('/clean/gasIndex/chart1.json',chart1);
+	getdatax('/clean/gasIndex/chart2.json',chart2);
+	getdatax('/clean/gasIndex/chart3.json',chart3);
+	getdatax('/clean/gasIndex/chart4.json',chart4);
+	getdatax('/clean/gasIndex/chart5.json',chart5);
+	getdatax('/clean/gasIndex/chart6.json',chart6);
+	getdatax('/clean/gasIndex/chart7.json',chart7);
 	getdata('/clean/gasIndex/main.json',main);
 });
 function main(data){
-	var option1 = {
-		tooltip: {
-		},
-		title:{
-			text:'一次能源',
-			x:'center',
-			y:40,
-			textStyle:{
-				color:'#fff',
-				fontSize:16,
+	var chart = am4core.createFromConfig({
+		data: data[3],
+		legend: {
+			labels:{
+				text:'{category}',
+				fill:'none',
+				stroke:'#fff',
+				fontSize:12,
+				fontFamily: 'sans-serif',
+				fontWeight:100,
 			}
 		},
-		color:['#f00', '#ff63', '#ff0', '#0f0', '#0ff', '#00f', '#403D84', '#FA3E5F', '#6635EF', '#FFAFDA'],
-		series: [
-			{
-			name: '一次能源',
-			type: 'pie',
-			radius: ['20%', '82%'],
-			center:['50%','50%'],
-			label: {
-				normal: {
-					position: 'inner'
-				}
+		angle:32,
+		innerRadius: "30%",
+		series: [{
+			"type": "PieSeries3D",
+			"legendSettings": {
+				"valueText": "{valueY.close}"
 			},
-			data: data[3]
-		},
-		]
-	};
-	var option2 = {
-		tooltip: {
-		},
-		title:{
-			text:'清洁能源',
-			x:'center',
-			y:40,
-			textStyle:{
-				color:'#fff',
-				fontSize:16,
-			}
-		},
-		color:['#f00', '#ff63', '#ff0', '#0f0', '#0ff', '#00f', '#403D84', '#FA3E5F', '#6635EF', '#FFAFDA'],
-		series: [
-			{
-				name: '清洁能源',
-				type: 'pie',
-				radius: ['20%', '82%'],
-				center:['50%','50%'],
-				label: {
-					normal: {
-						position: 'inner'
-					}
-				},
-				data: data[4]
+			"labels":{
+				stroke:'#fff',
+				fontSize:12,
+				fontFamily: 'sans-serif',
+				fontWeight:100,
+				//"disabled":true
 			},
-		]
-	};
-	var option3 = {
-		tooltip: {
-		},
-		title:{
-			text:'化石能源消费',
-			x:'center',
-			y:40,
-			textStyle:{
-				color:'#fff',
-				fontSize:16,
+			"ticks":{
+				"disabled":true
+			},
+			"slices":{
+				"strokeWidth":0
+			},
+			"dataFields": {
+				"value": "value",
+				"category": "name"
 			}
-		},
-		color:['#f00', '#ff63', '#ff0', '#0f0', '#0ff', '#00f', '#403D84', '#FA3E5F', '#6635EF', '#FFAFDA'],
-		series: [
-			{
-				name: '化石能源消费',
-				type: 'pie',
-				radius: ['20%', '82%'],
-				center:['50%','50%'],
-				label: {
-					normal: {
-						position: 'inner'
-					}
-				},
-				data: data[5]
-			}]
-	};
-	$chart.init('#main1', option1,'pie');
-	$chart.init('#main2', option2,'pie');
-	$chart.init('#main3', option3,'pie');
+		}]
+	}, "main", "PieChart3D");
+	$("#id-43-title").parent().hide();
 }
-//石油开采资源综合利用情况
-function chart1(data){
+//天然气开采资源综合利用情况
+function chart1(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -118,7 +71,7 @@ function chart1(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -157,40 +110,40 @@ function chart1(data){
 						color: '#2c18f3',
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
-				name: "天然气回收利用率",
+				name: "油井伴生气回收利用率",
 				type: "line",
 				itemStyle: {
 					normal: {
 						color: '#00FFFF',
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 			{
-				name: "资源化利用率",
+				name: "油泥资源化利用率",
 				type: "line",
 				itemStyle: {
 					normal: {
 						color: '#E9DC37'
 					},
 				},
-				data: data[4],
+				data: data.data[ix][2],
 			},
 		]
 	};
 	$chart.init('#chart1', option);
 }
-//石油开采其他污染物产生情况
-function chart2(data){
+//天然气开采废水排放情况
+function chart2(data, ix){
 	var option = {
 		tooltip: {
 			trigger: 'axis'
 		},
 		legend:{
-			data:data[0]
+			data:data.legend
 		},
 		grid:{
 			top:'10%',
@@ -228,7 +181,7 @@ function chart2(data){
 					fontSize: 8
 				},
 			},
-			data:data[1],
+			data:data.xData,
 		}],
 		yAxis: [{
 			type: 'value',
@@ -269,7 +222,7 @@ function chart2(data){
 					color: '#2c18f3'
 				},
 			},
-			data: data[2]
+			data: data.data[ix][0]
 		},
 		{
 			name: '采出废水达标排放率',
@@ -282,19 +235,19 @@ function chart2(data){
 					color: '#00FFFF'
 				},
 			},
-			data: data[3]
+			data: data.data[ix][1]
 		}]
 	};
 	$chart.init('#chart2', option);
 }
-//石油开采其他污染物产生情况
-function chart3(data){
+//天然气开采其他污染物产生情况
+function chart3(data, ix){
 	var option = {
 		tooltip: {
 			trigger: 'axis'
 		},
 		legend:{
-			data:data[0]
+			data:data.legend
 		},
 		grid:{
 			top:'10%',
@@ -332,7 +285,7 @@ function chart3(data){
 					fontSize: 8
 				},
 			},
-			data:data[1],
+			data:data.xData,
 		}],
 		yAxis: [{
 			type: 'value',
@@ -373,7 +326,7 @@ function chart3(data){
 					color: '#16abfe'
 				},
 			},
-			data: data[2]
+			data: data.data[ix][0]
 		},
 			{
 				name: '油井伴生气外排率',
@@ -386,13 +339,13 @@ function chart3(data){
 						color: '#ff7070'
 					},
 				},
-				data: data[3]
+				data: data.data[ix][1]
 			}]
 	};
 	$chart.init('#chart3', option);
 }
-//石油开采加工综合能耗企业排名
-function chart4(data){
+//全球天然气消费占比排名
+function chart4(data, ix){
 	var option = {
 		tooltip: {
 			trigger: 'item',
@@ -401,7 +354,7 @@ function chart4(data){
 			}
 		},
 		legend:{
-			data:data[0]
+			data:data.legend
 		},
 		grid:{
 			top:'10%',
@@ -438,10 +391,10 @@ function chart4(data){
 					fontSize: 8
 				},
 			},
-			data:data[1],
+			data:data.xData,
 		}],
 		yAxis: [{
-			name:'单位能耗量',
+			name:'百万吨石油当量',
 			nameGap:-1,
 			nameTextStyle:{
 				padding:[0,0,0,65],
@@ -477,49 +430,25 @@ function chart4(data){
 		}],
 		series: [
 			{
-			name: '开采重油',
+			name: '消费总量',
 			type:'bar',
 			barWidth:15,
-			//stack:'g',
 			itemStyle: {
 				normal: {
 					color: '#2c18f3'
 				},
 			},
-			data: data[2]
+			data: data.data[ix][0]
 		},
-		{
-			name: '开采轻油',
-			type:'bar',
-			barWidth:15,
-			//stack:'g',
-			itemStyle: {
-				normal: {
-					color: '#00FFFF'
-				},
-			},
-			data: data[3]
-		},
-		{
-			name: '石油加工',
-			type:'bar',
-			barWidth:15,
-			//stack:'g',
-			itemStyle: {
-				normal: {
-					color: '#FFD743'
-				},
-			},
-			data: data[4]
-		}]
+		]
 	};
 	$chart.init('#chart4', option);
 }
-//石油加工资源消耗情况
-function chart5(data){
+//天然气净化工艺情况
+function chart5(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -537,7 +466,7 @@ function chart5(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -580,7 +509,7 @@ function chart5(data){
 						color: '#2c18f3',
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "净化器合格率",
@@ -590,7 +519,7 @@ function chart5(data){
 						color: '#00FFFF',
 					},
 				},
-				data: data[4],
+				data: data.data[ix][1],
 			},
 			{
 				name: "尾气达标排放率",
@@ -600,17 +529,17 @@ function chart5(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[3],
+				data: data.data[ix][2],
 			},
 		]
 	};
 	$chart.init('#chart5', option);
 }
-//石油加工资源综合利用情况
-function chart6(data){
+//天然气净化资源综合利用情况
+function chart6(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -628,7 +557,7 @@ function chart6(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -641,7 +570,7 @@ function chart6(data){
 		}],
 		yAxis: [
 			{
-				name:'吨',
+				name:'ug/m3',
 				nameGap:-5,
 				nameTextStyle:{
 					padding:[0,0,0,45],
@@ -688,7 +617,7 @@ function chart6(data){
 			}],
 		series: [
 			{
-				name: "单位潜硫量脱硫剂消耗",
+				name: "单位潜硫量综合能耗",
 				type: "bar",
 				barWidth: '20%',
 				itemStyle: {
@@ -697,10 +626,10 @@ function chart6(data){
 						barBorderRadius: 10,
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
-				name: "单位潜流量综合能耗",
+				name: "单位潜硫量脱硫剂消耗",
 				type: "bar",
 				barWidth: '20%',
 				itemStyle: {
@@ -709,7 +638,7 @@ function chart6(data){
 						barBorderRadius: 10,
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 			{
 				name: "中水回用率",
@@ -720,17 +649,17 @@ function chart6(data){
 						color: '#E9DC37',
 					},
 				},
-				data: data[4],
+				data: data.data[ix][2],
 			},
 		]
 	};
 	$chart.init('#chart6', option);
 }
-//石油加工污染物产生情况
-function chart7(data){
+//天然气净化污染物产生情况
+function chart7(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		grid: {
@@ -749,7 +678,7 @@ function chart7(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -784,9 +713,12 @@ function chart7(data){
 					}
 				}
 			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+				name:'mg/L',
+				nameGap:-1,
+				nameTextStyle:{
+					padding:[0,0,0,-45],
+					align:'center',
+					color:'#fff',
 				},
 				axisLine: {
 					lineStyle: {
@@ -796,7 +728,7 @@ function chart7(data){
 				axisLabel: {
 					color: '#fff',
 					fontSize: 10,
-					formatter: '{value}%'
+					formatter: '{value}'
 				},
 				splitLine: {
 					show:false,
@@ -815,7 +747,7 @@ function chart7(data){
 					normal: {
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "废水达标排放率",
@@ -826,7 +758,7 @@ function chart7(data){
 					normal: {
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 			{
 				name: "COD排放浓度",
@@ -839,7 +771,7 @@ function chart7(data){
 						}
 					},
 				},
-				data: data[4],
+				data:data.data[ix][2],
 			},
 			{
 				name: "氨氮排放浓度",
@@ -853,7 +785,7 @@ function chart7(data){
 						}
 					},
 				},
-				data: data[5],
+				data: data.data[ix][3],
 			},
 		]
 	};

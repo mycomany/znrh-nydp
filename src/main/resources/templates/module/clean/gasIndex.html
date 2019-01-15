@@ -1,9 +1,9 @@
 <#assign goods="gas" />
 <#include "/inc/base.html" />
 <#macro head>
-    <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
-    <script src="${host}/static/lib/echarts/map/world.js"></script>
-    <script src="${host}/static/data/public/country.json"></script>
+    <script src="${host}/static/lib/amcharts/core.js"></script>
+    <script src="${host}/static/lib/amcharts/charts.js"></script>
+    <script src="${host}/static/lib/amcharts/themes/animated.js"></script>
     <script src="${host}/static/js/clean/gasIndex.js"></script>
 </#macro>
 
@@ -13,19 +13,19 @@
         <div class="w3 h12">
             <div class="w12 h4">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title2">天然气开采资源综合利用情况</span></div>
+                    <div class="qs_header"><span class="qs_title2">天然气开采资源综合利用情况</span><div id="chart1_comb" class="qs_comb"></div></div>
                     <div id="chart1" class="qs_body"></div>
                 </div>
             </div>
             <div class="w12 h4">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title2">天然气开采废水排放情况</span></div>
+                    <div class="qs_header"><span class="qs_title2">天然气开采废水排放情况</span><div id="chart2_comb" class="qs_comb"></div></div>
                     <div id="chart2" class="qs_body"></div>
                 </div>
             </div>
             <div class="w12 h4">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title2">天然气开采其他污染物产生情况</span></div>
+                    <div class="qs_header"><span class="qs_title2">天然气开采其他污染物产生情况</span><div id="chart3_comb" class="qs_comb"></div></div>
                     <div id="chart3" class="qs_body"></div>
                 </div>
             </div>
@@ -34,14 +34,12 @@
             <div class="w12 h8">
                 <div class="qpanel">
                     <div class="qs_header"><span class="qs_title2">天然气消费占比</span></div>
-                    <div id="main1" class="w4 qs_body"></div>
-                    <div id="main2" class="w4 qs_body"></div>
-                    <div id="main3" class="w4 qs_body"></div>
+                    <div id="main" class="qs_body"></div>
                 </div>
             </div>
             <div class="w12 h4">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title2">全球天然气消费占比排名</span></div>
+                    <div class="qs_header"><span class="qs_title2">全球天然气消费占比排名</span><div id="chart4_comb" class="qs_comb"></div></div>
                     <div id="chart4" class="qs_body"></div>
                 </div>
             </div>
@@ -49,19 +47,19 @@
         <div class="w3 h12">
             <div class="w12 h4">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title2">天然气净化工艺情况</span></div>
+                    <div class="qs_header"><span class="qs_title2">天然气净化工艺情况</span><div id="chart5_comb" class="qs_comb"></div></div>
                     <div id="chart5" class="qs_body"></div>
                 </div>
             </div>
             <div class="w12 h4">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title2">天然气净化资源综合利用情况</span></div>
+                    <div class="qs_header"><span class="qs_title2">天然气净化资源综合利用情况</span><div id="chart6_comb" class="qs_comb"></div></div>
                     <div id="chart6" class="qs_body"></div>
                 </div>
             </div>
             <div class="w12 h4">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title2">天然气净化污染物产生情况</span></div>
+                    <div class="qs_header"><span class="qs_title2">天然气净化污染物产生情况</span><div id="chart7_comb" class="qs_comb"></div></div>
                     <div id="chart7" class="qs_body"></div>
                 </div>
             </div>

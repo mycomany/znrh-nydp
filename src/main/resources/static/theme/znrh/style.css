@@ -6,13 +6,14 @@
 .qheader{
     height:80px;
     width: 100%;
-    background: url(header.png) no-repeat 50% 50%;
+    background: url(header.png) no-repeat 50% 0%;
     background-size: 100% 120%;
 }
 .qheader1{width:50%;float:left;padding-top:12px;}
 .qheader0{
     width: 280px;
     left: calc(50% - 128px);
+    padding-top:5px;
     position: absolute;
     top: 0;
     /*background: url(header0.png) no-repeat 50% 50%;*/
@@ -44,9 +45,8 @@
     text-align: center;
     color: #fff;
     font-weight: 900;
-    background-image: -webkit-gradient(linear,0 0,0 bottom,from(#fff),to(#fff));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /*-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
 }
 .qheader-icon2{
     width: 40px;
@@ -212,7 +212,7 @@ div.qpanel div{z-index:1;}*/
 .circle2,.f2{color: #38b8ff;}
 
 .rollingDiv{height:50px;line-height:50px;text-align:center;cursor:pointer;}
-.rollingBtn{width:55px;height:30px;line-height:30px;padding-left: 15px;color:#fff;background: url(play.png) no-repeat 50% 50%;font-weight:bold;}
+.rollingBtn{width:55px;height:25px;line-height:25px;padding-left: 15px;color:#fff;background: url(play.png) no-repeat 50% 50%;font-weight:bold;}
 .rollingTime{color:#00cef1;margin:0 5px 0 5px;}
 .rollingStop{display:none;}
 
@@ -240,4 +240,4 @@ div.qpanel div{z-index:1;}*/
 .engtab>li a{color:#fff;cursor: pointer;}
 .engtab>li a div{width:14px;line-height:1;margin:0 auto;}
 
-.qs_comb{min-width:40px;height:24px;margin-right: 20px;float:right;}
+.qs_comb{min-width:85px;height:24px;margin: 5px 10px 0 0;float:right;}

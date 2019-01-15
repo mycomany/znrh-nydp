@@ -1,18 +1,18 @@
 $(document).ready(function(){
-	getdata('/clean/elecIndex/chart1.json',chart1);
+	getdatax('/clean/elecIndex/chart1.json',chart1);
 	getdata('/clean/elecIndex/chart2.json',chart2);
 	getdata('/clean/elecIndex/chart3.json',chart3);
-	getdata('/clean/elecIndex/chart4.json',chart4);
-	getdata('/clean/elecIndex/chart5.json',chart5);
-	getdata('/clean/elecIndex/chart6.json',chart6);
-	getdata('/clean/elecIndex/chart7.json',chart7);
+	getdatax('/clean/elecIndex/chart4.json',chart4);
+	getdatax('/clean/elecIndex/chart5.json',chart5);
+	getdatax('/clean/elecIndex/chart6.json',chart6);
+	getdatax('/clean/elecIndex/chart7.json',chart7);
 });
 //["国电投","中国华能集团","中国大唐集团公司","中国华电集团公司","中国国电集团公司","国投电力","国华电力","华润电力","中广核","中国神华"],
 //非化石能源发电量趋势
-function chart1(data){
+function chart1(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -30,7 +30,7 @@ function chart1(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -98,7 +98,7 @@ function chart1(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "本月止累计发电量",
@@ -110,7 +110,7 @@ function chart1(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[4],
+				data: data.data[ix][1],
 			},
 			{
 				name: "本月同比",
@@ -121,7 +121,7 @@ function chart1(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[3],
+				data: data.data[ix][2],
 			},
 			{
 				name: "本月止累计同比",
@@ -132,7 +132,7 @@ function chart1(data){
 						color: '#e7572d'
 					},
 				},
-				data: data[5],
+				data: data.data[ix][3],
 			},
 		]
 	};
@@ -457,13 +457,13 @@ function chart3(data){
 	$chart.init('#chart3', option,'pie');
 }
 //污染物排放趋势
-function chart4(data){
+function chart4(data, ix){
 	var option = {
 		tooltip: {
 			trigger: 'axis'
 		},
 		legend:{
-			data:data[0]
+			data:data.legend
 		},
 		grid:{
 			top:'10%',
@@ -501,7 +501,7 @@ function chart4(data){
 					fontSize: 8
 				},
 			},
-			data:data[1],
+			data:data.xData,
 		}],
 		yAxis: [{
 			name:'吨',
@@ -537,28 +537,6 @@ function chart4(data){
 				},
 				formatter: '{value}'
 			}
-		},
-			{
-			nameTextStyle: {
-				color: '#fff',
-				fontSize: 10
-			},
-			axisLine: {
-				lineStyle: {
-					color: '#38b8ff'
-				}
-			},
-			axisLabel: {
-				color: '#fff',
-				fontSize: 10,
-				formatter: '{value}%'
-			},
-			splitLine: {
-				show:false,
-				lineStyle: {
-					color: '#0177d4'
-				}
-			}
 		}],
 		series: [
 			{
@@ -568,12 +546,13 @@ function chart4(data){
 			symbol:'circle',
 			showSymbol: false,
 			stack:'g',
+			areaStyle:{},
 			itemStyle: {
 				normal: {
 					color: '#2c18f3'
 				},
 			},
-			data: data[2]
+			data: data.data[ix][0]
 		},
 			{
 				name: '氮氧化物排放量',
@@ -582,12 +561,13 @@ function chart4(data){
 				symbol:'circle',
 				showSymbol: false,
 				stack:'g',
+				areaStyle:{},
 				itemStyle: {
 					normal: {
 						color: '#00FFFF'
 					},
 				},
-				data: data[3]
+				data: data.data[ix][1]
 			},
 			{
 				name: '粉尘排放量',
@@ -596,81 +576,23 @@ function chart4(data){
 				symbol:'circle',
 				showSymbol: false,
 				stack:'g',
+				areaStyle:{},
 				itemStyle: {
 					normal: {
 						color: '#CDDC39'
 					},
 				},
-				data: data[4]
+				data: data.data[ix][2]
 			},
-			{
-				name: 'SO2同比',
-				type: 'line',
-				smooth: true,
-				symbol:'circle',
-				showSymbol: false,
-				stack:'h',
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#2c18f3',
-					},
-				},
-				lineStyle: {
-					normal: {
-						type: 'dashed'
-					}
-				},
-				data: data[5]
-			},
-			{
-				name: '氮氧化物同比',
-				type: 'line',
-				smooth: true,
-				symbol:'circle',
-				showSymbol: false,
-				stack:'h',
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#00FFFF',
-					},
-				},
-				lineStyle: {
-					normal: {
-						type: 'dashed'
-					}
-				},
-				data: data[6]
-			},
-			{
-				name: '粉尘同比',
-				type: 'line',
-				smooth: true,
-				symbol:'circle',
-				showSymbol: false,
-				stack:'h',
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#CDDC39',
-					},
-				},
-				lineStyle: {
-					normal: {
-						type: 'dashed'
-					}
-				},
-				data: data[7]
-			}]
+		]
 	};
 	$chart.init('#chart4', option);
 }
 //脱硫效率排名
-function chart5(data){
+function chart5(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -688,7 +610,7 @@ function chart5(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -754,7 +676,7 @@ function chart5(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "本月止累计",
@@ -766,7 +688,7 @@ function chart5(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 			{
 				name: "本月同比",
@@ -777,7 +699,7 @@ function chart5(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[4],
+				data: data.data[ix][2],
 			},
 			{
 				name: "去年累计同比",
@@ -788,17 +710,17 @@ function chart5(data){
 						color: '#e7572d'
 					},
 				},
-				data: data[5],
+				data: data.data[ix][3],
 			},
 		]
 	};
 	$chart.init('#chart5', option);
 }
 //脱硝效率排名
-function chart6(data){
+function chart6(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -816,7 +738,7 @@ function chart6(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -882,7 +804,7 @@ function chart6(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "本月同比",
@@ -893,21 +815,21 @@ function chart6(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 		]
 	};
 	$chart.init('#chart6', option);
 }
 //淘汰落后产能结构
-function chart7(data){
+function chart7(data, ix){
 	var option = {
 		textStyle: {
 			color: '#59ebe8'
 		},
 		tooltip : {
 			trigger: 'item',
-			formatter: "{a} <br/>{b} : {c} %"
+			formatter: "{a} <br/>{b}: {c}千瓦 ({d}%)"
 		},
 		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		legend: {
@@ -921,21 +843,21 @@ function chart7(data){
 				fontFamily: '微软雅黑',
 				fontSize: 10,
 			},
-			data: data[0],
+			/*data: data.legend,*/
 		},
 		series : [
 			{
 				name: '淘汰落后产能',
 				type: 'pie',
 				radius : '60%',
-				center: ['50%', '50%'],
-				data:data[1],
+				center: ['50%', '40%'],
+				data:data.data[ix][0],
 				itemStyle: {
 					normal: {
 						label:{
 							show: true,
 							//position:'inside',
-							formatter: '{b} : {c}%' ,
+							//formatter: '{b} : {c}%' ,
 							textStyle:{
 								color:'#fff',
 								//fontSize: 10
