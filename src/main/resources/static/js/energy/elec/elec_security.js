@@ -849,7 +849,8 @@ function main(data){
 	        		areaColor: 'rgba(13,247,249,0)'
 	            },
 	            emphasis: {
-	                areaColor: 'red'
+	            	borderColor:'#55e6fc',
+	                 areaColor: '#4c70f7'
 	            }
 	        },
 	        regions: [{ // 选中的区域
