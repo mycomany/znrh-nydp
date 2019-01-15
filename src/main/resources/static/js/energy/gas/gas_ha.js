@@ -382,7 +382,7 @@ function chart2(data){
         dataArray.push({"name": data[1][i], "value": data[3][i]});
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[1][i] = dataArray[i].name;
@@ -437,6 +437,7 @@ function chart2(data){
             {
                 type: 'value',
                 // name:data[1][0],
+                min: 'dataMin', // 最小值
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
