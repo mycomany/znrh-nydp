@@ -366,7 +366,7 @@ function chart2(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -409,7 +409,7 @@ function chart2(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -447,6 +447,14 @@ function chart2(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         series: [
@@ -614,7 +622,7 @@ function chart4(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -657,7 +665,7 @@ function chart4(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -695,6 +703,14 @@ function chart4(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         series: [
@@ -733,7 +749,7 @@ function chart5(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -748,6 +764,14 @@ function chart5(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         grid: {
@@ -785,7 +809,7 @@ function chart5(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -846,7 +870,7 @@ function chart6(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -861,6 +885,14 @@ function chart6(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         grid: {
@@ -898,7 +930,7 @@ function chart6(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -959,7 +991,7 @@ function chart7(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -974,6 +1006,14 @@ function chart7(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         grid: {
@@ -1011,7 +1051,7 @@ function chart7(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -1072,7 +1112,7 @@ function chart8(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -1087,6 +1127,14 @@ function chart8(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         grid: {
@@ -1124,7 +1172,7 @@ function chart8(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
