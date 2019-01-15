@@ -128,7 +128,7 @@ function installAndGeneration(jsonData,selectObj){
             }
         })
     })
-    const lineColors = [{rgb1:137,rgb2:189,rgb3:27},{rgb1:0,rgb2:136,rgb3:212}]
+    const lineColors = [{rgb1:65,rgb2:56,rgb3:225},{rgb1:64,rgb2:148,rgb3:255}]
 
     Object.keys(lineDataObj).forEach((lineName,i)=> {
         const lineValues = lineDataObj[lineName]
@@ -163,8 +163,7 @@ function installAndGeneration(jsonData,selectObj){
                 itemStyle: { //折线拐点标志的样式
                     normal: {
                         color: 'rgba('+lineColors[i].rgb1+', '+lineColors[i].rgb2+', '+lineColors[i].rgb3+')',
-                        borderColor: 'rgba('+lineColors[i].rgb1+','+lineColors[i].rgb2+',2,'+lineColors[i].rgb1/100+')', //图形的描边颜色。支持的格式同 color
-                        borderColor: 'rgba('+lineColors[i].rgb1+','+lineColors[i].rgb2+',2,'+lineColors[i].rgb1/100+')', //图形的描边颜色。支持的格式同 color
+                        borderColor: 'rgba('+lineColors[i].rgb1+','+lineColors[i].rgb2+','+lineColors[i].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
                         borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
 
                     }
@@ -391,7 +390,7 @@ function makeOrders(orderDatas,selectPoint,point){
                 type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
             }
         },
-        color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+        color:['#2b88ff','#4138e1','#4ad08d','#4df3f3','#dedd4f','#dca93c'],
         legend: { //图例组件，颜色和名字
             itemGap: 12, //图例每项之间的间隔
             itemWidth: 16,
@@ -609,7 +608,7 @@ function deviceUsedRatio(jsonData,selectObj){
                 type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
             }
         },
-        color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+        color:['#2b88ff','#57c5f8'],
         legend: { //图例组件，颜色和名字
             itemGap: 12, //图例每项之间的间隔
             itemWidth: 16,
@@ -759,6 +758,8 @@ function makeWarmingRecord(jsonData,selectObj){
     for(let i = 0; i < barDatas.length; i++){
         dataShadow.push(yMax);
     }
+
+
     seriesData.push({
         type: 'bar',
         yAxisIndex:0,
@@ -774,7 +775,10 @@ function makeWarmingRecord(jsonData,selectObj){
 
     let legNames = []
 
-    const barColors = [['#83bff6','#2874ff','#188df0'],['#37a705','#37a705','#00ffcb']]
+    // const barColors = [['#83bff6','#2874ff','#188df0'],['#37a705','#37a705','#00ffcb']]
+    const barColors = [['#4138e1','#4138e1','#4138e1']
+        ,['#4094ff','#4094ff','#4094ff']]
+    // const barColors = [{rgb1:65,rgb2:56,rgb3:225},{rgb1:64,rgb2:148,rgb3:255}]
 
     makeSerDatas(barDatas,legNames,'bar')
     makeSerDatas(lineDatas,legNames,'line')
@@ -818,7 +822,7 @@ function makeWarmingRecord(jsonData,selectObj){
             }else{
                 d.itemStyle = {
                     normal:{
-                        color:'#8121dd'
+                        color:barColors[i][0]
                     }
                 }
             }
@@ -840,7 +844,7 @@ function makeWarmingRecord(jsonData,selectObj){
                 }
             }
         },
-        color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+        color:['#4138e1','#4094ff'],
         legend: { //图例组件，颜色和名字
             itemGap: 5, //图例每项之间的间隔
             itemWidth: 16,
@@ -995,7 +999,8 @@ function consume(jsonData,selectObj){
                 type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
             }
         },
-        color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+        color:['#5acbff','#2b88ff','#30FFFE','#216FFF'],
+        // const lineColors = [{rgb1:65,rgb2:56,rgb3:225},{rgb1:64,rgb2:148,rgb3:255}]
         legend: { //图例组件，颜色和名字
             itemGap: 12, //图例每项之间的间隔
             itemWidth: 16,

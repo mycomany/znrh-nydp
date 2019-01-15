@@ -175,7 +175,8 @@ function main(param){
                 fontSize: 10
             },
             //calculable: true,
-            color: ['#00d6ff','#81edf9','#b3f0f7']
+            // color: ['#00d6ff','#81edf9','#b3f0f7']
+            color: ['#2E2E58','#65FCF7','#0048FE']
         },
         series: [{
             name: 'Number',
@@ -306,7 +307,7 @@ function chart1(data){
             barWidth: '30%',
             itemStyle: {
                 normal: {
-                    color: '#1E90FF',
+                    color: '#25e4a3',
                     barBorderRadius: 50,
                 },
             },
@@ -318,7 +319,7 @@ function chart1(data){
             yAxisIndex: 1,
             itemStyle: {
                 normal: {
-                    color: '#E9DC37'
+                    color: '#faf13f'
                 },
             },
             data: [49.25,54.90,72.01,71.51,71.58,67.44,62.86,64.36,64.66,67.96,65.30,64.67,88.59,99.65,95.09,93.02,58.19,51.11,58.72,54.25,50.25,45.10,38.82,38.16,34.93,31.11,28.75,32.57,33.49,33.37,28.45,27.59,28.17,27.70,27.26,34.49,39.72,36.73],
@@ -369,7 +370,7 @@ function near10Order(jsonData,selectObj){
 
     const xArray = Object.keys(groupDataObj)
     let barArray = []
-    const colorArray = [['#37a705','#00ffcb'],['#00feff','#027eff']]
+    const colorArray = [['rgba(67,147,250,1)','rgba(67,147,250,0.5)','rgba(67,147,250,0.1)'],['#00feff','#027eff']]
     Object.values(groupDataObj).forEach(groupData=>{
         groupData.forEach((eachGroupData,i)=>{
             if(barArray[i]!=null){
@@ -379,19 +380,21 @@ function near10Order(jsonData,selectObj){
                     "name": legendArray[i],
                     "type": "bar",
                     "data": [eachGroupData],
-                    "barWidth": "15",
+                    "barWidth": "10",
                     "itemStyle": {
                         normal: {
-                            barBorderRadius: [30, 30, 0, 0],
+                            // barBorderRadius: [30, 30, 0, 0],
                             color: new echarts.graphic.LinearGradient(
                                 0, 0, 0, 1, [{
                                     offset: 0,
                                     color: colorArray[i][0]
-                                },
-                                    {
-                                        offset: 1,
-                                        color: colorArray[i][1]
-                                    }
+                                }, {
+                                    offset: 0.4,
+                                    color: colorArray[i][1]
+                                }, {
+                                    offset: 1,
+                                    color: colorArray[i][2]
+                                }
                                 ]
                             )
                         }
@@ -916,9 +919,9 @@ function chart4(){
                         color: new echarts.graphic.LinearGradient(
                             0, 0, 0, 1,
                             [
-                                {offset: 0, color: '#83bff6'},
-                                {offset: 0.5, color: '#2874ff'},
-                                {offset: 1, color: '#188df0'}
+                                {offset: 0, color: 'rgba(62,228,243,1)'},
+                                {offset: 0.5, color: 'rgba(62,228,243,0.5)'},
+                                {offset: 1, color: 'rgba(62,228,243,0.1)'}
                             ]
                         )
                     },
@@ -929,9 +932,10 @@ function chart4(){
                 name:'生产指数PI',
                 yAxisIndex:1,
                 type:'line',
+                symbolSize:0,
                 itemStyle:{
                     normal:{
-                        color:'#8121dd'
+                        color:'#2b88ff'
                     }
                 },
                 data: [100.00,100.00,100.00,100.00,100.00,101.18,108.20,115.57,114.92,117.23,111.01,110.57,111.91,103.26,104.51,105.82,102.13,98.18,98.78,95.25,88.68,78.55,73.89,70.87,69.64,69.68,65.86,62.05]
@@ -949,7 +953,8 @@ function chart5(data){
             trigger: 'item',
             formatter: "{a} <br/>{b} : ({d}%)"
         },
-        color: ['#c487ee', '#deb140', '#49dff0', '#034079', '#6f81da', '#00ffb4','#0007ff'],
+        // color: ['#c487ee', '#deb140', '#49dff0', '#034079', '#6f81da', '#00ffb4','#0007ff'],
+        color: ['#f24942', '#6491e6', '#eeac53', '#2cffc9', '#2baffb', '#fdb91a','#4138e1'],
         series: [{
             name: '储量占比',
             type: 'pie',
@@ -992,6 +997,8 @@ function chart6(jsonData){
     jsonData.forEach(oldData=>{
         data[oldData['name']] = oldData['value']
     })
+    const colorArray = [['rgba(67,147,250,1)','rgba(67,147,250,0.5)','rgba(67,147,250,0.1)'],['#00feff','#027eff']]
+
     var option = {
 
         tooltip:{
@@ -1054,18 +1061,19 @@ function chart6(jsonData){
             barWidth: '40%',
             itemStyle: {
                 normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1, [{
                             offset: 0,
-                            color: 'rgba(40,161,255,1)'
+                            color: colorArray[0][0]
                         }, {
                             offset: 0.4,
-                            color: 'rgba(40,161,255,0.5)'
+                            color: colorArray[0][1]
                         }, {
                             offset: 1,
-                            color: 'rgba(40,161,255,0.1)'
-                        }]
-                    ),
-                    barBorderRadius: [3, 3, 0, 0]
+                            color: colorArray[0][2]
+                        }
+                        ]
+                    )
                 }
             },
             z: -12,
@@ -1083,6 +1091,8 @@ function chart7(jsonData){
     jsonData.forEach(oldData=>{
         data[oldData['name']] = oldData['value']
     })
+    const colorArray = [['rgba(67,147,250,1)','rgba(67,147,250,0.5)','rgba(67,147,250,0.1)'],['#00feff','#027eff']]
+
     var option = {
         tooltip:{
             formatter:'{b}: {c}',
@@ -1144,18 +1154,19 @@ function chart7(jsonData){
             barWidth: '40%',
             itemStyle: {
                 normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1, [{
                             offset: 0,
-                            color: 'rgba(40,161,255,1)'
+                            color: colorArray[0][0]
                         }, {
                             offset: 0.4,
-                            color: 'rgba(40,161,255,0.5)'
+                            color: colorArray[0][1]
                         }, {
                             offset: 1,
-                            color: 'rgba(40,161,255,0.1)'
-                        }]
-                    ),
-                    barBorderRadius: [3, 3, 0, 0]
+                            color: colorArray[0][2]
+                        }
+                        ]
+                    )
                 }
             },
             z: -12,
