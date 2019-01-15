@@ -492,6 +492,7 @@ function chart2(data){
             containLabel: true
         },
         xAxis: {
+            boundaryGap: false,
             axisLabel: {
                 textStyle: {
                     color: '#fff'
