@@ -210,15 +210,17 @@ function chart1_nh(data){
             {
                 name: data[0][2][0],
                 color:data[0][3][0],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[0][5]["nh"][0]
             },
             {
                 name: data[0][2][1],
                 color:data[0][3][1],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[0][5]["nh"][1]
             }
         ]
@@ -325,15 +327,17 @@ function chart1_dh(data){
             {
                 name: data[1][2][0],
                 color:data[1][3][0],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[1][5]["dh"][0]
             },
             {
                 name: data[1][2][1],
                 color:data[1][3][1],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[1][5]["dh"][1]
             }
         ]
@@ -439,12 +443,16 @@ function chart2(data){
                 name: data[1][0],
                 color:data[2][0],
                 type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[4]
             },
             {
                 name: data[1][1],
                 color: data[2][1],
                 type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[5]
             }
         ]
@@ -615,7 +623,7 @@ function chart4(data){
         dataArray.push({"name": data[1][i], "value": data[3][i]});
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[1][i] = dataArray[i].name;
@@ -670,6 +678,7 @@ function chart4(data){
             {
                 type: 'value',
                 // name:data[1][0],
+                min: 'dataMin', // 最小值
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -733,7 +742,7 @@ function chart5(data){
         dataArray.push({"name": data[1][i], "value": data[3][nf][i]});
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[1][i] = dataArray[i].name;
@@ -788,6 +797,7 @@ function chart5(data){
             {
                 type: 'value',
                 // name:data[1][0],
+                min: 'dataMin', // 最小值
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -804,7 +814,7 @@ function chart5(data){
                         color: '#ffffff',
                         fontSize: 10
                     },
-                    formatter: "{value}%"
+                    formatter: "{value}%",
                 },
                 //去掉辅助线
                 "splitLine": {
