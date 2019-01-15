@@ -4,96 +4,125 @@ $(document).ready(function(){
     getdata('/energy/oil/ha/chart2.json' + __time,chart2);
     getdata('/energy/oil/ha/chart3.json' + __time,getchart3);
     getdata('/energy/oil/ha/chart4.json' + __time,getChart4);
-    getdata('/energy/oil/ha/main.json' + __time,main);
+    // getdata('/energy/oil/ha/main.json' + __time,main);
+    main();
 });
 
 
-function main(data){
-    var option = {
-        "tooltip": {
-            "trigger": "axis",
-            "axisPointer": {
-                "type": "cross",
-                "crossStyle": {
-                    "color": "#384757"
+function main(){
+    var mapData = [{
+        name: '俄罗斯',
+        value: [39.378811,57.509873,93]
+    },{
+        name: '欧盟',
+        value: [20.907925,51.142768,90]
+    },{
+        name: '韩国',
+        value: [127.538658,35.932183,95]
+    },{
+        name: '日本',
+        value: [138.393063,36.201055,90]
+    },{
+        name: '美国',
+        value: [-101.838839,40.002538,95]
+    },{
+        name: '中国',
+        value: [103.033458,34.354405,92]
+    }];
+    var color = ['#9ae5fc', '#2874ff']; // 自定义图中要用到的颜色
+    var series = []; // 用来存储地图数据
+
+    // 显示终点位置,类似于上面最后一个效果，放在外面写，是为了防止被循环执行多次
+    series.push({
+        type: 'effectScatter',
+        coordinateSystem: 'geo',
+        zlevel: 3,
+        rippleEffect: {
+            brushType: 'stroke'
+        },
+        label: {
+            normal: {
+                show: true,
+                //position: 'bottom',
+                color:'#fff',
+                fontSize:14,
+                formatter: function(v){
+                    //alert(JSON.stringify(v));
+                    return v.name;//+": "+v.data.value[2]+' 吨';
                 }
-            },
-            formatter: function(params, ticket, callback) {
-
-                var res = params[0].name;
-
-                for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
-                }
-                return res;
-
             }
         },
-        legend: {
-            show:true,
-            bottom : 20,
-            itemWidth: 16,
-            itemHeight: 8,
-            textStyle:{
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 12,
-            },
-            data:data[1]
+        symbolSize: function(val) {
+//	    	if (val[3]>60) {
+//	    		return 60;
+//			}
+            return val[2]/10*3;
         },
-        grid:{
-            top:'5%',
-            left:'5%',
-            right:'5%',
-            bottom:'15%',
-            containLabel: true
-        },
-        xAxis: [
-            {
-                axisLabel: {
-                    textStyle: {
-                        color: '#fff'
-                    }
-                },
-                splitLine: {
-                    show: false
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                type: 'category',
-                data: data[3]
+        itemStyle: {
+            normal: {
+                color: color[1]
             }
-        ],
-        yAxis: {
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
-            },
-            splitLine:{
-                show:false
-            },
-            splitNumber:4,
-            axisLabel: {
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            name: data[0][0],
-            nameGap:-5,
-            nameTextStyle:{
-                padding:[0,0,0,15],
-                align:'center',
-                color:'#fff',
-            },
-            type: 'value',
-            z:10,
         },
-        series:data[4]
-    };
+        data: mapData
+    });
+
+    // 最后初始化世界地图中的相关数据
+    var option = ({
+        title : {
+            text: '',
+            left: 'center',
+            textStyle : {
+                color: '#a4d6fe',
+                fontSize: 18
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function(params) {
+                if (params.componentSubType == 'effectScatter') {
+                    //alert(JSON.stringify(params));
+                    return params.name+' : '+params.data.value[2]+'%';
+                }else{
+                    return '';
+                }
+            }
+        },
+        geo: {
+            map: 'world', // 与引用进来的地图js名字一致
+            roam: true, // 禁止缩放平移
+            zoom:1.2,
+            top:'20%',
+            left:'7%',
+            aspectScale:0.9,
+            itemStyle: { // 每个区域的样式
+                normal: {
+                    borderColor:'rgba(13,247,249,1)',
+                    areaColor: 'rgba(13,247,249,0)'
+                },
+                emphasis: {
+                    areaColor: '#80def8'
+                }
+            },
+            regions: [{ // 选中的区域
+                name: 'China',
+                selected: true,
+                itemStyle: { // 高亮时候的样式
+                    emphasis: {
+                        areaColor: 'rgba(68,99,239,0.3)'
+                    }
+                },
+                label: { // 高亮的时候不显示标签
+                    emphasis: {
+                        show: false
+                    }
+                }
+            }]
+        },
+        series: series, // 将之前处理的数据放到这里
+        textStyle: {
+            fontSize: 12
+        }
+    });
     var myChart = echarts.init($('#main')[0]);
     myChart.setOption(option);
 }
