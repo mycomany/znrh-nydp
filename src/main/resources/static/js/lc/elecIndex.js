@@ -59,6 +59,7 @@ function chart1(data){
 		legend: {
 			data: data[0],
 		},
+		color:['#2b88ff','#5acbff'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -143,7 +144,6 @@ function chart1(data){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data[2],
@@ -155,7 +155,6 @@ function chart1(data){
 				yAxisIndex:1,
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
 				data: data[3],
@@ -170,6 +169,7 @@ function chart2(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#4df3f3','#2b88ff'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -254,7 +254,6 @@ function chart2(data, ix){
 				type: "bar",
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data.data[ix][0],
@@ -265,7 +264,6 @@ function chart2(data, ix){
 				yAxisIndex:1,
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
 				data: data.data[ix][1],
@@ -287,6 +285,7 @@ function chart3(data){
 			bottom:'18%',
 			containLabel: true
 		},
+		color:['#2b88ff','#4138e1'],
 		tooltip: {
 			trigger: 'axis',
 			axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -359,7 +358,6 @@ function chart3(data){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data[2],
@@ -370,7 +368,6 @@ function chart3(data){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data[3],
@@ -385,6 +382,7 @@ function chart4(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#5acbff','#2b88ff'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -462,9 +460,9 @@ function chart4(data, ix){
 			{
 				name: "排放量",
 				type: "bar",
+				barWidth:"30%",
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data.data[ix][0],
@@ -475,7 +473,6 @@ function chart4(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][1],
@@ -484,12 +481,13 @@ function chart4(data, ix){
 	};
 	$chart.init('#chart4', option);
 }
-//单位发电CO2 排放量排名
+//单位发电CO2排放量排名
 function chart5(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
 		},
+		color:['#2b88ff','#5acbff'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -571,7 +569,6 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 						barBorderRadius: 50,
 					},
 				},
@@ -583,7 +580,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][1],

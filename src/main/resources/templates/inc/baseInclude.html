@@ -26,12 +26,12 @@
 	}
 	function initNav(){
 		var it = dui.imgtab;
-		it(".qnav");
-		it(".engtab");
+		it(".qnav1");
+		it(".qnav2");
 	}
 	function setCurrPage(){
 		var url = location.href.replace('${host}','');
-		var a = 0, n0 = $(".qnav"), t0 = $(".engtab");
+		var a = 0, n0 = $(".qnav2"), t0 = $(".qnav1");
 		for(var u in __menu){
 			for(var i = 0, l = __menu[u].length; i < l; i++){
 				if(__menu[u][i] == url){

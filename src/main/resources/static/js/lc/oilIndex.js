@@ -298,7 +298,7 @@ function chart2(data){
 				barWidth:15,
 				itemStyle: {
 					normal: {
-						color: '#8a00ec'
+						color: '#2cffc9'
 					},
 				},
 				data: data[2]
@@ -319,7 +319,7 @@ function chart3(data){
 		legend:{
 			data:data[0]
 		},
-		color:['#8a00ec','#4335d2','#00FFFF','#FFD743','#ff6e72','#ff0', '#24e743','#1324fd','#ff1213'],
+		color:['#40eaf9','#2b88ff','#2cffc9','#4138e1','#f5bd3b','#69a8f8', '#9571d8','#e45698','#74edb6'],
 		grid:{
 			top:'10%',
 			bottom:'20%',
@@ -491,6 +491,7 @@ function chart4(data){
 		legend: {
 			data: data[0],
 		},
+		color:['#2b88ff','#2cffc9'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -552,7 +553,6 @@ function chart4(data){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
 				data: data[2],
@@ -562,7 +562,6 @@ function chart4(data){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data[3],
@@ -577,6 +576,7 @@ function chart5(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#2b88ff','#40eaf9','#fdb91a','#2cffc9'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -657,7 +657,6 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data.data[ix][0],
@@ -668,7 +667,6 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
 				data: data.data[ix][1],
@@ -679,7 +677,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][2],
@@ -690,7 +687,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#f1f163'
 					},
 				},
 				data: data.data[ix][3],
@@ -786,7 +782,7 @@ function chart6(data, ix){
 				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
+						color: '#2b88ff',
 						barBorderRadius: 10,
 					},
 				},
@@ -803,7 +799,7 @@ function chart7(data, ix){
 			show:false,
 			data: data.legend,
 		},
-		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
+		color: ['#2b88ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -884,7 +880,6 @@ function chart7(data, ix){
 				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 						barBorderRadius: 10,
 					},
 				},

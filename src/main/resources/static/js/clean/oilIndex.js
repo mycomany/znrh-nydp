@@ -14,6 +14,7 @@ function chart1(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#2cffc9','#40eaf9','#2b88ff','#40eaf9'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -66,7 +67,6 @@ function chart1(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data.data[ix][0],
@@ -76,7 +76,6 @@ function chart1(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
 				data: data.data[ix][1],
@@ -86,7 +85,6 @@ function chart1(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][2],
@@ -104,6 +102,7 @@ function chart2(data, ix){
 		legend:{
 			data:data.legend
 		},
+		color:['#2b88ff','#25e4a3','#fdb91a','#40eaf9'],
 		grid:{
 			top:'10%',
 			bottom:'20%',
@@ -178,7 +177,6 @@ function chart2(data, ix){
 			showSymbol: false,
 			itemStyle: {
 				normal: {
-					color: '#2c18f3'
 				},
 			},
 			data: data.data[ix][0]
@@ -309,6 +307,7 @@ function chart4(data){
 		legend:{
 			data:data[0]
 		},
+		color:['#2cffc9','#40eaf9','#2b88ff','#40eaf9'],
 		tooltip: {
 			trigger: 'axis',
 			axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -395,7 +394,6 @@ function chart4(data){
 			//stack:'g',
 			itemStyle: {
 				normal: {
-					color: '#2c18f3'
 				},
 			},
 			data: data[2]
@@ -407,7 +405,6 @@ function chart4(data){
 			//stack:'g',
 			itemStyle: {
 				normal: {
-					color: '#00FFFF'
 				},
 			},
 			data: data[3]
@@ -419,7 +416,6 @@ function chart4(data){
 			//stack:'g',
 			itemStyle: {
 				normal: {
-					color: '#FFD743'
 				},
 			},
 			data: data[4]
@@ -433,6 +429,7 @@ function chart5(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#2cffc9','#2b88ff','#40eaf9','#4138e1','#fdb91a'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -513,7 +510,6 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data.data[ix][0],
@@ -524,7 +520,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
 				data: data.data[ix][1],
@@ -535,7 +530,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][2],
@@ -546,7 +540,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#e7572d'
 					},
 				},
 				data: data.data[ix][3],
@@ -557,7 +550,6 @@ function chart5(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#fd3434'
 					},
 				},
 				data: data.data[ix][4],
@@ -572,6 +564,7 @@ function chart6(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#2cffc9','#2b88ff','#40eaf9','#4138e1','#fdb91a'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -629,8 +622,6 @@ function chart6(data, ix){
 				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
-						barBorderRadius: 10,
 					},
 				},
 				data: data.data[ix][0],
@@ -641,8 +632,6 @@ function chart6(data, ix){
 				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						color: '#30fffe',
-						barBorderRadius: 10,
 					},
 				},
 				data: data.data[ix][1],
@@ -653,8 +642,6 @@ function chart6(data, ix){
 				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						color: '#E9DC37',
-						barBorderRadius: 10,
 					},
 				},
 				data: data.data[ix][2],
@@ -669,7 +656,7 @@ function chart7(data, ix){
 		legend: {
 			data: data.legend,
 		},
-		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
+		color: ['#6ed5ff','#2cffc9','#2874ff','#fdb91a','#af59ff'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -780,7 +767,6 @@ function chart7(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#e7572d'
 					},
 				},
 				data: data.data[ix][3],
@@ -884,11 +870,14 @@ function main1(data){
 			areaStyle: {
 				normal: {type: 'default',
 					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-						offset: 0,
-						color: 'rgba(199, 37, 50,0.2)'
+						offset: 0.3,
+						color: 'rgba(64, 234, 249,0.2)'
+					}, {
+						offset: 0.7,
+						color: 'rgba(64, 234, 249,0.4)'
 					}, {
 						offset: 1,
-						color: 'rgba(199, 37, 50,0.2)'
+						color: 'rgba(64, 234, 249, 1)'
 					}], false)
 				}
 			},
@@ -907,11 +896,14 @@ function main1(data){
 			areaStyle: {
 				normal: {type: 'default',
 					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-						offset: 0,
-						color: 'rgba(19, 37, 250,0.2)'
+						offset: 0.3,
+						color: 'rgba(43, 175, 251,0.2)'
+					}, {
+						offset: 0.7,
+						color: 'rgba(43, 175, 251,0.4)'
 					}, {
 						offset: 1,
-						color: 'rgba(19, 37, 250,0.2)'
+						color: 'rgba(43, 175, 251, 1)'
 					}], false)
 				}
 			},
@@ -929,7 +921,7 @@ function main2(data){
 		legend: {
 			data: data[0],
 		},
-		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
+		color: ['#4138e1','#40eaf9','#2cffc9'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -1009,7 +1001,6 @@ function main2(data){
 				type: "bar",
 				itemStyle: {
 					normal: {
-						color: '#1E90FF',
 						barBorderRadius: [20,20,0,0],
 					},
 				},
@@ -1020,7 +1011,6 @@ function main2(data){
 				type: "bar",
 				itemStyle: {
 					normal: {
-						color: '#FFD200',
 						barBorderRadius: [20,20,0,0],
 					},
 				},
@@ -1042,7 +1032,6 @@ function main2(data){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#e7572d'
 					},
 				},
 				data: data[5],
