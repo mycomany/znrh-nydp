@@ -169,24 +169,24 @@ function chart1(){
                     width: 1 //线宽。[ default: 2 ]
                 }
             },
-            areaStyle: { //区域填充样式
+            areaStyle: {
                 normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
-                        offset: 0, // 0% 处的颜色
-                        color: 'rgba(137, 189, 27, 0.3)'
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 87, 146, 0.4)'
                     }, {
-                        offset: 0.8, // 80% 处的颜色
-                        color: 'rgba(137, 189, 27, 0)'
+                        offset: 0.8,
+                        color: 'rgba(255, 87, 146, 0.4)'
                     }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
-                    shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    shadowColor: 'rgba(255, 87, 146, 0.4)',
+                    shadowBlur: 10
                 }
             },
-            itemStyle: { //折线拐点标志的样式
+            itemStyle: {
                 normal: {
-                    color: 'rgb(137,189,27)',
-                    borderColor: 'rgba(137,189,2,0.27)', //图形的描边颜色。支持的格式同 color
-                    borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+                    color: 'rgba(255, 87, 146)',
+                    borderColor: 'rgba(255, 87, 146)',
+                    borderWidth: 12
 
                 }
             },
@@ -208,19 +208,19 @@ function chart1(){
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                         offset: 0,
-                        color: 'rgba(0, 136, 212, 0.3)'
+                        color: 'rgba(77, 243, 243, 0.2)'
                     }, {
                         offset: 0.8,
-                        color: 'rgba(0, 136, 212, 0)'
+                        color: 'rgba(77, 243, 243, 0.2)'
                     }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowColor: 'rgba(77, 243, 243, 0.2)',
                     shadowBlur: 10
                 }
             },
             itemStyle: {
                 normal: {
-                    color: 'rgb(0,136,212)',
-                    borderColor: 'rgba(0,136,212,0.2)',
+                    color: 'rgba(77, 243, 243)',
+                    borderColor: 'rgba(77, 243, 243)',
                     borderWidth: 12
 
                 }
@@ -239,14 +239,15 @@ function chart1(){
                     width: 1
                 }
             },
+
             areaStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                         offset: 0,
-                        color: 'rgba(219, 50, 51, 0.3)'
+                        color: 'rgba(0, 136, 212, 0.3)'
                     }, {
                         offset: 0.8,
-                        color: 'rgba(219, 50, 51, 0)'
+                        color: 'rgba(0, 136, 212, 0)'
                     }], false),
                     shadowColor: 'rgba(0, 0, 0, 0.1)',
                     shadowBlur: 10
@@ -254,12 +255,13 @@ function chart1(){
             },
             itemStyle: {
                 normal: {
-
-                    color: 'rgb(219,50,51)',
-                    borderColor: 'rgba(219,50,51,0.2)',
+                    color: 'rgb(0,136,212)',
+                    borderColor: 'rgba(0,136,212,0.2)',
                     borderWidth: 12
+
                 }
             },
+
             data: [15.80,15.01,14.63,15.57,15.18,14.97,14.19,14.50,14.84,12.87,12.78,12.76,12.68,12.45,14.35,13.73,14.93,15.20,15.22,15.56,15.64,15.97,16.11,16.04,16.24,16.29,17.58,18.28]
         }, ]
     };
@@ -390,16 +392,16 @@ function chart2(){
                 itemStyle: {
                     normal: {
                         barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                                 offset: 0,
-                                color: '#37a705'
-                            },
-                                {
-                                    offset: 1,
-                                    color: '#00ffcb'
-                                }
-                            ]
+                                color: 'rgba(58,243,196,1)'
+                            }, {
+                                offset: 0.4,
+                                color: 'rgba(58,243,196,0.5)'
+                            }, {
+                                offset: 1,
+                                color: 'rgba(58,243,196,0.1)'
+                            }]
                         )
                     }
                 }
@@ -412,20 +414,16 @@ function chart2(){
                 itemStyle: {
                     normal: {
                         barBorderRadius: [30, 30, 0, 0],
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1, [{
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                                 offset: 0,
-                                color: '#00feff'
-                            },
-                                {
-                                    offset: 0.5,
-                                    color: '#027eff'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#0286ff'
-                                }
-                            ]
+                                color: 'rgba(43,175,251,1)'
+                            }, {
+                                offset: 0.4,
+                                color: 'rgba(43,175,251,0.5)'
+                            }, {
+                                offset: 1,
+                                color: 'rgba(43,175,251,0.1)'
+                            }]
                         )
                     }
                 }
@@ -438,7 +436,7 @@ function chart2(){
                 "data": [120.9,113.7,105.2,96.0,95.6,89.5,86.7,80.2,77.7,73.3,69.3,68.8,64.4,58.8,51.6,52.8,49.9,47.9,48.0,46.0,43.2,41.6,40.6,39.3,37.9,35.9,32.5,30.0],
                 "itemStyle": {
                     "normal": {
-                        "color": "#ffaa00"
+                        "color": "#fdb91a"
                     }
                 },
                 "smooth": true
@@ -990,9 +988,9 @@ function near10Order(jsonData,selectObj){
     let point = ''
     _data_cache.near10OrderDatas.forEach((eachData,i)=>{
         const group = eachData['group']
-        if(group!=selectPoint){
-            return
-        }
+        // if(group!=selectPoint){
+        //     return
+        // }
         point = eachData['point']
 
         legendArray.push(group)
@@ -1002,17 +1000,19 @@ function near10Order(jsonData,selectObj){
             const eachGroupDataName = eachGroupData['name']
             const eachGroupDataValue = eachGroupData['value']
             if(groupDataObj[eachGroupDataName]!=null){}else{
-                groupDataObj[eachGroupDataName] = [0]
-                // groupDataObj[eachGroupDataName] = [0,0]
+                // groupDataObj[eachGroupDataName] = [0]
+                groupDataObj[eachGroupDataName] = [0,0]
             }
-            // groupDataObj[eachGroupDataName][i] = eachGroupDataValue
-            groupDataObj[eachGroupDataName][0] = eachGroupDataValue
+            groupDataObj[eachGroupDataName][i] = eachGroupDataValue
+            // groupDataObj[eachGroupDataName][0] = eachGroupDataValue
         })
     })
 
     const xArray = Object.keys(groupDataObj)
     let barArray = []
-    const colorArray = [['#37a705','#00ffcb'],['#00feff','#027eff']]
+    const colorArray = [
+        ['rgba(43,175,251,1)','rgba(43,175,251,0.5)','rgba(43,175,251,0.1)'],
+        ['rgba(58,243,196,1)','rgba(58,243,196,0.5)','rgba(58,243,196,0.1)']]
     Object.values(groupDataObj).forEach(groupData=>{
         groupData.forEach((eachGroupData,i)=>{
             if(barArray[i]!=null){
@@ -1022,20 +1022,21 @@ function near10Order(jsonData,selectObj){
                     "name": legendArray[i],
                     "type": "bar",
                     "data": [eachGroupData],
-                    "barWidth": 15,
+                    // "barWidth": 10,
+                    "yAxisIndex": i,
                     "itemStyle": {
                         normal: {
-                            barBorderRadius: [30, 30, 0, 0],
-                            color: new echarts.graphic.LinearGradient(
-                                0, 0, 0, 1, [{
+                            // color: '#3af3c4'
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                                     offset: 0,
                                     color: colorArray[i][0]
-                                },
-                                    {
-                                        offset: 1,
-                                        color: colorArray[i][1]
-                                    }
-                                ]
+                                }, {
+                                    offset: 0.4,
+                                    color: colorArray[i][1]
+                                }, {
+                                    offset: 1,
+                                    color: colorArray[i][1]
+                                }]
                             )
                         }
                     }
@@ -1045,35 +1046,32 @@ function near10Order(jsonData,selectObj){
     })
 
     const option = {
-        "tooltip": {
-            "trigger": "axis",
-            "axisPointer": {
-                "type": "cross",
-                "crossStyle": {
-                    "color": "#384757"
-                }
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
             }
         },
         grid: {
             left: '1%',
             right:'1%',
             top:'10%',
-            bottom:'8%',
+            bottom:'18%',
             containLabel: true
         },
-        // "legend": {
-        //     show:true,
-        //     bottom : '2%',
-        //     itemGap: 12, //图例每项之间的间隔
-        //     itemWidth: 16, //图例宽度
-        //     itemHeight: 8, //图例高度
-        //     textStyle: {
-        //         color:'#fff',
-        //         fontFamily: '微软雅黑',
-        //         fontSize: 10,
-        //     },
-        //     data: legendArray,
-        // },
+        "legend": {
+            show:true,
+            bottom : '2%',
+            itemGap: 12, //图例每项之间的间隔
+            itemWidth: 16, //图例宽度
+            itemHeight: 8, //图例高度
+            textStyle: {
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data: legendArray,
+        },
         "xAxis": [
             {
                 "type": "category",
@@ -1102,11 +1100,42 @@ function near10Order(jsonData,selectObj){
         "yAxis": [
             {
                 type: 'value',
-                name:point,
+                name:'十亿吨',
                 nameGap:1,
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
+                    color:'#fff',
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    }
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                },
+                /*
+                "splitLine": {
+                  "lineStyle": {
+                    "color": "#7d838b"
+                  }
+                }
+                */
+            },{
+                type: 'value',
+                name:point,
+                nameGap:0,
+                nameTextStyle:{
+                    padding:[0,45,0,0],
+                    align:'left',
                     color:'#fff',
                 },
                 axisLine: {
@@ -1208,21 +1237,21 @@ function cnTop10Order(jsonData){
         series: [{
             name: '探明储量',
             type: 'bar',
-            barWidth: '40%',
+            barWidth: 10,
             itemStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
-                            color: 'rgba(40,161,255,1)'
+                            color: 'rgba(58,243,196,1)'
                         }, {
                             offset: 0.4,
-                            color: 'rgba(40,161,255,0.5)'
+                            color: 'rgba(58,243,196,0.5)'
                         }, {
                             offset: 1,
-                            color: 'rgba(40,161,255,0.1)'
+                            color: 'rgba(58,243,196,0.1)'
                         }]
-                    ),
-                    barBorderRadius: [3, 3, 0, 0]
+                    )
+                    // barBorderRadius: [3, 3, 0, 0]
                 }
             },
             z: -12,
@@ -1298,7 +1327,7 @@ function worldTop10Order(jsonData){
         series: [{
             name: '探明储量',
             type: 'bar',
-            barWidth: '40%',
+            barWidth: 10,
             itemStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -1388,21 +1417,20 @@ function machiningTop10Order(jsonData){
         series: [{
             name: '探明储量',
             type: 'bar',
-            barWidth: '40%',
+            barWidth: 10,
             itemStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
-                            color: 'rgba(40,161,255,1)'
+                            color: 'rgba(43,175,251,1)'
                         }, {
                             offset: 0.4,
-                            color: 'rgba(40,161,255,0.5)'
+                            color: 'rgba(43,175,251,0.5)'
                         }, {
                             offset: 1,
-                            color: 'rgba(40,161,255,0.1)'
+                            color: 'rgba(43,175,251,0.1)'
                         }]
-                    ),
-                    barBorderRadius: [3, 3, 0, 0]
+                    )
                 }
             },
             z: -12,
@@ -1478,21 +1506,20 @@ function worldTop10Machining(jsonData){
         series: [{
             name: '探明储量',
             type: 'bar',
-            barWidth: '40%',
+            barWidth: 10,
             itemStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
-                            color: 'rgba(40,161,255,1)'
+                            color: 'rgba(58,243,196,1)'
                         }, {
                             offset: 0.4,
-                            color: 'rgba(40,161,255,0.5)'
+                            color: 'rgba(58,243,196,0.5)'
                         }, {
                             offset: 1,
-                            color: 'rgba(40,161,255,0.1)'
+                            color: 'rgba(58,243,196,0.1)'
                         }]
-                    ),
-                    barBorderRadius: [3, 3, 0, 0]
+                    )
                 }
             },
             z: -12,
@@ -1581,24 +1608,24 @@ function machiningCount(jsonData,selectObj){
         series: [{
             name: '探明储量',
             type: 'bar',
-            barWidth: '40%',
+            barWidth: 10,
             itemStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
-                            color: 'rgba(40,161,255,1)'
+                            color: 'rgba(58,243,196,1)'
                         }, {
                             offset: 0.4,
-                            color: 'rgba(40,161,255,0.5)'
+                            color: 'rgba(58,243,196,0.5)'
                         }, {
                             offset: 1,
-                            color: 'rgba(40,161,255,0.1)'
+                            color: 'rgba(58,243,196,0.1)'
                         }]
-                    ),
-                    barBorderRadius: [3, 3, 0, 0]
+                    )
                 }
             },
             z: -12,
+            barWidth:10,
             data: Object.values(data)
         }]
     };
@@ -2267,7 +2294,7 @@ function worldTop10MachiningBak(data){
         series: [{
             name: '探明储量',
             type: 'bar',
-            barWidth: '40%',
+            barWidth: 10,
             itemStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{

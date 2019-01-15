@@ -1,18 +1,18 @@
 $(document).ready(function(){
-	getdata('/clean/oilIndex/chart1.json',chart1);
-	getdata('/clean/oilIndex/chart2.json',chart2);
-	getdata('/clean/oilIndex/chart3.json',chart3);
+	getdatax('/clean/oilIndex/chart1.json',chart1);
+	getdatax('/clean/oilIndex/chart2.json',chart2);
+	getdatax('/clean/oilIndex/chart3.json',chart3);
 	getdata('/clean/oilIndex/chart4.json',chart4);
-	getdata('/clean/oilIndex/chart5.json',chart5);
-	getdata('/clean/oilIndex/chart6.json',chart6);
-	getdata('/clean/oilIndex/chart7.json',chart7);
+	getdatax('/clean/oilIndex/chart5.json',chart5);
+	getdatax('/clean/oilIndex/chart6.json',chart6);
+	getdatax('/clean/oilIndex/chart7.json',chart7);
 	changeMain('c1');
 });
 //石油开采资源综合利用情况
-function chart1(data){
+function chart1(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -30,7 +30,7 @@ function chart1(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -69,7 +69,7 @@ function chart1(data){
 						color: '#2c18f3',
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "油井伴生气回收利用率",
@@ -79,7 +79,7 @@ function chart1(data){
 						color: '#00FFFF',
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 			{
 				name: "油泥资源化利用率",
@@ -89,20 +89,20 @@ function chart1(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[4],
+				data: data.data[ix][2],
 			},
 		]
 	};
 	$chart.init('#chart1', option);
 }
 //石油开采其他污染物产生情况
-function chart2(data){
+function chart2(data, ix){
 	var option = {
 		tooltip: {
 			trigger: 'axis'
 		},
 		legend:{
-			data:data[0]
+			data:data.legend
 		},
 		grid:{
 			top:'10%',
@@ -140,7 +140,7 @@ function chart2(data){
 					fontSize: 8
 				},
 			},
-			data:data[1],
+			data:data.xData,
 		}],
 		yAxis: [{
 			type: 'value',
@@ -181,7 +181,7 @@ function chart2(data){
 					color: '#2c18f3'
 				},
 			},
-			data: data[2]
+			data: data.data[ix][0]
 		},
 		{
 			name: '采出废水达标排放率',
@@ -194,19 +194,19 @@ function chart2(data){
 					color: '#00FFFF'
 				},
 			},
-			data: data[3]
+			data: data.data[ix][1]
 		}]
 	};
 	$chart.init('#chart2', option);
 }
 //石油开采其他污染物产生情况
-function chart3(data){
+function chart3(data, ix){
 	var option = {
 		tooltip: {
 			trigger: 'axis'
 		},
 		legend:{
-			data:data[0]
+			data:data.legend
 		},
 		grid:{
 			top:'10%',
@@ -244,7 +244,7 @@ function chart3(data){
 					fontSize: 8
 				},
 			},
-			data:data[1],
+			data:data.xData,
 		}],
 		yAxis: [{
 			type: 'value',
@@ -285,7 +285,7 @@ function chart3(data){
 					color: '#16abfe'
 				},
 			},
-			data: data[2]
+			data: data.data[ix][0]
 		},
 			{
 				name: '油井伴生气外排率',
@@ -298,7 +298,7 @@ function chart3(data){
 						color: '#ff7070'
 					},
 				},
-				data: data[3]
+				data: data.data[ix][1]
 			}]
 	};
 	$chart.init('#chart3', option);
@@ -306,14 +306,14 @@ function chart3(data){
 //石油开采加工综合能耗企业排名
 function chart4(data){
 	var option = {
+		legend:{
+			data:data[0]
+		},
 		tooltip: {
-			trigger: 'item',
+			trigger: 'axis',
 			axisPointer: { // 坐标轴指示器，坐标轴触发有效
 				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
 			}
-		},
-		legend:{
-			data:data[0]
 		},
 		grid:{
 			top:'10%',
@@ -428,10 +428,10 @@ function chart4(data){
 	$chart.init('#chart4', option);
 }
 //石油加工资源消耗情况
-function chart5(data){
+function chart5(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -449,7 +449,7 @@ function chart5(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -462,7 +462,7 @@ function chart5(data){
 		}],
 		yAxis: [
 			{
-				name:'吨',
+				name:'吨/吨原油',
 				nameGap:-5,
 				nameTextStyle:{
 					padding:[0,0,0,25],
@@ -516,7 +516,7 @@ function chart5(data){
 						color: '#2c18f3',
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "原料加工损失率",
@@ -527,7 +527,7 @@ function chart5(data){
 						color: '#00FFFF',
 					},
 				},
-				data: data[4],
+				data: data.data[ix][1],
 			},
 			{
 				name: "循环水补水率",
@@ -538,7 +538,7 @@ function chart5(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[3],
+				data: data.data[ix][2],
 			},
 			{
 				name: "化学水制水比",
@@ -549,7 +549,7 @@ function chart5(data){
 						color: '#e7572d'
 					},
 				},
-				data: data[4],
+				data: data.data[ix][3],
 			},
 			{
 				name: "原油储存损耗",
@@ -560,17 +560,17 @@ function chart5(data){
 						color: '#fd3434'
 					},
 				},
-				data: data[5],
+				data: data.data[ix][4],
 			},
 		]
 	};
 	$chart.init('#chart5', option);
 }
 //石油加工资源综合利用情况
-function chart6(data){
+function chart6(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -588,7 +588,7 @@ function chart6(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -633,7 +633,7 @@ function chart6(data){
 						barBorderRadius: 10,
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "含硫污水回用率",
@@ -645,7 +645,7 @@ function chart6(data){
 						barBorderRadius: 10,
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 			{
 				name: "蒸汽凝结水回收率",
@@ -657,17 +657,17 @@ function chart6(data){
 						barBorderRadius: 10,
 					},
 				},
-				data: data[4],
+				data: data.data[ix][2],
 			},
 		]
 	};
 	$chart.init('#chart6', option);
 }
 //石油加工污染物产生情况
-function chart7(data){
+function chart7(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		grid: {
@@ -686,7 +686,7 @@ function chart7(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -699,10 +699,10 @@ function chart7(data){
 		}],
 		yAxis: [
 			{
-				name:'万千瓦时',
+				name:'千克/吨原油',
 				nameGap:-5,
 				nameTextStyle:{
-					padding:[0,0,0,45],
+					padding:[0,0,0,65],
 					align:'center',
 					color:'#fff',
 				},
@@ -752,7 +752,7 @@ function chart7(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "挥发酚产生量",
@@ -762,7 +762,7 @@ function chart7(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 			{
 				name: "石油类污染物产生量",
@@ -772,10 +772,10 @@ function chart7(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[4],
+				data: data.data[ix][2],
 			},
 			{
-				name: "本月止累计同比",
+				name: "VOC总量削减率",
 				type: "line",
 				yAxisIndex: 1,
 				itemStyle: {
@@ -783,7 +783,7 @@ function chart7(data){
 						color: '#e7572d'
 					},
 				},
-				data: data[5],
+				data: data.data[ix][3],
 			},
 		]
 	};

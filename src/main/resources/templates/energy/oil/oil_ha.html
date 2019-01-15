@@ -4,6 +4,14 @@
 <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
 <script src="${host}/static/js/energy/oil/oil_ha.js"></script>
 <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
+<script src="${host}/static/lib/echarts/map/world.js"></script>
+<style>
+    .box{position:relative;}
+    .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
+    .change{
+        width: 68px;height: 24px;float: right;margin-right: 20px;z-index:10;
+    }
+</style>
 </#macro>
 
 <#macro body>
@@ -48,22 +56,21 @@
 
             <div class="w4 h12">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">全国千万吨炼油化工一体化厂能力占比</span></div>
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span><span class="qs_title2">全国千万吨炼油化工一体化厂能力占比</span>
+                        <div id = "select_chart3" class = "change"></div>
+                    </div>
                     <div id="chart3" class="qs_body"></div>
                 </div>
             </div>
 
-            <div class="w4 h12">
+            <div class="w8 h12">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">原油开采效率对比</span></div>
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span><span class="qs_title2">原油开采效率与加工效率历史趋势</span>
+                        <div id = "select_chart4" class = "change"></div>
+                    </div>
                     <div id="chart4" class="qs_body"></div>
-                </div>
-            </div>
-
-            <div class="w4 h12">
-                <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">原油加工效率对比</span></div>
-                    <div id="chart5" class="qs_body"></div>
                 </div>
             </div>
 
@@ -71,5 +78,16 @@
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.selectpicker').selectpicker();
+        var d = ["全国", "国电投", "华能", "大唐", "华电", "电集团", "国投电力", "国华电力", "华润电力", "中广核", "神华"];
+        creatSelect(d,'select_chart3',"全国","changeChart3");
+
+        var e = ["石油化工", "石油天然气", "海洋石油", "中化集团", "华信能源"];
+        creatSelect(e,'select_chart4',"全国","changeChart4");
+    });
+</script>
 
 </#macro>

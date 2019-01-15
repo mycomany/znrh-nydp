@@ -13,10 +13,10 @@ div.qpanel:before{
 div.qpanel:after{
     border-top: 2px solid rgba(43, 175, 251,1);
     border-bottom: 2px solid rgba(43, 175, 251,1);
-}*/
+}
 .qheader-title1{
     background-image: -webkit-gradient(linear,0 0,0 bottom,from(#fff),to(#05ffd5));
-}
+}*/
 .qs_header{
     height:30px;line-height: 30px;
 }

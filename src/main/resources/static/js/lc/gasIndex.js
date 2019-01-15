@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	getdata('/lc/gasIndex/chart1.json',chart1);
-	getdata('/lc/gasIndex/chart2.json',chart2);
-	getdata('/lc/gasIndex/chart3.json',chart3);
-	getdata('/lc/gasIndex/chart4.json',chart4);
-	getdata('/lc/gasIndex/chart5.json',chart5);
+	getdatax('/lc/gasIndex/chart2.json',chart2);
+	getdatax('/lc/gasIndex/chart3.json',chart3);
+	getdatax('/lc/gasIndex/chart4.json',chart4);
+	getdatax('/lc/gasIndex/chart5.json',chart5);
 	getdata('/lc/gasIndex/main.json',main);
 });
 function main(data){
@@ -41,8 +41,10 @@ function main(data){
 		}],
 		yAxis: [
 			{
+				name:'亿立方米',
+				nameGap:-1,
 				nameTextStyle:{
-					padding:[0,0,0,45],
+					padding:[0,0,0,65],
 					align:'center',
 					color:'#fff',
 				},
@@ -223,30 +225,6 @@ function chart1(data){
 		}],
 		series: [
 			{
-				name: '煤碳',
-				type:'bar',
-				barWidth:15,
-				//stack:'g',
-				itemStyle: {
-					normal: {
-						color: '#2c18f3'
-					},
-				},
-				data: data[2]
-			},
-			{
-				name: '石油',
-				type:'bar',
-				barWidth:15,
-				//stack:'g',
-				itemStyle: {
-					normal: {
-						color: '#00FFFF'
-					},
-				},
-				data: data[3]
-			},
-			{
 				name: '天然气',
 				type:'bar',
 				barWidth:15,
@@ -256,17 +234,18 @@ function chart1(data){
 						color: '#FFD743'
 					},
 				},
-				data: data[4]
+				data: data[2]
 			}]
 	};
 	$chart.init('#chart1', option);
 }
 //天然气企业CO2排放量趋势
-function chart2(data){
+function chart2(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
+		color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -283,7 +262,7 @@ function chart2(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -318,7 +297,8 @@ function chart2(data){
 						color: '#0177d4'
 					}
 				}
-			},{
+			},
+			{
 				nameTextStyle: {
 					color: '#fff',
 					fontSize: 10
@@ -347,42 +327,49 @@ function chart2(data){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
+			},
+			{
+				name: "排放系数",
+				type: "bar",
+				barWidth: '30%',
+				itemStyle: {
+					normal: {
+					},
+				},
+				data: data.data[ix][1],
 			},
 			{
 				name: "增长率",
 				type: "line",
-				yAxisIndex: 1,
+				yAxisIndex:1,
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
-				data: data[4],
+				data: data.data[ix][2],
 			},
 			{
-				name: "单位CO2增长率",
+				name: "排放系数增长率",
 				type: "line",
-				yAxisIndex: 1,
+				yAxisIndex:1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
-				data: data[3],
+				data: data.data[ix][3],
 			},
 		]
 	};
 	$chart.init('#chart2', option);
 }
 //低碳科技支出与总支出占比
-function chart3(data){
+function chart3(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -400,7 +387,7 @@ function chart3(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -460,7 +447,7 @@ function chart3(data){
 		color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
 		series: [
 			{
-				name: "低碳科技支出",
+				name: "研发人员与产业人员占比",
 				type: "bar",
 				barWidth: '20%',
 				itemStyle: {
@@ -468,39 +455,19 @@ function chart3(data){
 						barBorderRadius: 10,
 					},
 				},
-				data: data[2],
-			},
-			{
-				name: "总支出",
-				type: "bar",
-				barWidth: '20%',
-				itemStyle: {
-					normal: {
-						barBorderRadius: 10,
-					},
-				},
-				data: data[3],
-			},
-			{
-				name: "占比",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-					},
-				},
-				data: data[4],
+				data: data.data[ix][0],
 			},
 		]
 	};
 	$chart.init('#chart3', option);
 }
 //低碳技术研发人员与产业人员占比
-function chart4(data){
+function chart4(data,ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
+		color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -517,7 +484,7 @@ function chart4(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -576,7 +543,7 @@ function chart4(data){
 			}],
 		series: [
 			{
-				name: "低碳技术研发人员",
+				name: "研发人员与产业人员占比",
 				type: "bar",
 				barWidth: '20%',
 				itemStyle: {
@@ -585,40 +552,17 @@ function chart4(data){
 						barBorderRadius: 10,
 					},
 				},
-				data: data[2],
-			},
-			{
-				name: "产业人员",
-				type: "bar",
-				barWidth: '20%',
-				itemStyle: {
-					normal: {
-						color: '#30fffe',
-						barBorderRadius: 10,
-					},
-				},
-				data: data[3],
-			},
-			{
-				name: "占比",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#E9DC37',
-					},
-				},
-				data: data[4],
+				data: data.data[ix][0],
 			},
 		]
 	};
 	$chart.init('#chart4', option);
 }
 //低碳技术经费投入情况
-function chart5(data){
+function chart5(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		grid: {
@@ -637,7 +581,7 @@ function chart5(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -650,7 +594,7 @@ function chart5(data){
 		}],
 		yAxis: [
 			{
-				name:'万千瓦时',
+				name:'',
 				nameGap:-5,
 				nameTextStyle:{
 					padding:[0,0,0,45],
@@ -696,45 +640,15 @@ function chart5(data){
 			}],
 		series: [
 			{
-				name: "CODcr产生量",
+				name: "技术经费投入占比",
 				type: "bar",
+				barWidth:"30%",
 				itemStyle: {
 					normal: {
-						barBorderRadius: 50,
+
 					},
 				},
-				data: data[2],
-			},
-			{
-				name: "挥发酚产生量",
-				type: "bar",
-				itemStyle: {
-					normal: {
-						barBorderRadius: 50,
-					},
-				},
-				data: data[3],
-			},
-			{
-				name: "石油类污染物产生量",
-				type: "bar",
-				itemStyle: {
-					normal: {
-						barBorderRadius: 50,
-					},
-				},
-				data: data[4],
-			},
-			{
-				name: "VOC总量削减率",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#e7572d'
-					},
-				},
-				data: data[5],
+				data: data.data[ix][0],
 			},
 		]
 	};

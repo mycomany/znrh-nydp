@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	getdata('/lc/elecIndex/chart1.json',chart1);
-	getdata('/lc/elecIndex/chart2.json',chart2);
+	getdatax('/lc/elecIndex/chart2.json',chart2);
 	getdata('/lc/elecIndex/chart3.json',chart3);
 	getdatax('/lc/elecIndex/chart4.json',chart4);
-	getdata('/lc/elecIndex/chart5.json',chart5);
+	getdatax('/lc/elecIndex/chart5.json',chart5,{sidx:2});
 	getdata('/lc/elecIndex/main.json',main);
 });
 function main(data){
@@ -20,7 +20,8 @@ function main(data){
 			}
 		},
 		angle:32,
-		innerRadius: "30%",
+		depth:220,
+		innerRadius: "10%",
 		series: [{
 			"type": "PieSeries3D",
 			"legendSettings": {
@@ -37,10 +38,15 @@ function main(data){
 				"disabled":true
 			},
 			"slices":{
-				"strokeWidth":0
+				"strokeWidth":0,
+				"cornerRadius":5,
+			},
+			"colors":{
+				"step":3
 			},
 			"dataFields": {
 				"value": "value",
+				"depthValue":"value",
 				"category": "name"
 			}
 		}]
@@ -82,7 +88,7 @@ function chart1(data){
 		}],
 		yAxis: [
 			{
-				name:'万千瓦时',
+				name:'MW',
 				nameGap:-5,
 				nameTextStyle:{
 					padding:[0,0,0,45],
@@ -104,11 +110,16 @@ function chart1(data){
 						color: '#0177d4'
 					}
 				}
-			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+			},
+			{
+				name:'亿千瓦时',
+				nameGap:-5,
+				nameTextStyle:{
+					padding:[0,0,0,-45],
+					align:'center',
+					color:'#fff',
 				},
+				max:100,
 				axisLine: {
 					lineStyle: {
 						color: '#38b8ff'
@@ -117,7 +128,7 @@ function chart1(data){
 				axisLabel: {
 					color: '#fff',
 					fontSize: 10,
-					formatter: '{value}%'
+					formatter: '{value}'
 				},
 				splitLine: {
 					show:false,
@@ -128,7 +139,7 @@ function chart1(data){
 			}],
 		series: [
 			{
-				name: "装机量",
+				name: "装机容量",
 				type: "line",
 				itemStyle: {
 					normal: {
@@ -140,20 +151,11 @@ function chart1(data){
 			{
 				name: "发电量",
 				type: "line",
+				smooth: true,
+				yAxisIndex:1,
 				itemStyle: {
 					normal: {
 						color: '#00FFFF',
-					},
-				},
-				data: data[4],
-			},
-			{
-				name: "本月同比",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data[3],
@@ -163,10 +165,10 @@ function chart1(data){
 	$chart.init('#chart1', option);
 }
 //煤气联合循环发电量排名
-function chart2(data){
+function chart2(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -184,7 +186,7 @@ function chart2(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -197,7 +199,7 @@ function chart2(data){
 		}],
 		yAxis: [
 			{
-				name:'万千瓦时',
+				name:'MW',
 				nameGap:-5,
 				nameTextStyle:{
 					padding:[0,0,0,45],
@@ -219,10 +221,14 @@ function chart2(data){
 						color: '#0177d4'
 					}
 				}
-			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+			},
+			{
+				name:'万千瓦时',
+				nameGap:-5,
+				nameTextStyle:{
+					padding:[0,0,0,-45],
+					align:'center',
+					color:'#fff',
 				},
 				axisLine: {
 					lineStyle: {
@@ -232,7 +238,7 @@ function chart2(data){
 				axisLabel: {
 					color: '#fff',
 					fontSize: 10,
-					formatter: '{value}%'
+					formatter: '{value}'
 				},
 				splitLine: {
 					show:false,
@@ -240,38 +246,29 @@ function chart2(data){
 						color: '#0177d4'
 					}
 				}
-			}],
+			}
+		],
 		series: [
 			{
-				name: "装机量",
+				name: "装机容量",
 				type: "bar",
 				itemStyle: {
 					normal: {
 						color: '#2c18f3',
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "发电量",
 				type: "bar",
+				yAxisIndex:1,
 				itemStyle: {
 					normal: {
 						color: '#00FFFF',
 					},
 				},
-				data: data[4],
-			},
-			{
-				name: "本月同比",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#E9DC37'
-					},
-				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 		]
 	};
@@ -470,7 +467,7 @@ function chart4(data, ix){
 						color: '#2c18f3',
 					},
 				},
-				data: data.data[ix][2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "本月同比",
@@ -481,17 +478,17 @@ function chart4(data, ix){
 						color: '#E9DC37'
 					},
 				},
-				data: data.data[ix][3],
+				data: data.data[ix][1],
 			},
 		]
 	};
 	$chart.init('#chart4', option);
 }
 //单位发电CO2 排放量排名
-function chart5(data){
+function chart5(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -509,7 +506,7 @@ function chart5(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -522,9 +519,12 @@ function chart5(data){
 		}],
 		yAxis: [
 			{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+				name:'千克/千瓦时',
+				nameGap:-1,
+				nameTextStyle:{
+					padding:[0,0,0,65],
+					align:'center',
+					color:'#fff',
 				},
 				axisLine: {
 					lineStyle: {
@@ -534,7 +534,7 @@ function chart5(data){
 				axisLabel: {
 					color: '#fff',
 					fontSize: 10,
-					formatter: '{value}%'
+					formatter: '{value}'
 				},
 				splitLine: {
 					show:false,
@@ -575,7 +575,7 @@ function chart5(data){
 						barBorderRadius: 50,
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
 				name: "本月同比",
@@ -586,7 +586,7 @@ function chart5(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[3],
+				data: data.data[ix][1],
 			},
 		]
 	};

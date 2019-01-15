@@ -824,31 +824,7 @@ function main(data){
                  areaColor: '#4c70f7'
             }
         }
-    }/*,{
-        name: '点',
-        type: 'scatter',
-        coordinateSystem: 'geo',
-        symbol: 'pin',
-        symbolSize: function(val) {
-            return 80;
-        },
-        label: {
-            normal: {
-                show: true,
-                textStyle: {
-                    color: '#fff',
-                    fontSize: 9,
-                }
-            }
-        },
-        itemStyle: {
-            normal: {
-                color: '#F62157', //标志颜色
-            }
-        },
-        zlevel: 6,
-        data: data
-    }*/);
+    });
 
 	// 最后初始化世界地图中的相关数据
 	var option = ({
