@@ -26,7 +26,18 @@
             </div>
             <div class="w12 h6">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国储量、产量占世界排名</span></div>
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span>
+                        <span class="qs_title2">中国储量、产量占世界排名</span>
+                        <!--<span class="qs_title2">asdasd</span>-->
+                        <div style="position: absolute;right:10px;top:4px;z-index:10000">
+                            <select id="near10OrderSelected" class="chart-selector" onchange="near10Order('select',this)">
+                                <option value="储量">储量</option>
+                                <option value="产量">产量</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div id="near10Order" class="qs_body"></div><!--竞价申报价格正态分布-->
                 </div>
             </div>
@@ -49,7 +60,7 @@
             </div>
             <div class="w12 h6">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">全球TOP10 原油生产企业产量</span></div>
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">全球TOP10原油生产企业产量</span></div>
                     <div id="worldTop10Order" class="qs_body"></div>
                 </div>
             </div>
@@ -58,14 +69,14 @@
 
         <div class="w3 h4">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国原油加工能占世界排名</span></div>
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国原油加工能力占世界排名</span></div>
                 <div id="machiningTop10Order" class="qs_body"></div>
 
             </div>
         </div>
         <div class="w3 h4">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">原油加工产量</span>
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国原油加工主要产品产量</span>
                     <div class="right">
                         <select id="machiningCountSelected" class="chart-selector" onchange="machiningCount('select',this)">
                             <option>2000</option>
@@ -90,7 +101,7 @@
         </div>
         <div class="w3 h4">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">全球TOP10 原油加工企业产量</span></div>
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">全球TOP10原油加工企业排名</span></div>
                 <div id="chart4" class="qs_body"></div>
 
             </div>
