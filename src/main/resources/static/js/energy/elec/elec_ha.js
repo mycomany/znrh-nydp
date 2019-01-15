@@ -412,7 +412,7 @@ function chart2(data){
                 "name": data[0][0][0],
                 "type": "bar",
                 "data": data[0][3][yf]["fd"],
-                "barWidth": "30%",
+                "barWidth": "40%",
                 yAxisIndex:0,
                 itemStyle: {
                     "normal": {
