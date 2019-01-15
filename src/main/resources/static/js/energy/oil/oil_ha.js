@@ -8,6 +8,9 @@ $(document).ready(function(){
     main();
 });
 
+function changeMain(v){
+    console.log(v);
+}
 
 function main(){
     var mapData = [{
@@ -734,7 +737,7 @@ function chart3(data, selectName){
 var chart4Data;
 function getChart4(data){
     chart4Data = data;
-    chart4(chart4Data, "石油化工");
+    chart4(chart4Data, "全国");
 }
 
 function changeChart4(v){

@@ -17,6 +17,10 @@ function dwz(data, name){
     return "";
 }
 
+function changeMain(v){
+    console.log(v);
+}
+
 var mainData;
 function getMain(data){
     mainData = data;

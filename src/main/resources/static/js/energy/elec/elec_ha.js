@@ -22,6 +22,9 @@ function changeMap(param){
     main(param);
 }
 
+function changeMain(v){
+    console.log(v);
+}
 
 function main(){
     var mapData = [{
@@ -429,7 +432,7 @@ function chart2(data){
 var chart3Data;
 function getchart3(data){
     chart3Data = data;
-    chart3(chart3Data, "国电投")
+    chart3(chart3Data, "全国")
 }
 
 function change3(v){
