@@ -487,7 +487,7 @@ function chart3(data, selectName){
                 "axisPointer": {
                     "type": "shadow"
                 },
-                boundaryGap: true,
+                boundaryGap: false,
                 axisLine: {
                     lineStyle: {
                         color: '#38b8ff'

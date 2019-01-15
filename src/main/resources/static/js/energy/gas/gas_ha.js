@@ -220,6 +220,7 @@ function chart1_nh(data){
             containLabel: true
         },
         xAxis: {
+            boundaryGap: false,
             axisLabel: {
                 textStyle: {
                     color: '#fff'
@@ -379,6 +380,7 @@ function chart1_dh(data){
             containLabel: true
         },
         xAxis: {
+            boundaryGap: false,
             axisLabel: {
                 textStyle: {
                     color: '#fff'
@@ -530,6 +532,7 @@ function chart2(data){
             containLabel: true
         },
         xAxis: {
+            boundaryGap: false,
             axisLabel: {
                 textStyle: {
                     color: '#fff'
