@@ -109,10 +109,10 @@ function chart1(data){
 		            normal:{
 		                color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 		                    offset: 0,
-		                    color: '#00b0ff'
+		                    color: '#25e4a3'
 		                }, {
 		                    offset: 0.8,
-		                    color: '#7052f4'
+		                    color: '#25e4a3'
 		                }], false)
 		            }
 		        },
@@ -128,7 +128,7 @@ function chart1(data){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#ff5600',
+						color: '#2b88ff',
 						//barBorderRadius: 50,
 					},
 				},
@@ -154,7 +154,7 @@ function chart2(data){
     for(var i = 0; i < data[3].length; i++)
         data[3][i] = -1*data[3][i];
     var option = {
-        color:['#36b8ff','#61ffff','#e1e1e2','#ffa24c'],
+        color:['#2b88ff','#25e4a3','#3fe5f4','#faf13f'],
         grid: {
 			 left: '5%',
 	   		 right:'5%',
@@ -274,23 +274,40 @@ function chart2(data){
             name: data[0][0],
             type: 'bar',
             stack:'one',
-            itemStyle: itemStyle,
+            itemStyle: {
+				normal: {
+					color: '#25e4a3'
+				},
+			},
             data: data[2]
         }, {
             name: data[0][1],
             type: 'bar',
             stack:'one',
-            itemStyle: itemStyle,
+            itemStyle: {
+				normal: {
+					color: '#2b88ff'
+				},
+			},
             data: data[3]
         }, {
             name: data[0][2],
             yAxisIndex:0,
             type: 'line',
             showSymbol:false,
+            itemStyle: {
+				normal: {
+					color: '#3fe5f4'
+				},
+			},
             data: data[4]
         }, {
             name: data[0][3],
-
+            itemStyle: {
+				normal: {
+					color: '#faf13f'
+				},
+			},
             yAxisIndex:2,
             type: 'line',
             data: data[5]
@@ -317,7 +334,7 @@ function chart3(data){
     		tooltip: {
     			trigger: "axis"
     		}, 
-        color:['#ff3481','#ffa24c','#61ffff','#2874ff','#ac9857','#8121dd'],
+        color:['#25e4a3','#3ee4f3','#2b88ff','#4138e1','#faf13f','#8121dd'],
         grid: {
 			 left: '5%',
 	   		 right:'5%',
@@ -421,30 +438,9 @@ function chart4(data){
 	        itemStyle: {
 	            normal: {
 	                color: '#00ceff',
-	                barBorderRadius: [5,5,0,0],
 	            }
 	        },
 	        z: 1
-	    }, {
-	        name: '消费量',
-	        type: 'bar',
-	        xAxisIndex: 2,
-	        data: ds,
-	        barWidth: '40%',
-	        barGap: 1,
-	        itemStyle: {
-	            normal: {
-	                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-	                    offset: 0,
-	                    color: '#ffff00'
-	                }, {
-	                    offset: 1,
-	                    color: '#ffb200'
-	                }]),
-	                barBorderRadius: [5,5,0,0],
-	            }
-	        },
-	        z: 0
 	    },
 		{
 			name: "占一次能源消费比重",
@@ -456,7 +452,7 @@ function chart4(data){
 			yAxisIndex: 1,
 			itemStyle: {
 				normal: {
-					color: '#ff5600',
+					color: '#2b88ff',
 					//barBorderRadius: 50,
 				},
 			},
@@ -623,7 +619,7 @@ function chart5(data){
     		tooltip: {
     			trigger: "axis"
     		}, 
-        color:['#e1e1e2','#ffd300','#7b7cff','#463ffe','#386efe','#ff3481'],
+        color:['#25e4a3','#3ee4f3','#2b88ff','#4138e1','#faf13f', '#5c54ea'],
         grid: {
 			 left: '5%',
 	   		 right:'5%',
@@ -708,7 +704,7 @@ function chart6(data){
                 type : 'shadow'
             }
         },
-        color:['#36b8ff','#61ffff','#ff0'],
+        color:['#25e4a3','#3ee4f3','#2b88ff'],
         grid: {
 			 left: '5%',
 	   		 right:'5%',
@@ -836,10 +832,10 @@ function main(){
              '内蒙古':  [110.263596,42.220711],
              '北京':  [116.405285,  39.904989],
              // '台湾': [121.509062, 25.044332],
-             '吉林':  [126.5728,45.020069],
+             '吉林':  [126.581998,43.097396],
              '四川':  [100.660207,30.890097],
              '天津':  [119.190182,  39.125596],
-             '宁夏':  [106.278179,  38.46637],
+             '宁夏':  [106.01382,37.378751],
              '安徽':  [117.283042,  31.86119],
              '山东':  [118.000923,  36.675807],
              '山西':  [112.049248,  37.057014],

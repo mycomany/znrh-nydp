@@ -212,10 +212,10 @@ function chart1(datas){
 		                                barBorderRadius: 50,
 		                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 		                                    offset: 0,
-		                                    color: '#91dcf4'
+		                                    color: '#16d393'
 		                                }, {
 		                                    offset: 1,
-		                                    color: '#00bfff'
+		                                    color: '#25e4a3'
 		                                }]),
 		                            }
 		                        }
@@ -235,7 +235,7 @@ function chart1(datas){
 		            itemStyle: {
 		                normal: {
 		                    barBorderRadius: 50,
-		                    color: '#0e2147'
+		                    color: '#25e4a3'
 		                }
 		            },
 		            z: 1
@@ -255,11 +255,11 @@ function chart1(datas){
 		                            normal: {
 		                                barBorderRadius: 50,
 		                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-		                                    offset: 0,
-		                                    color: '#91dcf4'
-		                                }, {
-		                                    offset: 1,
-		                                    color: '#00bfff'
+		                                	 offset: 0,
+			                                    color: '#16d393'
+			                                }, {
+			                                    offset: 1,
+			                                    color: '#25e4a3'
 		                                }]),
 		                            }
 		                        }
@@ -284,11 +284,11 @@ function chart1(datas){
 		                        itemStyle: {
 		                            normal: {
 		                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-		                                    offset: 0,
-		                                    color: '#00bfff'
-		                                }, {
-		                                    offset: 1,
-		                                    color: '#035af6'
+		                                	 offset: 0,
+			                                    color: '#16d393'
+			                                }, {
+			                                    offset: 1,
+			                                    color: '#25e4a3'
 		                                }]),
 		                            }
 		                        }
@@ -305,7 +305,7 @@ function chart1(datas){
 					yAxisIndex: 1,
 					itemStyle: {
 						normal: {
-							color: '#ff5600',
+							color: '#2baffb',
 							//barBorderRadius: 50,
 						},
 					},
@@ -326,9 +326,7 @@ function chart1(datas){
 }
 
 function chart2(data){
-	var xData = data[2];
-	var lineData = data[4];
-	var barData = data[3];
+	var xData = data[1];
 	var option =  {
 		grid: {
 			left: '3%',
@@ -407,9 +405,20 @@ function chart2(data){
 			type: "line",
 			itemStyle: {
 				normal: {
-					color: '#E9DC37'
+					color: 'rgb(22,211,147)'
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(22,211,147,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(22,211,147,0.4)'
+                    }], false)
+                }
+            },
 			data: data[2]
 
 		}, {
@@ -417,9 +426,20 @@ function chart2(data){
 			type: "line",
 			itemStyle: {
 				normal: {
-					color: '#0089ff'
+					color: 'rgb(252,184,26)'
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(252,184,26,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(252,184,26,0.4)'
+                    }], false)
+                }
+            },
 			data: data[3]
 
 		}, {
@@ -427,9 +447,20 @@ function chart2(data){
 			type: "line",
 			itemStyle: {
 				normal: {
-					color: '#a800ff'
+					color: 'rgb(43,175,251)'
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(43,175,251,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(43,175,251,0.4)'
+                    }], false)
+                }
+            },
 			data: data[4]
 
 		}, {
@@ -437,9 +468,20 @@ function chart2(data){
 			type: "line",
 			itemStyle: {
 				normal: {
-					color: '#03a306'
+					color: 'rgb(237,98,93)'
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(237,98,93,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(237,98,93,0.4)'
+                    }], false)
+                }
+            },
 			data: data[5]
 
 		}]
@@ -551,7 +593,7 @@ function chart3(data){
 		                        color: '#61ffff'
 		                    },
 		                },
-		                zlevel:1,
+		                zlevel:0,
 		                data: data[2]
 		            },
 		            {
@@ -564,7 +606,7 @@ function chart3(data){
 		                        color: '#2874ff'
 		                    },
 		                },
-		                zlevel:1,
+		                zlevel:0,
 		                data: data[4]
 		            },
 		            {
@@ -576,7 +618,7 @@ function chart3(data){
 			            symbolSize:5,
 			            itemStyle: {
 		                    normal: {
-		                        color: '#ffaa00'
+		                        color: 'rgb(22,211,147)'
 		                    }
 		                },
 		                /*areaStyle:{
@@ -595,7 +637,7 @@ function chart3(data){
 			            symbolSize:5,
 			            itemStyle: {
 		                    normal: {
-		                        color: '#3f9b0a'
+		                        color: 'rgb(252,184,26)'
 		                    },
 		                },
 		                data: data[5]
@@ -686,11 +728,22 @@ function chart4(data){
             symbol: 'circle',
             symbolSize:5,
 			//yAxisIndex: 1,
-			itemStyle: {
+            itemStyle: {
 				normal: {
-					color: '#E9DC37'
+					color: 'rgb(22,211,147)'
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(22,211,147,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(22,211,147,0.4)'
+                    }], false)
+                }
+            },
 			data: lineData1,
 
 		},{
@@ -699,12 +752,22 @@ function chart4(data){
 			smooth: true,
             symbol: 'circle',
             symbolSize:5,
-			//yAxisIndex: 1,
-			itemStyle: {
+            itemStyle: {
 				normal: {
-					color: '#00FFFF'
+					color: 'rgb(43,175,251)'
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(43,175,251,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(43,175,251,0.4)'
+                    }], false)
+                }
+            },
 			data: lineData2,
 		}]
 	};
@@ -827,7 +890,7 @@ function chart5(data){
                 type:'line',
                 itemStyle:{
                     normal:{
-                        color:'#ff0'
+                        color:'#4138e1'
                     }
                 },
                 data: data[4]
@@ -923,7 +986,7 @@ function chart6(data){
 	            barWidth: '60%',
 	            itemStyle: {
 	                normal: {
-	                    color: '#3A6DFD'
+	                    color: '#40eaf9'
 	                }
 	            },
 	            data: data[2]
@@ -935,7 +998,7 @@ function chart6(data){
 	            barWidth: '60%',
 	            itemStyle: {
 	                normal: {
-	                    color: '#FFD844'
+	                    color: '#2baffb'
 	                }
 	            },
 	            data: data[3]
@@ -947,7 +1010,7 @@ function chart6(data){
 	            stack: '总量',
 	            itemStyle: {
 	                normal: {
-	                    color: '#20AEFE'
+	                    color: '#16d393'
 	                }
 	            },
 	            data: data[4]
@@ -959,7 +1022,7 @@ function chart6(data){
 	            stack: '总量',
 	            itemStyle: {
 	                normal: {
-	                    color: '#0FFDD1'
+	                    color: '#564ef4'
 	                }
 	            },
 	            data: data[5]
@@ -971,7 +1034,7 @@ function chart6(data){
 	            barWidth: '60%',
 	            itemStyle: {
 	                normal: {
-	                    color: '#FFA33F'
+	                    color: '#fdb91a'
 	                }
 	            },
 	            data: data[6]
@@ -983,7 +1046,7 @@ function chart6(data){
 	            barWidth: '60%',
 	            itemStyle: {
 	                normal: {
-	                    color: '#69D5FF'
+	                    color: '#2cffc9'
 	                }
 	            },
 	            data: data[7]
@@ -995,7 +1058,7 @@ function chart6(data){
 	            barWidth: '60%',
 	            itemStyle: {
 	                normal: {
-	                    color: '#3693FD'
+	                    color: '#e9e031'
 	                }
 	            },
 	            data: data[8]
@@ -1153,8 +1216,7 @@ function chart7(data){
 		  			yAxisIndex: 1,
 		  			itemStyle: {
 		  				normal: {
-		  					color: '#ff5600',
-		  					//barBorderRadius: 50,
+		  					color: '#4138e1'
 		  				},
 		  			},
 		  			z:'11',
@@ -1380,9 +1442,9 @@ function main(){
                     var coord = chart.convertToPixel('geo', geoCoord);
                     var idx = i + '';
                     var val = [
-                        {value:bardb[i][0], itemStyle:{color:'#ffd700'},visualMap: false},
-                        {value:bardb[i][1], itemStyle:{color:'#61ffff'},visualMap: false},
-                        {value:bardb[i][2], itemStyle:{color:'#2e8b57'},visualMap: false}
+                        {value:bardb[i][0], itemStyle:{color:'#4df3f3'},visualMap: false},
+                        {value:bardb[i][1], itemStyle:{color:'#dedd4f'},visualMap: false},
+                        {value:bardb[i][2], itemStyle:{color:'#3ae276'},visualMap: false}
                     ];
                     option.xAxis.push({
                         id: idx,

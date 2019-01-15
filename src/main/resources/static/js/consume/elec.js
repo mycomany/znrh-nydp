@@ -135,7 +135,7 @@ function chart1(data){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
+						color: '#2b88ff',
 						// barBorderRadius: 50,
 					},
 				},
@@ -147,7 +147,7 @@ function chart1(data){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#1E90FF',
+						color: '#4138e1',
 						// barBorderRadius: 50,
 					},
 				},
@@ -161,7 +161,7 @@ function chart1(data){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#ff5600',
+						color: '#eeac53',
 						//barBorderRadius: 50,
 					},
 				},
@@ -175,7 +175,7 @@ function chart1(data){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#ffef00',
+						color: '#4df3f3',
 						//barBorderRadius: 50,
 					},
 				},
@@ -201,8 +201,9 @@ function change2(date){
 }
 
 function chart2(data,a){
+	var color = [['#2b88ff', '#4df3f3', '#dedd4f'],['#4df3f3','#2b88ff','#dedd4f']]
 	option = {
-		    color: ['#2edfa3', '#bce672', '#ff4777', '#70f3ff', '#4b5cc4', '#f47983', '#8d4bbb', '#6635EF', '#FFAFDA'],
+		    color: color[a-1],
 		    tooltip: {
 		        trigger: 'item',
 		        formatter: function (v){
@@ -214,7 +215,7 @@ function chart2(data,a){
 		    series: [{
 		            //name: '访问来源',
 		            type: 'pie',
-		            selectedMode: 'single',
+		            //selectedMode: 'single',
 		            radius: [0, '60%'],
 		            center:['50%','50%'],
 		            label: {
@@ -237,7 +238,6 @@ function chart2(data,a){
 		            data: data
 		        },
 		        {
-		            name: '访问来源',
 		            type: 'pie',
 		            radius: ['65%', '68%'],
 		            center:['50%','50%'],
@@ -353,7 +353,13 @@ function chart3(data){
 		}],
 		yAxis: [
 			{
-			name: '',
+				name:'元',
+	    		nameGap:-5,
+	    		nameTextStyle:{
+			    	padding:[0,0,0,20],
+			    	align:'center',
+			    	color:'#fff',
+				},
 			type: 'value',
 			splitNumber:4,
 			position: 'left',
@@ -387,10 +393,21 @@ function chart3(data){
 			type: "line",
 			itemStyle: {
 				normal: {
-					color: '#00FFFF',
+					color: 'rgb(77,243,243)',
 					barBorderRadius: 50,
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(77,243,243,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(77,243,243,0.4)'
+                    }], false)
+                }
+            },
 			data:data[2]
 
 		}, {
@@ -398,10 +415,21 @@ function chart3(data){
 			type: "line",
 			itemStyle: {
 				normal: {
-					color: '#18cc0b',
+					color: 'rgb(43,136,255)',
 					barBorderRadius: 50,
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(65, 56, 225,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(65, 56, 225,0.4)'
+                    }], false)
+                }
+            },
 			data: data[3]
 			//yAxisIndex: 1
 
@@ -410,10 +438,21 @@ function chart3(data){
 			type: "line",
 			itemStyle: {
 				normal: {
-					color: '#ff5600',
+					color: 'rgb(222,221,79)',
 					barBorderRadius: 50,
 				},
 			},
+			areaStyle: {
+                normal: {type: 'default',
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(222,221,79,0.4)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(222,221,79,0.4)'
+                    }], false)
+                }
+            },
 			data: data[4]
 		}]
 	};
@@ -516,17 +555,17 @@ function chart4(xData,data){
 		                normal: {type: 'default',
 		                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 		                        offset: 0,
-		                        color: 'rgba(199, 37, 50,0.2)'
+		                        color: 'rgba(43, 136, 255,0.4)'
 		                    }, {
 		                        offset: 1,
-		                        color: 'rgba(199, 37, 50,0.2)'
+		                        color: 'rgba(43, 136, 255,0.4)'
 		                    }], false)
 		                }
 		            },
 		            smooth:true,
 		            itemStyle: {
 		                normal: {
-		                	color:'#00F5FF',
+		                	color:'#2b88ff',
 		                	areaStyle: {type: 'default'}}    
 		            },
 		            data:data
@@ -594,7 +633,13 @@ function chart5(data,date){
 				data: data.xData,
 			}],
 			yAxis: [{
-				name: '',
+				name:'     万千瓦时',
+	    		nameGap:-5,
+	    		nameTextStyle:{
+			    	padding:[0,0,0,45],
+			    	align:'center',
+			    	color:'#fff',
+				},
 				type: 'value',
 				position: 'left',
 				axisLabel: {
@@ -650,7 +695,7 @@ function chart5(data,date){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#00FFFF'
+						color: '#2b88ff'
 					},
 				},
 				data: val[0]
@@ -660,7 +705,7 @@ function chart5(data,date){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#4bac0a'
+						color: '#4df3f3'
 					},
 				},
 				data: val[1]
@@ -727,7 +772,13 @@ function chart6(data,date){
 			data: data.xData,
 		}],
 		yAxis: [{
-			name: '',
+			name:' 千瓦时',
+    		nameGap:-5,
+    		nameTextStyle:{
+		    	padding:[0,0,0,45],
+		    	align:'center',
+		    	color:'#fff',
+			},
 			type: 'value',
 			position: 'left',
 			axisLabel: {
@@ -794,7 +845,7 @@ function chart6(data,date){
 			barWidth: '30%',
 			itemStyle: {
 				normal: {
-					color: '#002dff',
+					color: '#2b88ff',
 					barBorderRadius: 50,
 				},
 			},
@@ -805,7 +856,7 @@ function chart6(data,date){
 			yAxisIndex: 1,
 			itemStyle: {
 				normal: {
-					color: '#ff9b00'
+					color: '#4138e1'
 				},
 			},
 			data: value[2]
@@ -816,7 +867,7 @@ function chart6(data,date){
 			yAxisIndex: 1,
 			itemStyle: {
 				normal: {
-					color: '#4bac0a'
+					color: '#4ad08d'
 				},
 			},
 			data: value[3]
@@ -833,13 +884,13 @@ function getMain1(data){
 }
 function change12(param){
 	if (param == '1') {
-		$("#ch").val("main1");
-		$(".main_order_type").css('display','none')
-		main1(main1Dta,'2018-11');
-	}else{
 		$("#ch").val("main");
-		$(".main_order_type").css('display','');
-		main(mainDta,1,'2018-11');
+		$(".main_order_type").css('display','')
+		elecMode(1)
+	}else{
+		$("#ch").val("main1");
+		$(".main_order_type").css('display','none');
+		main1(main1Dta,'2018-11');
 	}
 }
 function change11(date){
@@ -1091,16 +1142,16 @@ function main1(data,date){
                 }
             },
             visualMap: {
-                type: 'piecewise',
+            	type: 'piecewise',
                 show: false,
                 pieces: [{
                     min: 0,
                     max: 1,
-                    color: '#c7cf72'
+                    color: '#8391fc'
                 }, {
                     min: 1,
                     max: 2,
-                    color: '#03dcdf'
+                    color: '#d0d3e9'
                 }, {
                     min: 2,
                     max: 3,
@@ -1108,7 +1159,7 @@ function main1(data,date){
                 }, {
                     min: 3,
                     max: 4,
-                    color: '#b5a2bf'
+                    color: '#b0b7ee'
                 }, {
                     min: 4,
                     max: 5,
@@ -1247,7 +1298,61 @@ function main(data,type,date){
         color: '#ff4f00'
     }];
 	
-	
+	var pieces2 = [{
+        max: -8,
+        color: '#3ab62c'
+    },{
+    	min: -8,
+        max: -7,
+        color: '#7db4fa'
+    }, {
+        min: -7,
+        max: -6,
+        color: '#2ba8ff'
+    }, {
+        min: -6,
+        max: -5,
+        color: '#175ff2'
+    }, {
+        min: -5,
+        max: -4,
+        color: '#173bf2'
+    }, {
+        min: -4,
+        max: -3,
+        color: '#69a8f8'
+    },{
+        min: -3,
+        max: -2,
+        color: 'red'
+    },{
+        min: -2,
+        max: -1,
+        color: 'red'
+    },{
+        min: -1,
+        max: 0,
+        color: '#1dc004'
+    },{
+        min: 0,
+        max: 1000,
+        color: '#078cda'
+    },{
+        min: 1000,
+        max: 10000,
+        color: '#afb506'
+    },{
+        min: 10000,
+        max: 100000,
+        color: '#bc7b06'
+    },{
+        min: 100000,
+        max: 500000,
+        color: '#a800ff'
+    },{
+        min: 500000,
+        color: '#ff4f00'
+    }];
 	var das = [];
 	if (type == "1") {
 		das = data.valueIn[date][0];
