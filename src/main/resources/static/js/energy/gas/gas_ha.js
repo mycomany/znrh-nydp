@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
-    getdata('/energy/gas/ha/main.json' + __time,main);
+    getdata('/energy/gas/ha/main.json' + __time,getMain);
     changeMap('nh');//chart1
     getdata('/energy/gas/ha/chart2.json' + __time,chart2);
     getdata('/energy/gas/ha/chart3.json' + __time,chart3);
@@ -10,8 +10,13 @@ $(document).ready(function(){
     getdata('/energy/gas/ha/chart7.json' + __time,chart7);
 });
 
-function changemain(){
-
+var mainData = [];
+function getMain(data){
+    mainData = data;
+    main(mainData,'2016');
+}
+function changemain(date){
+    main(mainData,date);
 }
 
 function change2(){
@@ -35,9 +40,7 @@ function dwz(data, name){
     return "";
 }
 
-function main(data){
-
-    var nf = selectNfMain;
+function main(data, nf){
 
     var option = {
         "tooltip": {
