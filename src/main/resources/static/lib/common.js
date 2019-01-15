@@ -136,9 +136,6 @@ function getdata(url, o){
     }, o);
     $.ajax(o);
 }
-
-<<<<<<< HEAD
-=======
 function getdatax(url, fn, opt){
     if(!window._store) window._store = {};
     var o = $.extend({
@@ -214,7 +211,6 @@ function creatSelect(data,id,shouValue,mo){
     tbody.innerHTML = str;
 }
 
->>>>>>> 4b7251afda7b991fcc61549a7e59c4e6c479a3cb
 var RollingPlay = {
     ts : 11,
     uri:['market/finance','pattern/gasIndex','pattern/gasStore','statecn/index','statecn/opinions','statecn/gasIndex','statecn/gasSecurity','pattern/index','pattern/gasMarket'],
