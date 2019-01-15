@@ -231,7 +231,7 @@ function chart1(data){
 				//stack:'g',
 				itemStyle: {
 					normal: {
-						color: '#FFD743'
+						color: '#2effb7'
 					},
 				},
 				data: data[2]
@@ -444,7 +444,7 @@ function chart3(data, ix){
 					}
 				}
 			}],
-		color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+		color:['#3fe5f4','#2AB7FF','#30FFFE','#216FFF'],
 		series: [
 			{
 				name: "研发人员与产业人员占比",
@@ -467,7 +467,7 @@ function chart4(data,ix){
 		legend: {
 			data: data.legend,
 		},
-		color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+		color:['#2b88ff','#2AB7FF','#30FFFE','#216FFF'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -548,7 +548,6 @@ function chart4(data,ix){
 				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 						barBorderRadius: 10,
 					},
 				},

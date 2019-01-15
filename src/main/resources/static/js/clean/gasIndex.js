@@ -55,6 +55,7 @@ function chart1(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#25e4a3','#3fe5f4','#2b88ff'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -107,7 +108,6 @@ function chart1(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data.data[ix][0],
@@ -117,7 +117,6 @@ function chart1(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
 				data: data.data[ix][1],
@@ -127,7 +126,6 @@ function chart1(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][2],
@@ -145,6 +143,7 @@ function chart2(data, ix){
 		legend:{
 			data:data.legend
 		},
+		color:['#3fe5f4','#2b88ff','#2b88ff'],
 		grid:{
 			top:'10%',
 			bottom:'20%',
@@ -219,7 +218,6 @@ function chart2(data, ix){
 			showSymbol: false,
 			itemStyle: {
 				normal: {
-					color: '#2c18f3'
 				},
 			},
 			data: data.data[ix][0]
@@ -232,7 +230,6 @@ function chart2(data, ix){
 			showSymbol: false,
 			itemStyle: {
 				normal: {
-					color: '#00FFFF'
 				},
 			},
 			data: data.data[ix][1]
@@ -246,6 +243,7 @@ function chart3(data, ix){
 		tooltip: {
 			trigger: 'axis'
 		},
+		color:['#3ee4f3','#e45698','#2b88ff'],
 		legend:{
 			data:data.legend
 		},
@@ -323,7 +321,6 @@ function chart3(data, ix){
 			showSymbol: false,
 			itemStyle: {
 				normal: {
-					color: '#16abfe'
 				},
 			},
 			data: data.data[ix][0]
@@ -336,7 +333,6 @@ function chart3(data, ix){
 				showSymbol: false,
 				itemStyle: {
 					normal: {
-						color: '#ff7070'
 					},
 				},
 				data: data.data[ix][1]
@@ -363,6 +359,7 @@ function chart4(data, ix){
 			right:'2%',
 			containLabel:true,
 		},
+
 		xAxis: [{
 			type: "category",
 			axisLine: {
@@ -435,7 +432,7 @@ function chart4(data, ix){
 			barWidth:15,
 			itemStyle: {
 				normal: {
-					color: '#2c18f3'
+					color: '#3ee4f3'
 				},
 			},
 			data: data.data[ix][0]
@@ -450,6 +447,7 @@ function chart5(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#3ee4f3','#2b88ff','#4138e1'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -506,7 +504,6 @@ function chart5(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 					},
 				},
 				data: data.data[ix][0],
@@ -516,7 +513,6 @@ function chart5(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#00FFFF',
 					},
 				},
 				data: data.data[ix][1],
@@ -526,7 +522,6 @@ function chart5(data, ix){
 				type: "line",
 				itemStyle: {
 					normal: {
-						color: '#E9DC37'
 					},
 				},
 				data: data.data[ix][2],
@@ -541,6 +536,7 @@ function chart6(data, ix){
 		legend: {
 			data: data.legend,
 		},
+		color:['#2b88ff','#40eaf9','#25e4a3'],
 		grid: {
 			left: '5%',
 			right:'5%',
@@ -622,7 +618,6 @@ function chart6(data, ix){
 				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						color: '#2c18f3',
 						barBorderRadius: 10,
 					},
 				},
@@ -634,7 +629,6 @@ function chart6(data, ix){
 				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						color: '#30fffe',
 						barBorderRadius: 10,
 					},
 				},
@@ -646,7 +640,6 @@ function chart6(data, ix){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#E9DC37',
 					},
 				},
 				data: data.data[ix][2],
@@ -661,7 +654,7 @@ function chart7(data, ix){
 		legend: {
 			data: data.legend,
 		},
-		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
+		color: ['#6ed5ff','#4138e1','#2874ff','#25e4a3','#af59ff'],
 		grid: {
 			left: '5%',
 			right:'5%',
