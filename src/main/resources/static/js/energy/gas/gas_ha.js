@@ -10,6 +10,17 @@ $(document).ready(function(){
     getdata('/energy/gas/ha/chart7.json' + __time,chart7);
 });
 
+var selectNfMain = "2016";
+function installCapacity(lx, selectObj){
+    selectNfMain = $(selectObj).val();
+
+    console.log(lx, selectNfMain);
+    if(lx == "main"){
+        console.log('start main');
+        getdata('/energy/gas/ha/main.json' ,main);
+    }
+}
+
 function dwz(data, name){
     for(var i=0; i<data[3].length; i++){
         if(data[3][i] == name){
@@ -21,7 +32,7 @@ function dwz(data, name){
 
 function main(data){
 
-    var nf = "2013"
+    var nf = selectNfMain;
 
     var option = {
         "tooltip": {
@@ -141,6 +152,16 @@ function changeMap(param){
 
 function chart1_nh(data){
     var option = {
+        title: {
+            text: '中国天然气开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -227,15 +248,17 @@ function chart1_nh(data){
             {
                 name: data[0][2][0],
                 color:data[0][3][0],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[0][5]["nh"][0]
             },
             {
                 name: data[0][2][1],
                 color:data[0][3][1],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[0][5]["nh"][1]
             }
         ]
@@ -246,6 +269,16 @@ function chart1_nh(data){
 
 function chart1_dh(data){
     var option = {
+        title: {
+            text: '中国天然气开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -332,15 +365,17 @@ function chart1_dh(data){
             {
                 name: data[1][2][0],
                 color:data[1][3][0],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[1][5]["dh"][0]
             },
             {
                 name: data[1][2][1],
                 color:data[1][3][1],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[1][5]["dh"][1]
             }
         ]
@@ -351,6 +386,20 @@ function chart1_dh(data){
 
 
 function chart2(data){
+
+    //排序，名称data[1]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<data[1].length; i++){
+        dataArray.push({"name": data[1][i], "value": data[3][i]});
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+        data[1][i] = dataArray[i].name;
+        data[3][i] = dataArray[i].value;
+    }
+
     var option = {
         "tooltip": {
             "trigger": "axis",
@@ -399,6 +448,7 @@ function chart2(data){
             {
                 type: 'value',
                 // name:data[1][0],
+                min: 'dataMin', // 最小值
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -894,7 +944,7 @@ function chart6(data){
     seriesItems.push({
         name: data[2][0],
         type: 'bar',
-        barWidth: "20%",
+        barWidth: "15%",
         "yAxisIndex": 0,
         itemStyle:{
             normal:{
@@ -907,7 +957,7 @@ function chart6(data){
     seriesItems.push({
         name: data[2][1],
         type: 'bar',
-        barWidth: "20%",
+        barWidth: "15%",
         "yAxisIndex": 0,
         itemStyle:{
             normal:{
@@ -919,8 +969,8 @@ function chart6(data){
 
     seriesItems.push({
         name: data[2][2],
-        type: 'line',
-        // barWidth: "7%",
+        type: 'bar',
+        barWidth: "15%",
         "yAxisIndex": 1,
         itemStyle:{
             normal:{

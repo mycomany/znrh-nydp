@@ -108,12 +108,11 @@ function installAndGeneration(jsonData,selectObj){
 
         groupDatas.forEach(groupData=>{
             const companyName = groupData['companyName']
-            const year = groupData["year"]//
-            const month = groupData["month"]
-            let val = groupData['val']
-            if(companyName!='全国'){
-                val = (val/10000).toFixed(2)
-            }
+            const date = groupData["date"]//
+            let val = groupData['value']
+            // if(companyName!='全国'){
+            //     val = (val/10000).toFixed(2)
+            // }
 
             const ratio = groupData["ratio"]//同比
             if(companyName===selectPoint) {
@@ -123,8 +122,8 @@ function installAndGeneration(jsonData,selectObj){
                     lineDataObj[group] = []
                 }
                 lineDataObj[group].push(val)
-                if(months[year+"-"+month]==null){
-                    months[year+"-"+month]='SCQ'
+                if(months[date]==null){
+                    months[date]='SCQ'
                 }
             }
         })
@@ -257,13 +256,13 @@ function installAndGeneration(jsonData,selectObj){
         }],
         yAxis: [{
             type: 'value',
-            /*name:'10亿桶',
+            // name:'亿千瓦时',
             nameGap:-5,
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
                 color:'#fff',
-            },*/
+            },
             axisTick: {
                 show: true //是否显示坐标轴刻度
             },
@@ -290,6 +289,7 @@ function installAndGeneration(jsonData,selectObj){
         },
             {
                 type: 'value',
+                // name:'万千瓦',
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -373,12 +373,12 @@ function makeOrders(orderDatas,selectPoint,point){
         seriesData.push(o)
     })
 
-    seriesData.push({
-        name:'同比',
-        type:'line',
-        yAxisIndex: 1,
-        data:lineArray
-    })
+    // seriesData.push({
+    //     name:'同比',
+    //     type:'line',
+    //     yAxisIndex: 1,
+    //     data:lineArray
+    // })
 
 
     // console.log(JSON.stringify(seriesData))
@@ -536,7 +536,7 @@ function internetUsed(jsonData,selectObj){
 }
 
 function deviceUsedRatio(jsonData,selectObj){
-    let selectPoint = _default_select_date
+    let selectPoint = _default_company_name
     if(isSelect(jsonData)){
         selectPoint = $(selectObj).val()
     }else{
@@ -546,45 +546,56 @@ function deviceUsedRatio(jsonData,selectObj){
     }
     let lineObject = {}
     let line2Object = {}
-    let xArray = []
+    let legArray = {}
     _data_cache.deviceUsedRatio.forEach((productInfo)=>{
         const areaName = productInfo["type"]
-        const year = productInfo["year"]
-        const month = productInfo["month"]
-        const val = productInfo["val"]
+        const date = productInfo["date"]
+        const val = productInfo["value"]
         const ratio = productInfo["ratio"]
 
-        if((year+'-'+month)===selectPoint){
-            if(lineObject[areaName]!=null){}
+        if(areaName===selectPoint){
+            if(lineObject[date]!=null){}
             else{
-                lineObject[areaName] = val
-                line2Object[areaName] = ratio
+                lineObject[date] = Number(val)
+                line2Object[date] = Number(ratio)
+                // line2Object[date] = ratio
             }
+
         }
+
+        // if((year+'-'+month)===selectPoint){
+        //     if(lineObject[areaName]!=null){}
+        //     else{
+        //         lineObject[areaName] = val
+        //         line2Object[areaName] = ratio
+        //     }
+        // }
     })
 
-    xArray = Object.keys(lineObject)
+    const xArray = Object.keys(lineObject)
 
     let seriesData = [];
 
     seriesData.push({
-        name:"利用率",
-        type:'line',
+        name:"本年",
+        type:'bar',
         smooth: true,
         //stack: '总量',
         symbolSize: 1,
         symbol: 'circle',
+        // barWidth:15,
         data:Object.values(lineObject)
     })
 
     seriesData.push({
         name:"同比",
-        type:'line',
+        type:'bar',
         smooth: true,
         yAxisIndex: 1,
         //stack: '总量',
         symbolSize: 1,
         symbol: 'circle',
+        // barWidth:15,
         data:Object.values(line2Object)
     })
 
@@ -592,20 +603,35 @@ function deviceUsedRatio(jsonData,selectObj){
     // console.log(JSON.stringify(seriesData))
 
     let option = {
-        grid: {
-            left: '3%',
-            right:'3%',
-            top:'10%',
-            bottom:'5%',
-            containLabel: true
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            }
         },
-        color: ["#37A2DA", "#E062AE", "#96BFFF"],
-
-        tooltip:{
-            trigger:'axis'
+        color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+        legend: { //图例组件，颜色和名字
+            itemGap: 12, //图例每项之间的间隔
+            itemWidth: 16,
+            itemHeight: 8,
+            x:'center',
+            bottom:'2%',
+            data: ['本年','同比'],
+            textStyle: {
+                color: '#fff',
+                fontSize: 10,
+            }
+        },
+        grid: {
+            left: '5%',
+            right:'5%',
+            top:'10%',
+            bottom:'18%',
+            containLabel: true
         },
         xAxis : {
             type: "category",
+            gridIndex: 0,
             axisLine: {
                 lineStyle: {
                     color: '#38b8ff',
@@ -635,8 +661,9 @@ function deviceUsedRatio(jsonData,selectObj){
         },
         yAxis : [{
             type: 'value',
-            name:'  小时',
+            name:'小时数',
             nameGap:-5,
+            gridIndex: 0,
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
@@ -661,6 +688,7 @@ function deviceUsedRatio(jsonData,selectObj){
         },{
             type: 'value',
             nameGap:-5,
+            gridIndex: 0,
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
@@ -714,9 +742,13 @@ function makeWarmingRecord(jsonData,selectObj){
             const month = groupData['month']
             const val = groupData['val']
             const ratio = groupData['ratio']
-            if((year+'-'+month)===selectPoint) {
-                barDatas[groupNm].push({'typeName':typeVal,'typeVal':val})
-                lineDatas[groupNm].push({'typeName':typeVal,'typeVal':ratio})
+            // if((year+'-'+month)===selectPoint) {
+            //     barDatas[groupNm].push({'typeName':typeVal,'typeVal':val})
+            //     lineDatas[groupNm].push({'typeName':typeVal,'typeVal':ratio})
+            // }
+            if((typeVal)===selectPoint) {
+                barDatas[groupNm].push({'typeName':year+'-'+month,'typeVal':val})
+                lineDatas[groupNm].push({'typeName':year+'-'+month,'typeVal':ratio})
             }
         })
     })
@@ -735,6 +767,7 @@ function makeWarmingRecord(jsonData,selectObj){
         },
         barGap:'-100%',
         barCategoryGap:'40%',
+        barWidth:15,
         data: dataShadow,
         animation: false
     },)
@@ -745,7 +778,7 @@ function makeWarmingRecord(jsonData,selectObj){
 
     makeSerDatas(barDatas,legNames,'bar')
     makeSerDatas(lineDatas,legNames,'line')
-    
+
     function makeSerDatas(fromDatas,legNames,makeType){
         Object.keys(fromDatas).forEach((barGroupName,i)=>{
             const barArray = makeType==='bar'?barDatas[barGroupName]:lineDatas[barGroupName]
@@ -799,7 +832,12 @@ function makeWarmingRecord(jsonData,selectObj){
         tooltip: {
             trigger: 'axis',
             axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+                label : {
+                    fontSize:5,
+                    padding:0,
+                    lineHeight:20
+                }
             }
         },
         color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
@@ -896,26 +934,27 @@ function consume(jsonData,selectObj){
     if(isSelect(jsonData)){
         selectPoint = $(selectObj).val()
     }else{
-        _data_cache.deviceUsedRatio = jsonData
+        _data_cache.consume = jsonData
         selectPoint = checkInitDate("deviceUsedRatioSelected")
 
     }
     let lineObject = {}
     let line2Object = {}
     let xArray = []
-    _data_cache.deviceUsedRatio.forEach((productInfo)=>{
+    _data_cache.consume.forEach((productInfo)=>{
         const areaName = productInfo["type"]
         const year = productInfo["year"]
         const month = productInfo["month"]
         const val = productInfo["val"]
         const ratio = productInfo["ratio"]
 
-        if((year+'-'+month)===selectPoint){
-            if(lineObject[areaName]!=null){}
+        if(areaName===selectPoint){
+            if(lineObject[year+'-'+month]!=null){}
             else{
-                lineObject[areaName] = val
-                line2Object[areaName] = ratio
+                lineObject[year+'-'+month] = val
+                line2Object[year+'-'+month] = ratio
             }
+
         }
     })
 
@@ -924,23 +963,25 @@ function consume(jsonData,selectObj){
     let seriesData = [];
 
     seriesData.push({
-        name:"利用率",
-        type:'line',
+        name:"消耗量",
+        type:'bar',
         smooth: true,
         //stack: '总量',
         symbolSize: 1,
         symbol: 'circle',
+        barWidth:15,
         data:Object.values(lineObject)
     })
 
     seriesData.push({
         name:"同比",
-        type:'line',
+        type:'bar',
         smooth: true,
         yAxisIndex: 1,
         //stack: '总量',
         symbolSize: 1,
         symbol: 'circle',
+        barWidth:15,
         data:Object.values(line2Object)
     })
 
@@ -948,17 +989,31 @@ function consume(jsonData,selectObj){
     // console.log(JSON.stringify(seriesData))
 
     let option = {
-        grid: {
-            left: '3%',
-            right:'3%',
-            top:'10%',
-            bottom:'5%',
-            containLabel: true
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            }
         },
-        color: ["#37A2DA", "#E062AE", "#96BFFF"],
-
-        tooltip:{
-            trigger:'axis'
+        color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
+        legend: { //图例组件，颜色和名字
+            itemGap: 12, //图例每项之间的间隔
+            itemWidth: 16,
+            itemHeight: 8,
+            x:'center',
+            bottom:'2%',
+            data: ['消耗量','同比'],
+            textStyle: {
+                color: '#fff',
+                fontSize: 10,
+            }
+        },
+        grid: {
+            left: '5%',
+            right:'5%',
+            top:'10%',
+            bottom:'18%',
+            containLabel: true
         },
         xAxis : {
             type: "category",

@@ -137,6 +137,84 @@ function getdata(url, o){
     $.ajax(o);
 }
 
+<<<<<<< HEAD
+=======
+function getdatax(url, fn, opt){
+    if(!window._store) window._store = {};
+    var o = $.extend({
+        cid: fn.name,
+        cfn:fn,
+        cdata:[],
+        sid:fn.name+'_comb',
+        schange:changeSelect,
+        sidx:2,
+        sdata:[],
+        svalue:'',
+    }, opt);
+    getdata(url, function(data){
+        initStore(data, o); //init store
+        creatSelect(o.sdata, o.sid, o.svalue); //draw select
+        fn(o.cdata, o.svalue);    //draw chart
+    });
+}
+function initStore(data, o){
+    if(o.sidx>0){
+        o.cdata = initStoreData(data, o.sidx);
+        o.sdata = o.cdata.index;
+        o.svalue = o.cdata.index[o.cdata.index.length - 1];
+    }else{
+        o.cdata = data;
+    }
+    _store[o.cid] = o; //save
+}
+function initStoreData(data, idx){
+    var ds = {legend:[],xData:[],data:{}};
+    ds.legend = data[0];
+    ds.xData = data[1];
+    var res = new Map();
+    ds.index = data[idx].filter(function(a){
+        return !res.has(a) && res.set(a, 1);
+    });
+
+    ds.index.forEach(function(x){
+        var arr = [];
+        for(var i = 3; i <data.length; i++){
+            arr.push([]);
+        }
+        ds.data[x] = arr;
+    });
+    var j = -1;
+    for(var i = 0; i <data.length; i++){
+        if(i == 0 || i == 1 || i == idx)
+            continue;
+        j++;
+        data[i].forEach(function(o, m){
+            var key = data[idx][m];
+            if(ds.data[key])
+                ds.data[key][j].push(data[i][m]);
+        });
+    }
+    return ds;
+}
+function changeSelect(sel){
+    var id = sel.id, val = sel.value, o = _store[id], fn = o.cfn;
+    fn(o.cdata, val);
+}
+function creatSelect(data,id,shouValue,mo){
+    var str = '<select id= "select" class="selectpicker form-control"  style="background-color: rgba(23,32,45,0);width: 70px;height: 20px;text-align: center;border-radius:10px;border: 1px solid #37bff4;" onchange = "'+mo+'(this.value)">';
+    for (var i = 0; i < data.length; i++) {
+        if (data[i] == shouValue) {
+            str = str+'<option value = "'+data[i]+'" selected = "selected">'+data[i]+'</option>';
+        }else{
+        	str = str+'<option value = "'+data[i]+'">'+data[i]+'</option>';
+        }	
+    }
+    str = str+'</select>';
+    var tbody=window.document.getElementById(id);
+    tbody.innerHTML = str;
+}
+
+>>>>>>> 4b7251afda7b991fcc61549a7e59c4e6c479a3cb
 var RollingPlay = {
     ts : 11,
     uri:['market/finance','pattern/gasIndex','pattern/gasStore','statecn/index','statecn/opinions','statecn/gasIndex','statecn/gasSecurity','pattern/index','pattern/gasMarket'],

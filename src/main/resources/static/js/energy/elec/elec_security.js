@@ -102,7 +102,8 @@ function main(data){
                 lineStyle: {
                     color: '#38b8ff'
                 }
-            }
+            },
+            min: 'dataMin'
         },
         yAxis: {
             type: 'category',
@@ -197,7 +198,8 @@ function main_1(data){
                 lineStyle: {
                     color: '#38b8ff'
                 }
-            }
+            },
+            min: 'dataMin'
         },
         yAxis: {
             type: 'category',
@@ -235,13 +237,12 @@ function chart1(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
         data[3][i] = dataArray[i].value;
     }
-
     option = {
         "tooltip": {
             "trigger": "axis",
@@ -250,90 +251,106 @@ function chart1(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }
+                }
+                return res;
             }
+        },
+        xAxis: {
+            show: false
         },
         grid: {
             left: '5%',
-            right:'5%',
-            top:'10%',
-            bottom:'10%',
+            right:'10%',
+            top:0,
+            bottom:-10,
             containLabel: true
         },
-        "xAxis": [
+        yAxis: [
             {
-                "type": "category",
-                "data": data[2],
-                "axisPointer": {
-                    "type": "shadow"
-                },
-                boundaryGap: true,
+                show: true,
+                data: data[2],
+                inverse: true,
                 axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
                 },
                 axisLabel: {
                     textStyle: {
                         color: '#ffffff',
                         fontSize: 10
-                    },
-                    // rotate: 15
-                },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                },
-            }
-        ],
-        "yAxis": [
-            {
-                type: 'value',
-                name:data[1][0],
-                nameGap:-5,
-                nameTextStyle:{
-                    padding:[0,0,0,25],
-                    align:'center',
-                    color:'#fff',
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
                     }
                 },
+            },
+            {
+                show: true,
+                inverse: true,
+                data: data[3],
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        fontSize: 10,
+                        color: '#fff',
                     },
-                    formatter: function(value){
-                        if(pdInteger(value)){
-                            return value;
-                        }else{
-                            return "";
-                        }
+                    formatter: function(v){
+                        return v + data[1][0];
                     }
                 },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                }
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
             }
         ],
-        "series": [
+        series: [
             {
-                "name": data[0][0],
-                "type": "bar",
-                "data": data[3],
-                barWidth: "30%",
-                "yAxisIndex": 0,
+                name: '',
+                type: 'bar',
+                yAxisIndex: 1,
+                barGap: '-100%',
+                data: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+                barWidth: 5,
                 itemStyle: {
                     normal: {
-                        color: '#4df3f3'
+                        borderWidth: 3,
+                        barBorderRadius: 15,
+                        color: '#0f356a'
+                    }
+                }
+            },
+            {
+                name: data[0],
+                type: 'bar',
+                yAxisIndex: 0,
+                data: data[3],
+                barWidth: 5,
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: 30,
+                        color:'#2ab7ff'
                     }
                 }
             }
         ]
     };
+
     var myChart = echarts.init($('#' + chartId)[0]);
     myChart.setOption(option);
 }
@@ -349,7 +366,7 @@ function chart2(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -392,7 +409,7 @@ function chart2(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -430,6 +447,14 @@ function chart2(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         series: [
@@ -441,10 +466,10 @@ function chart2(data){
                 type: 'scatter',
                 color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
                     offset: 0,
-                    color: '#4df3f3'
+                    color: '#5acbff'
                 }, {
                     offset: 1,
-                    color: '#4df3f3'
+                    color: '#5acbff'
                 }]),
                 "yAxisIndex": 0,
                 data:data[3]
@@ -466,13 +491,12 @@ function chart3(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
         data[3][i] = dataArray[i].value;
     }
-
     option = {
         "tooltip": {
             "trigger": "axis",
@@ -481,27 +505,42 @@ function chart3(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                    }
+                }
+                return res;
             }
+        },
+        xAxis: {
+            show: false
         },
         grid: {
             left: '5%',
-            right:'5%',
-            top:'10%',
-            bottom:'10%',
+            right:'10%',
+            top:0,
+            bottom:-10,
             containLabel: true
         },
-        "xAxis": [
+        yAxis: [
             {
-                "type": "category",
-                "data": data[2],
-                "axisPointer": {
-                    "type": "shadow"
-                },
-                boundaryGap: true,
+                show: true,
+                data: data[2],
+                inverse: true,
                 axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
                 },
                 axisLabel: {
                     textStyle: {
@@ -509,61 +548,63 @@ function chart3(data){
                         fontSize: 10
                     }
                 },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                },
-            }
-        ],
-        "yAxis": [
+            },
             {
-                type: 'value',
-                name:data[1][0],
-                nameGap:-5,
-                nameTextStyle:{
-                    padding:[0,0,0,25],
-                    align:'center',
-                    color:'#fff',
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
+                show: true,
+                inverse: true,
+                data: data[3],
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        fontSize: 10,
+                        color: '#fff',
                     },
-                    formatter: function(value){
-                        if(pdInteger(value)){
-                            return value;
-                        }else{
-                            return "";
-                        }
+                    formatter: function(v){
+                        return v + data[1][0];
                     }
                 },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                }
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
             }
         ],
-        "series": [
+        series: [
             {
-                "name": data[0][0],
-                "type": "bar",
-                "data": data[3],
-                "barWidth": "30%",
-                "yAxisIndex": 0,
+                name: '',
+                type: 'bar',
+                yAxisIndex: 1,
+                barGap: '-100%',
+                data: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+                barWidth: 5,
                 itemStyle: {
                     normal: {
-                        color: '#4df3f3'
+                        borderWidth: 3,
+                        barBorderRadius: 15,
+                        color: '#0f356a'
+                    }
+                }
+            },
+            {
+                name: data[0],
+                type: 'bar',
+                yAxisIndex: 0,
+                data: data[3],
+                barWidth: 5,
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: 30,
+                        color:'#2ab7ff'
                     }
                 }
             }
         ]
     };
+
     var myChart = echarts.init($('#' + chartId)[0]);
     myChart.setOption(option);
 }
@@ -581,7 +622,7 @@ function chart4(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -624,7 +665,7 @@ function chart4(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -662,6 +703,14 @@ function chart4(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         series: [
@@ -673,10 +722,10 @@ function chart4(data){
                 type: 'scatter',
                 color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
                     offset: 0,
-                    color: '#4df3f3'
+                    color: '#5acbff'
                 }, {
                     offset: 1,
-                    color: '#4df3f3'
+                    color: '#5acbff'
                 }]),
                 "yAxisIndex": 0,
                 data:data[3]
@@ -700,7 +749,7 @@ function chart5(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -715,6 +764,14 @@ function chart5(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         grid: {
@@ -752,7 +809,7 @@ function chart5(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -768,6 +825,13 @@ function chart5(data){
                     textStyle: {
                         color: '#ffffff',
                         fontSize: 10
+                    },
+                    formatter: function(value){
+                        if(pdInteger(value)){
+                            return value;
+                        }else{
+                            return "";
+                        }
                     }
                 },
                 //去掉辅助线
@@ -806,7 +870,7 @@ function chart6(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -821,6 +885,14 @@ function chart6(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         grid: {
@@ -858,7 +930,7 @@ function chart6(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -919,7 +991,7 @@ function chart7(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -934,6 +1006,14 @@ function chart7(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         grid: {
@@ -971,7 +1051,7 @@ function chart7(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],
@@ -1032,7 +1112,7 @@ function chart8(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -1047,6 +1127,14 @@ function chart8(data){
                 "crossStyle": {
                     "color": "#384757"
                 }
+            },
+            formatter: function(params, ticket, callback) {
+                var res = params[0].name;
+                for (var i = 0, l = params.length; i < l; i++) {
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
+                }
+                return res;
+
             }
         },
         grid: {
@@ -1084,7 +1172,7 @@ function chart8(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,25],

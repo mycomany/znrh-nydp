@@ -32,21 +32,21 @@ function main(data){
         },
         legend: {
             show:true,
-            bottom : 10,
+            bottom : 20,
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{
                 color:'#fff',
                 fontFamily: '微软雅黑',
-                fontSize: 10,
+                fontSize: 12,
             },
             data:data[1]
         },
         grid:{
-            top:'10%',
+            top:'5%',
             left:'5%',
             right:'5%',
-            bottom:'20%',
+            bottom:'15%',
             containLabel: true
         },
         xAxis: [
@@ -86,7 +86,7 @@ function main(data){
             name: data[0][0],
             nameGap:-5,
             nameTextStyle:{
-                padding:[0,0,0,55],
+                padding:[0,0,0,15],
                 align:'center',
                 color:'#fff',
             },
@@ -114,6 +114,16 @@ function changeMap(param){
 
 function chart1_nh(data){
     var option = {
+        title: {
+            text: '中国石油开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -137,7 +147,7 @@ function chart1_nh(data){
             show:true,
             top : 3,
             right:5,
-            itemWidth: 16,
+            itemWidth: 10,
             itemHeight: 8,
             textStyle:{
                 color:'#fff',
@@ -200,15 +210,17 @@ function chart1_nh(data){
             {
                 name: data[0][2][0],
                 color:data[0][3][0],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[0][5]["nh"][0]
             },
             {
                 name: data[0][2][1],
                 color:data[0][3][1],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[0][5]["nh"][1]
             }
         ]
@@ -219,6 +231,16 @@ function chart1_nh(data){
 
 function chart1_dh(data){
     var option = {
+        title: {
+            text: '中国石油开采综合能耗对比',
+            x: 'center',
+            y: 0,
+            textStyle:{
+                color:'#a4d6fe',
+                fontSize:13,
+                fontWeight:'normal',
+            }
+        },
         "tooltip": {
             "trigger": "axis",
             "axisPointer": {
@@ -242,7 +264,7 @@ function chart1_dh(data){
             show:true,
             top : 3,
             right:5,
-            itemWidth: 16,
+            itemWidth: 10,
             itemHeight: 8,
             textStyle:{
                 color:'#fff',
@@ -305,15 +327,17 @@ function chart1_dh(data){
             {
                 name: data[1][2][0],
                 color:data[1][3][0],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[1][5]["dh"][0]
             },
             {
                 name: data[1][2][1],
                 color:data[1][3][1],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[1][5]["dh"][1]
             }
         ]
@@ -419,12 +443,16 @@ function chart2(data){
                 name: data[1][0],
                 color:data[2][0],
                 type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[4]
             },
             {
                 name: data[1][1],
                 color: data[2][1],
                 type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[5]
             }
         ]
@@ -588,6 +616,20 @@ function chart3(data){
 
 
 function chart4(data){
+
+    //排序，名称data[1]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<data[1].length; i++){
+        dataArray.push({"name": data[1][i], "value": data[3][i]});
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+        data[1][i] = dataArray[i].name;
+        data[3][i] = dataArray[i].value;
+    }
+
     var option = {
         "tooltip": {
             "trigger": "axis",
@@ -636,6 +678,7 @@ function chart4(data){
             {
                 type: 'value',
                 // name:data[1][0],
+                min: 'dataMin', // 最小值
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -692,6 +735,20 @@ function chart4(data){
 
 function chart5(data){
     var nf = "2015";
+
+    //排序，名称data[1]，数据data[3][nf]
+    var dataArray = [];
+    for(var i=0; i<data[1].length; i++){
+        dataArray.push({"name": data[1][i], "value": data[3][nf][i]});
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+        data[1][i] = dataArray[i].name;
+        data[3][nf][i] = dataArray[i].value;
+    }
+
     var option = {
         "tooltip": {
             "trigger": "axis",
@@ -740,6 +797,7 @@ function chart5(data){
             {
                 type: 'value',
                 // name:data[1][0],
+                min: 'dataMin', // 最小值
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -756,19 +814,12 @@ function chart5(data){
                         color: '#ffffff',
                         fontSize: 10
                     },
-                    formatter: "{value}%"
+                    formatter: "{value}%",
                 },
                 //去掉辅助线
                 "splitLine": {
                     "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
                 }
-                */
             },
         ],
         legend:{

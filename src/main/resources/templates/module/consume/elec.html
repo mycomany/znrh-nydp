@@ -1,3 +1,4 @@
+<#assign goods="elec" />
 <#include "/inc/base.html" />
 <#macro head>
 	 <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
@@ -8,8 +9,56 @@
        .box{position:relative;}
        .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
        .change{
-       width: 85px;height: 24px;float: right;margin-right: 20px;
+       		width: 68px;height: 24px;float: right;margin-right: 20px;z-index:10;
        }
+       
+       .main_order_type{
+        width:39%;
+        height:30px;
+        position: absolute;
+        bottom: 5%;
+        z-index: 50;
+    	}
+      .main_show_tab_data{
+        margin-right: 20px;
+        float: left;
+    }
+
+    .main_show_type{
+        height:30px;
+        line-height: 35px;
+        float: left;
+        margin-right:20px;
+        font-weight:normal;
+        cursor: pointer;
+        color:#2b88ff;
+        width:76px;
+    }
+
+    .main_show_type>span{
+        margin:0 10px 0 30px;
+    }
+
+    .main_show_power{
+
+        background-size: 100% 100%;padding: 0;
+        background-image: url('${host}/static/theme/green/produce/powerratio.png');
+    }
+
+    .main_show_power:hover,.main_show_power_checked{
+        background-image: url('${host}/static/theme/green/produce/powerratiocheck.png');
+        color:#52fcfc;
+    }
+
+    .main_show_installed{
+        background-size: 100% 100%;padding: 0;
+         background-image: url('${host}/static/theme/green/produce/powerratio.png');
+    }
+
+    .main_show_installed:hover,.main_show_installed_checked{
+         background-image: url('${host}/static/theme/green/produce/powerratio.png');
+        color:#52fcfc;
+    }
      </style>
 </#macro>
 
@@ -28,18 +77,8 @@
             	<div class="qpanel">
 	                <div class="qs_header">
 	                	<span class="qs_title1">&nbsp;</span><span class="qs_title2">全社会用电量结构</span>
-	                	<!-- <select onchange = "change2(this.value)">
-	                		<option value = "2018-02">2018-02</option>
-	                		<option value = "2018-03">2018-03</option>
-	                		<option value = "2018-04">2018-04</option>
-	                		<option value = "2018-05">2018-05</option>
-	                		<option value = "2018-06">2018-06</option>
-	                		<option value = "2018-07">2018-07</option>
-	                		<option value = "2018-08">2018-08</option>
-	                		<option value = "2018-09">2018-09</option>
-	                		<option value = "2018-10">2018-10</option>
-	                		<option value = "2018-11">2018-11</option>
-	                	</select> -->
+	                	<div id = "select_chart2" class = "change" style="z-index:10">
+	                	</div>
 	                </div>
 	                <div id="chart2" class="qs_body"></div>
                 </div>
@@ -51,9 +90,16 @@
                             <div onclick="change12(1)" id = "c2" class="c check_btn_option_status_r " >跨省 </div>
                             <input id = "ch" type="hidden" value = "main"/>
                             <div id = "change" class = "change">
-	                            
 	                		</div>
                 </div>
+                <div class="main_order_type">
+		                        <div orderType="makePower" id = "elec_in" onclick = "elecMode(1)" class=" main_show_type main_show_power main_show_power_checked">
+		                            <span>输入</span>
+		                        </div>
+		                        <div orderType="installed" id = "elec_out" onclick = "elecMode(2)" class=" main_show_type main_show_installed">
+		                            <span>输出</span>
+		                        </div>
+           		</div>
 	            <div id="main" class="qs_body" style="height: 98%"></div>
 	        </div>
       	 <div class="w3 h12">
@@ -67,18 +113,8 @@
             	<div class="qpanel">
 	                <div class="qs_header">
 	                	<span class="qs_title1">&nbsp;</span><span class="qs_title2">获得电力指数</span>
-	                	<!-- <select onchange = "change4(this.value)">
-	                		<option value = "2018-02">2018-02</option>
-	                		<option value = "2018-03">2018-03</option>
-	                		<option value = "2018-04">2018-04</option>
-	                		<option value = "2018-05">2018-05</option>
-	                		<option value = "2018-06">2018-06</option>
-	                		<option value = "2018-07">2018-07</option>
-	                		<option value = "2018-08">2018-08</option>
-	                		<option value = "2018-09">2018-09</option>
-	                		<option value = "2018-10">2018-10</option>
-	                		<option value = "2018-11">2018-11</option>
-	                	</select> -->
+	                	<div id = "select_chart4" class = "change">
+	                	</div>
 	               	</div>
 	                <div id="chart4" class="qs_body"></div>
                 </div>
@@ -90,22 +126,19 @@
 				<div class="qpanel">
 					<div class="qs_header">
 						<span class="qs_title1">&nbsp;</span><span class="qs_title2">全行业用电排名</span>
-						<!-- <select  onchange = "change5(this.value)">
-	                		<option value = "2009">2009</option>
-	                		<option value = "2010">2010</option>
-	                		<option value = "2011">2011</option>
-	                		<option value = "2012">2012</option>
-	                		<option value = "2012">2013</option>
-	                		<option value = "2012">2014</option>
-	                		<option value = "2015">2015</option>
-	                	</select> -->
+						<div id = "select_chart5" class = "change">
+	                	</div>
 					</div>
 					<div id="chart5" class="qs_body"></div>
 				</div>
 			</div>
 			<div class="w6 h12">
 				<div class="qpanel">
-					<div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">分省人均用电排名</span></div>
+					<div class="qs_header">
+						<span class="qs_title1">&nbsp;</span><span class="qs_title2">分省人均用电排名</span>
+						<div id = "select_chart6" class = "change">
+	                	</div>
+					</div>
 					<div id="chart6" class="qs_body"></div>
 				</div>
 			</div>
@@ -116,7 +149,11 @@
 $(document).ready(function() {
     $('.selectpicker').selectpicker();
     var d = ["2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10","2018-11"];
-    creatSelect(d,'change','2018-11');
+    creatSelect(d,'change','2018-11',"change11");
+    creatSelect(d,'select_chart2','2018-11',"change2");
+    creatSelect(d,'select_chart4','2018-11',"change4");
+    creatSelect(d,'select_chart5','2018-11',"change5");
+    creatSelect(d,'select_chart6','2018-11',"change6");
        
 });
 </script>

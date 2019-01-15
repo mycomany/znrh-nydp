@@ -800,6 +800,277 @@ function chart6(data){
 }
 
 function main(){
+    getdata('/consume/gas/main.json', function(datas){
+        var data = [{"name":"安徽","value":40},
+                    {"name":"陕西","value":96},
+                    {"name":"河南","value":100},
+                    {"name":"江西","value":20},
+                    {"name":"山东","value":120},
+                    {"name":"湖南","value":31},
+                    {"name":"四川","value":200},
+                    {"name":"宁夏","value":26},
+                    {"name":"河北","value":100},
+                    {"name":"内蒙古","value":59},
+                    {"name":"湖北","value":53},
+                    {"name":"吉林","value":26},
+                    {"name":"山西","value":55},
+                    {"name":"贵州","value":12},
+                    {"name":"重庆","value":90},
+                    {"name":"江苏","value":220},
+                    {"name":"甘肃","value":28},
+                    {"name":"云南","value":9},
+                    {"name":"青海","value":32},
+                    {"name":"新疆","value":164},
+                    {"name":"辽宁","value":55},
+                    {"name":"广西","value":15},
+                    {"name":"上海","value":85},
+                    {"name":"黑龙江","value":39},
+                    {"name":"北京","value":175},
+                    {"name":"浙江","value":103},
+                    {"name":"天津","value":68},
+                    {"name":"海南","value":43},
+                    {"name":"广东","value":190}]
+    var geoCoordMap = {
+    		 '上海':  [121.472644,  31.231706],
+             '云南':  [100.034699,25.91455],
+             '内蒙古':  [110.263596,42.220711],
+             '北京':  [116.405285,  39.904989],
+             // '台湾': [121.509062, 25.044332],
+             '吉林':  [126.5728,45.020069],
+             '四川':  [100.660207,30.890097],
+             '天津':  [119.190182,  39.125596],
+             '宁夏':  [106.278179,  38.46637],
+             '安徽':  [117.283042,  31.86119],
+             '山东':  [118.000923,  36.675807],
+             '山西':  [112.049248,  37.057014],
+             '广东':  [113.547514,24.466547],
+             '广西':  [109.058573,24.027946],
+             '新疆':  [87.617733,  43.792818],
+             '江苏':  [119.467413,  33.741544],
+             '江西':  [115.892151,  28.676493],
+             '河北':  [114.802461,  37.745474],
+             '河南':  [113.665412,  33.757975],
+             '浙江':  [120.153576,  29.287459],
+             '海南':  [110.33119,  20.031971],
+             '湖北':  [113.298572,  30.984355],
+             '湖南':  [112.12279,  28.19409],
+             // '澳门': [113.54909, 22.198951],
+             '甘肃':  [103.823557,  36.058039],
+             '福建':  [117.043,26.602996],
+             '西藏':  [86.935824,31.680109],
+             '贵州':  [105.839046,27.328367],
+             '辽宁':  [123.029096,  41.396767],
+             '重庆':  [107.65118,30.794847],
+             '陕西':  [108.948024,  34.263161],
+             '青海':  [94.809867,37.046749],
+             // '香港': [114.173355, 22.320048],
+             '黑龙江':  [126.425621,49.042686]
+         };
+
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+    
+var mapdata={"江苏":[220 ,27.47],
+		"四川":[200 ,47.83],
+		"广东":[190 ,0.00],
+		"北京":[175 ,10.46],
+		"新疆":[164 ,27.96],
+		"山东":[120 ,29.73],
+		"浙江":[103 ,20.79],
+		"河南":[100 ,38.98],
+		"河北":[100 ,30.43],
+		"陕西":[96 ,47.24],
+		"重庆":[90 ,43.21],
+		"上海":[85 ,21.71],
+		"天津":[68 ,14.35],
+		"内蒙古":[59 ,39.63],
+		"山西":[55 ,39.47],
+		"辽宁":[55 ,24.89],
+		"湖北":[53 ,25.39],
+		"海南":[43 ,50.00],
+		"安徽":[40 ,37.37],
+		"黑龙江":[39 ,25.31],
+		"青海":[32 ,25.16],
+		"湖南":[31 ,30.86],
+		"甘肃":[28 ,20.52],
+		"吉林":[26 ,34.27],
+		"宁夏":[26 ,35.82],
+		"江西":[20 ,34.27],
+		"广西":[15 ,37.84],
+		"贵州":[12 ,31.98],
+		"云南":[9 ,39.90]};
+    
+var max = 0;
+for (var i = 0; i < data.length; i++) {
+    if (data[i].value >= max) {
+        max = data[i].value;
+    }
+}
+var col = ['#fff700','#00ffbc','#0026ff'];
+option = {
+    title: {
+        text: '',
+        subtext: '',
+        x: 'center'
+    },
+    tooltip: { //提示框组件。
+        //trigger: 'item', //数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
+        formatter: function (v){ 
+        	//alert(JSON.stringify(v));
+        	if (v.name != '') {
+        		return v.name+'<br/>总消费量： '+mapdata[v.name][0]+' 亿立方米<br/>居民消费占比： '+mapdata[v.name][1]+'%';
+			}
+        },
+        textStyle: {
+            fontSize: '24px'
+        }
+    },
+    legend: {
+        show: false,
+        orient: 'horizontal', //图例的排列方向
+        x: 'left', //图例的位置
+        data: ['']
+    },
+    geo: [{
+        show: true,
+        map: 'china',
+        top:'18%',
+        label: {
+            normal: {
+                show: false
+            },
+            emphasis: {
+                show: false,
+            }
+        },
+        roam: false,//地图设置不可拖拽，固定的
+        zoom:1.2,
+        aspectScale:0.9,
+        itemStyle: {
+            normal: {
+                areaColor: 'rgba(39,52,96,0.4)',//'#273460',
+                borderWidth: 1,
+                borderColor: '#6cf5fb',
+            },
+       	 emphasis: {
+        	 borderColor:'#55e6fc',
+             areaColor: '#4c70f7'
+        }
+        }
+    }],
+    series: [
+       {
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
+            data: convertData(data.sort(function (a, b) {
+                return b.value - a.value;
+            }).slice(0, data.length)),
+            symbolSize: function (val) {
+            	if (val[2] / 5<10) {
+					return 10;
+				}
+                return val[2] / 5;
+            },
+            showEffectOn: 'render',
+            rippleEffect: {
+                brushType: 'stroke'
+            },
+            hoverAnimation: true,
+            label: {
+                normal: {
+                	color: '#fff',
+                	fontSize: 14,
+                    formatter: function (val) {
+                    	//alert(JSON.stringify(val));
+                    	if (mapdata[val.name][0]>100) {
+                    		return val.name;
+						}
+                    	return '';
+                    },
+                    position: 'right',
+                    show: true
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: function (val) {
+                    	//alert(mapdata[val.name]);
+                    	var  i = 0;
+                    	if (mapdata[val.name][0]<50) {
+                           i = 2;
+						}else if (mapdata[val.name][0]>100) {
+							i = 1;
+						}
+                    	return new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    	                    offset: 0,
+    	                    color: col[i]
+    	                }, {
+    	                    offset: 0.5,
+    	                    color: 'rgba(1,1,1,0)'
+    	                }, {
+    	                    offset: 1,
+    	                    color: col[i]
+    	                }]);
+                    },
+                    shadowBlur: 10,
+                    shadowColor: '#333'
+                },
+                emphasis: {
+                    color:'#ffc100'
+                }
+            },
+            zlevel: 1
+        },{
+            name: 'total',
+            type: 'map',
+            mapType: 'china',
+            top:'18%',
+            zoom:1.2,
+            aspectScale:0.9,  
+            roam: false,
+            showLegendSymbol:false,
+            label: {
+                normal: {
+                    show: false,
+                },
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    areaColor: 'rgba(39,52,96,0.4)',//'#273460',
+                    borderWidth: 1,
+                    borderColor: '#6cf5fb',
+                },
+           	 emphasis: {
+            	 borderColor:'#55e6fc',
+                 areaColor: '#4c70f7'
+           	 	}
+            },     
+            data: data
+        }
+    ]
+};
+// myChart.setOption(option);
+        var myChart = echarts.init($('#main')[0]);
+        myChart.setOption(option);
+    });
+}
+
+
+function main1(){
     getdata('/consume/gas/main.json', function(data){
         var data1 = data.map(function(o){
             return [o.value[0], o.value[5], o.name];

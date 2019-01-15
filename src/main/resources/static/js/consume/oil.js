@@ -374,10 +374,14 @@ function chart2(data){
 			data: xData,
 		}],
 		yAxis: [{
-			name: '',
-			type: 'value',
-			min:0.8,
-			position: 'left',
+			 type: 'value',
+		        name:'万吨',
+	    		nameGap:-5,
+	    		nameTextStyle:{
+			    	padding:[0,0,0,45],
+			    	align:'center',
+			    	color:'#fff',
+				},
 			axisLabel: {
 				textStyle: {
 					color: '#fff',
@@ -397,55 +401,46 @@ function chart2(data){
 			splitLine: {
 				show: false
 			}
-		},{
-			type: "value",
-			position: 'right',
-			axisLine: {
-				lineStyle:{
-					color: '#fff'
-				}
-			},
-			axisTick: {
-				show: true
-			},
-			axisLine: {
-				lineStyle:{
-					color: '#0177d4'
-				}
-			},
-			splitLine: {
-				show: false
-			},
-			axisLabel: {
-				show: true,
-				formatter: '{value}%',
-				textStyle: {
-					color: '#fff',
-					fontSize:10
-				}
-			}
 		}],
 		series: [{
-			name: "消费量",
-			type: "bar",
-			barWidth: '60%',
-			itemStyle: {
-				normal: {
-					color: '#00FFFF',
-					barBorderRadius: 50,
-				},
-			},
-			data: barData,
-		}, {
-			name: "增长率",
+			name: data[0][0],
 			type: "line",
-			yAxisIndex: 1,
 			itemStyle: {
 				normal: {
 					color: '#E9DC37'
 				},
 			},
-			data: lineData,
+			data: data[2]
+
+		}, {
+			name: data[0][1],
+			type: "line",
+			itemStyle: {
+				normal: {
+					color: '#0089ff'
+				},
+			},
+			data: data[3]
+
+		}, {
+			name: data[0][2],
+			type: "line",
+			itemStyle: {
+				normal: {
+					color: '#a800ff'
+				},
+			},
+			data: data[4]
+
+		}, {
+			name: data[0][3],
+			type: "line",
+			itemStyle: {
+				normal: {
+					color: '#03a306'
+				},
+			},
+			data: data[5]
 
 		}]
 	};
@@ -612,11 +607,9 @@ function chart3(data){
 }
 
 function chart4(data){
-	var xData = data[2];
-	var lineData1 = data[3];
-	var lineData2 = data[4];
-	var lineData3 = data[5];
-	var lineData4 = data[6];
+	var xData = data[1];
+	var lineData1 = data[2];
+	var lineData2 = data[3];
 	var option =  {
 		grid: {
 			left: '3%',
@@ -687,7 +680,7 @@ function chart4(data){
 			}
 		}],
 		series: [{
-			name: "石油",
+			name: data[0][0],
 			type: "line",
 			smooth: true,
             symbol: 'circle',
@@ -701,7 +694,7 @@ function chart4(data){
 			data: lineData1,
 
 		},{
-			name: "汽油",
+			name: data[0][1],
 			type: "line",
 			smooth: true,
             symbol: 'circle',
@@ -713,34 +706,6 @@ function chart4(data){
 				},
 			},
 			data: lineData2,
-		},{
-			name: "柴油",
-			type: "line",
-			smooth: true,
-            symbol: 'circle',
-            symbolSize:5,
-			//yAxisIndex: 1,
-			itemStyle: {
-				normal: {
-					color: '#46af07'
-				},
-			},
-			data: lineData3,
-
-		},{
-			name: "沥青",
-			type: "line",
-			smooth: true,
-            symbol: 'circle',
-            symbolSize:5,
-			//yAxisIndex: 1,
-			itemStyle: {
-				normal: {
-					color: '#002dff'
-				},
-			},
-			data: lineData4,
-
 		}]
 	};
 	var myChart = echarts.init($('#chart4')[0]);
