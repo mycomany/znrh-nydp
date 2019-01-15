@@ -237,15 +237,17 @@ function chart1_nh(data){
             {
                 name: data[0][2][0],
                 color:data[0][3][0],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[0][5]["nh"][0]
             },
             {
                 name: data[0][2][1],
                 color:data[0][3][1],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[0][5]["nh"][1]
             }
         ]
@@ -352,15 +354,17 @@ function chart1_dh(data){
             {
                 name: data[1][2][0],
                 color:data[1][3][0],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[1][5]["dh"][0]
             },
             {
                 name: data[1][2][1],
                 color:data[1][3][1],
-                type: 'bar',
-                barWidth: "20%",
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
                 data: data[1][5]["dh"][1]
             }
         ]
