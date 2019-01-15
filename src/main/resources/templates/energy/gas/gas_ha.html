@@ -4,8 +4,9 @@
 <script src="${host}/static/js/energy/gas/gas_ha.js"></script>
 <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
 <style>
-    .box{position:relative;}
-    .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
+    .change{
+        width: 68px;height: 24px;float: right;margin-right: 20px;z-index:10;
+    }
 </style>
 </#macro>
 
@@ -34,14 +35,7 @@
                         <div class="qs_header">
                             <span class="qs_title1">&nbsp;</span>
                             <span class="qs_title2">天然气开采率对比</span>
-                            <div class="right">
-                                <select id="installCapacitySelect2" class="chart-selector" onchange="installCapacity('chart2',this)">
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                    <option>2014</option>
-                                    <option>2013</option>
-                                </select>
-                            </div>
+                            <div id = "select_chart2" class = "change"></div>
                         </div>
                         <div id="chart2" class="qs_body"></div>
                     </div>
@@ -53,18 +47,7 @@
                 <div class="qs_header">
                     <span class="qs_title1">&nbsp;</span>
                     <span class="qs_title2">工业产品能源效率对比</span>
-                    <div class="right">
-                        <select id="installCapacitySelectMain" class="chart-selector" onchange="installCapacity('main',this)">
-                            <option>2016</option>
-                            <option>2015</option>
-                            <option>2014</option>
-                            <option>2013</option>
-                            <option>2010</option>
-                            <option>2000</option>
-                            <option>1990</option>
-                            <option>1980</option>
-                        </select>
-                    </div>
+                    <div id = "select_main" class = "change"></div>
                 </div>
                 <div id="main" class="w12 h12 qpanel0"></div>
             </div>
@@ -98,14 +81,7 @@
                     <div class="qs_header">
                         <span class="qs_title1">&nbsp;</span>
                         <span class="qs_title2">天然气发电效率比较</span>
-                        <div class="right">
-                            <select id="installCapacitySelect5" class="chart-selector" onchange="installCapacity('chart5',this)">
-                                <option>2016</option>
-                                <option>2015</option>
-                                <option>2014</option>
-                                <option>2013</option>
-                            </select>
-                        </div>
+                        <div id = "select_chart5" class = "change"></div>
                     </div>
                     <div id="chart5" class="qs_body"></div>
                 </div>
@@ -116,14 +92,7 @@
                     <div class="qs_header">
                         <span class="qs_title1">&nbsp;</span>
                         <span class="qs_title2">世界十大天然气储气国调峰能力</span>
-                        <div class="right">
-                            <select id="installCapacitySelect6" class="chart-selector" onchange="installCapacity('chart6',this)">
-                                <option>2016</option>
-                                <option>2015</option>
-                                <option>2014</option>
-                                <option>2013</option>
-                            </select>
-                        </div>
+                        <div id = "select_chart6" class = "change"></div>
                     </div>
                     <div id="chart6" class="qs_body"></div>
                 </div>
@@ -140,5 +109,16 @@
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.selectpicker').selectpicker();
+        var d = ["2016", "2015", "2014", "2013", "2010", "2000", "1990", "1980"];
+        creatSelect(d,'select_main','2016',"changemain");
+        creatSelect(d,'select_chart2','2016',"change2");
+        creatSelect(d,'select_chart5','2016',"change5");
+        creatSelect(d,'select_chart6','2016',"change6");
+    });
+</script>
 
 </#macro>

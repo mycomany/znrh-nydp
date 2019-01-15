@@ -10,15 +10,20 @@ $(document).ready(function(){
     getdata('/energy/gas/ha/chart7.json' + __time,chart7);
 });
 
-var selectNfMain = "2016";
-function installCapacity(lx, selectObj){
-    selectNfMain = $(selectObj).val();
+function changemain(){
 
-    console.log(lx, selectNfMain);
-    if(lx == "main"){
-        console.log('start main');
-        getdata('/energy/gas/ha/main.json' ,main);
-    }
+}
+
+function change2(){
+
+}
+
+function change5(){
+
+}
+
+function change6(){
+
 }
 
 function dwz(data, name){
