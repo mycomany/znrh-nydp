@@ -23,135 +23,134 @@ function changeMap(param){
 }
 
 
-function main(data){
+function main(){
+    var mapData = [{
+        name: '俄罗斯',
+        value: [39.378811,57.509873, 10613221.57]
+    },{
+        name: '乌克兰',
+        value: [30.106574,49.847142,7959916.179]
+    },{
+        name: '加拿大',
+        value: [-108.645839,58.500205,7517698.614]
+    },{
+        name: '德国',
+        value: [10.311082,51.246807,8402133.745]
+    },{
+        name: '意大利',
+        value: [12.592347,42.547686,5306610.786]
+    },{
+        name: '荷兰',
+        value: [4.865482,52.375709,5129723.76]
+    },{
+        name: '法国',
+        value: [1.88512,47.600749,4864393.221]
+    },{
+        name: '奥地利',
+        value: [14.652844,47.687781, 4687506.194]
+    },{
+        name: '美国',
+        value: [-101.838839,40.002538,8844351.31]
+    },{
+        name: '中国',
+        value: [103.033458,34.354405,4422175.655]
+    }];
+    var color = ['#9ae5fc', '#dca93c']; // 自定义图中要用到的颜色
+    var series = []; // 用来存储地图数据
 
-    var chartId = "main";
-    var yf = "11";
-
-    //排序，名称data[2]，数据data[3]
-    var dataArray = [];
-    for(var i=0; i<data[2].length; i++){
-        dataArray.push({"name": data[2][i], "value": data[3][yf][i]})
-    }
-    dataArray.sort(function(a,b){
-        return b.value - a.value
-    });
-    for(var i=0; i<dataArray.length; i++){
-        data[2][i] = dataArray[i].name;
-        data[3][yf][i] = dataArray[i].value;
-    }
-
-    option = {
-        "tooltip": {
-            "trigger": "axis",
-            "axisPointer": {
-                "type": "cross",
-                "crossStyle": {
-                    "color": "#384757"
-                }
-            },
-            formatter: function(params, ticket, callback) {
-
-                var res = params[0].name;
-
-                for (var i = 0, l = params.length; i < l; i++) {
-                    if(params[i].seriesName == data[0][0]){
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
-                    }
-                }
-                return res;
-            }
+    // 显示终点位置,类似于上面最后一个效果，放在外面写，是为了防止被循环执行多次
+    series.push({
+        type: 'effectScatter',
+        coordinateSystem: 'geo',
+        zlevel: 3,
+        rippleEffect: {
+            brushType: 'stroke'
         },
-        grid: {
-            left: '5%',
-            right:'5%',
-            top:'5%',
-            bottom:'10%',
-            containLabel: true
-        },
-        /*"legend": {
-            show:true,
-            bottom : '2%',
-            itemGap: 12, //图例每项之间的间隔
-            itemWidth: 16, //图例宽度
-            itemHeight: 8, //图例高度
-            textStyle: {
+        label: {
+            normal: {
+                show: false,
+                //position: 'bottom',
                 color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
-            },
-            data: data[0],
-        },*/
-        "xAxis": [
-            {
-                "type": "category",
-                "data": data[2],
-                "axisPointer": {
-                    "type": "shadow"
-                },
-                boundaryGap: true,
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                axisLabel: {
-                    textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
-                    }
-                },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                },
-            }
-        ],
-        "yAxis": [
-            {
-                type: 'value',
-                // name:data[1][0],
-                nameGap:-5,
-                nameTextStyle:{
-                    padding:[0,0,0,15],
-                    align:'center',
-                    color:'#fff',
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                axisLabel: {
-                    textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
-                    },
-                    // formatter: data[1][0]
-                },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
+                fontSize:14,
+                formatter: function(v){
+                    //alert(JSON.stringify(v));
+                    return v.name;//+": "+v.data.value[2]+' 吨';
                 }
             }
-        ],
-        "series": [
-            {
-                "name": data[0][0],
-                "type": "bar",
-                "data": data[3][yf],
-                barWidth: "40%",
-                "itemStyle": {
-                    "normal": {
-                        "color": "#4094ff"
+        },
+        symbolSize: function(val) {
+//	    	if (val[3]>60) {
+//	    		return 60;
+//			}
+            return val[2]/1000000*3;
+        },
+        itemStyle: {
+            normal: {
+                color: color[1]
+            }
+        },
+        data: mapData
+    });
+
+    // 最后初始化世界地图中的相关数据
+    var option = ({
+        // title : {
+        //     text: '中国与世界主要国家发电消耗标准煤对比',
+        //     left: 'center',
+        //     textStyle : {
+        //         color: '#a4d6fe',
+        //         fontSize: 18
+        //     }
+        // },
+        tooltip: {
+            trigger: 'item',
+            formatter: function(params) {
+                if (params.componentSubType == 'effectScatter') {
+                    //alert(JSON.stringify(params));
+                    return params.name+' : '+params.data.value[2]+'吨';
+                }else{
+                    return '';
+                }
+            }
+        },
+        geo: {
+            map: 'world', // 与引用进来的地图js名字一致
+            roam: true, // 禁止缩放平移
+            zoom:1.2,
+            top:'20%',
+            left:'7%',
+            aspectScale:0.9,
+            itemStyle: { // 每个区域的样式
+                normal: {
+                    borderColor:'rgba(13,247,249,1)',
+                    areaColor: 'rgba(13,247,249,0)'
+                },
+                emphasis: {
+                    areaColor: '#80def8'
+                }
+            },
+            regions: [{ // 选中的区域
+                name: 'China',
+                selected: true,
+                itemStyle: { // 高亮时候的样式
+                    emphasis: {
+                        areaColor: 'rgba(68,99,239,0.3)'
                     }
                 },
-            }
-        ]
-    };
-    var myChart = echarts.init($('#' + chartId)[0]);
+                label: { // 高亮的时候不显示标签
+                    emphasis: {
+                        show: false
+                    }
+                }
+            }]
+        },
+        series: series, // 将之前处理的数据放到这里
+        textStyle: {
+            fontSize: 12
+        }
+    });
+    var myChart = echarts.init($('#main')[0]);
     myChart.setOption(option);
-    setH(chartId);
 }
 
 
@@ -433,6 +432,8 @@ function change3(v){
 
 function chart3(data, selectName){
 
+    const lineColors = [{rgb1:65,rgb2:56,rgb3:225},{rgb1:64,rgb2:148,rgb3:255}];
+
     var chartId = "chart3";
     option = {
         "tooltip": {
@@ -536,6 +537,27 @@ function chart3(data, selectName){
                 "itemStyle": {
                     "normal": {
                         "color": "#4138e1"
+                    }
+                },
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+')',
+                        borderColor: 'rgba('+lineColors[0].rgb1+','+lineColors[0].rgb2+','+lineColors[0].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
                     }
                 },
             }
