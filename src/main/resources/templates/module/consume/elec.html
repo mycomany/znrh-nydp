@@ -1,3 +1,4 @@
+<#assign goods="elec" />
 <#include "/inc/base.html" />
 <#macro head>
 	 <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
@@ -8,8 +9,56 @@
        .box{position:relative;}
        .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
        .change{
-       width: 76px;height: 24px;float: right;margin-right: 20px;z-index:1000;
+       		width: 68px;height: 24px;float: right;margin-right: 20px;z-index:10;
        }
+       
+       .main_order_type{
+        width:39%;
+        height:30px;
+        position: absolute;
+        bottom: 5%;
+        z-index: 50;
+    	}
+      .main_show_tab_data{
+        margin-right: 20px;
+        float: left;
+    }
+
+    .main_show_type{
+        height:30px;
+        line-height: 35px;
+        float: left;
+        margin-right:20px;
+        font-weight:normal;
+        cursor: pointer;
+        color:#2b88ff;
+        width:76px;
+    }
+
+    .main_show_type>span{
+        margin:0 10px 0 30px;
+    }
+
+    .main_show_power{
+
+        background-size: 100% 100%;padding: 0;
+        background-image: url('${host}/static/theme/green/produce/powerratio.png');
+    }
+
+    .main_show_power:hover,.main_show_power_checked{
+        background-image: url('${host}/static/theme/green/produce/powerratiocheck.png');
+        color:#52fcfc;
+    }
+
+    .main_show_installed{
+        background-size: 100% 100%;padding: 0;
+         background-image: url('${host}/static/theme/green/produce/powerratio.png');
+    }
+
+    .main_show_installed:hover,.main_show_installed_checked{
+         background-image: url('${host}/static/theme/green/produce/powerratio.png');
+        color:#52fcfc;
+    }
      </style>
 </#macro>
 
@@ -41,9 +90,16 @@
                             <div onclick="change12(1)" id = "c2" class="c check_btn_option_status_r " >跨省 </div>
                             <input id = "ch" type="hidden" value = "main"/>
                             <div id = "change" class = "change">
-	                            
 	                		</div>
                 </div>
+                <div class="main_order_type">
+		                        <div orderType="makePower" id = "elec_in" onclick = "elecMode(1)" class=" main_show_type main_show_power main_show_power_checked">
+		                            <span>输入</span>
+		                        </div>
+		                        <div orderType="installed" id = "elec_out" onclick = "elecMode(2)" class=" main_show_type main_show_installed">
+		                            <span>输出</span>
+		                        </div>
+           		</div>
 	            <div id="main" class="qs_body" style="height: 98%"></div>
 	        </div>
       	 <div class="w3 h12">
@@ -93,11 +149,10 @@
 $(document).ready(function() {
     $('.selectpicker').selectpicker();
     var d = ["2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10","2018-11"];
-    var d2 = ["2009","2010","2011","2012","2013","2014","2015"];
     creatSelect(d,'change','2018-11',"change11");
     creatSelect(d,'select_chart2','2018-11',"change2");
     creatSelect(d,'select_chart4','2018-11',"change4");
-    creatSelect(d2,'select_chart5','2015',"change5");
+    creatSelect(d,'select_chart5','2018-11',"change5");
     creatSelect(d,'select_chart6','2018-11',"change6");
        
 });

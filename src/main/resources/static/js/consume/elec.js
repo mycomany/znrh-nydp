@@ -76,7 +76,13 @@ function chart1(data){
 		}],
 		yAxis: [
 			{
-				name: '',
+				name:'     亿千瓦时',
+	    		nameGap:-5,
+	    		nameTextStyle:{
+			    	padding:[0,0,0,45],
+			    	align:'center',
+			    	color:'#fff',
+				},
 				type: 'value',
 				splitNumber:3,
 				//max:5,
@@ -199,10 +205,14 @@ function chart2(data,a){
 		    color: ['#2edfa3', '#bce672', '#ff4777', '#70f3ff', '#4b5cc4', '#f47983', '#8d4bbb', '#6635EF', '#FFAFDA'],
 		    tooltip: {
 		        trigger: 'item',
-		        formatter: "{a} <br/>{b}: {c} ({d}%)"
+		        formatter: function (v){
+		        	//alert(JSON.stringify(v));
+		        	var va = v.name+' : '+v.data.value+' 万千瓦时<br/> 占比 ： '+v.percent +' %';
+		        	return va;
+		        }
 		    },
 		    series: [{
-		            name: '访问来源',
+		            //name: '访问来源',
 		            type: 'pie',
 		            selectedMode: 'single',
 		            radius: [0, '60%'],
@@ -531,137 +541,131 @@ function chart4(xData,data){
 var data5 = [];
 function getChart5(data){
 	data5 = data;
-	chart5(data.xData,data.data["2015"][0],data.data["2015"][1],data.legend);
+	chart5(data,'2018-11');
 }
 function change5(date){
-	chart5(data5.xData,data5.data[date][0],data5.data[date][1],data5.legend);
+	chart5(data5,date);
 }
 
-function chart5(xData,barData,lineData,legend){
+function chart5(data,date){
+	var val = data[date];
 	var option =  {
-		grid: {
-			left: '3%',
-			right:'3%',
-			top:'10%',
-			bottom:'18%',
-			containLabel: true
-		},
-		legend: { //图例组件，颜色和名字
-			itemGap: 12, //图例每项之间的间隔
-			itemWidth: 16,
-			itemHeight: 8,
-			x:'center',
-			bottom:'2%',
-			data: legend,
-			textStyle: {
-				color: '#fff',
-				fontSize: 10,
-			}
-		},
-		tooltip: {
-			trigger: 'axis',
-			axisPointer: { // 坐标轴指示器，坐标轴触发有效
-				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-			}
-		},
-		xAxis: [{
-			position: "bottom",
-			type: "category",
-			axisLabel: {
-				//interval: 0,
+			grid: {
+				left: '3%',
+				right:'3%',
+				top:'10%',
+				bottom:'18%',
+				containLabel: true
+			},
+			legend: { //图例组件，颜色和名字
+				itemGap: 12, //图例每项之间的间隔
+				itemWidth: 16,
+				itemHeight: 8,
+				x:'center',
+				bottom:'2%',
+				data: data[0],
 				textStyle: {
 					color: '#fff',
-					fontSize:10
+					fontSize: 10,
+				}
+			},
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { // 坐标轴指示器，坐标轴触发有效
+					type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			xAxis: [{
+				position: "bottom",
+				type: "category",
+				axisLabel: {
+					//interval: 0,
+					textStyle: {
+						color: '#fff',
+						fontSize:10
+					},
+					//rotate: 30,
 				},
-				//rotate: 30,
-			},
-			axisLine:{
-				lineStyle:{
-					color: '#0177d4'
-				}
-			},
-			data: xData,
-		}],
-		yAxis: [{
-			name: '',
-			type: 'value',
-			//min:-10,
-			position: 'left',
-			axisLabel: {
-				textStyle: {
-					color: '#fff',
-					fontStyle: 'normal',
-					fontSize:8
-				}
-			},
-			axisLine: {
-				lineStyle:{
-					color: '#0177d4'
-				}
-			},
-			axisTick: {
-				color: '#0177d4',
-				show: true
-			},
-	        axisLabel: {
-	            color: '#fff',
-	            fontSize: 10
-	        },
-			splitLine: {
-				show: false
-			}
-		},{
-			type: "value",
-			position: 'right',
-			axisLine: {
-				lineStyle:{
-					color: '#fff'
-				}
-			},
-			axisTick: {
-				show: true
-			},
-			axisLine: {
-				lineStyle:{
-					color: '#0177d4'
-				}
-			},
-			splitLine: {
-				show: false
-			},
-			axisLabel: {
-				show: true,
-				textStyle: {
-					color: '#fff',
-					fontSize:10
+				axisLine:{
+					lineStyle:{
+						color: '#0177d4'
+					}
 				},
-				formatter: '{value}%'
-			}
-		}],
-		series: [{
-			name: "用电量",
-			type: "bar",
-			barWidth: '30%',
-			itemStyle: {
-				normal: {
-					color: '#00FFFF',
-					//barBorderRadius: 50,
+				data: data.xData,
+			}],
+			yAxis: [{
+				name: '',
+				type: 'value',
+				position: 'left',
+				axisLabel: {
+					textStyle: {
+						color: '#fff',
+						fontStyle: 'normal',
+						fontSize:10
+					}
 				},
-			},
-			data: barData,
-		}, {
-			name: "增长率",
-			type: "line",
-			yAxisIndex: 1,
-			itemStyle: {
-				normal: {
-					color: '#E9DC37'
+				axisLine: {
+					lineStyle:{
+						color: '#0177d4'
+					}
 				},
-			},
-			data: lineData,
-
-		}]
-	};
+				axisTick: {
+					color: '#0177d4',
+					show: true
+				},
+				splitLine: {
+					show: false
+				}
+			},{
+				type: "value",
+				position: 'right',
+				axisLine: {
+					lineStyle:{
+						color: '#fff'
+					}
+				},
+				axisTick: {
+					show: true
+				},
+				axisLine: {
+					lineStyle:{
+						color: '#0177d4'
+					}
+				},
+				splitLine: {
+					show: false
+				},
+				axisLabel: {
+					show: true,
+					textStyle: {
+						color: '#fff',
+						fontSize:10
+					},
+					formatter: '{value}%'	
+				}
+			}],
+			series: [{
+				name: "用电量",
+				type: "bar",
+				barWidth: '30%',
+				itemStyle: {
+					normal: {
+						color: '#00FFFF'
+					},
+				},
+				data: val[0]
+			},{
+				name: "增长率",
+				type: "line",
+				yAxisIndex: 1,
+				itemStyle: {
+					normal: {
+						color: '#4bac0a'
+					},
+				},
+				data: val[1]
+			}]
+		};
 	var myChart = echarts.init($('#chart5')[0]);
     myChart.setOption(option);
 }
@@ -830,9 +834,11 @@ function getMain1(data){
 function change12(param){
 	if (param == '1') {
 		$("#ch").val("main1");
+		$(".main_order_type").css('display','none')
 		main1(main1Dta,'2018-11');
 	}else{
 		$("#ch").val("main");
+		$(".main_order_type").css('display','');
 		main(mainDta,1,'2018-11');
 	}
 }
@@ -844,6 +850,22 @@ function change11(date){
 	}else{
 		main(mainDta,1,date);
 	}
+}
+
+function elecMode(d){
+     $(".main_show_type").removeClass("main_show_power_checked")
+     $(".main_show_type").removeClass("main_show_installed_checked")
+     $(".main_show_type").removeClass("main_show_installed")
+
+     if(d=='1'){
+    	 $("#elec_in").addClass("main_show_power main_show_power_checked");
+    	 $("#elec_out").addClass("main_show_installed");
+    	 main(mainDta,d,'2018-11');
+     }else{
+    	 $("#elec_in").addClass("main_show_installed");
+    	 $("#elec_out").addClass("main_show_power main_show_power_checked");
+    	 main(mainDta,d,'2018-11');
+     }
 }
 
 function main1(data,date){
@@ -1168,61 +1190,6 @@ function main(data,type,date){
 			'进口': [104.099352,46.390782],
 		    '进口1': [100.487732,19.44585]
 		};
-	var pieces2 = [{
-        max: -8,
-        color: '#3ab62c'
-    },{
-    	min: -8,
-        max: -7,
-        color: 'rgba(95,201,248,0.3)'
-    }, {
-        min: -7,
-        max: -6,
-        color: 'rgba(0,91,255,0.3)'
-    }, {
-        min: -6,
-        max: -5,
-        color: '#9cccd6'
-    }, {
-        min: -5,
-        max: -4,
-        color: '#b5a2bf'
-    }, {
-        min: -4,
-        max: -3,
-        color: '#b5cff4'
-    },{
-        min: -3,
-        max: -2,
-        color: '#03dcdf'
-    },{
-        min: -2,
-        max: -1,
-        color: '#57849b'
-    },{
-        min: -1,
-        max: 0,
-        color: '#1dc004'
-    },{
-        min: 0,
-        max: 1000,
-        color: '#078cda'
-    },{
-        min: 1000,
-        max: 10000,
-        color: '#afb506'
-    },{
-        min: 10000,
-        max: 100000,
-        color: '#bc7b06'
-    },{
-        min: 100000,
-        max: 500000,
-        color: '#a800ff'
-    },{
-        min: 500000,
-        color: '#ff4f00'
-    }];
 	
 	var pieces1 = [{
         max: -8,
@@ -1283,9 +1250,9 @@ function main(data,type,date){
 	
 	var das = [];
 	if (type == "1") {
-		das = data.valueOut[date][0];
-	}else{
 		das = data.valueIn[date][0];
+	}else{
+		das = data.valueOut[date][0];
 	}
 	var data1 = das[0];
 	var data2 = das[1];;
@@ -1440,7 +1407,6 @@ function main(data,type,date){
 		        trigger: 'item',
 		        formatter:function(params, ticket, callback){
 		        	//alert(JSON.stringify(params));
-		        	
 		        	 var data = [];
 		                if (params.data.fromName == '华北'||params.data.name == '华北') {
 		                	data = data1;
@@ -1458,17 +1424,23 @@ function main(data,type,date){
 		                	data = data7;
 						}
 		            if(params.seriesType=="effectScatter") {
-		                var vs =  params.data.name+"地区"+(type==1?"输出":"输入")+"电量";//params.data.name+"地区";
+		                var vs =  params.data.name+"地区"+(type==1?"输出":"输入")+"电量";
+		                if ((params.data.name == '进口'||params.data.name == '进口1')||(params.data.name == '出口'||params.data.name == '出口1')) {
+		                	vs =  "";//params.data.name+"电量";
+						}//params.data.name+"地区";
 		                for (var i = 0; i < data.length; i++) {
 		                	if(data[i][0].name != data[i][1].name){
 		                		var a = data[i][1].name;
-		                		if (a == "出口1") {
+		                		var b = data[i][0].name;
+		                		if (a == "出口1"||b == "出口1") {
 									a = "出口";
+									b = "出口";
 								}
-		                		if (a == "进口1") {
+		                		if (a == "进口1"||b == "进口1") {
 									a = "进口";
+									b = "进口";
 								}
-		                		var name2 = data[i][0].name+' → '+a+' : '+data[i][1].value;
+		                		var name2 = b+' → '+a+' : '+data[i][1].value;
 		                		if (a == "出口"||a == "进口") {
 		                			 name2 = a+' : '+data[i][1].value;
 								}	
@@ -1484,13 +1456,19 @@ function main(data,type,date){
 							}
 						}
 		                var b = params.data.toName ;
-		                if (b == "出口1") {
+		                var c = params.data.fromName;
+		                if (b == "出口1"||c == "出口1") {
 		                	b = "出口";
+		                	c = "出口";
 						}
-		                if (b == "进口1") {
+		                if (b == "进口1"||c == "进口1") {
 		                	b = "进口";
+		                	c = "进口";
 						}
-		                return params.data.fromName+" → "+b+"<br />输电量： "+va+" 万千瓦时";
+		                if (b==c) {
+		                	return b+"<br />电量： "+va+" 万千瓦时";
+						}
+		                return c+" → "+b+"<br />输电量： "+va+" 万千瓦时";
 		            }else{
 		                return params.name;
 		            }

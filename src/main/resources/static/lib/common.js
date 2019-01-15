@@ -198,13 +198,14 @@ function changeSelect(sel){
     var id = sel.id, val = sel.value, o = _store[id], fn = o.cfn;
     fn(o.cdata, val);
 }
-function creatSelect(data,id,shouValue){
-    var str = '<select id="'+id+'_select" class="selectpicker form-control"  style="background-color: rgba(23,32,45,0);width: 70px;height: 20px;text-align: center;border-radius:10px;border: 1px solid #37bff4;" onchange = "change11()">';
+function creatSelect(data,id,shouValue,mo){
+    var str = '<select id= "select" class="selectpicker form-control"  style="background-color: rgba(23,32,45,0);width: 70px;height: 20px;text-align: center;border-radius:10px;border: 1px solid #37bff4;" onchange = "'+mo+'(this.value)">';
     for (var i = 0; i < data.length; i++) {
         if (data[i] == shouValue) {
             str = str+'<option value = "'+data[i]+'" selected = "selected">'+data[i]+'</option>';
-        }
-        str = str+'<option value = "'+data[i]+'">'+data[i]+'</option>';
+        }else{
+        	str = str+'<option value = "'+data[i]+'">'+data[i]+'</option>';
+        }	
     }
     str = str+'</select>';
     var tbody=window.document.getElementById(id);

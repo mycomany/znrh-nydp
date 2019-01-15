@@ -945,7 +945,7 @@ option = {
     geo: [{
         show: true,
         map: 'china',
-        top:'8%',
+        top:'18%',
         label: {
             normal: {
                 show: false
@@ -1035,7 +1035,7 @@ option = {
             name: 'total',
             type: 'map',
             mapType: 'china',
-            top:'8%',
+            top:'18%',
             zoom:1.2,
             aspectScale:0.9,  
             roam: false,

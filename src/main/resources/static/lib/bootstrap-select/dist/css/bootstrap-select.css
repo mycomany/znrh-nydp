@@ -22,8 +22,10 @@ select.selectpicker {
   white-space: nowrap;
   background-color: rgba(1,1,1,0);
   color:#fff;
-  height: 21px;
+  height: 20px;
   border-radius:12px; 
+  border-color: #0099ff;
+  font-size: 11px;
 }
 .btn:hover{
 	background-color: rgba(1,1,1,0);
@@ -187,7 +189,7 @@ select.selectpicker {
   position: absolute;
   top: 0;
   left: 0;
-  padding-top: 3px;
+  padding-top: 4px;
   padding-right: inherit;
   padding-bottom: inherit;
   padding-left: inherit;
@@ -217,6 +219,7 @@ select.selectpicker {
 .bootstrap-select .dropdown-menu {
 	background-color: rgba(219,234,240,1);
 	color:#fff;
+	width:75px;
   min-width: 100%;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -236,6 +239,7 @@ select.selectpicker {
           box-shadow: none;
   background-color: rgba(219,234,240,1);
   color:#fff;
+  margin-left: -9px;
 }
 .bootstrap-select .dropdown-menu li {
   position: relative;
@@ -414,5 +418,6 @@ select.selectpicker {
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open > .dropdown-toggle.btn-default.focus, .open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default:hover{
    background-color: rgba(1,1,1,0);
    color:#fff;
+   border-color: #0099ff;
 }
 /*# sourceMappingURL=bootstrap-select.css.map */
