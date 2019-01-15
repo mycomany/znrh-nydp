@@ -140,6 +140,8 @@ function changeMap(param){
     }
 }
 
+const lineColors = [{rgb1:65,rgb2:56,rgb3:225},{rgb1:64,rgb2:148,rgb3:255}];
+
 function chart1_nh(data){
     var option = {
         title: {
@@ -241,7 +243,28 @@ function chart1_nh(data){
                 type: 'line',
                 smooth: true,
                 showSymbol: false,
-                data: data[0][5]["nh"][0]
+                data: data[0][5]["nh"][0],
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+')',
+                        borderColor: 'rgba('+lineColors[0].rgb1+','+lineColors[0].rgb2+','+lineColors[0].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             },
             {
                 name: data[0][2][1],
@@ -249,7 +272,28 @@ function chart1_nh(data){
                 type: 'line',
                 smooth: true,
                 showSymbol: false,
-                data: data[0][5]["nh"][1]
+                data: data[0][5]["nh"][1],
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+')',
+                        borderColor: 'rgba('+lineColors[1].rgb1+','+lineColors[1].rgb2+','+lineColors[1].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             }
         ]
     };
@@ -358,7 +402,28 @@ function chart1_dh(data){
                 type: 'line',
                 smooth: true,
                 showSymbol: false,
-                data: data[1][5]["dh"][0]
+                data: data[1][5]["dh"][0],
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+')',
+                        borderColor: 'rgba('+lineColors[0].rgb1+','+lineColors[0].rgb2+','+lineColors[0].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             },
             {
                 name: data[1][2][1],
@@ -366,7 +431,28 @@ function chart1_dh(data){
                 type: 'line',
                 smooth: true,
                 showSymbol: false,
-                data: data[1][5]["dh"][1]
+                data: data[1][5]["dh"][1],
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+')',
+                        borderColor: 'rgba('+lineColors[1].rgb1+','+lineColors[1].rgb2+','+lineColors[1].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             }
         ]
     };
@@ -473,7 +559,28 @@ function chart2(data){
                 type: 'line',
                 smooth: true,
                 showSymbol: false,
-                data: data[4]
+                data: data[4],
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+')',
+                        borderColor: 'rgba('+lineColors[0].rgb1+','+lineColors[0].rgb2+','+lineColors[0].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             },
             {
                 name: data[1][1],
@@ -481,7 +588,28 @@ function chart2(data){
                 type: 'line',
                 smooth: true,
                 showSymbol: false,
-                data: data[5]
+                data: data[5],
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+')',
+                        borderColor: 'rgba('+lineColors[1].rgb1+','+lineColors[1].rgb2+','+lineColors[1].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             }
         ]
     };
@@ -557,14 +685,13 @@ function chart3(data, selectName){
                 hoverAnimation: false,
 
                 data: [{
-                    value: nm,
-                    name: '01'
-                }, {
-                    value: 100 - nm,
-                    name: 'invisible',
-                    itemStyle: placeHolderStyle
-                }
-
+                        value: nm,
+                        name: '01'
+                    }, {
+                        value: 100 - nm,
+                        name: 'invisible',
+                        itemStyle: placeHolderStyle
+                    }
                 ]
             },
             {
@@ -708,7 +835,28 @@ function chart4(data, selectName){
                         color: '#2baffb'
                     }
                 },
-                data: data[3][selectName]["开采效率"]
+                data: data[3][selectName]["开采效率"],
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[0].rgb1+', '+lineColors[0].rgb2+', '+lineColors[0].rgb3+')',
+                        borderColor: 'rgba('+lineColors[0].rgb1+','+lineColors[0].rgb2+','+lineColors[0].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             },
             {
                 type: 'line',
@@ -719,7 +867,28 @@ function chart4(data, selectName){
                         color: '#40eaf9'
                     }
                 },
-                data: data[3][selectName]["加工效率"]
+                data: data[3][selectName]["加工效率"],
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+')',
+                        borderColor: 'rgba('+lineColors[1].rgb1+','+lineColors[1].rgb2+','+lineColors[1].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             }
         ]
     };
