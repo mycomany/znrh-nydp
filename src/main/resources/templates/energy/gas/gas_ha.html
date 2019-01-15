@@ -2,10 +2,12 @@
 <#macro head>
 <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
 <script src="${host}/static/js/energy/gas/gas_ha.js"></script>
+<script src="${host}/static/lib/echarts/map/world.js"></script>
 <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
 <style>
-    .box{position:relative;}
-    .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
+    .change{
+        width: 68px;height: 24px;float: right;margin-right: 20px;z-index:10;
+    }
 </style>
 </#macro>
 
@@ -33,15 +35,7 @@
                     <div class="qpanel">
                         <div class="qs_header">
                             <span class="qs_title1">&nbsp;</span>
-                            <span class="qs_title2">天然气开采率对比</span>
-                            <div class="right">
-                                <select id="installCapacitySelect2" class="chart-selector" onchange="installCapacity('chart2',this)">
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                    <option>2014</option>
-                                    <option>2013</option>
-                                </select>
-                            </div>
+                            <span class="qs_title2">天然气开采率对比与发电效率历史趋势</span>
                         </div>
                         <div id="chart2" class="qs_body"></div>
                     </div>
@@ -49,42 +43,13 @@
 
             </div>
 
-            <div class="w5 h12">
-                <div class="qs_header">
-                    <span class="qs_title1">&nbsp;</span>
-                    <span class="qs_title2">工业产品能源效率对比</span>
-                    <div class="right">
-                        <select id="installCapacitySelectMain" class="chart-selector" onchange="installCapacity('main',this)">
-                            <option>2016</option>
-                            <option>2015</option>
-                            <option>2014</option>
-                            <option>2013</option>
-                            <option>2010</option>
-                            <option>2000</option>
-                            <option>1990</option>
-                            <option>1980</option>
-                        </select>
-                    </div>
+            <div class="box w8 h12">
+                <div class="tabbtn check_btn_grp check_btn_grp_float_left" style="float:none;z-index:10"><!-- 35PX -->
+                    <div onclick="changeMain('储气库工作气量', 'd1')" id = "d1" class="d check_btn_option_status_l check_btn_option_checked " >储气库工作气量</div>
+                    <div onclick="changeMain('消费量', 'd2')" id = "d2" class="d check_btn_option_status_r" style="border-bottom-right-radius: 0px;border-top-right-radius: 0px;">消费量  </div>
+                    <div onclick="changeMain('调峰能力', 'd3')" id = "d3" class="d check_btn_option_status_r " > 调峰能力 </div>
                 </div>
                 <div id="main" class="w12 h12 qpanel0"></div>
-            </div>
-
-            <div class="w3 h12">
-
-                <div class="w12 h6">
-                    <div class="qpanel">
-                        <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">煤层气开采能力增长趋势</span></div>
-                        <div id="chart3" class="qs_body"></div>
-                    </div>
-                </div>
-
-                <div class="w12 h6">
-                    <div class="qpanel">
-                        <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">页岩气开采能力增长趋势</span></div>
-                        <div id="chart4" class="qs_body"></div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -97,42 +62,26 @@
                 <div class="qpanel">
                     <div class="qs_header">
                         <span class="qs_title1">&nbsp;</span>
-                        <span class="qs_title2">天然气发电效率比较</span>
-                        <div class="right">
-                            <select id="installCapacitySelect5" class="chart-selector" onchange="installCapacity('chart5',this)">
-                                <option>2016</option>
-                                <option>2015</option>
-                                <option>2014</option>
-                                <option>2013</option>
-                            </select>
-                        </div>
+                        <span class="qs_title2">煤层气开采能力增长趋势</span>
                     </div>
-                    <div id="chart5" class="qs_body"></div>
+                    <div id="chart3" class="qs_body"></div>
                 </div>
             </div>
 
-            <div class="w5 h12">
+            <div class="w4 h12">
                 <div class="qpanel">
                     <div class="qs_header">
                         <span class="qs_title1">&nbsp;</span>
-                        <span class="qs_title2">世界十大天然气储气国调峰能力</span>
-                        <div class="right">
-                            <select id="installCapacitySelect6" class="chart-selector" onchange="installCapacity('chart6',this)">
-                                <option>2016</option>
-                                <option>2015</option>
-                                <option>2014</option>
-                                <option>2013</option>
-                            </select>
-                        </div>
+                        <span class="qs_title2">页岩气开采能力增长趋势</span>
                     </div>
-                    <div id="chart6" class="qs_body"></div>
+                    <div id="chart4" class="qs_body"></div>
                 </div>
             </div>
 
-            <div class="w3 h12">
+            <div class="w4 h12">
                 <div class="qpanel">
                     <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">天然气水合物开采能力增长趋势</span></div>
-                    <div id="chart7" class="qs_body"></div>
+                    <div id="chart5" class="qs_body"></div>
                 </div>
             </div>
 
@@ -140,5 +89,6 @@
 
     </div>
 </div>
+
 
 </#macro>

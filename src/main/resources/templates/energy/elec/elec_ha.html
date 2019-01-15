@@ -2,12 +2,15 @@
 <#include "/inc/base.html" />
 <#macro head>
 <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
-<script src="${host}/static/lib/echarts/map/china.js"></script>
+<script src="${host}/static/lib/echarts/map/world.js"></script>
 <script src="${host}/static/js/energy/elec/elec_ha.js"></script>
 <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
 <style>
     .box{position:relative;}
     .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
+     .change{
+         width: 68px;height: 24px;float: right;margin-right: 20px;z-index:10;
+     }
 </style>
 </#macro>
 
@@ -18,13 +21,19 @@
         <div class="w4 h8">
             <div class="w12 h6">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">累计厂用电率</span></div>
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span><span class="qs_title2">累计厂用电率</span>
+                        <div id = "select_chart1" class = "change"></div>
+                    </div>
                     <div id="chart1" class="qs_body"></div>
                 </div>
             </div>
             <div class="w12 h6">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">人均发电量</span></div>
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span><span class="qs_title2">人均发电量</span>
+                        <div id = "select_chart2" class = "change"></div>
+                    </div>
                     <div id="chart2" class="qs_body"></div>
                 </div>
             </div>
@@ -32,27 +41,47 @@
 
         <div class="w8 h8">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">发电消耗标准煤排名</span></div>
+                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国与世界主要国家发电消耗标准煤对比</span></div>
                 <div id="main" class="qs_body"></div>
             </div>
         </div>
 
         <div class="w6 h4">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">供电标准煤耗</span></div>
-                <div id="chart3" style="height:calc(100% - 30px); width:48%; float:left;"></div>
-                <div id="chart3_3" style="height:calc(100% - 30px); width:48%; float:left;"></div>
+                <div class="qs_header">
+                    <span class="qs_title1">&nbsp;</span><span class="qs_title2">发电消耗标准煤趋势</span>
+                    <div id = "select_chart3" class = "change"></div>
+                </div>
+                <div id="chart3" class="qs_body"></div>
             </div>
         </div>
 
         <div class="w6 h4">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">超临界机组装机容量</span></div>
+                <div class="qs_header">
+                    <span class="qs_title1">&nbsp;</span><span class="qs_title2">超临界机组装机容量</span>
+                    <div id = "select_chart4" class = "change"></div>
+                </div>
                 <div id="chart4" class="qs_body"></div>
             </div>
         </div>
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.selectpicker').selectpicker();
+        var d = ["国电投", "华能", "大唐", "华电", "国能投", "国投电力", "国华电力", "华润电力", "中广核", "神华"];
+        creatSelect(d,'select_chart3',"国电投","change3");
+
+        var e = ["2014", "2015", "2016", "2017", "2018"];
+
+        creatSelect(e,'select_chart1',"2018","change1");
+        creatSelect(e,'select_chart2',"2018","change2");
+
+        creatSelect(e,'select_chart4',"2018","change4");
+    });
+</script>
 
 </#macro>
