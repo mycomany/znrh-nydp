@@ -42,6 +42,47 @@ function dwz(data, name){
 
 function main(data, nf){
 
+    var seriesItems = [];
+
+    seriesItems.push({
+        name: data[2][0],
+        type: 'bar',
+        barWidth: "15%",
+        "yAxisIndex": 0,
+        itemStyle:{
+            normal:{
+                color: data[4][0]
+            }
+        },
+        data: data[3][0]
+    });
+
+    seriesItems.push({
+        name: data[2][1],
+        type: 'bar',
+        barWidth: "15%",
+        "yAxisIndex": 0,
+        itemStyle:{
+            normal:{
+                color: data[4][1]
+            }
+        },
+        data: data[3][1]
+    });
+
+    seriesItems.push({
+        name: data[2][2],
+        type: 'bar',
+        barWidth: "15%",
+        "yAxisIndex": 1,
+        itemStyle:{
+            normal:{
+                color: data[4][2]
+            }
+        },
+        data: data[3][2]
+    });
+
     var option = {
         "tooltip": {
             "trigger": "axis",
@@ -56,92 +97,109 @@ function main(data, nf){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + dwz(data, params[i].name);
+                    if(params[i].seriesName == data[2][0] || params[i].seriesName == data[2][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    }else if(params[i].seriesName == data[2][2]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
+                    }
                 }
                 return res;
 
             }
         },
-        legend: {
-            show:true,
-            bottom : 10,
-            itemWidth: 16,
-            itemHeight: 8,
-            textStyle:{
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
-            },
-            data:data[1]
-        },
         grid:{
-            top:'10%',
+            top:'5%',
             left:'5%',
             right:'5%',
-            bottom:'20%',
+            bottom:'25%',
             containLabel: true
         },
-        xAxis: [
+        xAxis: {
+            axisLabel: {
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#38b8ff'
+                }
+            },
+            type: 'category',
+            data: data[1]
+        },
+        yAxis: [
             {
-                axisLabel: {
-                    textStyle: {
-                        color: '#fff'
-                    }
-                },
-                splitLine: {
-                    show: false
+                type: 'value',
+                name:data[0][0],
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,55],
+                    align:'center',
+                    color:'#fff',
                 },
                 axisLine: {
                     lineStyle: {
                         color: '#38b8ff'
                     }
                 },
-                type: 'category',
-                data: data[3]
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    },
+                    // formatter: "{value}%"
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                }
+            },
+            {
+                type: 'value',
+                // name:data[0][1],
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,45],
+                    align:'center',
+                    color:'#fff',
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    },
+                    formatter: "{value}%"
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                }
             }
         ],
-        yAxis: {
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
-            },
-            splitLine:{
-                show:false
-            },
-            splitNumber:4,
-            axisLabel: {
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            // name: data[0][0],
-            nameGap:-5,
-            nameTextStyle:{
-                padding:[0,0,0,55],
-                align:'center',
+        legend:{
+            show:true,
+            bottom : 10,
+            itemWidth: 16,
+            itemHeight: 6,
+            textStyle:{
                 color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
             },
-            type: 'value',
-            z:10,
+            data: data[2]
         },
-        series:[
-            {
-                "name":"理论值",
-                "type":"bar",
-                "barWidth":30,
-                "color":"#25e4a3",
-                "data":data[4][nf]["th"]
-            },
-            {
-                "name":"实际值",
-                "type":"bar",
-                "barWidth":30,
-                "color":"#2b88ff",
-                "data":data[4][nf]["sj"]
-            }
-        ]
+        series: seriesItems
     };
+
     var myChart = echarts.init($('#main')[0]);
     myChart.setOption(option);
 }
@@ -395,19 +453,6 @@ function chart1_dh(data){
 
 function chart2(data){
 
-    //排序，名称data[1]，数据data[3]
-    var dataArray = [];
-    for(var i=0; i<data[1].length; i++){
-        dataArray.push({"name": data[1][i], "value": data[3][i]});
-    }
-    dataArray.sort(function(a,b){
-        return b.value - a.value
-    });
-    for(var i=0; i<dataArray.length; i++){
-        data[1][i] = dataArray[i].name;
-        data[3][i] = dataArray[i].value;
-    }
-
     var option = {
         "tooltip": {
             "trigger": "axis",
@@ -422,17 +467,30 @@ function chart2(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
                 }
                 return res;
 
             }
         },
+        legend:{
+            show:true,
+            top : 0,
+            right:1,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 10,
+            },
+            data: data[2]
+        },
         grid:{
-            top:'10%',
+            top:'5%',
             left:'5%',
             right:'5%',
-            bottom:'20%',
+            bottom:'10%',
             containLabel: true
         },
         xAxis: {
@@ -450,66 +508,50 @@ function chart2(data){
                 }
             },
             type: 'category',
-            data: data[1]
+            data: data[3]
         },
-        yAxis: [
-            {
-                type: 'value',
-                // name:data[1][0],
-                min: 'dataMin', // 最小值
-                nameGap:-5,
-                nameTextStyle:{
-                    padding:[0,0,0,45],
-                    align:'center',
-                    color:'#fff',
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                axisLabel: {
-                    textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
-                    },
-                    formatter: "{value}%"
-                },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                },
-                /*
-                "splitLine": {
-                  "lineStyle": {
-                    "color": "#7d838b"
-                  }
-                }
-                */
-            },
-        ],
-        legend:{
-            show:false,
-            bottom : 10,
-            itemWidth: 16,
-            itemHeight: 8,
-            textStyle:{
+        yAxis: [{
+            type: 'value',
+            name:data[0][0],
+            nameGap:-5,
+            nameTextStyle:{
+                padding:[0,0,0,15],
+                align:'center',
                 color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
             },
-            data: data[2]
-        },
+            axisLine: {
+                lineStyle: {
+                    color: '#38b8ff'
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize: 10
+                }
+            },
+            //去掉辅助线
+            "splitLine": {
+                "show": false
+            }
+        }
+        ],
         series: [
             {
-                type: 'bar',
-                barWidth: "20%",
-                itemStyle:{
-                    normal:{
-                        color: '#25e4a3'
-                    }
-                },
-                data: data[3]
+                name: data[2][0],
+                color:data[1][0],
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                data: data[4]
+            },
+            {
+                name: data[2][1],
+                color:data[1][1],
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                data: data[5]
             }
         ]
     };
@@ -835,283 +877,7 @@ function chart4(data){
 
 function chart5(data){
 
-    var seriesItems = [];
-
-    for(var i=0; i<data[2].length; i++){
-        seriesItems.push(
-            {
-                name: data[2][i],
-                type: 'bar',
-                barWidth: "8%",
-                itemStyle:{
-                    normal:{
-                        color: data[4][i]
-                    }
-                },
-                data: data[3][i]
-            }
-        );
-    }
-
-    var option = {
-        "tooltip": {
-            "trigger": "axis",
-            "axisPointer": {
-                "type": "cross",
-                "crossStyle": {
-                    "color": "#384757"
-                }
-            },
-            formatter: function(params, ticket, callback) {
-
-                var res = params[0].name;
-
-                for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
-                }
-                return res;
-
-            }
-        },
-        grid:{
-            top:'10%',
-            left:'5%',
-            right:'5%',
-            bottom:'20%',
-            containLabel: true
-        },
-        xAxis: {
-            axisLabel: {
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            splitLine: {
-                show: false
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
-            },
-            type: 'category',
-            data: data[1]
-        },
-        yAxis: [
-            {
-                type: 'value',
-                // name:data[1][0],
-                nameGap:-5,
-                nameTextStyle:{
-                    padding:[0,0,0,45],
-                    align:'center',
-                    color:'#fff',
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                axisLabel: {
-                    textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
-                    },
-                    formatter: "{value}%"
-                },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                }
-            },
-        ],
-        legend:{
-            show:true,
-            bottom : 10,
-            itemWidth: 16,
-            itemHeight: 8,
-            textStyle:{
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
-            },
-            data: data[2]
-        },
-        series: seriesItems
-    };
-    var myChart = echarts.init($('#chart5')[0]);
-    myChart.setOption(option);
-}
-
-
-
-function chart6(data){
-
-    var seriesItems = [];
-
-    seriesItems.push({
-        name: data[2][0],
-        type: 'bar',
-        barWidth: "15%",
-        "yAxisIndex": 0,
-        itemStyle:{
-            normal:{
-                color: data[4][0]
-            }
-        },
-        data: data[3][0]
-    });
-
-    seriesItems.push({
-        name: data[2][1],
-        type: 'bar',
-        barWidth: "15%",
-        "yAxisIndex": 0,
-        itemStyle:{
-            normal:{
-                color: data[4][1]
-            }
-        },
-        data: data[3][1]
-    });
-
-    seriesItems.push({
-        name: data[2][2],
-        type: 'bar',
-        barWidth: "15%",
-        "yAxisIndex": 1,
-        itemStyle:{
-            normal:{
-                color: data[4][2]
-            }
-        },
-        data: data[3][2]
-    });
-
-    var option = {
-        "tooltip": {
-            "trigger": "axis",
-            "axisPointer": {
-                "type": "cross",
-                "crossStyle": {
-                    "color": "#384757"
-                }
-            },
-            formatter: function(params, ticket, callback) {
-
-                var res = params[0].name;
-
-                for (var i = 0, l = params.length; i < l; i++) {
-                    if(params[i].seriesName == data[2][0] || params[i].seriesName == data[2][1]){
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
-                    }else if(params[i].seriesName == data[2][2]){
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
-                    }
-                }
-                return res;
-
-            }
-        },
-        grid:{
-            top:'5%',
-            left:'5%',
-            right:'5%',
-            bottom:'25%',
-            containLabel: true
-        },
-        xAxis: {
-            axisLabel: {
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            splitLine: {
-                show: false
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#38b8ff'
-                }
-            },
-            type: 'category',
-            data: data[1]
-        },
-        yAxis: [
-            {
-                type: 'value',
-                name:data[0][0],
-                nameGap:-5,
-                nameTextStyle:{
-                    padding:[0,0,0,55],
-                    align:'center',
-                    color:'#fff',
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                axisLabel: {
-                    textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
-                    },
-                    // formatter: "{value}%"
-                },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                }
-            },
-            {
-                type: 'value',
-                // name:data[0][1],
-                nameGap:-5,
-                nameTextStyle:{
-                    padding:[0,0,0,45],
-                    align:'center',
-                    color:'#fff',
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                axisLabel: {
-                    textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
-                    },
-                    formatter: "{value}%"
-                },
-                //去掉辅助线
-                "splitLine": {
-                    "show": false
-                }
-            }
-        ],
-        legend:{
-            show:true,
-            bottom : 10,
-            itemWidth: 16,
-            itemHeight: 6,
-            textStyle:{
-                color:'#fff',
-                fontFamily: '微软雅黑',
-                fontSize: 10,
-            },
-            data: data[2]
-        },
-        series: seriesItems
-    };
-    var myChart = echarts.init($('#chart6')[0]);
-    myChart.setOption(option);
-}
-
-
-function chart7(data){
-
-    var chartId = "chart7";
+    var chartId = "chart5";
 
     option = {
         "tooltip": {
