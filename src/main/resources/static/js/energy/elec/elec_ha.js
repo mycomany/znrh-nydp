@@ -35,7 +35,7 @@ function main(data){
         dataArray.push({"name": data[2][i], "value": data[3][yf][i]})
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -111,7 +111,7 @@ function main(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,15],
@@ -254,7 +254,7 @@ function chart1(data){
         ],
         "yAxis": {
             type: 'value',
-            name: "%",
+            // name: "%",
             nameGap:-5,
             nameTextStyle:{
                 padding:[0,0,0,20],
@@ -303,7 +303,7 @@ function chart2(data){
         dataArray.push({"name": data[0][2][i], "value": data[0][3][yf]["fd"][i]});
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[0][2][i] = dataArray[i].name;
@@ -379,7 +379,7 @@ function chart2(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[0][1][0],
+                // name:data[0][1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -433,7 +433,7 @@ function chart3(data){
         dataArray.push({"name": data[0][2][i], "value": data[0][3][i]});
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[0][2][i] = dataArray[i].name;
@@ -509,7 +509,7 @@ function chart3(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[0][1][0],
+                // name:data[0][1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -562,7 +562,7 @@ function chart3_3(data){
         dataArray.push({"name": data[1][2][i], "value": data[1][3][i]});
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[1][2][i] = dataArray[i].name;
@@ -638,7 +638,7 @@ function chart3_3(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][1][0],
+                // name:data[1][1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -692,7 +692,7 @@ function chart4(data){
         dataArray.push({"name": data[2][i], "value": data[3][i]});
     }
     dataArray.sort(function(a,b){
-        return a.value - b.value
+        return b.value - a.value
     });
     for(var i=0; i<dataArray.length; i++){
         data[2][i] = dataArray[i].name;
@@ -768,7 +768,7 @@ function chart4(data){
         "yAxis": [
             {
                 type: 'value',
-                name:data[1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
