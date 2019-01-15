@@ -8,6 +8,9 @@
 <style>
     .box{position:relative;}
     .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
+     .change{
+         width: 68px;height: 24px;float: right;margin-right: 20px;z-index:10;
+     }
 </style>
 </#macro>
 
@@ -39,9 +42,11 @@
 
         <div class="w6 h4">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">供电标准煤耗</span></div>
-                <div id="chart3" style="height:calc(100% - 30px); width:48%; float:left;"></div>
-                <div id="chart3_3" style="height:calc(100% - 30px); width:48%; float:left;"></div>
+                <div class="qs_header">
+                    <span class="qs_title1">&nbsp;</span><span class="qs_title2">发电消耗标准煤趋势</span>
+                    <div id = "select_chart3" class = "change"></div>
+                </div>
+                <div id="chart3" class="qs_body"></div>
             </div>
         </div>
 
@@ -54,5 +59,13 @@
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.selectpicker').selectpicker();
+        var d = ["国电投", "华能", "大唐", "华电", "国能投", "国投电力", "国华电力", "华润电力", "中广核", "神华"];
+        creatSelect(d,'select_chart3',"国电投","change3");
+    });
+</script>
 
 </#macro>
