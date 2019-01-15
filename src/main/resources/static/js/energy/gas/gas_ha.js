@@ -322,7 +322,7 @@ function main(data, lx){
                         if(params.name){
                             return  params.name + ' : ' + (value ? value : '0') +' 亿立方米';
                         }else{
-                            return  '无数据';
+                            return  '';
                         }
                     }
                 },
