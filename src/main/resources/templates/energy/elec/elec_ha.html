@@ -52,7 +52,10 @@
 
         <div class="w6 h4">
             <div class="qpanel">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">超临界机组装机容量</span></div>
+                <div class="qs_header">
+                    <span class="qs_title1">&nbsp;</span><span class="qs_title2">超临界机组装机容量</span>
+                    <div id = "select_chart4" class = "change"></div>
+                </div>
                 <div id="chart4" class="qs_body"></div>
             </div>
         </div>
@@ -65,6 +68,9 @@
         $('.selectpicker').selectpicker();
         var d = ["国电投", "华能", "大唐", "华电", "国能投", "国投电力", "国华电力", "华润电力", "中广核", "神华"];
         creatSelect(d,'select_chart3',"国电投","change3");
+
+        var e = ["2014", "2015", "2016", "2017", "2018"];
+        creatSelect(e,'select_chart4',"2018","change4");
     });
 </script>
 

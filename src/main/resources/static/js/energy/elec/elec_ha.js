@@ -546,6 +546,10 @@ function chart3(data, selectName){
 }
 
 
+function change4(v){
+
+}
+
 function chart4(data){
 
     var chartId = "chart4";
