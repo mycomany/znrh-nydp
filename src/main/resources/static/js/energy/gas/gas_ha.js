@@ -10,6 +10,17 @@ $(document).ready(function(){
     getdata('/energy/gas/ha/chart7.json' + __time,chart7);
 });
 
+var selectNfMain = "2016";
+function installCapacity(lx, selectObj){
+    selectNfMain = $(selectObj).val();
+
+    console.log(lx, selectNfMain);
+    if(lx == "main"){
+        console.log('start main');
+        getdata('/energy/gas/ha/main.json' ,main);
+    }
+}
+
 function dwz(data, name){
     for(var i=0; i<data[3].length; i++){
         if(data[3][i] == name){
@@ -21,7 +32,7 @@ function dwz(data, name){
 
 function main(data){
 
-    var nf = "2013"
+    var nf = selectNfMain;
 
     var option = {
         "tooltip": {
