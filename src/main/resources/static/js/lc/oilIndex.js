@@ -3,17 +3,17 @@ $(document).ready(function(){
 	getdata('/lc/oilIndex/chart2.json',chart2);
 	getdata('/lc/oilIndex/chart3.json',chart3);
 	getdata('/lc/oilIndex/chart4.json',chart4);
-	getdata('/lc/oilIndex/chart5.json',chart5);
-	getdata('/lc/oilIndex/chart6.json',chart6);
-	getdata('/lc/oilIndex/chart7.json',chart7);
-	getdata('/lc/oilIndex/main.json',main);
+	getdatax('/lc/oilIndex/chart5.json',chart5);
+	getdatax('/lc/oilIndex/chart6.json',chart6);
+	getdatax('/lc/oilIndex/chart7.json',chart7);
+	getdatax('/lc/oilIndex/main.json',main);
 });
-function main(data){
+function main(data, ix){
 	var option = {
 		tooltip:{
 		},
 		legend:{
-			data:data[0]
+			data:data.legend
 		},
 		grid:{
 			top:'10%',
@@ -24,7 +24,7 @@ function main(data){
 		},
 		xAxis: [{
 			type: 'category',
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#87CEFF'
@@ -81,7 +81,7 @@ function main(data){
 					barBorderRadius: [3, 3, 0, 0]
 				}
 			},
-			data: data[2]
+			data: data.data[ix][0]
 		},
 		{
 			name: '人均排放量 ',
@@ -103,7 +103,7 @@ function main(data){
 					barBorderRadius: [3, 3, 0, 0]
 				}
 			},
-			data: data[3]
+			data: data.data[ix][1]
 		}]
 	};
 	$chart.init('#main',option);
@@ -158,8 +158,8 @@ function chart1(data){
 			data:data[1],
 		}],
 		yAxis: [{
-			name:'排放系数',
-			nameGap:-1,
+			name:'吨CO2每吨标准煤',
+			nameGap:-5,
 			nameTextStyle:{
 				padding:[0,0,0,65],
 				align:'center',
@@ -194,18 +194,6 @@ function chart1(data){
 		}],
 		series: [
 			{
-				name: '煤碳',
-				type:'bar',
-				barWidth:15,
-				//stack:'g',
-				itemStyle: {
-					normal: {
-						color: '#2c18f3'
-					},
-				},
-				data: data[2]
-			},
-			{
 				name: '石油',
 				type:'bar',
 				barWidth:15,
@@ -215,20 +203,9 @@ function chart1(data){
 						color: '#00FFFF'
 					},
 				},
-				data: data[3]
+				data: data[2]
 			},
-			{
-				name: '天然气',
-				type:'bar',
-				barWidth:15,
-				//stack:'g',
-				itemStyle: {
-					normal: {
-						color: '#FFD743'
-					},
-				},
-				data: data[4]
-			}]
+		]
 	};
 	$chart.init('#chart1', option);
 }
@@ -316,7 +293,7 @@ function chart2(data){
 		}],
 		series: [
 			{
-				name: '煤碳',
+				name: '排放系数',
 				type:'bar',
 				barWidth:15,
 				itemStyle: {
@@ -325,61 +302,6 @@ function chart2(data){
 					},
 				},
 				data: data[2]
-			},
-			{
-				name: '石油',
-				type:'bar',
-				barWidth:15,
-				itemStyle: {
-					normal: {
-						color: '#00FFFF'
-					},
-				},
-				data: data[3]
-			},
-			{
-				name: '天然气',
-				type:'bar',
-				barWidth:15,
-				itemStyle: {
-					normal: {
-						color: '#FFD743'
-					},
-				},
-				data: data[4]
-			},
-			{
-				name: '一次能源消费',
-				type:'bar',
-				barWidth:15,
-				itemStyle: {
-					normal: {
-						color: '#24E743'
-					},
-				},
-				data: data[5]
-			},
-			{
-				name: '电力总量',
-				type:'bar',
-				barWidth:15,
-				itemStyle: {
-					normal: {
-						color: '#1324fd'
-					},
-				},
-				data: data[6]
-			},
-			{
-				name: '火电',
-				type:'bar',
-				barWidth:15,
-				itemStyle: {
-					normal: {
-						color: '#ff1213'
-					},
-				},
-				data: data[7]
 			},
 		]
 	};
@@ -397,7 +319,7 @@ function chart3(data){
 		legend:{
 			data:data[0]
 		},
-		color:['#8a00ec','#4335d2','#00FFFF','#FFD743','#ff6e72', '#24e743','#1324fd','#ff1213'],
+		color:['#8a00ec','#4335d2','#00FFFF','#FFD743','#ff6e72','#ff0', '#24e743','#1324fd','#ff1213'],
 		grid:{
 			top:'10%',
 			bottom:'20%',
@@ -510,7 +432,7 @@ function chart3(data){
 				data: data[5]
 			},
 			{
-				name: '转炉煤气石油制品',
+				name: '转炉煤气',
 				type:'bar',
 				barWidth:15,
 				itemStyle: {
@@ -520,7 +442,7 @@ function chart3(data){
 				data: data[6]
 			},
 			{
-				name: '天然气',
+				name: '石油制品',
 				type:'bar',
 				barWidth:15,
 				itemStyle: {
@@ -530,7 +452,7 @@ function chart3(data){
 				data: data[7]
 			},
 			{
-				name: '总用电量',
+				name: '天然气',
 				type:'bar',
 				barWidth:15,
 				itemStyle: {
@@ -540,7 +462,7 @@ function chart3(data){
 				data: data[8]
 			},
 			{
-				name: '火电',
+				name: '总用电量',
 				type:'bar',
 				barWidth:15,
 				itemStyle: {
@@ -548,6 +470,16 @@ function chart3(data){
 					},
 				},
 				data: data[9]
+			},
+			{
+				name: '火电',
+				type:'bar',
+				barWidth:15,
+				itemStyle: {
+					normal: {
+					},
+				},
+				data: data[10]
 			}
 		]
 	};
@@ -613,55 +545,21 @@ function chart4(data){
 						color: '#0177d4'
 					}
 				}
-			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
-				},
-				axisLine: {
-					lineStyle: {
-						color: '#38b8ff'
-					}
-				},
-				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
-					formatter: '{value}%'
-				},
-				splitLine: {
-					show:false,
-					lineStyle: {
-						color: '#0177d4'
-					}
-				}
 			}],
 		series: [
 			{
-				name: "能源系数",
-				type: "bar",
-				barWidth: '30%',
-				itemStyle: {
-					normal: {
-						color: '#2c18f3',
-					},
-				},
-				data: data[2],
-			},
-			{
 				name: "t-CO2",
 				type: "line",
-				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
 						color: '#00FFFF',
 					},
 				},
-				data: data[4],
+				data: data[2],
 			},
 			{
 				name: "t-C/toe",
 				type: "line",
-				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
 						color: '#E9DC37'
@@ -674,10 +572,10 @@ function chart4(data){
 	$chart.init('#chart4', option);
 }
 //石油加工资源消耗情况
-function chart5(data){
+function chart5(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -695,7 +593,7 @@ function chart5(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -762,18 +660,18 @@ function chart5(data){
 						color: '#2c18f3',
 					},
 				},
-				data: data[2],
+				data: data.data[ix][0],
 			},
 			{
-				name: "增长率",
-				type: "line",
-				yAxisIndex: 1,
+				name: "排放系数",
+				type: "bar",
+				barWidth: '30%',
 				itemStyle: {
 					normal: {
 						color: '#00FFFF',
 					},
 				},
-				data: data[4],
+				data: data.data[ix][1],
 			},
 			{
 				name: "单位CO2增长率",
@@ -784,17 +682,29 @@ function chart5(data){
 						color: '#E9DC37'
 					},
 				},
-				data: data[3],
+				data: data.data[ix][2],
+			},
+			{
+				name: "排放系数增长率",
+				type: "line",
+				yAxisIndex: 1,
+				itemStyle: {
+					normal: {
+						color: '#f1f163'
+					},
+				},
+				data: data.data[ix][3],
 			},
 		]
 	};
 	$chart.init('#chart5', option);
 }
 //石油加工资源综合利用情况
-function chart6(data){
+function chart6(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			show:false,
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -812,7 +722,7 @@ function chart6(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -871,7 +781,7 @@ function chart6(data){
 			}],
 		series: [
 			{
-				name: "低碳技术研发人员",
+				name: "研发人员与产业人员占比",
 				type: "bar",
 				barWidth: '20%',
 				itemStyle: {
@@ -880,40 +790,18 @@ function chart6(data){
 						barBorderRadius: 10,
 					},
 				},
-				data: data[2],
-			},
-			{
-				name: "产业人员",
-				type: "bar",
-				barWidth: '20%',
-				itemStyle: {
-					normal: {
-						color: '#30fffe',
-						barBorderRadius: 10,
-					},
-				},
-				data: data[3],
-			},
-			{
-				name: "占比",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#E9DC37',
-					},
-				},
-				data: data[4],
+				data: data.data[ix][0],
 			},
 		]
 	};
 	$chart.init('#chart6', option);
 }
 //石油加工污染物产生情况
-function chart7(data){
+function chart7(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			show:false,
+			data: data.legend,
 		},
 		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		grid: {
@@ -932,7 +820,7 @@ function chart7(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -991,45 +879,16 @@ function chart7(data){
 			}],
 		series: [
 			{
-				name: "CODcr产生量",
+				name: "技术经费投入占比",
 				type: "bar",
+				barWidth: '20%',
 				itemStyle: {
 					normal: {
-						barBorderRadius: 50,
+						color: '#2c18f3',
+						barBorderRadius: 10,
 					},
 				},
-				data: data[2],
-			},
-			{
-				name: "挥发酚产生量",
-				type: "bar",
-				itemStyle: {
-					normal: {
-						barBorderRadius: 50,
-					},
-				},
-				data: data[3],
-			},
-			{
-				name: "石油类污染物产生量",
-				type: "bar",
-				itemStyle: {
-					normal: {
-						barBorderRadius: 50,
-					},
-				},
-				data: data[4],
-			},
-			{
-				name: "VOC总量削减率",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#e7572d'
-					},
-				},
-				data: data[5],
+				data: data.data[ix][0],
 			},
 		]
 	};

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	getdata('/lc/gasIndex/chart1.json',chart1);
-	getdata('/lc/gasIndex/chart2.json',chart2);
+	getdatax('/lc/gasIndex/chart2.json',chart2);
 	getdata('/lc/gasIndex/chart3.json',chart3);
 	getdata('/lc/gasIndex/chart4.json',chart4);
 	getdata('/lc/gasIndex/chart5.json',chart5);
@@ -223,30 +223,6 @@ function chart1(data){
 		}],
 		series: [
 			{
-				name: '煤碳',
-				type:'bar',
-				barWidth:15,
-				//stack:'g',
-				itemStyle: {
-					normal: {
-						color: '#2c18f3'
-					},
-				},
-				data: data[2]
-			},
-			{
-				name: '石油',
-				type:'bar',
-				barWidth:15,
-				//stack:'g',
-				itemStyle: {
-					normal: {
-						color: '#00FFFF'
-					},
-				},
-				data: data[3]
-			},
-			{
 				name: '天然气',
 				type:'bar',
 				barWidth:15,
@@ -256,16 +232,16 @@ function chart1(data){
 						color: '#FFD743'
 					},
 				},
-				data: data[4]
+				data: data[2]
 			}]
 	};
 	$chart.init('#chart1', option);
 }
 //天然气企业CO2排放量趋势
-function chart2(data){
+function chart2(data, ix){
 	var option =  {
 		legend: {
-			data: data[0],
+			data: data.legend,
 		},
 		grid: {
 			left: '5%',
@@ -283,7 +259,7 @@ function chart2(data){
 		xAxis: [{
 			type: 'category',
 			gridIndex: 0,
-			data: data[1],
+			data: data.xData,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -342,7 +318,7 @@ function chart2(data){
 			}],
 		series: [
 			{
-				name: "总排放量",
+				name: "CO2排放量",
 				type: "bar",
 				barWidth: '30%',
 				itemStyle: {
@@ -350,29 +326,7 @@ function chart2(data){
 						color: '#2c18f3',
 					},
 				},
-				data: data[2],
-			},
-			{
-				name: "增长率",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#00FFFF',
-					},
-				},
-				data: data[4],
-			},
-			{
-				name: "单位CO2增长率",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-						color: '#E9DC37'
-					},
-				},
-				data: data[3],
+				data: data.data[ix][0],
 			},
 		]
 	};

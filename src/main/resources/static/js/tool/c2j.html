@@ -21,6 +21,8 @@
                 <label><input id="r6" name="r" type="radio" value="array" />array:[['aa','bb'],[11,2]]</label>
             </div><br />
             <div style="height:50px;width:200px;text-align:center;"><button onclick="convert();">转换</button></div>
+            <div style="height:50px;width:200px;text-align:center;"><button onclick="xtb_bar();">交叉表转bar</button></div>
+            <div style="height:50px;width:200px;text-align:center;"><button onclick="xtb_pie();">交叉表转pie</button></div>
             <div style="height:50px;width:200px;text-align:center;">
                 <button onclick="save();">保存</button>
             </div>
@@ -235,5 +237,123 @@
             arr.push(a);
         }
         return arr;
+    }
+    function xtb_bar(){
+        var f = function(a,s){
+            var aa = {x:[],l:{},i:[],d:{}}, b = false, q = 0;
+            var ld = mx([a[0].length,a[1].length]), ln = a.length;
+            for(var i = 1; i < ln; i++){
+                var o = a[i][0];
+                if(i == 1)
+                    aa.x.push(o);
+                if(b && o){
+                    aa.x.push(o);
+                    b = false;
+                }
+                if(o == '') b = true;
+                if(aa.l[o]==null&&aa.l[o]!==0)
+                    aa.l[o] = q++;
+            }
+            for(var n in aa.l){
+                if($.inArray(n, aa.x)>-1 || n=='')
+                    delete aa.l[n]
+            }
+            q = 0;
+            for(var n in aa.l){
+                aa.l[n] = q++;
+            }
+            for(var i = 1; i < ld; i++){
+                var o = a[1][i];
+                aa.i.push(o);
+                aa.d[o] = [];
+                for(var n in aa.l)
+                    aa.d[o].push([]);
+            }
+            for(var j = 1; j < ld; j++) {
+                var k = a[1][j];
+                for(var i = 2; i < ln; i++){
+                    var v = a[i][0], o = to_var(a[i][j]);
+                    if(v == '' || aa.l[v] == null)
+                        continue;
+                    v = aa.l[v];
+                    aa.d[k][v].push(o);
+                }
+            }
+            var ll = [];
+            for(var n in aa.l)
+                ll.push(n);
+            var bb = {legend:ll,xData:aa.x,index:aa.i,data:aa.d};
+            s.push(JSON.stringify(bb));
+        };
+        chg_data(f);
+    }
+    function xtb_pie(){
+        var f = function(a,s){
+            var aa = {x:[],l:{},i:[],d:{}}, b = false, q = 0;
+            var ld = mx([a[0].length,a[1].length]), ln = a.length;
+            for(var i = 1; i < ln; i++){
+                var o = a[i][0];
+                if(i == 1)
+                    aa.x.push(o);
+                if(b && o){
+                    aa.x.push(o);
+                    b = false;
+                }
+                if(o == '') b = true;
+                if(aa.l[o]==null&&aa.l[o]!==0)
+                    aa.l[o] = q++;
+            }
+            for(var n in aa.l){
+                if($.inArray(n, aa.x)>-1 || n=='')
+                    delete aa.l[n]
+            }
+            q = 0;
+            for(var n in aa.l){
+                aa.l[n] = q++;
+            }
+            for(var i = 1; i < ld; i++){
+                var o = a[1][i];
+                aa.i.push(o);
+                aa.d[o] = [];
+                for(var n in aa.l)
+                    aa.d[o].push([]);
+            }
+            var xname = aa.x[0], xn = 0;
+            for(var j = 1; j < ld; j++) {
+                var k = a[1][j];
+                for(var i = 2; i < ln; i++){
+                    var v = a[i][0], o = to_var(a[i][j]);
+                    if(v == '' || aa.l[v] == null){
+                        xn++;
+                        xname = aa.x[xn % aa.x.length];
+                        continue;
+                    }
+                    v = aa.l[v];
+                    aa.d[k][v].push({name:xname,value:o});
+                }
+            }
+            var ll = [];
+            for(var n in aa.l)
+                ll.push(n);
+            var bb = {legend:ll,xData:aa.x,index:aa.i,data:aa.d};
+            s.push(JSON.stringify(bb));
+        };
+        chg_data(f);
+    }
+    function chg_data(f){
+        var v1 = $("#t1").val();
+        if(v1 == '')
+            return;
+        var d = csv_arr(v1);
+        var s = [];
+        f(d, s);
+        v2 = s.join('');
+        $("#t2").text(v2);
+    }
+    function cnv_data(){
+
+    }
+    function mx(array){
+        return Math.max.apply(null,array);
     }
 </script>
