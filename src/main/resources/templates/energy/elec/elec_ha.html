@@ -21,13 +21,19 @@
         <div class="w4 h8">
             <div class="w12 h6">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">累计厂用电率</span></div>
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span><span class="qs_title2">累计厂用电率</span>
+                        <div id = "select_chart1" class = "change"></div>
+                    </div>
                     <div id="chart1" class="qs_body"></div>
                 </div>
             </div>
             <div class="w12 h6">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">人均发电量</span></div>
+                    <div class="qs_header">
+                        <span class="qs_title1">&nbsp;</span><span class="qs_title2">人均发电量</span>
+                        <div id = "select_chart2" class = "change"></div>
+                    </div>
                     <div id="chart2" class="qs_body"></div>
                 </div>
             </div>
@@ -70,6 +76,10 @@
         creatSelect(d,'select_chart3',"国电投","change3");
 
         var e = ["2014", "2015", "2016", "2017", "2018"];
+
+        creatSelect(e,'select_chart1',"2018","change1");
+        creatSelect(e,'select_chart2',"2018","change2");
+
         creatSelect(e,'select_chart4',"2018","change4");
     });
 </script>

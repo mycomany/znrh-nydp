@@ -153,6 +153,9 @@ function main(){
     myChart.setOption(option);
 }
 
+function change1(v){
+
+}
 
 function chart1(data){
 
@@ -289,6 +292,9 @@ function chart1(data){
     setH(chartId);
 }
 
+function change2(v){
+
+}
 
 function chart2(data){
 
