@@ -1,10 +1,13 @@
-[{"companyName":"国电投","type":"上网电量","year":"2018","month":"11","val":"879","ratio":"3.60"},
-  {"companyName":"中国华能集团","type":"上网电量","year":"2018","month":"11","val":"905","ratio":"3.80"},
-  {"companyName":"中国大唐集团公司","type":"上网电量","year":"2018","month":"11","val":"856","ratio":"3.20"},
-  {"companyName":"中国华电集团公司","type":"上网电量","year":"2018","month":"11","val":"799","ratio":"2.70"},
-  {"companyName":"中国国电集团公司","type":"上网电量","year":"2018","month":"11","val":"835","ratio":"2.60"},
-  {"companyName":"国投电力","type":"上网电量","year":"2018","month":"11","val":"380","ratio":"2.70"},
-  {"companyName":"国华电力","type":"上网电量","year":"2018","month":"11","val":"580","ratio":"2.50"},
-  {"companyName":"华润电力","type":"上网电量","year":"2018","month":"11","val":"583","ratio":"2.30"},
-  {"companyName":"中广核","type":"上网电量","year":"2018","month":"11","val":"357","ratio":"2.22"},
-  {"companyName":"中国神华","type":"上网电量","year":"2018","month":"11","val":"345","ratio":"2.87"}]
+{
+  "index":["2018-7","2018-8","2018-9","2018-10","2018-11"],
+  "data": [{"companyName":"国电投","type":"上网电量","year":"2018","month":"11","val":"879","ratio":"3.60"},
+    {"companyName":"中国华能集团","type":"上网电量","year":"2018","month":"11","val":"905","ratio":"3.80"},
+    {"companyName":"中国大唐集团公司","type":"上网电量","year":"2018","month":"11","val":"856","ratio":"3.20"},
+    {"companyName":"中国华电集团公司","type":"上网电量","year":"2018","month":"11","val":"799","ratio":"2.70"},
+    {"companyName":"中国国电集团公司","type":"上网电量","year":"2018","month":"11","val":"835","ratio":"2.60"},
+    {"companyName":"国投电力","type":"上网电量","year":"2018","month":"11","val":"380","ratio":"2.70"},
+    {"companyName":"国华电力","type":"上网电量","year":"2018","month":"11","val":"580","ratio":"2.50"},
+    {"companyName":"华润电力","type":"上网电量","year":"2018","month":"11","val":"583","ratio":"2.30"},
+    {"companyName":"中广核","type":"上网电量","year":"2018","month":"11","val":"357","ratio":"2.22"},
+    {"companyName":"中国神华","type":"上网电量","year":"2018","month":"11","val":"345","ratio":"2.87"}]
+}
