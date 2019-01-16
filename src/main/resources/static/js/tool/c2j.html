@@ -23,6 +23,7 @@
             <div style="height:50px;width:200px;text-align:center;"><button onclick="convert();">转换</button></div>
             <div style="height:50px;width:200px;text-align:center;"><button onclick="xtb_bar();">交叉表转bar</button></div>
             <div style="height:50px;width:200px;text-align:center;"><button onclick="xtb_pie();">交叉表转pie</button></div>
+            <div style="height:50px;width:200px;text-align:center;"><button onclick="xtb_bar2();">交叉表转bar(转置)</button></div>
             <div style="height:50px;width:200px;text-align:center;">
                 <button onclick="save();">保存</button>
             </div>
@@ -238,54 +239,61 @@
         }
         return arr;
     }
-    function xtb_bar(){
-        var f = function(a,s){
-            var aa = {x:[],l:{},i:[],d:{}}, b = false, q = 0;
-            var ld = mx([a[0].length,a[1].length]), ln = a.length;
-            for(var i = 1; i < ln; i++){
-                var o = a[i][0];
-                if(i == 1)
-                    aa.x.push(o);
-                if(b && o){
-                    aa.x.push(o);
-                    b = false;
-                }
-                if(o == '') b = true;
-                if(aa.l[o]==null&&aa.l[o]!==0)
-                    aa.l[o] = q++;
+    function ini_pivot(a, s, subf){
+        var aa = {x:[],l:{},i:[],d:{}}, b = false, q = 0;
+        var ld = mx([a[0].length,a[1].length]), ln = a.length;
+        for(var i = 1; i < ln; i++){
+            var o = a[i][0];
+            if(i == 1)
+                aa.x.push(o);
+            if(b && o){
+                aa.x.push(o);
+                b = false;
             }
-            for(var n in aa.l){
-                if($.inArray(n, aa.x)>-1 || n=='')
-                    delete aa.l[n]
-            }
-            q = 0;
-            for(var n in aa.l){
-                aa.l[n] = q++;
-            }
-            for(var i = 1; i < ld; i++){
-                var o = a[1][i];
-                aa.i.push(o);
-                aa.d[o] = [];
-                for(var n in aa.l)
-                    aa.d[o].push([]);
-            }
-            for(var j = 1; j < ld; j++) {
-                var k = a[1][j];
-                for(var i = 2; i < ln; i++){
-                    var v = a[i][0], o = to_var(a[i][j]);
-                    if(v == '' || aa.l[v] == null)
-                        continue;
-                    v = aa.l[v];
-                    aa.d[k][v].push(o);
-                }
-            }
-            var ll = [];
+            if(o == '') b = true;
+            if(aa.l[o]==null&&aa.l[o]!==0)
+                aa.l[o] = q++;
+        }
+        for(var n in aa.l){
+            if($.inArray(n, aa.x)>-1 || n=='')
+                delete aa.l[n]
+        }
+        q = 0;
+        for(var n in aa.l){
+            aa.l[n] = q++;
+        }
+        for(var i = 1; i < ld; i++){
+            var o = a[1][i];
+            aa.i.push(o);
+            aa.d[o] = [];
             for(var n in aa.l)
-                ll.push(n);
-            var bb = {legend:ll,xData:aa.x,index:aa.i,data:aa.d};
-            s.push(JSON.stringify(bb));
-        };
-        chg_data(f);
+                aa.d[o].push([]);
+        }
+        for(var j = 1; j < ld; j++) {
+            var k = a[1][j];
+            for(var i = 2; i < ln; i++){
+                var v = a[i][0], o = to_var(a[i][j]);
+                if(v == '' || aa.l[v] == null)
+                    continue;
+                v = aa.l[v];
+                o = subf(o);
+                aa.d[k][v].push(o);
+            }
+        }
+        var ll = [];
+        for(var n in aa.l)
+            ll.push(n);
+        var bb = {legend:ll,xData:aa.x,index:aa.i,data:aa.d};
+        s.push(JSON.stringify(bb));
+        return bb;
+    }
+    function xtb_bar(){
+        chg_data(function (a, s){
+            var f = function(o){
+                return o;
+            };
+            ini_pivot(a, s ,f);
+        });
     }
     function xtb_pie(){
         var f = function(a,s){
@@ -337,8 +345,40 @@
                 ll.push(n);
             var bb = {legend:ll,xData:aa.x,index:aa.i,data:aa.d};
             s.push(JSON.stringify(bb));
+            return bb;
         };
         chg_data(f);
+    }
+    function xtb_bar2(){
+        var vv = $("#t1").val();
+        var res = {};
+        if(vv.charAt(0) != '{'){
+            var a = csv_arr(vv), s = [];
+            var f = function(o){
+                return o;
+            };
+            res = ini_pivot(a, s ,f);
+        }else{
+            res = JSON.parse(vv);
+        }
+        var cc = {legend:res.legend,xData:res.index,index:res.xData,data:{}};
+        cc.index.forEach(function(x){
+            cc.data[x] = [];
+            for(var i = 0; i < cc.legend.length; i++){
+                cc.data[x].push([]);
+            }
+        });
+        for(var n in res.data){
+            for(var i = 0; i < res.legend.length; i++){
+                var res1 = res.data[n][i];
+                for(var j = 0; j < res1.length; j++){
+                    var ix = res.xData[j];
+                    var v = res1[j];
+                    cc.data[ix][i].push(v);
+                }
+            }
+        }
+        $("#t2").text(JSON.stringify(cc));
     }
     function chg_data(f){
         var v1 = $("#t1").val();
@@ -350,9 +390,7 @@
         v2 = s.join('');
         $("#t2").text(v2);
     }
-    function cnv_data(){
 
-    }
     function mx(array){
         return Math.max.apply(null,array);
     }

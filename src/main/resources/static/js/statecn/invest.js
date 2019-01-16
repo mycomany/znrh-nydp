@@ -3,7 +3,7 @@ $(document).ready(function(){
     getdata('/statecn/invest/main.json',mapChart);
     getdata('/statecn/invest/chart1.json',chart1);
     getdata('/statecn/invest/chart2.json',chart2);
-    getdata('/statecn/invest/near10Order.json',chart3);
+    getdata('/statecn/invest/chart3.json',chart3);
     getdata('/statecn/invest/chart4.json',chart4);
     getdata('/statecn/invest/chart5.json',chart5);
 });

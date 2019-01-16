@@ -459,9 +459,9 @@ function chart5(data, ix){
 		yAxis: [
 			{
 				name:'吨/吨原油',
-				nameGap:-5,
+				nameGap:-1,
 				nameTextStyle:{
-					padding:[0,0,0,25],
+					padding:[0,0,0,65],
 					align:'center',
 					color:'#fff',
 				},
@@ -504,7 +504,7 @@ function chart5(data, ix){
 			}],
 		series: [
 			{
-				name: "油取水量",
+				name: "吨油取水量",
 				type: "bar",
 				barWidth: '30%',
 				itemStyle: {

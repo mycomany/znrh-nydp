@@ -7,7 +7,6 @@ $(document).ready(function(){
 	getdatax('/clean/elecIndex/chart6.json',chart6);
 	getdatax('/clean/elecIndex/chart7.json',chart7);
 });
-//["国电投","中国华能集团","中国大唐集团公司","中国华电集团公司","中国国电集团公司","国投电力","国华电力","华润电力","中广核","中国神华"],
 //非化石能源发电量趋势
 function chart1(data, ix){
 	var option =  {
@@ -377,7 +376,7 @@ function chart3(data){
 				splitNumber: 2,
 				axisLine: {            // 坐标轴线
 					lineStyle: {       // 属性lineStyle控制线条样式
-						color:  [[0.475, '#FE6B7D'],[0.525, '#f4923f'],[1, '#6CED91']],
+						color:  [[0.475, '#25e4a3'],[0.525, '#faf13f'],[1, '#f7355e']],
 						width: 8
 					}
 				},
@@ -416,7 +415,8 @@ function chart3(data){
 					}
 				},
 				data:[data[2]]
-			},{
+			},
+			{
 				type:'pie',
 				radius: 0,
 				center: ['-30%', '-50%'],
