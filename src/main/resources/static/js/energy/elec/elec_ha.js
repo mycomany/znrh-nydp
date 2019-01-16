@@ -539,7 +539,7 @@ function chart3(data, selectName){
             },
             {
                 type: 'value',
-                name:data[0][1],
+                // name:data[0][1],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,15],
@@ -555,7 +555,8 @@ function chart3(data, selectName){
                     textStyle: {
                         color: '#ffffff',
                         fontSize: 10
-                    }
+                    },
+                    formatter: "{value}%"
                 },
                 //去掉辅助线
                 "splitLine": {

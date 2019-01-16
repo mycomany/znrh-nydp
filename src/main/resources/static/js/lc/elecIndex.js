@@ -274,6 +274,20 @@ function chart2(data, ix){
 }
 //CO2排放量趋势
 function chart3(data){
+	var val = data[2];
+	var xData = data[1];
+    //排序，名称data[2]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<val.length; i++){
+        dataArray.push({"name": xData[i], "value": val[i]})
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+    	xData[i] = dataArray[i].name;
+        val[i] = dataArray[i].value;
+    }
 	var option = {
 		legend: {
 			data: data[0],
@@ -311,7 +325,7 @@ function chart3(data){
 				name:'吨',
 				nameGap:-5,
 				nameTextStyle:{
-					padding:[0,0,0,45],
+					padding:[0,0,0,20],
 					align:'center',
 					color:'#fff',
 				},
@@ -330,7 +344,7 @@ function chart3(data){
 						color: '#0177d4'
 					}
 				}
-			},{
+			}/*,{
 				nameTextStyle: {
 					color: '#fff',
 					fontSize: 10
@@ -351,7 +365,7 @@ function chart3(data){
 						color: '#0177d4'
 					}
 				}
-			}],
+			}*/],
 		series: [
 			{
 				name: "排放量",
@@ -362,7 +376,7 @@ function chart3(data){
 				},
 				data: data[2],
 			},
-			{
+			/*{
 				name: "本月同比",
 				type: "line",
 				yAxisIndex: 1,
@@ -371,13 +385,28 @@ function chart3(data){
 					},
 				},
 				data: data[3],
-			},
+			},*/
 		]
 	};
 	$chart.init('#chart3', option);
 }
 //CO2排放量排名
 function chart4(data, ix){
+	
+	var val = data.data[ix][0];
+	var xData = data.xData;
+    //排序，名称data[2]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<val.length; i++){
+        dataArray.push({"name": xData[i], "value": val[i]})
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+    	xData[i] = dataArray[i].name;
+        val[i] = dataArray[i].value;
+    }
 	var option = {
 		legend: {
 			data: data.legend,
@@ -434,27 +463,6 @@ function chart4(data, ix){
 						color: '#0177d4'
 					}
 				}
-			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
-				},
-				axisLine: {
-					lineStyle: {
-						color: '#38b8ff'
-					}
-				},
-				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
-					formatter: '{value}%'
-				},
-				splitLine: {
-					show:false,
-					lineStyle: {
-						color: '#0177d4'
-					}
-				}
 			}],
 		series: [
 			{
@@ -466,7 +474,7 @@ function chart4(data, ix){
 					},
 				},
 				data: data.data[ix][0],
-			},
+			}/*,
 			{
 				name: "本月同比",
 				type: "line",
@@ -476,13 +484,27 @@ function chart4(data, ix){
 					},
 				},
 				data: data.data[ix][1],
-			},
+			},*/
 		]
 	};
 	$chart.init('#chart4', option);
 }
 //单位发电CO2排放量排名
 function chart5(data, ix){
+	var val = data.data[ix][0];
+	var xData = data.xData;
+    //排序，名称data[2]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<val.length; i++){
+        dataArray.push({"name": xData[i], "value": val[i]})
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+    	xData[i] = dataArray[i].name;
+        val[i] = dataArray[i].value;
+    }
 	var option =  {
 		legend: {
 			data: data.legend,
@@ -540,27 +562,6 @@ function chart5(data, ix){
 						color: '#0177d4'
 					}
 				}
-			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
-				},
-				axisLine: {
-					lineStyle: {
-						color: '#38b8ff'
-					}
-				},
-				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
-					formatter: '{value}%'
-				},
-				splitLine: {
-					show:false,
-					lineStyle: {
-						color: '#0177d4'
-					}
-				}
 			}],
 		series: [
 			{
@@ -569,11 +570,11 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						barBorderRadius: 50,
+						barBorderRadius: [50,50,0,0],
 					},
 				},
 				data: data.data[ix][0],
-			},
+			}/*,
 			{
 				name: "本月同比",
 				type: "line",
@@ -583,7 +584,7 @@ function chart5(data, ix){
 					},
 				},
 				data: data.data[ix][1],
-			},
+			},*/
 		]
 	};
 	$chart.init('#chart5', option);

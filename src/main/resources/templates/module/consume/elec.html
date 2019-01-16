@@ -86,8 +86,8 @@
          </div>	
       	 <div class="box w6 h12">
 	        	<div class="qs_header tabbtn check_btn_grp check_btn_grp_float_left" style="float:none;z-index:10"><!-- 35PX -->
-                            <div onclick="change12(0)" id = "c1" class="c check_btn_option_status_l check_btn_option_checked " >跨区域</div>
-                            <div onclick="change12(1)" id = "c2" class="c check_btn_option_status_r " >跨省 </div>
+                            <div onclick="change12(1)" id = "c1" class="c check_btn_option_status_l check_btn_option_checked " >跨区域</div>
+                            <div onclick="change12(2)" id = "c2" class="c check_btn_option_status_r " >跨省 </div>
                             <input id = "ch" type="hidden" value = "main"/>
                             <div id = "change" class = "change">
 	                		</div>
@@ -149,10 +149,11 @@
 $(document).ready(function() {
     $('.selectpicker').selectpicker();
     var d = ["2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10","2018-11"];
+    var d2 = ["农林牧渔","工业","建筑业","交运仓储","信息服务","批发零售","住宿餐饮","金融业","房地产业","租赁服务","公共服务及管理组织"];
     creatSelect(d,'change','2018-11',"change11");
     creatSelect(d,'select_chart2','2018-11',"change2");
     creatSelect(d,'select_chart4','2018-11',"change4");
-    creatSelect(d,'select_chart5','2018-11',"change5");
+    creatSelect(d2,'select_chart5','农林牧渔',"change5");
     creatSelect(d,'select_chart6','2018-11',"change6");
        
 });

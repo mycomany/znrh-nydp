@@ -1,12 +1,15 @@
 <#include "/inc/base.html" />
 <#macro head>
 <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
-<script src="${host}/static/lib/echarts/map/china.js"></script>
+<script src="${host}/static/lib/echarts/map/world.js"></script>
 <script src="${host}/static/js/energy/elec/elec_security.js"></script>
 <link href="${host}/static/css/motion/mounthReport.css" rel="stylesheet">
 <style>
     .box{position:relative;}
     .tabbtn{position:absolute;z-index:11;top:0px;left:0px;}
+    .change{
+       		width: 75px;height: 24px;float: right;margin-right: 20px;z-index:10;
+       }
 </style>
 </#macro>
 
@@ -16,79 +19,71 @@
 
         <div class="w12 h8">
 
-            <div class="w3 h12">
+            <div class="w4 h12">
 
                 <div class="w12 h6">
                     <div class="qpanel">
-                        <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">一般人身事故起数</span></div>
+                        <div class="qs_header">
+                        	<span class="qs_title1">&nbsp;</span><span class="qs_title2">人身事故趋势</span>
+                        	<div id = "select_chart1" class = "change">
+	                		</div>
+                        </div>
                         <div id="chart1" class="qs_body"></div>
                     </div>
                 </div>
 
                 <div class="w12 h6">
                     <div class="qpanel">
-                        <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">较大人身事故起数</span></div>
+                        <div class="qs_header">
+                        	<span class="qs_title1">&nbsp;</span><span class="qs_title2">核心设备可用率</span>
+                        	<div id = "select_chart2" class = "change">
+	                		</div>	
+                        </div>
                         <div id="chart2" class="qs_body"></div>
                     </div>
                 </div>
 
             </div>
 
-            <div class="box w6 h12">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">核心设备自给率与设备可用率</span></div>
-                <div id="main" style="height:calc(98%); width:50%; float:left;"></div>
-                <div id="main_1" style="height:calc(98%); width:50%; float:left;"></div>
+            <div class="box w8 h12">
+               <div id="main" class="qs_body" style="height: 98%"></div>
             </div>
-
-            <div class="w3 h12">
-
-                <div class="w12 h6">
-                    <div class="qpanel">
-                        <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">20万工时伤害率</span></div>
-                        <div id="chart3" class="qs_body"></div>
-                    </div>
-                </div>
-
-                <div class="w12 h6">
-                    <div class="qpanel">
-                        <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">较大及以上信息安全事件数量</span></div>
-                        <div id="chart4" class="qs_body"></div>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
 
 
 
         <div class="w12 h4">
 
-            <div class="w3 h12">
+            <div class="w4 h12">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">设备较大事故起数</span></div>
+                    <div class="qs_header">
+                    	<span class="qs_title1">&nbsp;</span><span class="qs_title2">20万工时伤害率</span>
+                    	<div id = "select_chart3" class = "change">
+	                	</div>	
+                    </div>
+                    <div id="chart3" class="qs_body"></div>
+                </div>
+            </div>
+
+            <div class="w4 h12">
+                <div class="qpanel">
+                    <div class="qs_header">
+                    	<span class="qs_title1">&nbsp;</span><span class="qs_title2">电力主要事故类型起数</span>
+                   		<div id = "select_chart5" class = "change">
+	                	</div>
+                    </div>
                     <div id="chart5" class="qs_body"></div>
                 </div>
             </div>
 
-            <div class="w3 h12">
+            <div class="w4 h12">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">核电厂INES三级及以上事件数</span></div>
-                    <div id="chart6" class="qs_body"></div>
-                </div>
-            </div>
-
-            <div class="w3 h12">
-                <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">水库、灰库和尾矿库大坝溃坝事故起数</span></div>
-                    <div id="chart7" class="qs_body"></div>
-                </div>
-            </div>
-
-            <div class="w3 h12">
-                <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">较大及以上电力安全事故起数</span></div>
-                    <div id="chart8" class="qs_body"></div>
+                    <div class="qs_header">
+                    	<span class="qs_title1">&nbsp;</span><span class="qs_title2">较大及以上信息安全事件起数</span>
+                    	<div id = "select_chart4" class = "change">
+	                	</div>	
+                    </div>
+                    <div id="chart4" class="qs_body"></div>
                 </div>
             </div>
 

@@ -3,6 +3,13 @@ if (!String.prototype.trim) {
         return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
     };
 }
+String.prototype.format = function () {
+    var args = arguments;
+    return this.replace(/\{(\d+)\}/g,
+        function (m, i) {
+            return args[i];
+        });
+}
 var $style = {
     base:'oil',
     gas:{
@@ -354,6 +361,7 @@ function getdatax(url, fn, opt){
         fn(o.cdata, o.svalue);    //draw chart
     });
 }
+var regNum = /^(\-)?\d+(\.\d+)?/
 function initStore(data, o){
     if(o.sidx>0){
         o.cdata = initStoreData(data, o.sidx);
@@ -361,7 +369,7 @@ function initStore(data, o){
         o.cdata = data;
     }
     o.sdata = o.cdata.index;
-    o.svalue = o.cdata.index[o.cdata.index.length - 1];
+    o.svalue = regNum.test(o.cdata.index[0]) ? o.cdata.index[o.cdata.index.length - 1] : o.cdata.index[0];
     _store[o.cid] = o; //save
 }
 function initStoreData(data, idx){
@@ -406,6 +414,8 @@ function initSelect(data,id,shouValue){
         str += '<option value = "'+data[i]+'" '+ss+'>'+data[i]+'</option>';
     }
     str = str+'</select>';
-    $("#"+id).html(str);
+    var tbody=window.document.getElementById(id);
+    if(tbody) tbody.innerHTML = str;
+    $("#"+id).find(".selectpicker").selectpicker();
 }
 

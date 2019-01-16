@@ -43,9 +43,12 @@
 
             </div>
 
-            <div class="w8 h12">
+            <div class="box w8 h12">
                 <div class="qs_header">
-                    <span class="qs_title1">&nbsp;</span><span class="qs_title2">高耗能行业集中度国际对比</span>
+                    <div class="tabbtn check_btn_grp check_btn_grp_float_left" style="float:none;z-index:10"><!-- 35PX -->
+                        <div onclick="changeMain('炼油', 'd1')" id = "d1" class="d check_btn_option_status_l check_btn_option_checked " >炼油</div>
+                        <div onclick="changeMain('乙烯', 'd2')" id = "d2" class="d check_btn_option_status_r " >乙烯</div>
+                    </div>
                     <div id = "select_main" class = "change"></div>
                 </div>
                 <div id="main" class="w12 h12 qpanel0"></div>
@@ -85,14 +88,14 @@
 <script>
     $(document).ready(function() {
         $('.selectpicker').selectpicker();
-        var d = ["全国","江苏三里港高空建筑防腐","甘肃锦世有限责任公司","江苏艾氟生节能工程技术","江门市融源新材料科技","广西鸿淳环保科技"];
+        var d = ["全国","江苏三里港高空建筑防腐","甘肃锦世","江苏艾氟生节能工程技术","江门市融源新材料科技","广西鸿淳环保科技"];
         creatSelect(d,'select_chart3',"全国","changeChart3");
 
         var e = ["全国", "石油化工", "石油天然气", "海洋石油", "中化集团", "华信能源"];
         creatSelect(e,'select_chart4',"全国","changeChart4");
 
         var e = ["2014", "2015", "2016", "2017", "2018"];
-        creatSelect(e,'select_main',"2018","changeMain");
+        creatSelect(e,'select_main',"2018","changeMainDate");
     });
 </script>
 
