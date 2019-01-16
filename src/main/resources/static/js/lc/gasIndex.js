@@ -101,6 +101,7 @@ function main(data){
 			{
 				name: "增长趋率",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
@@ -125,6 +126,7 @@ function main(data){
 			{
 				name: "增长率",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
@@ -344,6 +346,7 @@ function chart2(data, ix){
 			{
 				name: "增长率",
 				type: "line",
+				smooth:true,
 				yAxisIndex:1,
 				itemStyle: {
 					normal: {
@@ -354,6 +357,7 @@ function chart2(data, ix){
 			{
 				name: "排放系数增长率",
 				type: "line",
+				smooth:true,
 				yAxisIndex:1,
 				itemStyle: {
 					normal: {

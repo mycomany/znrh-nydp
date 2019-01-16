@@ -127,32 +127,32 @@
     }
 
     .main_order_name2{
-        left:68.5%;
+        left:67.7%;
         height:100px;
     }
 
     .main_order_name3{
-        left:29.5%;
+        left:30.5%;
         height:80px;
     }
 
     .main_order_name4{
-        left:27%;
+        left:28%;
         height:75px;
     }
 
     .main_order_name5{
-        left:70.6%;
+        left:70%;
         height:73px;
     }
 
     .main_order_name6{
-        left:10.8%;
+        left:12%;
         height:70px;
     }
 
     .main_order_name7{
-        left:14.5%;
+        left:15.7%;
         height:65px;
     }
 
@@ -167,13 +167,13 @@
     }
 
     .main_order_name10{
-        left:81.5%;
+        left:80.5%;
         height:48px;
     }
 
     .main_order_name11{
         position: absolute;
-        left:82%;
+        left:81%;
         height:47px;
     }
 
@@ -190,21 +190,7 @@
                     <div class="qs_header">
                         <span class="qs_title1">&nbsp;</span>
                         <span class="qs_title2">全国发电量与装机量对比</span>
-                        <div class="right">
-                            <select id="installAndGeneraSelected" class="chart-selector" onchange="installAndGeneration('select',this)">
-                                <option>全国</option>
-                                <option>国电投</option>
-                                <option>中国华能集团</option>
-                                <option>中国大唐集团公司</option>
-                                <option>中国华电集团公司</option>
-                                <option>中国国电集团公司</option>
-                                <option>国投电力</option>
-                                <option>国华电力</option>
-                                <option>华润电力</option>
-                                <option>中广核</option>
-                                <option>中国神华</option>
-                            </select>
-                        </div>
+                        <div id="installAndGeneration_comb" class="qs_comb"></div>
 
                     </div>
                     <div id="energyRatio" class="qs_body"></div>
@@ -213,21 +199,7 @@
             <div class="w12 h6">
                 <div class="qpanel">
                     <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">发电设备累计平均利用小时对比</span>
-                        <div class="right">
-                            <select id="deviceUsedRatioSelected" class="chart-selector" onchange="deviceUsedRatio('select',this)">
-                                <option>全国</option>
-                                <option>国电投</option>
-                                <option>中国华能集团</option>
-                                <option>中国大唐集团公司</option>
-                                <option>中国华电集团公司</option>
-                                <option>中国国电集团公司</option>
-                                <option>国投电力</option>
-                                <option>国华电力</option>
-                                <option>华润电力</option>
-                                <option>中广核</option>
-                                <option>中国神华</option>
-                            </select>
-                        </div>
+                        <div id="deviceUsedRatio_comb" class="qs_comb"></div>
                     </div>
                     <div id="deviceUsedRatio" class="qs_body"></div>
                 </div>
@@ -236,34 +208,7 @@
         <div class="w5 h8">
             <div class="w12 h12" style="background-color: rgba(0,0,0,0)">
                 <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">清洁能源发电情况</span>
-                    <div class="right">
-                        <select id="cleanPowerSelected" class="chart-selector" onchange="cleanPowerInfos('select',this)">
-                            <!--<option>2017-1</option>-->
-                            <!--<option>2017-2</option>-->
-                            <!--<option>2017-3</option>-->
-                            <!--<option>2017-4</option>-->
-                            <!--<option>2017-5</option>-->
-                            <!--<option>2017-6</option>-->
-                            <!--<option>2017-7</option>-->
-                            <!--<option>2017-8</option>-->
-                            <!--<option>2017-9</option>-->
-                            <!--<option>2017-10</option>-->
-                            <!--<option>2017-11</option>-->
-                            <!--<option>2017-12</option>-->
-                            <!--<option>2018-1</option>-->
-                            <!--<option>2018-2</option>-->
-                            <!--<option>2018-3</option>-->
-                            <!--<option>2018-4</option>-->
-                            <!--<option>2018-5</option>-->
-                            <!--<option>2018-6</option>-->
-                            <!--<option>2018-7</option>-->
-                            <!--<option>2018-8</option>-->
-                            <!--<option>2018-9</option>-->
-                            <!--<option>2018-10</option>-->
-                            <option>2018-11</option>
-                            <option>2018-12</option>
-                        </select>
-                    </div>
+                    <div id="cleanPowerInfos_comb" class="qs_comb"></div>
                 </div>
                 <div class="qs_body main_order_bg">
                     <div class="main_show_tabs">
@@ -273,15 +218,15 @@
                         </div>
                         <div class="main_show_tab_data">
                             <div class="main_show_tab_before"></div>
-                            <div class="main_show_tab">风:<span id="qf">0%</span></div>
+                            <div class="main_show_tab">弃风:<span id="qf">0%</span></div>
                         </div>
                         <div class="main_show_tab_data">
                             <div class="main_show_tab_before"></div>
-                            <div class="main_show_tab">水:<span id="qs">0%</span></div>
+                            <div class="main_show_tab">弃水:<span id="qs">0%</span></div>
                         </div>
                         <div class="main_show_tab_data">
                             <div class="main_show_tab_before"></div>
-                            <div class="main_show_tab">核能:<span id="qhn">0%</span></div>
+                            <div class="main_show_tab">弃核:<span id="qhn">0%</span></div>
                         </div>
                     </div>
 
@@ -320,22 +265,7 @@
             <div class="w12 h6">
                 <div class="qpanel">
                     <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">供热消耗原煤量</span>
-                        <div class="right">
-                            <select id="consumeSelected" class="chart-selector" onchange="consume('select',this)">
-                                <option>全国</option>
-                                <option>国电投</option>
-                                <option>中国华能集团</option>
-                                <option>中国大唐集团公司</option>
-                                <option>中国华电集团公司</option>
-                                <option>中国国电集团公司</option>
-                                <option>国投电力</option>
-                                <option>国华电力</option>
-                                <option>华润电力</option>
-                                <option>中广核</option>
-                                <option>中国神华</option>
-                            </select>
-
-                        </div>
+                        <div id="consume_comb" class="qs_comb"></div>
                     </div>
                     <div id="consume" class="qs_body"></div>
                 </div>
@@ -343,20 +273,7 @@
             <div class="w12 h6">
                 <div class="qpanel">
                     <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">供热量与供热装机容量比</span>
-                        <div class="right">
-                            <select id="makeWarmingRecordSelected" class="chart-selector" onchange="makeWarmingRecord('select',this)">
-                                <option>国电投</option>
-                                <option>中国华能集团</option>
-                                <option>中国大唐集团公司</option>
-                                <option>中国华电集团公司</option>
-                                <option>中国国电集团公司</option>
-                                <option>国投电力</option>
-                                <option>国华电力</option>
-                                <option>华润电力</option>
-                                <option>中广核</option>
-                                <option>中国神华</option>
-                            </select>
-                        </div>
+                        <div id="makeWarmingRecord_comb" class="qs_comb"></div>
                     </div>
                     <div id="makeWarmingRecord" class="qs_body"></div>
 
@@ -370,34 +287,7 @@
                 <div class="qs_header">
                     <span class="qs_title1">&nbsp;</span>
                     <span class="qs_title2">装机容量排名</span>
-                    <div class="right">
-                        <select id="installCapacitySelect" class="chart-selector" onchange="installCapacity('select',this)">
-                            <!--<option>2017-1</option>-->
-                            <!--<option>2017-2</option>-->
-                            <!--<option>2017-3</option>-->
-                            <!--<option>2017-4</option>-->
-                            <!--<option>2017-5</option>-->
-                            <!--<option>2017-6</option>-->
-                            <!--<option>2017-7</option>-->
-                            <!--<option>2017-8</option>-->
-                            <!--<option>2017-9</option>-->
-                            <!--<option>2017-10</option>-->
-                            <!--<option>2017-11</option>-->
-                            <!--<option>2017-12</option>-->
-                            <!--<option>2018-1</option>-->
-                            <!--<option>2018-2</option>-->
-                            <!--<option>2018-3</option>-->
-                            <!--<option>2018-4</option>-->
-                            <!--<option>2018-5</option>-->
-                            <!--<option>2018-6</option>-->
-                            <option>2018-7</option>
-                            <option>2018-8</option>
-                            <option>2018-9</option>
-                            <option>2018-10</option>
-                            <option>2018-11</option>
-                            <option>2018-12</option>
-                        </select>
-                    </div>
+                    <div id="installCapacity_comb" class="qs_comb"></div>
                 </div>
                 <div id="installCapacity" class="qs_body"></div>
 
@@ -406,34 +296,7 @@
         <div class="w4 h4 overw">
             <div class="qpanel">
                 <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">发电量排名</span>
-                    <div class="right">
-                        <select id="powerMakedSelected" class="chart-selector" onchange="powerMaked('select',this)">
-                            <!--<option>2017-1</option>-->
-                            <!--<option>2017-2</option>-->
-                            <!--<option>2017-3</option>-->
-                            <!--<option>2017-4</option>-->
-                            <!--<option>2017-5</option>-->
-                            <!--<option>2017-6</option>-->
-                            <!--<option>2017-7</option>-->
-                            <!--<option>2017-8</option>-->
-                            <!--<option>2017-9</option>-->
-                            <!--<option>2017-10</option>-->
-                            <!--<option>2017-11</option>-->
-                            <!--<option>2017-12</option>-->
-                            <!--<option>2018-1</option>-->
-                            <!--<option>2018-2</option>-->
-                            <!--<option>2018-3</option>-->
-                            <!--<option>2018-4</option>-->
-                            <!--<option>2018-5</option>-->
-                            <!--<option>2018-6</option>-->
-                            <option>2018-7</option>
-                            <option>2018-8</option>
-                            <option>2018-9</option>
-                            <option>2018-10</option>
-                            <option>2018-11</option>
-                            <option>2018-12</option>
-                        </select>
-                    </div>
+                    <div id="powerMaked_comb" class="qs_comb"></div>
                 </div>
                 <div id="powerMaked" class="qs_body"></div>
 
@@ -442,34 +305,7 @@
         <div class="w4 h4 overw">
             <div class="qpanel">
                 <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">上网电量排名</span>
-                    <div class="right">
-                        <select id="internetUsedSelected" class="chart-selector" onchange="internetUsed('select',this)">
-                            <!--<option>2017-1</option>-->
-                            <!--<option>2017-2</option>-->
-                            <!--<option>2017-3</option>-->
-                            <!--<option>2017-4</option>-->
-                            <!--<option>2017-5</option>-->
-                            <!--<option>2017-6</option>-->
-                            <!--<option>2017-7</option>-->
-                            <!--<option>2017-8</option>-->
-                            <!--<option>2017-9</option>-->
-                            <!--<option>2017-10</option>-->
-                            <!--<option>2017-11</option>-->
-                            <!--<option>2017-12</option>-->
-                            <!--<option>2018-1</option>-->
-                            <!--<option>2018-2</option>-->
-                            <!--<option>2018-3</option>-->
-                            <!--<option>2018-4</option>-->
-                            <!--<option>2018-5</option>-->
-                            <!--<option>2018-6</option>-->
-                            <!--<option>2018-7</option>-->
-                            <!--<option>2018-8</option>-->
-                            <!--<option>2018-9</option>-->
-                            <!--<option>2018-10</option>-->
-                            <option>2018-11</option>
-                            <!--<option>2018-12</option>-->
-                        </select>
-                    </div>
+                    <div id="internetUsed_comb" class="qs_comb"></div>
                 </div>
                 <div id="internetUsed" class="qs_body"></div>
 
