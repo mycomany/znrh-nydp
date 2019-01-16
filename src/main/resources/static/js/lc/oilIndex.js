@@ -304,7 +304,7 @@ function main(val, ix){
 		        tooltip: {
 		            formatter: function(v) {
 		            	//alert(JSON.stringify(v));
-		            	//return v.name+'<br/>CO<sub>2</sub>排放量: '+v.data.value[0].toFixed(2)+' <br/>CO<sub>2</sub>人均排放量：'+v.data.value[1].toFixed(2)+'';
+		            	return v.name+'<br/>CO<sub>2</sub>排放量: '+v.data.value[0].toFixed(2)+' 百万吨<br/>CO<sub>2</sub>人均排放量：'+v.data.value[1].toFixed(2)+' 吨';
 		            }
 		        },
 		        grid: {
@@ -324,8 +324,8 @@ function main(val, ix){
 			            }
 			        },
 			        top: '10%',
-			        zoom:1, 
-			        aspectScale:0.9,  
+			        zoom:1.1, 
+			        aspectScale:0.7,    
 			        roam: false,
 			        itemStyle: {
 			            normal: {
@@ -344,8 +344,8 @@ function main(val, ix){
 		            mapType: 'world',
 		            nameMap: nameMap,
 		            top: '10%',
-		            zoom:1, 
-			        aspectScale:0.9,  
+		            zoom:1.1, 
+			        aspectScale:0.7,  
 			        roam: false,
 		            itemStyle: {
 			            normal: {
@@ -403,13 +403,13 @@ function main(val, ix){
 		    	        }
 		    	    },
 		    	    symbolSize: function(val) {
-		    	    	if (val[2]*2<10) {
+		    	    	if (val[2]*1.5<10) {
 							return 10;
 						}
-		    	    	if (val[2]*2>55) {
-							return 55;
+		    	    	if (val[2]*1.5>40) {
+							return 40;
 						}
-		    	        return val[2]*2;
+		    	        return val[2]*1.5;
 		    	    },
 		    	    itemStyle: {
 		    	        normal: {
@@ -444,14 +444,15 @@ function main(val, ix){
 		            //type: 'continuous',
 		            calculable: true,
 		            seriesIndex: [0,1],
+		            orient: 'horizontal',
 		            dimension: 0,
-		            left: '2%',
-		            top: '10%',
+		            left: 'center',
+		            bottom: '2%',
 		            itemWidth: 12,
 		            itemHeight: 80,
 		            min: data[i].data[val.xData.length-1].value[0],
 		            max: data[i].data[0].value[0],
-		            text: ['High', 'Low'],
+		            text: ['高', '低'],
 		            textStyle: {
 		                color: '#ddd'
 		            },
