@@ -37,8 +37,8 @@
                     <div class="tabbtn check_btn_grp check_btn_grp_float_left" style="float:none;z-index:10"><!-- 35PX -->
                         <div onclick="changeMain('c1')" id = "c1" class="c check_btn_option_status_l check_btn_option_checked " >石油开采</div>
                         <div onclick="changeMain('c3')" id = "c3" class="c check_btn_option_status_r">石油加工</div>
-                        <div id="main_comb" class="qs_comb">
-                            <select class=""><option selected>2017</option></select>
+                        <div id="main_comb" class="qs_comb" style="margin:5px 15px 0 0">
+                            <select class="selectpicker form-control"><option value="2017" selected>2017</option></select>
                         </div>
                     </div>
                     <div id="main" class="w12 h12"></div>
@@ -46,7 +46,11 @@
             </div>
             <div class="w12 h4">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油开采加工综合能耗企业排名</span></div>
+                    <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">石油开采加工综合能耗企业排名</span>
+                        <div id="chart4_comb" class="qs_comb">
+                            <select class="selectpicker form-control"><option value="2017" selected>2017</option></select>
+                        </div>
+                    </div>
                     <div id="chart4" class="qs_body"></div>
                 </div>
             </div>

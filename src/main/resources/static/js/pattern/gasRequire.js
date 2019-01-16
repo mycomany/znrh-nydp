@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	getdata('/pattern/gasRequire/chart1.json',chart1);
 	getdata('/pattern/gasRequire/chart2.json',chart2);
-	getdata('/pattern/gasRequire/near10Order.json',chart3);
+	getdata('/pattern/gasRequire/chart3.json',chart3);
 	getdata('/pattern/gasRequire/chart4.json',chart4);
 	getdata('/pattern/gasRequire/chart5.json',chart5);
     main();
