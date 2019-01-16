@@ -415,13 +415,13 @@ function main(val, ix){
 	    	                    color: '#00f4ff'
 	    	                }, {
 	    	                    offset: 0.4,
-	    	                    color: 'rgba(1,1,1,0)'
+	    	                    color: 'rgba(0,244,255,0.5)'
 	    	                }, {
 	    	                    offset: 0.5,
 	    	                    color: '#00f4ff'
 	    	                }, {
 	    	                    offset: 0.6,
-	    	                    color: 'rgba(1,1,1,0)'
+	    	                    color: 'rgba(0,244,255,0.5)'
 	    	                }, {
 	    	                    offset: 1,
 	    	                    color: '#00f4ff'
