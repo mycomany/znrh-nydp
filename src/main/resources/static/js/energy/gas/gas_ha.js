@@ -100,11 +100,12 @@ function main(mainData, lx){
     // 最后初始化世界地图中的相关数据
     var option = ({
         title : {
-            text: '',
-            left: 'center',
+            text: '世界十大天然气储气过调峰能力',
+            right:"40%",
+            top: 0,
             textStyle : {
                 color: '#a4d6fe',
-                fontSize: 18
+                fontSize: 15
             }
         },
         tooltip: {
@@ -122,8 +123,8 @@ function main(mainData, lx){
             map: 'world', // 与引用进来的地图js名字一致
             roam: true, // 禁止缩放平移
             zoom:1.2,
-            top:'10%',
-            left:'10%',
+            top:'15%',
+            left:'20%',
             right:'20%',
             bottom:'15%',
             aspectScale:0.9,
