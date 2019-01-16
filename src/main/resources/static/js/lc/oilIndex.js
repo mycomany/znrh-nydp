@@ -16,30 +16,33 @@ function main(val, ix){
 		var ls = val.data[val.index[i]];
 		 var dataArray = [];
 		    for(var s=0; s<ls[0].length; s++){
-		        dataArray.push({"name": val.xData[s], "value": ls[0][s],"value1":ls[1][s],"coordinate":val.coordinate[s]})
+		        dataArray.push({"name": val.xData[s], "value": ls[0][s],"value1":ls[1][s]})
 		    }
 		    dataArray.sort(function(a,b){
 		        return b.value - a.value
 		    });
-		    for(var k=0; k<dataArray.length; k++){
-		    	val.xData[k] = dataArray[k].name;
+		    //var xds = [];
+		    /*for(var k=0; k<dataArray.length; k++){
+		    	//val.xData[k] = dataArray[k].name;
+		    	xds.push(dataArray[k].name);
 		    	ls[0][k] = dataArray[k].value;
 		    	ls[1][k] = dataArray[k].value1;
 		    	val.coordinate[k] = dataArray[k].coordinate;
-		 }
+		 }*/
 		tmp = {};
 		tmp.time = val.index[i];
 		var da = [];
 		var de = [];
 		var te = {};
 		var ef = {};
-		for (var j = 0; j < val.xData.length; j++) {
+		for (var j = 0; j < dataArray.length; j++) {
 			te = {};
 			ef = {};
-			te.name = val.xData[j];
-			ef.name = val.xData[j];
-			te.value =  [ls[0][j],ls[1][j],val.xData[j]];
-			ef.value = [val.coordinate[j][0],val.coordinate[j][1],ls[1][j]];
+			te.name = dataArray[j].name;
+			ef.name = dataArray[j].name;
+			te.value =  [dataArray[j].value,dataArray[j].name];
+			ef.value = [val.coordinate[dataArray[j].name][0],val.coordinate[dataArray[j].name][1],dataArray[j].value1];
+			//alert(JSON.stringify(ef));
 			da.push(te);
 			de.push(ef);
 		}
@@ -301,7 +304,7 @@ function main(val, ix){
 		        tooltip: {
 		            formatter: function(v) {
 		            	//alert(JSON.stringify(v));
-		            	return v.name+'<br/>CO<sub>2</sub>排放量: '+v.data.value[0].toFixed(2)+' <br/>CO<sub>2</sub>人均排放量：'+v.data.value[1].toFixed(2)+'';
+		            	//return v.name+'<br/>CO<sub>2</sub>排放量: '+v.data.value[0].toFixed(2)+' <br/>CO<sub>2</sub>人均排放量：'+v.data.value[1].toFixed(2)+'';
 		            }
 		        },
 		        grid: {
@@ -395,7 +398,7 @@ function main(val, ix){
 		    	            color:'#fff',
 		    	            fontSize:10,
 		    	            formatter: function(v){
-		    	            	return v.name+'\n'+v.data.value[1].toFixed(2);
+		    	            	return v.name+'\n'+v.data.value[2].toFixed(2);
 		    	            }
 		    	        }
 		    	    },
@@ -486,7 +489,7 @@ function main(val, ix){
 					},
 		            data: data[i].data.map(function(ele) {
 		            	//alert(JSON.stringify(ele));
-		                return ele.value[2]
+		                return ele.value[1]
 		            }).reverse()
 		        },
 		        series: [{
@@ -512,103 +515,7 @@ function main(val, ix){
 		    })
 		}
 	
-	/*var option = {
-		tooltip:{
-		},
-		legend:{
-			data:data.legend
-		},
-		grid:{
-			top:'10%',
-			bottom:'10%',
-			left:'5%',
-			right:'5%',
-			containLabel:true,
-		},
-		xAxis: [{
-			type: 'category',
-			data: data.xData,
-			axisLine: {
-				lineStyle: {
-					color: '#87CEFF'
-				}
-			},
-			axisLabel: {
-				rotate: 45,
 
-				textStyle: {
-					color: '#ffffff'
-				}
-			}
-		}],
-		yAxis: [{
-			splitLine: {
-				show: false
-			},
-			type: 'value',
-			splitNumber:3,
-			splitLine: {
-				show: false
-			},
-			axisLine: {
-				lineStyle: {
-					color: '#87CEFF'
-				}
-			},
-			axisLabel: {
-				formatter:'{value}%',
-
-				textStyle: {
-					color: '#ffffff',
-				}
-			}
-		}],
-		series: [
-			{
-			name: '排放量',
-			type: 'bar',
-			barWidth: '30%',
-			itemStyle: {
-				normal: {
-					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-							offset: 0,
-							color: 'rgba(40,161,255,1)'
-						}, {
-							offset: 0.4,
-							color: 'rgba(40,161,255,0.5)'
-						}, {
-							offset: 1,
-							color: 'rgba(40,161,255,0.1)'
-						}]
-					),
-					barBorderRadius: [3, 3, 0, 0]
-				}
-			},
-			data: data.data[ix][0]
-		},
-		{
-			name: '人均排放量 ',
-			type: 'bar',
-			barWidth: '30%',
-			itemStyle: {
-				normal: {
-					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-							offset: 0,
-							color: 'rgba(5,255,211,1)'
-						}, {
-							offset: 0.4,
-							color: 'rgba(5,255,211,0.5)'
-						}, {
-							offset: 1,
-							color: 'rgba(5,255,211,0.1)'
-						}]
-					),
-					barBorderRadius: [3, 3, 0, 0]
-				}
-			},
-			data: data.data[ix][1]
-		}]
-	};*/
 	$chart.init('#main',option);
 }
 //石油开采资源综合利用情况
@@ -664,7 +571,7 @@ function chart1(data){
 			name:'吨CO2每吨标准煤',
 			nameGap:-5,
 			nameTextStyle:{
-				padding:[0,0,0,65],
+				padding:[0,0,0,110],
 				align:'center',
 				color:'#fff',
 			},
@@ -697,9 +604,9 @@ function chart1(data){
 		}],
 		series: [
 			{
-				name: '石油',
+				name: '中国',
 				type:'bar',
-				barWidth:15,
+				barWidth:'30%',
 				//stack:'g',
 				itemStyle: {
 					normal: {
@@ -707,7 +614,18 @@ function chart1(data){
 					},
 				},
 				data: data[2]
-			},
+			},{
+				name: '世界',
+				type:'bar',
+				barWidth:'30%',
+				//stack:'g',
+				itemStyle: {
+					normal: {
+						color: '#2b88ff'
+					},
+				},
+				data: data[3]
+			}
 		]
 	};
 	$chart.init('#chart1', option);

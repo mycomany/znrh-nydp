@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
     changeMap('nh');//chart1
+    changeMap('dh');
     getdata('/energy/oil/ha/chart2.json' + __time,chart2);
     getdata('/energy/oil/ha/chart3.json' + __time,getchart3);
     getdata('/energy/oil/ha/chart4.json' + __time,getChart4);
@@ -144,11 +145,11 @@ const lineColors = [{rgb1:65,rgb2:56,rgb3:225},{rgb1:64,rgb2:148,rgb3:255}];
 function chart1_nh(data){
     var option = {
         title: {
-            text: '中国石油开采综合能耗对比',
+            text: data[0][1][0],
             x: 'center',
             y: 0,
             textStyle:{
-                color:'#a4d6fe',
+                color:'#afffff',
                 fontSize:13,
                 fontWeight:'normal',
             }
@@ -181,15 +182,15 @@ function chart1_nh(data){
             textStyle:{
                 color:'#fff',
                 fontFamily: '微软雅黑',
-                fontSize: 10,
+                fontSize: 12,
             },
             data: data[0][2]
         },
         grid:{
-            top:'25%',
+            top:'10%',
             left:'5%',
             right:'5%',
-            bottom:'1%',
+            bottom:'10%',
             containLabel: true
         },
         xAxis: {
@@ -297,18 +298,18 @@ function chart1_nh(data){
             }
         ]
     };
-    var myChart = echarts.init($('#chart1')[0]);
+    var myChart = echarts.init($('#chart1_nh')[0]);
     myChart.setOption(option);
 }
 
 function chart1_dh(data){
     var option = {
         title: {
-            text: '中国石油开采综合能耗对比',
+            text: data[1][1][0],
             x: 'center',
             y: 0,
             textStyle:{
-                color:'#a4d6fe',
+                color:'#afffff',
                 fontSize:13,
                 fontWeight:'normal',
             }
@@ -341,15 +342,15 @@ function chart1_dh(data){
             textStyle:{
                 color:'#fff',
                 fontFamily: '微软雅黑',
-                fontSize: 10,
+                fontSize: 12,
             },
             data: data[1][2]
         },
         grid:{
-            top:'25%',
+            top:'10%',
             left:'5%',
             right:'5%',
-            bottom:'1%',
+            bottom:'10%',
             containLabel: true
         },
         xAxis: {
@@ -457,7 +458,7 @@ function chart1_dh(data){
             }
         ]
     };
-    var myChart = echarts.init($('#chart1')[0]);
+    var myChart = echarts.init($('#chart1_dh')[0]);
     myChart.setOption(option);
 }
 
@@ -776,10 +777,10 @@ function chart4(data, selectName){
             }
         },
         grid:{
-            top:'10%',
+            top:'5%',
             left:'5%',
             right:'5%',
-            bottom:'20%',
+            bottom:'25%',
             containLabel: true
         },
         xAxis: {
@@ -831,7 +832,7 @@ function chart4(data, selectName){
         ],
         legend:{
             show:true,
-            bottom : 0,
+            bottom : 10,
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{

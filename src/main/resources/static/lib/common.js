@@ -292,6 +292,32 @@ var RollingPlay = {
         }
     }
 };
+function RollingPlayNew(menu){
+    RollingPlay.uri = menu;
+    RollingPlay.group = ['elec','oil','gas'];
+    RollingPlay.goNext = function(){
+        var curr = location.href.replace(__host,''), uri = this.uri, nextu = '', b = false, i = -1, tp = '';
+        for(var m in uri){
+            i = uri[m].indexOf(curr);
+            if(i>-1){
+                b = true;
+                tp = m;
+                break;
+            }
+        }
+        if(b){
+            if(i<uri[tp].length-1){
+                i++;
+            }else{
+                i = 0;
+                var j = this.group.indexOf(tp) + 1, l = this.group.length;
+                tp = this.group[j % l];
+            }
+            gourl(__host + this.uri[tp][i]);
+        }
+    };
+    RollingPlay.rollPlayInit('rollingBtn');
+};
 
 var dui = {};
 dui.imgtab = function(o,p){
