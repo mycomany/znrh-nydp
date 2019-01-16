@@ -558,7 +558,7 @@ function chart2(data){
         },
         yAxis: [{
             type: 'value',
-            name:data[0][0],
+            // name:data[0][0],
             nameGap:-5,
             nameTextStyle:{
                 padding:[0,0,0,15],
@@ -574,7 +574,8 @@ function chart2(data){
                 textStyle: {
                     color: '#ffffff',
                     fontSize: 10
-                }
+                },
+                formatter: "{value}%"
             },
             //去掉辅助线
             "splitLine": {
