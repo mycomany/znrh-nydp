@@ -122,6 +122,8 @@ function main(){
             zoom:1.2,
             top:'10%',
             left:'10%',
+            right:'20%',
+            bottom:'15%',
             aspectScale:0.9,
             itemStyle: { // 每个区域的样式
                 normal: {
