@@ -1,8 +1,8 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
     getdata('/energy/elec/ha/main.json' + __time,main);
-    getdata('/energy/elec/ha/chart1.json' + __time,chart1);
-    getdata('/energy/elec/ha/chart2.json' + __time,chart2);
+    getdata('/energy/elec/ha/chart1.json' + __time,getChart1);
+    getdata('/energy/elec/ha/chart2.json' + __time,getChart2);
     getdata('/energy/elec/ha/chart3.json' + __time,getchart3);
     getdata('/energy/elec/ha/chart4.json' + __time,chart4);
 });
@@ -158,14 +158,18 @@ function main(){
     myChart.setOption(option);
 }
 
+var chart1Data;
+function getChart1(data){
+    chart1Data = data;
+    chart1(chart1Data, '2018-11')
+}
 function change1(v){
-
+    chart1(chart1Data, v)
 }
 
-function chart1(data){
+function chart1(data, yf){
 
     var chartId = "chart1";
-    var yf = "11";
 
     var seriArray = [];
     for(var i=0; i<data[1].length; i++){
@@ -190,7 +194,7 @@ function chart1(data){
                         }
                     }
                 },
-                "data": data[4][yf][data[3][i]],
+                "data": data[3][yf][data[1][i]],
             }
         );
     }
@@ -297,26 +301,32 @@ function chart1(data){
     setH(chartId);
 }
 
+var chart2Data;
+function getChart2(data){
+    chart2Data = data;
+    chart2(chart2Data, '2018-11')
+}
 function change2(v){
-
+    chart2(chart2Data, v)
 }
 
-function chart2(data){
+function chart2(data, yf){
 
     var chartId = "chart2";
-    var yf = "11"
 
-    //排序，名称data[0][2]，数据data[0][3][yf]["fd"]
+    //排序，名称data[2]，数据data[3][yf]
     var dataArray = [];
-    for(var i=0; i<data[0][2].length; i++){
-        dataArray.push({"name": data[0][2][i], "value": data[0][3][yf]["fd"][i]});
+    for(var i=0; i<data[2].length; i++){
+        dataArray.push({"name": data[2][i], "value": data[3][yf][i]});
     }
     dataArray.sort(function(a,b){
         return b.value - a.value
     });
+
+    var xNames = [], yData = [];
     for(var i=0; i<dataArray.length; i++){
-        data[0][2][i] = dataArray[i].name;
-        data[0][3][yf]["fd"][i] = dataArray[i].value;
+        xNames.push(dataArray[i].name);
+        yData.push(dataArray[i].value);
     }
 
     option = {
@@ -333,8 +343,8 @@ function chart2(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    if(params[i].seriesName == data[0][0][0]){
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1][0];
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
                     }
                 }
                 return res;
@@ -347,23 +357,10 @@ function chart2(data){
             bottom:'10%',
             containLabel: true
         },
-        /* "legend": {
-             show:true,
-             bottom : '2%',
-             itemGap: 12, //图例每项之间的间隔
-             itemWidth: 16, //图例宽度
-             itemHeight: 8, //图例高度
-             textStyle: {
-                 color:'#fff',
-                 fontFamily: '微软雅黑',
-                 fontSize: 10,
-             },
-             data: data[0][0],
-         },*/
         "xAxis": [
             {
                 "type": "category",
-                "data": data[0][2],
+                "data": xNames,
                 "axisPointer": {
                     "type": "shadow"
                 },
@@ -388,7 +385,7 @@ function chart2(data){
         "yAxis": [
             {
                 type: 'value',
-                // name:data[0][1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -414,9 +411,9 @@ function chart2(data){
         ],
         "series": [
             {
-                "name": data[0][0][0],
+                "name": data[0][0],
                 "type": "bar",
-                "data": data[0][3][yf]["fd"],
+                "data": yData,
                 "barWidth": "40%",
                 yAxisIndex:0,
                 itemStyle: {
