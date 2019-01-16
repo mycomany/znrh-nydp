@@ -4,7 +4,7 @@ $(document).ready(function(){
     getdata('/energy/elec/ha/chart1.json' + __time,getChart1);
     getdata('/energy/elec/ha/chart2.json' + __time,getChart2);
     getdata('/energy/elec/ha/chart3.json' + __time,getchart3);
-    getdata('/energy/elec/ha/chart4.json' + __time,chart4);
+    getdata('/energy/elec/ha/chart4.json' + __time,getChart4);
 });
 
 function setH(id){
@@ -575,26 +575,32 @@ function chart3(data, selectName){
     myChart.setOption(option);
 }
 
-
+var chart3Data;
+function getChart4(data){
+    chart3Data = data;
+    chart4(chart3Data, "2018-11")
+}
 function change4(v){
-
+    chart4(chart3Data, v)
 }
 
-function chart4(data){
+function chart4(data, yf){
 
     var chartId = "chart4";
 
     //排序，名称data[2]，数据data[3]
     var dataArray = [];
     for(var i=0; i<data[2].length; i++){
-        dataArray.push({"name": data[2][i], "value": data[3][i]});
+        dataArray.push({"name": data[2][i], "value": data[3][yf][i]});
     }
     dataArray.sort(function(a,b){
         return b.value - a.value
     });
+
+    var xData = [], yData = [];
     for(var i=0; i<dataArray.length; i++){
-        data[2][i] = dataArray[i].name;
-        data[3][i] = dataArray[i].value;
+        xData.push(dataArray[i].name);
+        yData.push(dataArray[i].value);
     }
 
     option = {
@@ -625,23 +631,10 @@ function chart4(data){
             bottom:'10%',
             containLabel: true
         },
-        // "legend": {
-        //     show:true,
-        //     bottom : '2%',
-        //     itemGap: 12, //图例每项之间的间隔
-        //     itemWidth: 16, //图例宽度
-        //     itemHeight: 8, //图例高度
-        //     textStyle: {
-        //         color:'#fff',
-        //         fontFamily: '微软雅黑',
-        //         fontSize: 10,
-        //     },
-        //     data: data[0],
-        // },
         "xAxis": [
             {
                 "type": "category",
-                "data": data[2],
+                "data": xData,
                 "axisPointer": {
                     "type": "shadow"
                 },
@@ -695,7 +688,7 @@ function chart4(data){
             {
                 "name": data[0][0],
                 "type": "bar",
-                "data": data[3],
+                "data": yData,
                 barWidth: "40%",
                 "itemStyle": {
                     "normal": {
