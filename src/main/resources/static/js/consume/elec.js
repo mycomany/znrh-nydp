@@ -1,12 +1,16 @@
 $(document).ready(function(){
+	var d = ["2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10","2018-11"];
+    creatSelect(d,'change','2018-11',"change11");
 	getdata('/consume/elec/main.json',getMain);
 	getdata('/consume/elec/main1.json',getMain1)
 	getdata('/consume/elec/chart1.json',chart1);
-	getdata('/consume/elec/chart2.json',getChart2);
+	//getdata('/consume/elec/chart2.json',getChart2);
+	getdatax('/consume/elec/chart2.json',chart2);
 	getdata('/consume/elec/chart3.json',chart3);
-	getdata('/consume/elec/chart4.json',getChart4);
-	getdata('/consume/elec/chart5.json',getChart5);
-	getdata('/consume/elec/chart6.json',getChart6);
+	getdatax('/consume/elec/chart4.json',chart4);
+	//getdata('/consume/elec/chart5.json',getChart5);
+	getdatax('/consume/elec/chart5.json',chart5);
+	getdatax('/consume/elec/chart6.json',chart6);
 });
 
 
@@ -200,8 +204,22 @@ function change2(date){
 	chart2(chartData2,1);
 }
 
-function chart2(data,a){
+function chart2(data,date,a,name){
+	//alert(JSON.stringify(data));
+	data2 = data;
+	var val = data.data[date];
 	var color = [['#2b88ff', '#4df3f3', '#dedd4f'],['#4df3f3','#2b88ff','#dedd4f']]
+	if (a != '2') {
+		a = 1;
+	}
+	if (a == '2') {
+		for (var i = 0; i < data.data[date].length; i++) {
+			if (data.data[date][i].name == name&&data.data[date][i].data.length>0) {
+				val = data.data[date][i].data;
+			}
+		}
+	}
+	//alert(JSON.stringify(val));
 	option = {
 		    color: color[a-1],
 		    tooltip: {
@@ -235,7 +253,7 @@ function chart2(data,a){
 		                    show: false
 		                }
 		            },
-		            data: data
+		            data: val
 		        },
 		        {
 		            type: 'pie',
@@ -283,7 +301,7 @@ function chart2(data,a){
 		                    }
 		                }
 		            },
-		            data:  data
+		            data:  val
 		        }
 		    ]
 		};
@@ -291,16 +309,11 @@ function chart2(data,a){
     myChart.setOption(option);
     myChart.on('click', function rose(params) {
     	if (a == 1) {
-    		for (var i = 0; i < data.length; i++) {
-    			if (data[i].name == params.name&&data[i].data.length>0) {
-    				 myChart.clear();
-    				 //alert(JSON.stringify(data[i].data));
-    				chart2(data[i].data,2);
-    			}
-    		}
+    		myChart.clear();
+    		chart2(data2,date,2,params.name);
 		}else{
 			myChart.clear();
-			chart2(chartData2,1);
+			chart2(data2,date,1,'');
 		}
     });
 }
@@ -459,29 +472,9 @@ function chart3(data){
 	var myChart = echarts.init($('#chart3')[0]);
     myChart.setOption(option);
 }
-var data4 = [];
-function getChart4(data){
-	data4 = data;
-	chart4(data.xData,data.data["2018-11"]);
-}
-function change4(date){
-	chart4(data4.xData,data4.data[date]);
-}
-function chart4(xData,data){
-	var val = data;
 
-    //排序，名称data[2]，数据data[3]
-    var dataArray = [];
-    for(var i=0; i<val.length; i++){
-        dataArray.push({"name": xData[i], "value": val[i]})
-    }
-    dataArray.sort(function(a,b){
-        return b.value - a.value
-    });
-    for(var i=0; i<dataArray.length; i++){
-    	xData[i] = dataArray[i].name;
-        val[i] = dataArray[i].value;
-    }
+function chart4(data,name){
+	var val = data.data[name];
 	var option = {
 		tooltip : {
 		  trigger: 'axis'
@@ -494,6 +487,7 @@ function chart4(xData,data){
 			 containLabel: true
 			 },
 		legend: { //图例组件，颜色和名字
+			show:false,
 		   itemGap: 12, //图例每项之间的间隔
 		   itemWidth: 16,
 		   itemHeight: 8,
@@ -533,7 +527,7 @@ function chart4(xData,data){
                 fontSize: 10
             },
         },
-		            data : xData
+		 data : data.xData
 		        },
 		    yAxis : [{
 		    	 type: 'value',
@@ -582,7 +576,7 @@ function chart4(xData,data){
 		                	color:'#2b88ff',
 		                	areaStyle: {type: 'default'}}    
 		            },
-		            data:data
+		            data:val
 		        }
 		    ]
 		};
@@ -591,17 +585,9 @@ function chart4(xData,data){
     myChart.setOption(option);
 }
 
-var data5 = [];
-function getChart5(data){
-	data5 = data;
-	chart5(data,'农林牧渔');
-}
-function change5(name){
-	chart5(data5,name);
-}
 
 function chart5(data,name){
-	var val = data[name];
+	var val = data.data[name];
 	var option =  {
 			grid: {
 				left: '3%',
@@ -616,7 +602,7 @@ function chart5(data,name){
 				itemHeight: 8,
 				x:'center',
 				bottom:'2%',
-				data: data[0],
+				data: data.legend,
 				textStyle: {
 					color: '#fff',
 					fontSize: 10,
@@ -729,17 +715,10 @@ function chart5(data,name){
     myChart.setOption(option);
 }
 
-var data6 = [];
-function getChart6(data){
-	data6 = data;
-	chart6(data,'2018-11');
-}
-function change6(date){
-	chart6(data6,date);
-}
+
 
 function chart6(data,date){
-	var xData = data.legend;
+	var xData = data.xData;
 	var value = data.data[date];
 	
 	var val = value;
@@ -1087,16 +1066,15 @@ function main1(data,date){
                 }
             },
             title:[{
-                text:'跨区域电量交换分析',
+                text:'跨省域电量交换分析',
                 subtext:'单位：万千瓦时',
-                top:'1%',
                 left:'center',
                 textStyle: {
-                    color: '#59EBE8',
+                    color: '#a4d6fe',
                     fontSize:16,
                 },
                 subtextStyle: {
-                    color: '#fff',
+                    color: '#a4d6fe',
                     fontSize:10,
                 }
             }],
@@ -1486,7 +1464,12 @@ function main(data,type,date){
 		        subtext: '单位: 万千瓦时',
 		        left: 'center',
 		        textStyle : {
-		            color: '#fff'
+		            color: '#a4d6fe',
+		            fontSize:16,
+		        },
+		        subtextStyle : {
+		            color: '#a4d6fe',
+		            fontSize:10,
 		        }
 		    },
 		    tooltip : {
