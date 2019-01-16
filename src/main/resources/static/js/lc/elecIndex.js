@@ -142,6 +142,7 @@ function chart1(data){
 			{
 				name: "装机容量",
 				type: "line",
+				smooth:true,
 				itemStyle: {
 					normal: {
 					},
@@ -370,6 +371,7 @@ function chart3(data){
 			{
 				name: "排放量",
 				type: "line",
+				smooth:true,
 				itemStyle: {
 					normal: {
 					},
