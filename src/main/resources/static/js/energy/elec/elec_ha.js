@@ -457,7 +457,11 @@ function chart3(data, selectName){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    if(params[i].seriesName == data[1][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    }else if(params[i].seriesName == data[1][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
+                    }
                 }
                 return res;
             }
@@ -466,7 +470,7 @@ function chart3(data, selectName){
             left: '5%',
             right:'5%',
             top:'5%',
-            bottom:'10%',
+            bottom:'20%',
             containLabel: true
         },
         "legend": {
@@ -480,12 +484,12 @@ function chart3(data, selectName){
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
-            data: data[0][0],
+            data: data[1],
         },
         "xAxis": [
             {
                 "type": "category",
-                "data": data[1],
+                "data": data[2],
                 "axisPointer": {
                     "type": "shadow"
                 },
@@ -498,7 +502,7 @@ function chart3(data, selectName){
                 axisLabel: {
                     textStyle: {
                         color: '#ffffff',
-                        fontSize: 10
+                        fontSize: 12
                     }
                 },
                 //去掉辅助线
@@ -532,13 +536,38 @@ function chart3(data, selectName){
                 "splitLine": {
                     "show": false
                 }
+            },
+            {
+                type: 'value',
+                name:data[0][1],
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,15],
+                    align:'center',
+                    color:'#fff',
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    }
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                }
             }
         ],
         "series": [
             {
-                "name": selectName,
+                "name": data[1][0],
                 "type": "line",
-                "data": data[3][selectName],
+                "data": data[4][data[1][0]][selectName],
                 smooth: true,
                 showSymbol: false,
                 "yAxisIndex": 0,
@@ -568,6 +597,40 @@ function chart3(data, selectName){
 
                     }
                 },
+            },
+            {
+                "name": data[1][1],
+                "type": "line",
+                "data": data[4][data[1][1]][selectName],
+                smooth: true,
+                showSymbol: false,
+                "yAxisIndex": 1,
+                "itemStyle": {
+                    "normal": {
+                        "color": "#2b88ff"
+                    }
+                },
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+')',
+                        borderColor: 'rgba('+lineColors[1].rgb1+','+lineColors[1].rgb2+','+lineColors[1].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             }
         ]
     };
@@ -575,13 +638,13 @@ function chart3(data, selectName){
     myChart.setOption(option);
 }
 
-var chart3Data;
+var chart4Data;
 function getChart4(data){
-    chart3Data = data;
-    chart4(chart3Data, "2018-11")
+    chart4Data = data;
+    chart4(chart4Data, "2018-11")
 }
 function change4(v){
-    chart4(chart3Data, v)
+    chart4(chart4Data, v)
 }
 
 function chart4(data, yf){
