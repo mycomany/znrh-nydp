@@ -791,7 +791,7 @@ function chart4(data, selectName){
             {
                 type: 'value',
                 // name:data[1][0],
-                min: 'dataMin', // 最小值
+                // min: 'dataMin', // 最小值
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
