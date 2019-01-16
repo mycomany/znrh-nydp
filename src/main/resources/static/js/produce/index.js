@@ -5,16 +5,16 @@ let main_type="makePower" //makePower||installed
 const _default_clean_power_company = '全国'
 $(document).ready(function(){
     // getdata('/product/index/productIndex.json',initEnergyRatio);
-    getdata('/produce/index/installAndGeneration.json',installAndGeneration);
-    getdata('/produce/index/installCapacity.json',installCapacity);//装机容量排名
-    getdata('/produce/index/powerMaked.json',powerMaked);//发电量排名
-    getdata('/produce/index/intenetUsed.json',internetUsed);//上网电量排名
-    getdata('/produce/index/deviceTotalUsedRatio.json',deviceUsedRatio);
-    getdata('/produce/index/makeWarmingRecord.json',makeWarmingRecord);
-    getdata('/produce/index/consumeForMakeWarming.json',consume);
+    getdatax('/produce/index/installAndGeneration.json',installAndGeneration);
+    getdatax('/produce/index/installCapacity.json',installCapacity);//装机容量排名
+    getdatax('/produce/index/powerMaked.json',powerMaked);//发电量排名
+    getdatax('/produce/index/intenetUsed.json',internetUsed);//上网电量排名
+    getdatax('/produce/index/deviceTotalUsedRatio.json',deviceUsedRatio);
+    getdatax('/produce/index/makeWarmingRecord.json',makeWarmingRecord);
+    getdatax('/produce/index/consumeForMakeWarming.json',consume);
 
     getdata('/produce/index/cleanPowerInstall.json',cleanPowerInstallInfos);
-    getdata('/produce/index/cleanPowerMaked.json',cleanPowerInfos);
+    getdatax('/produce/index/cleanPowerMaked.json',cleanPowerInfos);
     getdata('/produce/index/cleanPowerDetails.json',loadTabInfo);
     // getdata('/produce/index/cleanPowerMaked.json',cleanPowerMaked);
     // getdata('/produce/index/cleanPowerInstall.json',cleanPowerInstall);
@@ -39,17 +39,17 @@ function mainAreaStyles(){
     const mainHeight = $(".main_order_bg").height()
 
     const topPercentArray = [
-        0.25,
-        0.105,
-        0.59,
-        0.125,
-        0.58,
-        0.27,
-        0.52,
+        0.28,
+        0.14,
+        0.595,
+        0.16,
+        0.587,
+        0.29,
+        0.53,
         0.675,
-        0.13,
-        0.535,
-        0.33]
+        0.165,
+        0.54,
+        0.35]
 
     topPercentArray.forEach((topPercent,i)=>{
         const companyTop = mainHeight*topPercent
@@ -77,12 +77,12 @@ function mainAreaLister(){
         $(".main_show_type").removeClass("main_show_installed_checked")
 
         if(orderType==='makePower'){
-            cleanPowerInfos('select',$(".qmain").find("#cleanPowerSelected"))
+            cleanPowerInfos(_data_cache.cleanPowerInfos,$(".qmain").find("#cleanPowerSelected"))
             loadTabInfo('select',_default_clean_power_company,$("#cleanPowerSelected").val())
             $(".main_show_power").addClass("main_show_power_checked")
 
         }else{
-            cleanPowerInstallInfos('select',$(".qmain").find("#cleanPowerSelected"))
+            cleanPowerInstallInfos(_data_cache.cleanPowerInstallInfos,$(".qmain").find("#cleanPowerSelected"))
             loadTabInfo('select',_default_clean_power_company,$("#cleanPowerSelected").val())
             $(".main_show_installed").addClass("main_show_installed_checked")
 
@@ -96,43 +96,45 @@ function mainAreaLister(){
     })
 }
 
-function installAndGeneration(jsonData,selectObj){
-    let selectPoint = _default_company_name
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.installAndGeneration = jsonData
-    }
+function installAndGeneration(jsonData,selectPoint){
+    console.log("------>"+selectPoint)
 
     let months = {}
     const seriesDataArray = []
 
     let lineDataObj = {}
-    _data_cache.installAndGeneration.forEach(groups=>{
+    jsonData.data.forEach(groups=>{
         const group = groups['group']
         const groupDatas = groups['groupDatas']
 
-        groupDatas.forEach(groupData=>{
-            const companyName = groupData['companyName']
-            const date = groupData["date"]//
-            let val = groupData['value']
-            // if(companyName!='全国'){
-            //     val = (val/10000).toFixed(2)
-            // }
-
-            const ratio = groupData["ratio"]//同比
-            if(companyName===selectPoint) {
-                if(lineDataObj[group]!=null){
-
-                }else{
-                    lineDataObj[group] = []
-                }
-                lineDataObj[group].push(val)
-                if(months[date]==null){
-                    months[date]='SCQ'
-                }
+        let allCompanys = Object.keys(groupDatas)
+        allCompanys.forEach(company=>{
+            if(company===selectPoint){
+                lineDataObj[group] = groupDatas[company]
             }
         })
+
+        // groupDatas.forEach(groupData=>{
+        //     const companyName = groupData['companyName']
+        //     const date = groupData["date"]//
+        //     let val = groupData['value']
+        //     // if(companyName!='全国'){
+        //     //     val = (val/10000).toFixed(2)
+        //     // }
+        //
+        //     const ratio = groupData["ratio"]//同比
+        //     if(companyName===selectPoint) {
+        //         if(lineDataObj[group]!=null){
+        //
+        //         }else{
+        //             lineDataObj[group] = []
+        //         }
+        //         lineDataObj[group].push(val)
+        //         if(months[date]==null){
+        //             months[date]='SCQ'
+        //         }
+        //     }
+        // })
     })
     const lineColors = [{rgb1:65,rgb2:56,rgb3:225},{rgb1:64,rgb2:148,rgb3:255}]
 
@@ -257,7 +259,7 @@ function installAndGeneration(jsonData,selectObj){
             splitLine: {
                 show: false
             },
-            data: Object.keys(months)
+            data: jsonData.xData
         }],
         yAxis: [{
             type: 'value',
@@ -484,36 +486,18 @@ function makeOrders(orderDatas,selectPoint,point){
     return option
 }
 
-function installCapacity(jsonData,selectObj){
+function installCapacity(jsonData,selectPoint){
     //X轴：全国+10家名称 Y轴：左侧装机量+右侧同比 装机量
-    let selectPoint = _default_select_date
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.installCapacity = jsonData
-        selectPoint = checkInitDate("installCapacitySelect")
-    }
 
-
-    const option = makeOrders(_data_cache.installCapacity,selectPoint,'千瓦')
+    const option = makeOrders(jsonData.data,selectPoint,'千瓦')
 
     var myChart = echarts.init($('#installCapacity')[0]);
     myChart.setOption(option);
 
 }
 
-function powerMaked(jsonData,selectObj){
-    //X轴：全国+10家名称 Y轴：左侧装机量+右侧同比 装机量
-    let selectPoint = _default_select_date
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.powerMaked = jsonData
-        selectPoint = checkInitDate("powerMakedSelected")
-
-    }
-
-    const option = makeOrders(_data_cache.powerMaked,selectPoint,'万千瓦时')
+function powerMaked(jsonData,selectPoint){
+    const option = makeOrders(jsonData.data,selectPoint,'万千瓦时')
 
 
     var myChart = echarts.init($('#powerMaked')[0]);
@@ -521,18 +505,9 @@ function powerMaked(jsonData,selectObj){
 
 }
 
-function internetUsed(jsonData,selectObj){
-    //X轴：全国+10家名称 Y轴：左侧装机量+右侧同比 装机量
-    let selectPoint = _default_select_date
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.internetUsed = jsonData
-        selectPoint = checkInitDate("internetUsedSelected")
+function internetUsed(jsonData,selectPoint){
 
-    }
-
-    const option = makeOrders(_data_cache.internetUsed,selectPoint,'万千瓦时')
+    const option = makeOrders(jsonData.data,selectPoint,'万千瓦时')
 
 
     var myChart = echarts.init($('#internetUsed')[0]);
@@ -540,19 +515,11 @@ function internetUsed(jsonData,selectObj){
 
 }
 
-function deviceUsedRatio(jsonData,selectObj){
-    let selectPoint = _default_company_name
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.deviceUsedRatio = jsonData
-        selectPoint = checkInitDate("deviceUsedRatioSelected")
-
-    }
+function deviceUsedRatio(jsonData,selectPoint){
     let lineObject = {}
     let line2Object = {}
     let legArray = {}
-    _data_cache.deviceUsedRatio.forEach((productInfo)=>{
+    jsonData.data.forEach((productInfo)=>{
         const areaName = productInfo["type"]
         const date = productInfo["date"]
         const val = productInfo["value"]
@@ -567,14 +534,6 @@ function deviceUsedRatio(jsonData,selectObj){
             }
 
         }
-
-        // if((year+'-'+month)===selectPoint){
-        //     if(lineObject[areaName]!=null){}
-        //     else{
-        //         lineObject[areaName] = val
-        //         line2Object[areaName] = ratio
-        //     }
-        // }
     })
 
     const xArray = Object.keys(lineObject)
@@ -725,19 +684,12 @@ function deviceUsedRatio(jsonData,selectObj){
     myChart.setOption(option);
 }
 
-function makeWarmingRecord(jsonData,selectObj){
-    let selectPoint = _default_select_date
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.makeWarmingRecord = jsonData
-        selectPoint = checkInitDate("makeWarmingRecordSelected")
-    }
+function makeWarmingRecord(jsonData,selectPoint){
     let lineObject = {}
 
     let barDatas = {}
     let lineDatas = {}
-    _data_cache.makeWarmingRecord.forEach(groupJsonObj=>{
+    jsonData.data.forEach(groupJsonObj=>{
         const groupNm = groupJsonObj['group']
         const groupDatas = groupJsonObj['groupDatas']
         barDatas[groupNm] = []
@@ -940,19 +892,11 @@ function makeWarmingRecord(jsonData,selectObj){
 
 }
 
-function consume(jsonData,selectObj){
-    let selectPoint = _default_select_date
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.consume = jsonData
-        selectPoint = checkInitDate("deviceUsedRatioSelected")
-
-    }
+function consume(jsonData,selectPoint){
     let lineObject = {}
     let line2Object = {}
     let xArray = []
-    _data_cache.consume.forEach((productInfo)=>{
+    jsonData.data.forEach((productInfo)=>{
         const areaName = productInfo["type"]
         const year = productInfo["year"]
         const month = productInfo["month"]
@@ -1115,32 +1059,36 @@ function consume(jsonData,selectObj){
 }
 
 
-function cleanPowerInfos(jsonData,selectObj){
-    let selectPoint = _default_select_date
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-        loadTabInfo('select',_default_clean_power_company,selectPoint)
-    }else{
-        _data_cache.cleanPowerInfos = jsonData
-        selectPoint = checkInitDate("cleanPowerSelected")
-
-    }
-
-    cleanPowerMake(_data_cache.cleanPowerInfos,selectPoint)
+function cleanPowerInfos(jsonData,selectPoint){
+    // let selectPoint = _default_select_date
+    // if(isSelect(jsonData)){
+    //     selectPoint = $(selectObj).val()
+    //     loadTabInfo('select',_default_clean_power_company,selectPoint)
+    // }else{
+    //     _data_cache.cleanPowerInfos = jsonData
+    //     selectPoint = checkInitDate("cleanPowerSelected")
+    //
+    // }
+    _data_cache.cleanPowerInfos = jsonData.data
+    cleanPowerMake(jsonData.data,selectPoint)
 }
 
-function cleanPowerInstallInfos(jsonData,selectObj){
-    let selectPoint = _default_select_date
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-        loadTabInfo('select',_default_clean_power_company,selectPoint)
-    }else{
-        _data_cache.cleanPowerInstallInfos = jsonData
-        selectPoint = checkInitDate("cleanPowerSelected")
+function cleanPowerInstallInfos(jsonData,selectPoint){
+    // let selectPoint = _default_select_date
+    // if(isSelect(jsonData)){
+    //     selectPoint = $(selectObj).val()
+    //     loadTabInfo('select',_default_clean_power_company,selectPoint)
+    // }else{
+    //     _data_cache.cleanPowerInstallInfos = jsonData
+    //     selectPoint = checkInitDate("cleanPowerSelected")
+    //
+    // }
+    //
+    // cleanPowerMake(_data_cache.cleanPowerInstallInfos,selectPoint)
+    _data_cache.cleanPowerInstallInfos = jsonData.data
 
-    }
+    cleanPowerMake(jsonData.data,selectPoint)
 
-    cleanPowerMake(_data_cache.cleanPowerInstallInfos,selectPoint)
 }
 
 function cleanPowerMake(datas,selectPoint){
@@ -1159,6 +1107,7 @@ function cleanPowerMake(datas,selectPoint){
 
     showDatas.forEach((showData,i)=>{
         $(".main_order_name"+(i+1)).empty()
+        // $(".main_order_name"+(i+1)).html(showData['type']+'<br><span class="main_order_name_val">'+showData['val']+'%</span>')
         $(".main_order_name"+(i+1)).html(showData['type']+'<br><span class="main_order_name_val">'+showData['val']+'%</span>')
         // $(".main_order_name"+(i+1)).html(showData['type']+i)
     })

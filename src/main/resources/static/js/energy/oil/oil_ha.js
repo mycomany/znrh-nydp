@@ -4,34 +4,27 @@ $(document).ready(function(){
     getdata('/energy/oil/ha/chart2.json' + __time,chart2);
     getdata('/energy/oil/ha/chart3.json' + __time,getchart3);
     getdata('/energy/oil/ha/chart4.json' + __time,getChart4);
-    // getdata('/energy/oil/ha/main.json' + __time,main);
-    main();
+    getdata('/energy/oil/ha/main.json' + __time,getMain);
 });
 
-function changeMain(v){
+function changeMainDate(v){
     console.log(v);
 }
 
-function main(){
-    var mapData = [{
-        name: '俄罗斯',
-        value: [39.378811,57.509873,93]
-    },{
-        name: '欧盟',
-        value: [20.907925,51.142768,90]
-    },{
-        name: '韩国',
-        value: [127.538658,35.932183,95]
-    },{
-        name: '日本',
-        value: [138.393063,36.201055,90]
-    },{
-        name: '美国',
-        value: [-101.838839,40.002538,95]
-    },{
-        name: '中国',
-        value: [103.033458,34.354405,92]
-    }];
+var mainData;
+function getMain(data){
+    mainData = data;
+    main(mainData, "炼油");
+}
+function changeMain(v, param){
+    var id ="#"+param;
+    $(".d"). removeClass("check_btn_option_checked");
+    $(id). addClass("check_btn_option_checked");
+    main(mainData, v);
+}
+
+function main(data, selectName){
+    var mapData = data[selectName];
     var color = ['#9ae5fc', '#2874ff']; // 自定义图中要用到的颜色
     var series = []; // 用来存储地图数据
 
@@ -45,7 +38,7 @@ function main(){
         },
         label: {
             normal: {
-                show: true,
+                show: false,
                 //position: 'bottom',
                 color:'#fff',
                 fontSize:14,
@@ -59,7 +52,7 @@ function main(){
 //	    	if (val[3]>60) {
 //	    		return 60;
 //			}
-            return val[2]/10*3;
+            return val[2]/data["nm"][selectName];
         },
         itemStyle: {
             normal: {
@@ -72,11 +65,12 @@ function main(){
     // 最后初始化世界地图中的相关数据
     var option = ({
         title : {
-            text: '',
-            left: 'center',
+            text: '高耗能行业集中度国际对比',
+            right:"40%",
+            top: 0,
             textStyle : {
                 color: '#a4d6fe',
-                fontSize: 18
+                fontSize: 15
             }
         },
         tooltip: {
@@ -84,7 +78,7 @@ function main(){
             formatter: function(params) {
                 if (params.componentSubType == 'effectScatter') {
                     //alert(JSON.stringify(params));
-                    return params.name+' : <br/>'+params.data.value[2]+' %';
+                    return params.name+' : <br/>'+params.data.value[2] + ' 万吨';
                 }else{
                     return '';
                 }
@@ -94,7 +88,7 @@ function main(){
             map: 'world', // 与引用进来的地图js名字一致
             roam: true, // 禁止缩放平移
             zoom:1.2,
-            top:'10%',
+            top:'15%',
             left:'10%',
             right:'20%',
             bottom:'15%',
@@ -678,6 +672,19 @@ function chart3(data, selectName){
                 fontSize: 30
             }
         },
+        legend:{
+            show:true,
+            selectedMode:false,
+            left : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 12,
+            },
+            data: [selectName]
+        },
         color: ['#2baffb', '#313443', '#fff'],
         tooltip: {
             show: true,
@@ -685,7 +692,7 @@ function chart3(data, selectName){
         },
         series: [
             {
-                name: 'Line 1',
+                name: selectName,
                 type: 'pie',
                 clockWise: false,
                 radius: [50, 55],
@@ -797,7 +804,7 @@ function chart4(data, selectName){
             {
                 type: 'value',
                 // name:data[1][0],
-                min: 'dataMin', // 最小值
+                // min: 'dataMin', // 最小值
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
