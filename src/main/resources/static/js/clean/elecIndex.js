@@ -324,7 +324,7 @@ function chart3(data){
 				min:0,
 				max:100,
 				endAngle:45,
-				splitNumber:10,
+				splitNumber:4,
 				axisLine: {            // 坐标轴线
 					lineStyle: {       // 属性lineStyle控制线条样式
 						color:  [[0.3, '#25e4a3'],[0.5, '#faf13f'],[1, '#f7355e']],
@@ -372,7 +372,7 @@ function chart3(data){
 				center: ['79%', '50%'],    // 默认全局居中
 				radius: '55%',
 				min: 0,
-				max: 200,
+				max: 100,
 				startAngle: 135,
 				endAngle: 45,
 				splitNumber: 2,
