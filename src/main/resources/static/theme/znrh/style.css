@@ -194,7 +194,7 @@ div.qpanel div{z-index:1;}*/
 }
 .qmenu-ico{
     position:absolute;
-    top:10px;
+    top:5px;
     left:5px;
     z-index:1;
     height:50px;
@@ -278,7 +278,7 @@ div.qpanel div{z-index:1;}*/
 }
 .qnav1>li span{padding-left:5px;}
 .qnav1>li a{color:#efefef;}
-.qnav1>li.active{background: url(navbtn2.active.png) no-repeat 30% 50%;background-size:80% 50%;}
+.qnav1>li.active{background: url(navbtn2.active.png) no-repeat 50% 50%;background-size:70% 50%;}
 .qnav1>li.active:before{border:1px solid #28b1f9; }
 .qnav1>li a:hover,.qnav1>li.active a{color:#2ab7ff;}
 .qnav2{  width:calc(100% - 130px);margin:0  }
