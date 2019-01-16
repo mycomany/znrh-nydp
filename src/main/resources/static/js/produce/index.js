@@ -736,6 +736,9 @@ function makeWarmingRecord(jsonData,selectPoint){
                 type:makeType,
                 // barWidth:15,
                 yAxisIndex: whichY,
+                smooth: true,
+                symbolSize: 1,
+                symbol: 'circle',
                 data:barSerData
             };
             if(makeType==='bar'){
