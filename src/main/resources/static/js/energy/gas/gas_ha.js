@@ -122,8 +122,8 @@ function main(mainData, lx){
             map: 'world', // 与引用进来的地图js名字一致
             roam: true, // 禁止缩放平移
             zoom:1.2,
-            top:'20%',
-            left:'7%',
+            top:'10%',
+            left:'10%',
             aspectScale:0.9,
             itemStyle: { // 每个区域的样式
                 normal: {
