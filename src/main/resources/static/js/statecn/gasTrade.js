@@ -2,7 +2,7 @@ $(document).ready(function(){
     main();
     getdata('/statecn/gasTrade/chart1.json',chart1);
     getdata('/statecn/gasTrade/chart2.json',chart2);
-    getdata('/statecn/gasTrade/near10Order.json',chart3);
+    getdata('/statecn/gasTrade/chart3.json',chart3);
     getdata('/statecn/gasTrade/chart4.json',chart4);
 });
 
