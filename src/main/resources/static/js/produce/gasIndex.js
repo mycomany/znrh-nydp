@@ -3,12 +3,12 @@ let _data_cache = {}
 $(document).ready(function(){
     main("c1");
     chart1();
-    getdata('/produce/gasIndex/near10Order.json',near10Order);
+    getdatax('/produce/gasIndex/near10Order.json',near10Order);
     // chart3();
     chart4();
     getdata('/produce/gasIndex/areaRatioOrder.json',chart5);
-    getdata('/produce/gasIndex/wordTop10Machining.json',chart6);
-    getdata('/produce/gasIndex/cnTop10Machining.json',chart7);
+    getdatax('/produce/gasIndex/wordTop10Machining.json',chart6);
+    getdatax('/produce/gasIndex/cnTop10Machining.json',chart7);
 });
 
 function isSelect(jsonData){
@@ -499,22 +499,13 @@ function chart1(data){
 //     myChart.setOption(option);
 //
 // }
-function near10Order(jsonData,selectObj){
-
-    let selectPoint = ""
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.near10OrderDatas = jsonData
-        selectPoint = checkInitDate("near10OrderSelected")
-
-    }
+function near10Order(jsonData,selectPoint){
 
     let groupDataObj = {}
 
     let legendArray = []
     let point = ''
-    _data_cache.near10OrderDatas.forEach((eachData,i)=>{
+    jsonData.data.forEach((eachData,i)=>{
         const group = eachData['group']
         // if(group!=selectPoint){
         //     return
@@ -1191,6 +1182,7 @@ function chart5(data){
 }
 
 function chart6(jsonData){
+    jsonData = jsonData.data
     jsonData.sort(compare('value'))
 
     let data = {}
@@ -1285,6 +1277,7 @@ function chart6(jsonData){
 }
 
 function chart7(jsonData){
+    jsonData = jsonData.data
     jsonData.sort(compare('value'))
 
     let data = {}

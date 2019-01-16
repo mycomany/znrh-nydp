@@ -3,14 +3,14 @@ let _data_cache = {}
 $(document).ready(function(){
     main("c1");
     chart1();
-    getdata('/produce/oilIndex/near10Order.json',near10Order);
-    getdata('/produce/oilIndex/cnTop10Order.json',cnTop10Order);
-    getdata('/produce/oilIndex/worldTop10Order.json',worldTop10Order);
-    getdata('/produce/oilIndex/cnOilMachining.json',machiningTop10Order);
-    getdata('/produce/oilIndex/machiningCount.json',machiningCount);
+    getdatax('/produce/oilIndex/near10Order.json',near10Order);
+    getdatax('/produce/oilIndex/cnTop10Order.json',cnTop10Order);
+    getdatax('/produce/oilIndex/worldTop10Order.json',worldTop10Order);
+    getdatax('/produce/oilIndex/cnOilMachining.json',machiningTop10Order);
+    getdatax('/produce/oilIndex/machiningCount.json',machiningCount);
 
     chart2();
-    getdata('/produce/oilIndex/worldTop10Machining.json',worldTop10Machining);
+    getdatax('/produce/oilIndex/worldTop10Machining.json',worldTop10Machining);
 
     // getdata('/pattern/supply/near10Order.json',chart3);
     // chart4();
@@ -971,22 +971,13 @@ function changeMap(param){
 
 
 //近10年新增探明储量贡献
-function near10Order(jsonData,selectObj){
-
-    let selectPoint = ""
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.near10OrderDatas = jsonData
-        selectPoint = checkInitDate("near10OrderSelected")
-
-    }
+function near10Order(jsonData,selectPoint){
 
     let groupDataObj = {}
 
     let legendArray = []
     let point = ''
-    _data_cache.near10OrderDatas.forEach((eachData,i)=>{
+    jsonData.data.forEach((eachData,i)=>{
         const group = eachData['group']
         // if(group!=selectPoint){
         //     return
@@ -1173,6 +1164,7 @@ function near10Order(jsonData,selectObj){
  }
 
 function cnTop10Order(jsonData){
+    jsonData = jsonData.data
     jsonData.sort(compare('value'))
 
     let data = {}
@@ -1263,6 +1255,8 @@ function cnTop10Order(jsonData){
 }
 
 function worldTop10Order(jsonData){
+    jsonData = jsonData.data
+
     jsonData.sort(compare('value'))
 
     let data = {}
@@ -1353,6 +1347,8 @@ function worldTop10Order(jsonData){
 }
 
 function machiningTop10Order(jsonData){
+    jsonData = jsonData.data
+
     jsonData.sort(compare('value'))
 
     let data = {}
@@ -1442,6 +1438,7 @@ function machiningTop10Order(jsonData){
 }
 
 function worldTop10Machining(jsonData){
+    jsonData = jsonData.data
     jsonData.sort(compare('value'))
 
     let data = {}
@@ -1526,24 +1523,16 @@ function worldTop10Machining(jsonData){
             data: Object.values(data)
         }]
     };
-    var myChart = echarts.init($('#chart4')[0]);
+    var myChart = echarts.init($('#worldTop10Machining')[0]);
     myChart.setOption(option);
 }
 
-function machiningCount(jsonData,selectObj){
-    let selectPoint = ""
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.machiningCount = jsonData
-        selectPoint = checkInitDate("machiningCountSelected")
-
-    }
+function machiningCount(jsonData,selectPoint){
 
     // data.sort(compare('value'))
 
     let data = {}
-    _data_cache.machiningCount.forEach(machiningCountData=>{
+    jsonData.data.forEach(machiningCountData=>{
         const year = machiningCountData['year']
         if(year===selectPoint) {
             data[machiningCountData['name']] = machiningCountData['value']
