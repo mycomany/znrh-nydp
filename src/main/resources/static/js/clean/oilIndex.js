@@ -64,7 +64,8 @@ function chart1(data, ix){
 		series: [
 			{
 				name: "余热利用率",
-				type: "line",
+				type: "bar",
+				barWidth:"20%",
 				itemStyle: {
 					normal: {
 					},
@@ -73,7 +74,8 @@ function chart1(data, ix){
 			},
 			{
 				name: "油井伴生气回收利用率",
-				type: "line",
+				type: "bar",
+				barWidth:"20%",
 				itemStyle: {
 					normal: {
 					},
@@ -82,7 +84,8 @@ function chart1(data, ix){
 			},
 			{
 				name: "油泥资源化利用率",
-				type: "line",
+				type: "bar",
+				barWidth:"20%",
 				itemStyle: {
 					normal: {
 					},
@@ -123,7 +126,7 @@ function chart2(data, ix){
 					color: '#fff ',
 				}
 			},
-			boundaryGap: false, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
+			boundaryGap: true, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
 			axisTick: {
 				color: '#0177d4',
 				show: true
@@ -171,10 +174,8 @@ function chart2(data, ix){
 		}],
 		series: [{
 			name: '采油废水回用率',
-			type: 'line',
-			smooth: true,
-			symbol:'circle',
-			showSymbol: false,
+			type: 'bar',
+			barWidth:"20%",
 			itemStyle: {
 				normal: {
 				},
@@ -183,10 +184,8 @@ function chart2(data, ix){
 		},
 		{
 			name: '采出废水达标排放率',
-			type: 'line',
-			smooth: true,
-			symbol:'circle',
-			showSymbol: false,
+			type: 'bar',
+			barWidth:"20%",
 			itemStyle: {
 				normal: {
 					color: '#00FFFF'
@@ -939,6 +938,7 @@ function main2(data){
 			type: 'category',
 			gridIndex: 0,
 			data: data[1],
+			boundaryGap: false, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -998,43 +998,66 @@ function main2(data){
 		series: [
 			{
 				name: "CODcr产生量",
-				type: "bar",
-				itemStyle: {
-					normal: {
-						barBorderRadius: [20,20,0,0],
-					},
+				type: "line",
+				smooth: true,
+				showSymbol: false,
+				areaStyle: {
+					normal: {type: 'default',
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0.3,
+							color: 'rgba(65,56,225,0.2)'
+						}, {
+							offset: 0.7,
+							color: 'rgba(65,56,225,0.4)'
+						}, {
+							offset: 1,
+							color: 'rgba(65,56,225, 1)'
+						}], false)
+					}
 				},
 				data: data[2],
 			},
 			{
 				name: "挥发酚产生量",
-				type: "bar",
-				itemStyle: {
-					normal: {
-						barBorderRadius: [20,20,0,0],
-					},
+				type: "line",
+				smooth: true,
+				showSymbol: false,
+				areaStyle: {
+					normal: {type: 'default',
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0.3,
+							color: 'rgba(64,234,249,0.2)'
+						}, {
+							offset: 0.7,
+							color: 'rgba(64,234,249,0.4)'
+						}, {
+							offset: 1,
+							color: 'rgba(64,234,249, 1)'
+						}], false)
+					}
 				},
 				data: data[3],
 			},
 			{
 				name: "石油类污染物产生量",
-				type: "bar",
-				itemStyle: {
-					normal: {
-						barBorderRadius: [20,20,0,0],
-					},
+				type: "line",
+				smooth: true,
+				showSymbol: false,
+				areaStyle: {
+					normal: {type: 'default',
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0.3,
+							color: 'rgba(44,255,201,0.2)'
+						}, {
+							offset: 0.7,
+							color: 'rgba(44,255,201,0.4)'
+						}, {
+							offset: 1,
+							color: 'rgba(44,255,201, 1)'
+						}], false)
+					}
 				},
 				data: data[4],
-			},
-			{
-				name: "本月止累计同比",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-					},
-				},
-				data: data[5],
 			},
 		]
 	};
