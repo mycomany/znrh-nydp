@@ -672,6 +672,19 @@ function chart3(data, selectName){
                 fontSize: 30
             }
         },
+        legend:{
+            show:true,
+            selectedMode:false,
+            left : 10,
+            itemWidth: 16,
+            itemHeight: 8,
+            textStyle:{
+                color:'#fff',
+                fontFamily: '微软雅黑',
+                fontSize: 12,
+            },
+            data: [selectName]
+        },
         color: ['#2baffb', '#313443', '#fff'],
         tooltip: {
             show: true,
@@ -679,7 +692,7 @@ function chart3(data, selectName){
         },
         series: [
             {
-                name: 'Line 1',
+                name: selectName,
                 type: 'pie',
                 clockWise: false,
                 radius: [50, 55],
