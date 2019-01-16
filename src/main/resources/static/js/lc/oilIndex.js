@@ -1054,6 +1054,7 @@ function chart4(data){
 			{
 				name: "t-CO2",
 				type: "line",
+				smooth:true,
 				itemStyle: {
 					normal: {
 					},
@@ -1063,6 +1064,7 @@ function chart4(data){
 			{
 				name: "t-C/toe",
 				type: "line",
+				smooth:true,
 				itemStyle: {
 					normal: {
 					},
@@ -1177,6 +1179,7 @@ function chart5(data, ix){
 			{
 				name: "单位CO2增长率",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
@@ -1187,6 +1190,7 @@ function chart5(data, ix){
 			{
 				name: "排放系数增长率",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {

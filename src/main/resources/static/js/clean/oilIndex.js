@@ -763,6 +763,7 @@ function chart7(data, ix){
 			{
 				name: "VOC总量削减率",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {

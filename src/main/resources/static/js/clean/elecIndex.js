@@ -113,6 +113,7 @@ function chart1(data, ix){
 			{
 				name: "本月同比",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
@@ -123,6 +124,7 @@ function chart1(data, ix){
 			{
 				name: "本月止累计同比",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
@@ -689,6 +691,7 @@ function chart5(data, ix){
 			{
 				name: "去年累计同比",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
@@ -793,6 +796,7 @@ function chart6(data, ix){
 			{
 				name: "本月同比",
 				type: "line",
+				smooth:true,
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
