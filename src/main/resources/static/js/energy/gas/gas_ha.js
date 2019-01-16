@@ -112,7 +112,7 @@ function main(mainData, lx){
             formatter: function(params) {
                 if (params.componentSubType == 'effectScatter') {
                     //alert(JSON.stringify(params));
-                    return params.name+' : '+params.data.value[2] + " " + mainData[0][lx];
+                    return params.name+' : <br/>'+params.data.value[2] + " " + mainData[0][lx];
                 }else{
                     return '';
                 }

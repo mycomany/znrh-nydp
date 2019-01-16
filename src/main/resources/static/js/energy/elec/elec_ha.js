@@ -110,7 +110,7 @@ function main(){
             formatter: function(params) {
                 if (params.componentSubType == 'effectScatter') {
                     //alert(JSON.stringify(params));
-                    return params.name+' : '+params.data.value[2]+'吨';
+                    return params.name+' :<br/> '+params.data.value[2]+' 吨';
                 }else{
                     return '';
                 }
