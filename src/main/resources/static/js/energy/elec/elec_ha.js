@@ -612,7 +612,7 @@ function chart4(data){
 
                 for (var i = 0, l = params.length; i < l; i++) {
                     if(params[i].seriesName == data[0][0]){
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
                     }
                 }
                 return res;
