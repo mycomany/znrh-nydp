@@ -44,7 +44,10 @@
             </div>
 
             <div class="w8 h12">
-                <div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">高耗能行业集中度国际对比</span></div>
+                <div class="qs_header">
+                    <span class="qs_title1">&nbsp;</span><span class="qs_title2">高耗能行业集中度国际对比</span>
+                    <div id = "select_main" class = "change"></div>
+                </div>
                 <div id="main" class="w12 h12 qpanel0"></div>
             </div>
 
@@ -85,8 +88,11 @@
         var d = ["全国", "国电投", "华能", "大唐", "华电", "电集团", "国投电力", "国华电力", "华润电力", "中广核", "神华"];
         creatSelect(d,'select_chart3',"全国","changeChart3");
 
-        var e = ["石油化工", "石油天然气", "海洋石油", "中化集团", "华信能源"];
+        var e = ["全国", "石油化工", "石油天然气", "海洋石油", "中化集团", "华信能源"];
         creatSelect(e,'select_chart4',"全国","changeChart4");
+
+        var e = ["2014", "2015", "2016", "2017", "2018"];
+        creatSelect(e,'select_main',"2018","changeMain");
     });
 </script>
 

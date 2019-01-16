@@ -49,6 +49,9 @@
                     <div onclick="changeMain('消费量', 'd2')" id = "d2" class="d check_btn_option_status_r" style="border-bottom-right-radius: 0px;border-top-right-radius: 0px;">消费量  </div>
                     <div onclick="changeMain('调峰能力', 'd3')" id = "d3" class="d check_btn_option_status_r " > 调峰能力 </div>
                 </div>
+                <div class="qs_header">
+                    <div id = "select_main" class = "change"></div>
+                </div>
                 <div id="main" class="w12 h12 qpanel0"></div>
             </div>
 
@@ -90,5 +93,12 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+        $('.selectpicker').selectpicker();
+        var e = ["2014", "2015", "2016", "2017", "2018"];
+        creatSelect(e,'select_main',"2018","changeMain");
+    });
+</script>
 
 </#macro>

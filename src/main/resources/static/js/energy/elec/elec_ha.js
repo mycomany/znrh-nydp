@@ -22,6 +22,9 @@ function changeMap(param){
     main(param);
 }
 
+function changeMain(v){
+    console.log(v);
+}
 
 function main(){
     var mapData = [{
@@ -412,7 +415,7 @@ function chart2(data){
                 "name": data[0][0][0],
                 "type": "bar",
                 "data": data[0][3][yf]["fd"],
-                "barWidth": "30%",
+                "barWidth": "40%",
                 yAxisIndex:0,
                 itemStyle: {
                     "normal": {
@@ -429,7 +432,7 @@ function chart2(data){
 var chart3Data;
 function getchart3(data){
     chart3Data = data;
-    chart3(chart3Data, "国电投")
+    chart3(chart3Data, "全国")
 }
 
 function change3(v){
@@ -487,7 +490,7 @@ function chart3(data, selectName){
                 "axisPointer": {
                     "type": "shadow"
                 },
-                boundaryGap: true,
+                boundaryGap: false,
                 axisLine: {
                     lineStyle: {
                         color: '#38b8ff'
