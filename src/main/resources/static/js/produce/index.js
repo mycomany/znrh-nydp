@@ -15,7 +15,6 @@ $(document).ready(function(){
 
     getdata('/produce/index/cleanPowerInstall.json',cleanPowerInstallInfos);
     getdatax('/produce/index/cleanPowerMaked.json',cleanPowerInfos);
-    getdata('/produce/index/cleanPowerDetails.json',loadTabInfo);
     // getdata('/produce/index/cleanPowerMaked.json',cleanPowerMaked);
     // getdata('/produce/index/cleanPowerInstall.json',cleanPowerInstall);
     mainAreaStyles()
@@ -63,12 +62,13 @@ function mainAreaStyles(){
 function mainAreaLister(){
     $(".main_order_name").click(function(){
         const index = $(this).attr("index")
+        let clickName = ""
         if(main_type==='makePower'){
-            const clickName = _data_cache.cleanPowerInfos[index]
-            loadTabInfo('select',clickName['type'],$("#cleanPowerSelected").val())
+            clickName = _data_cache.cleanPowerInfos.data[index]
         }else{
-
+            clickName = _data_cache.cleanPowerInstallInfos.data[index]
         }
+        loadTabInfo('select',clickName['type'],$("#cleanPowerInfos_comb").find("select").val())
     })
 
     $(".main_show_type").click(function(){
@@ -77,13 +77,13 @@ function mainAreaLister(){
         $(".main_show_type").removeClass("main_show_installed_checked")
 
         if(orderType==='makePower'){
-            cleanPowerInfos(_data_cache.cleanPowerInfos,$(".qmain").find("#cleanPowerSelected"))
-            loadTabInfo('select',_default_clean_power_company,$("#cleanPowerSelected").val())
+            cleanPowerInfos(_data_cache.cleanPowerInfos,$("#cleanPowerInfos_comb").find("select").val())
+            loadTabInfo('select',_default_clean_power_company,$("#cleanPowerInfos_comb").find("select").val())
             $(".main_show_power").addClass("main_show_power_checked")
 
         }else{
-            cleanPowerInstallInfos(_data_cache.cleanPowerInstallInfos,$(".qmain").find("#cleanPowerSelected"))
-            loadTabInfo('select',_default_clean_power_company,$("#cleanPowerSelected").val())
+            cleanPowerInstallInfos(_data_cache.cleanPowerInstallInfos,$("#cleanPowerInfos_comb").find("select").val())
+            loadTabInfo('select',_default_clean_power_company,$("#cleanPowerInfos_comb").find("select").val())
             $(".main_show_installed").addClass("main_show_installed_checked")
 
         }
@@ -179,33 +179,6 @@ function installAndGeneration(jsonData,selectPoint){
                 data: lineValues
             }
         )
-
-        // seriesDataArray.push({
-        //     name: lineName,
-        //     type: 'line',
-        //     showSymbol: false,
-        //     yAxisIndex: i,
-        //     areaStyle: {
-        //         normal: {
-        //             type: 'default',
-        //             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-        //                 offset: 0,
-        //                 color: 'rgba(' + lineColors[i].rgb1 + ', ' + lineColors[i].rgb1 + ', ' + lineColors[i].rgb1 + ',0.8)'
-        //             }, {
-        //                 offset: 1,
-        //                 color: 'rgba(' + lineColors[i].rgb1 + ', ' + lineColors[i].rgb1 + ', ' + lineColors[i].rgb1 + ',0.8)'
-        //             }], false)
-        //         }
-        //     },
-        //     smooth: true,
-        //     itemStyle: {
-        //         normal: {
-        //             color: 'rgba(' + lineColors[i].rgb1 + ', ' + lineColors[i].rgb1 + ', ' + lineColors[i].rgb1 + ',1)',
-        //             areaStyle: {type: 'default'}
-        //         }
-        //     },
-        //     data: lineValues
-        // })
     })
 
     let option = {
@@ -1069,8 +1042,9 @@ function cleanPowerInfos(jsonData,selectPoint){
     //     selectPoint = checkInitDate("cleanPowerSelected")
     //
     // }
-    _data_cache.cleanPowerInfos = jsonData.data
+    _data_cache.cleanPowerInfos = jsonData
     cleanPowerMake(jsonData.data,selectPoint)
+    getdata('/produce/index/cleanPowerDetails.json',loadTabInfo);
 }
 
 function cleanPowerInstallInfos(jsonData,selectPoint){
@@ -1085,7 +1059,7 @@ function cleanPowerInstallInfos(jsonData,selectPoint){
     // }
     //
     // cleanPowerMake(_data_cache.cleanPowerInstallInfos,selectPoint)
-    _data_cache.cleanPowerInstallInfos = jsonData.data
+    _data_cache.cleanPowerInstallInfos = jsonData
 
     cleanPowerMake(jsonData.data,selectPoint)
 
@@ -1127,7 +1101,8 @@ function loadTabInfo(jsonData,selectedCompanyName,selectDate){
     if(isSelect(jsonData)){
     }else{
         _data_cache.cleanPowerDetailDatas = jsonData
-        selectDate = checkInitDate("cleanPowerSelected")
+        // selectDate = checkInitDate("cleanPowerSelected")
+        selectDate = $("#cleanPowerInfos_comb").find("select").val()
         selectedCompanyName = _default_company_name
     }
 

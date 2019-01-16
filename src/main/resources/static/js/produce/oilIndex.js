@@ -7,7 +7,7 @@ $(document).ready(function(){
     getdatax('/produce/oilIndex/cnTop10Order.json',cnTop10Order);
     getdatax('/produce/oilIndex/worldTop10Order.json',worldTop10Order);
     getdatax('/produce/oilIndex/cnOilMachining.json',machiningTop10Order);
-    getdata('/produce/oilIndex/machiningCount.json',machiningCount);
+    getdatax('/produce/oilIndex/machiningCount.json',machiningCount);
 
     chart2();
     getdatax('/produce/oilIndex/worldTop10Machining.json',worldTop10Machining);
@@ -1527,20 +1527,12 @@ function worldTop10Machining(jsonData){
     myChart.setOption(option);
 }
 
-function machiningCount(jsonData,selectObj){
-    let selectPoint = ""
-    if(isSelect(jsonData)){
-        selectPoint = $(selectObj).val()
-    }else{
-        _data_cache.machiningCount = jsonData
-        selectPoint = checkInitDate("machiningCountSelected")
-
-    }
+function machiningCount(jsonData,selectPoint){
 
     // data.sort(compare('value'))
 
     let data = {}
-    _data_cache.machiningCount.forEach(machiningCountData=>{
+    jsonData.data.forEach(machiningCountData=>{
         const year = machiningCountData['year']
         if(year===selectPoint) {
             data[machiningCountData['name']] = machiningCountData['value']
