@@ -39,14 +39,12 @@
             </div>
         </div>
 
-        <div class="w8 h8">
-            <div class="qpanel">
-                <div class="qs_header">
-                    <span class="qs_title1">&nbsp;</span><span class="qs_title2">中国与世界主要国家发电消耗标准煤对比</span>
-                    <div id = "select_main" class = "change"></div>
-                </div>
-                <div id="main" class="qs_body"></div>
+        <div class="box w8 h8">
+            <div class="qs_header">
+                <span class="qs_title1">&nbsp;</span><span class="qs_title2">中国与世界主要国家发电消耗标准煤对比</span>
+                <div id = "select_main" class = "change"></div>
             </div>
+            <div id="main" class="w12 h12 qpanel0"></div>
         </div>
 
         <div class="w6 h4">
@@ -75,15 +73,16 @@
 <script>
     $(document).ready(function() {
         $('.selectpicker').selectpicker();
+
+        var n1 = ["2018-07", "2018-08", "2018-09", "2018-10", "2018-11"];
+        creatSelect(n1,'select_chart1',"2018-11","change1");
+        creatSelect(n1,'select_chart2',"2018-11","change2");
+        creatSelect(n1,'select_chart4',"2018-11","change4");
+
         var d = ["全国", "国电投", "华能", "大唐", "华电", "国能投", "国投电力", "国华电力", "华润电力", "中广核", "神华"];
         creatSelect(d,'select_chart3',"全国","change3");
 
         var e = ["2014", "2015", "2016", "2017", "2018"];
-
-        creatSelect(e,'select_chart1',"2018","change1");
-        creatSelect(e,'select_chart2',"2018","change2");
-
-        creatSelect(e,'select_chart4',"2018","change4");
         creatSelect(e,'select_main',"2018","changeMain");
     });
 </script>

@@ -1,10 +1,10 @@
 $(document).ready(function(){
     var __time = "?__time=" + new Date();
     getdata('/energy/elec/ha/main.json' + __time,main);
-    getdata('/energy/elec/ha/chart1.json' + __time,chart1);
-    getdata('/energy/elec/ha/chart2.json' + __time,chart2);
+    getdata('/energy/elec/ha/chart1.json' + __time,getChart1);
+    getdata('/energy/elec/ha/chart2.json' + __time,getChart2);
     getdata('/energy/elec/ha/chart3.json' + __time,getchart3);
-    getdata('/energy/elec/ha/chart4.json' + __time,chart4);
+    getdata('/energy/elec/ha/chart4.json' + __time,getChart4);
 });
 
 function setH(id){
@@ -29,34 +29,34 @@ function changeMain(v){
 function main(){
     var mapData = [{
         name: '俄罗斯',
-        value: [39.378811,57.509873, 10613221.57]
+        value: [39.378811,57.509873, 4291.79]
     },{
         name: '乌克兰',
-        value: [30.106574,49.847142,7959916.179]
+        value: [30.106574,49.847142,1417.51]
     },{
         name: '加拿大',
-        value: [-108.645839,58.500205,7517698.614]
+        value: [-108.645839,58.500205,2129.75]
     },{
         name: '德国',
-        value: [10.311082,51.246807,8402133.745]
+        value: [10.311082,51.246807,6781.60]
     },{
         name: '意大利',
-        value: [12.592347,42.547686,5306610.786]
+        value: [12.592347,42.547686,917.30]
     },{
         name: '荷兰',
-        value: [4.865482,52.375709,5129723.76]
+        value: [4.865482,52.375709,880.53]
     },{
         name: '法国',
-        value: [1.88512,47.600749,4864393.221]
+        value: [1.88512,47.600749,306.00]
     },{
         name: '奥地利',
-        value: [14.652844,47.687781, 4687506.194]
+        value: [14.652844,47.687781, 113.00]
     },{
         name: '美国',
-        value: [-101.838839,40.002538,8844351.31]
+        value: [-101.838839,40.002538,36793.21]
     },{
         name: '中国',
-        value: [103.033458,34.354405,4422175.655]
+        value: [103.033458,34.354405,121811.00]
     }];
     var color = ['#9ae5fc', '#dca93c']; // 自定义图中要用到的颜色
     var series = []; // 用来存储地图数据
@@ -85,7 +85,7 @@ function main(){
 //	    	if (val[3]>60) {
 //	    		return 60;
 //			}
-            return val[2]/1000000*3;
+            return val[2]/10000*5;
         },
         itemStyle: {
             normal: {
@@ -110,7 +110,7 @@ function main(){
             formatter: function(params) {
                 if (params.componentSubType == 'effectScatter') {
                     //alert(JSON.stringify(params));
-                    return params.name+' : '+params.data.value[2]+'吨';
+                    return params.name+' :<br/> '+params.data.value[2]+' 吨';
                 }else{
                     return '';
                 }
@@ -120,8 +120,10 @@ function main(){
             map: 'world', // 与引用进来的地图js名字一致
             roam: true, // 禁止缩放平移
             zoom:1.2,
-            top:'20%',
-            left:'7%',
+            top:'10%',
+            left:'10%',
+            right:'20%',
+            bottom:'15%',
             aspectScale:0.9,
             itemStyle: { // 每个区域的样式
                 normal: {
@@ -156,14 +158,18 @@ function main(){
     myChart.setOption(option);
 }
 
+var chart1Data;
+function getChart1(data){
+    chart1Data = data;
+    chart1(chart1Data, '2018-11')
+}
 function change1(v){
-
+    chart1(chart1Data, v)
 }
 
-function chart1(data){
+function chart1(data, yf){
 
     var chartId = "chart1";
-    var yf = "11";
 
     var seriArray = [];
     for(var i=0; i<data[1].length; i++){
@@ -188,7 +194,7 @@ function chart1(data){
                         }
                     }
                 },
-                "data": data[4][yf][data[3][i]],
+                "data": data[3][yf][data[1][i]],
             }
         );
     }
@@ -295,26 +301,32 @@ function chart1(data){
     setH(chartId);
 }
 
+var chart2Data;
+function getChart2(data){
+    chart2Data = data;
+    chart2(chart2Data, '2018-11')
+}
 function change2(v){
-
+    chart2(chart2Data, v)
 }
 
-function chart2(data){
+function chart2(data, yf){
 
     var chartId = "chart2";
-    var yf = "11"
 
-    //排序，名称data[0][2]，数据data[0][3][yf]["fd"]
+    //排序，名称data[2]，数据data[3][yf]
     var dataArray = [];
-    for(var i=0; i<data[0][2].length; i++){
-        dataArray.push({"name": data[0][2][i], "value": data[0][3][yf]["fd"][i]});
+    for(var i=0; i<data[2].length; i++){
+        dataArray.push({"name": data[2][i], "value": data[3][yf][i]});
     }
     dataArray.sort(function(a,b){
         return b.value - a.value
     });
+
+    var xNames = [], yData = [];
     for(var i=0; i<dataArray.length; i++){
-        data[0][2][i] = dataArray[i].name;
-        data[0][3][yf]["fd"][i] = dataArray[i].value;
+        xNames.push(dataArray[i].name);
+        yData.push(dataArray[i].value);
     }
 
     option = {
@@ -331,8 +343,8 @@ function chart2(data){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    if(params[i].seriesName == data[0][0][0]){
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1][0];
+                    if(params[i].seriesName == data[0][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
                     }
                 }
                 return res;
@@ -345,23 +357,10 @@ function chart2(data){
             bottom:'10%',
             containLabel: true
         },
-        /* "legend": {
-             show:true,
-             bottom : '2%',
-             itemGap: 12, //图例每项之间的间隔
-             itemWidth: 16, //图例宽度
-             itemHeight: 8, //图例高度
-             textStyle: {
-                 color:'#fff',
-                 fontFamily: '微软雅黑',
-                 fontSize: 10,
-             },
-             data: data[0][0],
-         },*/
         "xAxis": [
             {
                 "type": "category",
-                "data": data[0][2],
+                "data": xNames,
                 "axisPointer": {
                     "type": "shadow"
                 },
@@ -386,7 +385,7 @@ function chart2(data){
         "yAxis": [
             {
                 type: 'value',
-                // name:data[0][1][0],
+                // name:data[1][0],
                 nameGap:-5,
                 nameTextStyle:{
                     padding:[0,0,0,45],
@@ -412,9 +411,9 @@ function chart2(data){
         ],
         "series": [
             {
-                "name": data[0][0][0],
+                "name": data[0][0],
                 "type": "bar",
-                "data": data[0][3][yf]["fd"],
+                "data": yData,
                 "barWidth": "40%",
                 yAxisIndex:0,
                 itemStyle: {
@@ -458,7 +457,11 @@ function chart3(data, selectName){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    if(params[i].seriesName == data[1][0]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][0];
+                    }else if(params[i].seriesName == data[1][1]){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[0][1];
+                    }
                 }
                 return res;
             }
@@ -467,7 +470,7 @@ function chart3(data, selectName){
             left: '5%',
             right:'5%',
             top:'5%',
-            bottom:'10%',
+            bottom:'20%',
             containLabel: true
         },
         "legend": {
@@ -481,12 +484,12 @@ function chart3(data, selectName){
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
-            data: data[0][0],
+            data: data[1],
         },
         "xAxis": [
             {
                 "type": "category",
-                "data": data[1],
+                "data": data[2],
                 "axisPointer": {
                     "type": "shadow"
                 },
@@ -499,7 +502,7 @@ function chart3(data, selectName){
                 axisLabel: {
                     textStyle: {
                         color: '#ffffff',
-                        fontSize: 10
+                        fontSize: 12
                     }
                 },
                 //去掉辅助线
@@ -533,13 +536,38 @@ function chart3(data, selectName){
                 "splitLine": {
                     "show": false
                 }
+            },
+            {
+                type: 'value',
+                name:data[0][1],
+                nameGap:-5,
+                nameTextStyle:{
+                    padding:[0,0,0,15],
+                    align:'center',
+                    color:'#fff',
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#38b8ff'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 10
+                    }
+                },
+                //去掉辅助线
+                "splitLine": {
+                    "show": false
+                }
             }
         ],
         "series": [
             {
-                "name": selectName,
+                "name": data[1][0],
                 "type": "line",
-                "data": data[3][selectName],
+                "data": data[4][data[1][0]][selectName],
                 smooth: true,
                 showSymbol: false,
                 "yAxisIndex": 0,
@@ -569,6 +597,40 @@ function chart3(data, selectName){
 
                     }
                 },
+            },
+            {
+                "name": data[1][1],
+                "type": "line",
+                "data": data[4][data[1][1]][selectName],
+                smooth: true,
+                showSymbol: false,
+                "yAxisIndex": 1,
+                "itemStyle": {
+                    "normal": {
+                        "color": "#2b88ff"
+                    }
+                },
+                areaStyle: { //区域填充样式
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
+                            offset: 0, // 0% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0.3)'
+                        }, {
+                            offset: 0.8, // 80% 处的颜色
+                            color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+', 0)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色。支持的格式同color
+                        shadowBlur: 10 //图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
+                    }
+                },
+                itemStyle: { //折线拐点标志的样式
+                    normal: {
+                        color: 'rgba('+lineColors[1].rgb1+', '+lineColors[1].rgb2+', '+lineColors[1].rgb3+')',
+                        borderColor: 'rgba('+lineColors[1].rgb1+','+lineColors[1].rgb2+','+lineColors[1].rgb2+',0.4)', //图形的描边颜色。支持的格式同 color
+                        borderWidth: 12 //描边线宽。为 0 时无描边。[ default: 0 ]
+
+                    }
+                },
             }
         ]
     };
@@ -576,26 +638,32 @@ function chart3(data, selectName){
     myChart.setOption(option);
 }
 
-
+var chart4Data;
+function getChart4(data){
+    chart4Data = data;
+    chart4(chart4Data, "2018-11")
+}
 function change4(v){
-
+    chart4(chart4Data, v)
 }
 
-function chart4(data){
+function chart4(data, yf){
 
     var chartId = "chart4";
 
     //排序，名称data[2]，数据data[3]
     var dataArray = [];
     for(var i=0; i<data[2].length; i++){
-        dataArray.push({"name": data[2][i], "value": data[3][i]});
+        dataArray.push({"name": data[2][i], "value": data[3][yf][i]});
     }
     dataArray.sort(function(a,b){
         return b.value - a.value
     });
+
+    var xData = [], yData = [];
     for(var i=0; i<dataArray.length; i++){
-        data[2][i] = dataArray[i].name;
-        data[3][i] = dataArray[i].value;
+        xData.push(dataArray[i].name);
+        yData.push(dataArray[i].value);
     }
 
     option = {
@@ -613,7 +681,7 @@ function chart4(data){
 
                 for (var i = 0, l = params.length; i < l; i++) {
                     if(params[i].seriesName == data[0][0]){
-                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + data[1][0];
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
                     }
                 }
                 return res;
@@ -626,23 +694,10 @@ function chart4(data){
             bottom:'10%',
             containLabel: true
         },
-        // "legend": {
-        //     show:true,
-        //     bottom : '2%',
-        //     itemGap: 12, //图例每项之间的间隔
-        //     itemWidth: 16, //图例宽度
-        //     itemHeight: 8, //图例高度
-        //     textStyle: {
-        //         color:'#fff',
-        //         fontFamily: '微软雅黑',
-        //         fontSize: 10,
-        //     },
-        //     data: data[0],
-        // },
         "xAxis": [
             {
                 "type": "category",
-                "data": data[2],
+                "data": xData,
                 "axisPointer": {
                     "type": "shadow"
                 },
@@ -696,7 +751,7 @@ function chart4(data){
             {
                 "name": data[0][0],
                 "type": "bar",
-                "data": data[3],
+                "data": yData,
                 barWidth: "40%",
                 "itemStyle": {
                     "normal": {
