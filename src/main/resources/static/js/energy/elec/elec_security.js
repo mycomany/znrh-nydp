@@ -131,34 +131,12 @@ function chart1(data,name){
 				splitLine: {
 					show: false
 				}
-			}/*,{
-				type: "value",
-				splitNumber:3,
-				axisTick: {
-					show: true
-				},
-				axisLine: {
-					lineStyle:{
-						color: '#38b8ff'
-					}
-				},
-				splitLine: {
-					show: false
-				},
-				axisLabel: {
-					show: true,
-					textStyle: {
-						color: '#fff',
-						fontSize:10
-					},
-					 formatter: '{value}%'
-				}
-			}*/],
+			}],
 		series: [
 			{
 				name: "一般人身事故",
-				type: "bar",
-				barWidth: '30%',
+				type: "line",
+				//barWidth: '30%',
 				itemStyle: {
 					normal: {
 						color: '#2b88ff',
@@ -169,8 +147,8 @@ function chart1(data,name){
 			},
 			{
 				name: "较大人身事故",
-				type: "bar",
-				barWidth: '30%',
+				type: "line",
+				//barWidth: '30%',
 				//yAxisIndex: 1,
 				itemStyle: {
 					normal: {
@@ -199,6 +177,19 @@ function change2(date){
 function chart2(data,date){
 	var xData = data.xData;
 	var val = data[date];
+	//排序，名称data[2]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<val[0].length; i++){
+        dataArray.push({"name": xData[i], "value": val[1][i],"value1":val[0][i]})
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+    	xData[i] = dataArray[i].name;
+        val[0][i] = dataArray[i].value1;
+        val[1][i] = dataArray[i].value;
+    }
 	var option =  {
 		grid: {
 			left: '3%',
@@ -292,7 +283,7 @@ function chart2(data,date){
 			}],
 		series: [
 			{
-				name: "设备利用率",
+				name: "设备可用率",
 				type: "bar",
 				barWidth: '30%',
 				itemStyle: {
@@ -334,6 +325,18 @@ function change3(date){
 function chart3(data,date){
 	var xData = data.xData;
 	var val = data[date];
+	//排序，名称data[2]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<val.length; i++){
+        dataArray.push({"name": xData[i], "value": val[i]})
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+    	xData[i] = dataArray[i].name;
+        val[i] = dataArray[i].value;
+    }
 	var option =  {
 		grid: {
 			left: '3%',
@@ -639,7 +642,7 @@ function chart5(data,name){
 		series: [
 			{
 				name: "设备较大事故起数",
-				type: "bar",
+				type: "line",
 				barWidth: '18%',
 				itemStyle: {
 					normal: {
@@ -650,7 +653,7 @@ function chart5(data,name){
 				data: val[0]
 			},{
 				name: "核电厂INES三级及以上事件数",
-				type: "bar",
+				type: "line",
 				barWidth: '18%',
 				itemStyle: {
 					normal: {
@@ -661,7 +664,7 @@ function chart5(data,name){
 				data: val[1]
 			},{
 				name: "水库、灰库和尾矿库大坝溃坝事故起数",
-				type: "bar",
+				type: "line",
 				barWidth: '18%',
 				itemStyle: {
 					normal: {
@@ -672,7 +675,7 @@ function chart5(data,name){
 				data: val[2]
 			},{
 				name: "较大及以上电力安全事故起数",
-				type: "bar",
+				type: "line",
 				barWidth: '18%',
 				itemStyle: {
 					normal: {
@@ -691,9 +694,12 @@ function chart5(data,name){
 
 function main(data){
 
-	// 小飞机的图标，可以用其他图形替换
-	//var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
-
+	var geoCoordMap = {
+    '欧盟': [17.522823,49.608619],
+    '日本': [140.711122,39.889252],
+    '美国': [-101.838839,40.002538],
+    '中国': [103.033458,34.354405]
+	};
 	// 获取地图中起点和终点的坐标，以数组形式保存下来
 	var convertData = function(data) {
 	    var res = [];
@@ -711,25 +717,77 @@ function main(data){
 	    }
 	    return res;
 	}
-	var d = [{
-        "name": "欧盟",
-        "value": 48
-    },{
-        "name": "日本",
-        "value": 20
-    },{
-        "name": "美国",
-        "value": 17
-    },{
-        "name": "中国",
-        "value": 71
-}];
-
+	
+	// 广州
+	var GZData = [
+	    [{
+	        name: '中国'
+	    }, {
+	        name: "欧盟",
+	        value: 30
+	    }],
+	    [{
+	        name: '中国'
+	    }, {
+	        name: "日本",
+	        value: 30
+	    }],
+	    [{
+	        name: '中国'
+	    }, {
+	        name: "美国",
+	        value: 30
+	    }]
+	];
 	var color = ['#9ae5fc', '#dcbf71']; // 自定义图中要用到的颜色
 	var series = []; // 用来存储地图数据
 
+	[
+	    ['中国', GZData]
+	].forEach(function(item, i) {
 	// 显示终点位置,类似于上面最后一个效果，放在外面写，是为了防止被循环执行多次
 	series.push({
+        // 白色航线特效图
+        type: 'lines',
+        zlevel: 1, // 用于分层，z-index的效果
+        effect: {
+            show: true, // 动效是否显示
+            period: 6, // 特效动画时间
+            trailLength: 0.7, // 特效尾迹的长度
+            color: '#00fcff', // 特效颜色
+            symbolSize: 3 // 特效大小
+        },
+        lineStyle: {
+            normal: { // 正常情况下的线条样式
+                color: color[0],
+                width: 0, // 因为是叠加效果，要是有宽度，线条会变粗，白色航线特效不明显
+                curveness: -0.2 // 线条曲度
+            }
+        },
+        data: convertData(item[1]) // 特效的起始、终点位置
+    }, { // 小飞机航线效果
+        type: 'lines',
+        zlevel: 2,
+        //symbol: ['none', 'arrow'],   // 用于设置箭头
+        symbolSize: 10,
+        effect: {
+            show: true,
+            period: 6,
+            trailLength: 0,
+            color:'#ff3000',
+            symbol: 'pin', // 特效形状，可以用其他svg pathdata路径代替
+            symbolSize: 18
+        },
+        lineStyle: {
+            normal: {
+                color: color[0],
+                width: 3,
+                opacity: 0.6,
+                curveness: -0.2
+            }
+        },
+        data: convertData(item[1]) // 特效的起始、终点位置，一个二维数组，相当于coords: convertData(item[1])
+    },{
 	    type: 'effectScatter',
 	    coordinateSystem: 'geo',
 	    zlevel: 4,
@@ -748,10 +806,10 @@ function main(data){
 	        }
 	    },
 	    symbolSize:function(val) {
-	    	if (val[3]>60) {
-	    		return 60;
+	    	if (val[3]*2>50) {
+	    		return 50;
 			}
-	        return val[3];
+	        return val[3]*2;
 	    },
 	    itemStyle: {
 	        normal: {
@@ -770,8 +828,10 @@ function main(data){
 	    coordinateSystem: 'geo',
 	    zlevel: 3,
 	    rippleEffect: {
-	        brushType: 'stroke'
-	    },
+            period: 3,
+            brushType: 'stroke',
+            scale: 3
+        },
 	    label: {
 	        normal: {
 	            show: true,
@@ -785,10 +845,10 @@ function main(data){
 	        }
 	    },
 	    symbolSize: function(val) {
-	    	if (val[3]>60) {
-	    		return 60;
+	    	if (val[3]*1.5>50) {
+	    		return 50;
 			}
-	        return val[3];
+	        return val[3]*1.2;
 	    },
 	    itemStyle: {
 	        normal: {
@@ -825,12 +885,14 @@ function main(data){
             }
         }
     });
+	});
 
 	// 最后初始化世界地图中的相关数据
 	var option = ({
 		title : {
 	        text: '核心设备自给率和采购率',
 	        left: 'center',
+	        top:'4%',
 	        textStyle : {
 	            color: '#a4d6fe',
 	            fontSize: 18

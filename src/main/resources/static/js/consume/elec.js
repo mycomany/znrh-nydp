@@ -468,6 +468,20 @@ function change4(date){
 	chart4(data4.xData,data4.data[date]);
 }
 function chart4(xData,data){
+	var val = data;
+
+    //排序，名称data[2]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<val.length; i++){
+        dataArray.push({"name": xData[i], "value": val[i]})
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+    	xData[i] = dataArray[i].name;
+        val[i] = dataArray[i].value;
+    }
 	var option = {
 		tooltip : {
 		  trigger: 'axis'
@@ -580,14 +594,14 @@ function chart4(xData,data){
 var data5 = [];
 function getChart5(data){
 	data5 = data;
-	chart5(data,'2018-11');
+	chart5(data,'农林牧渔');
 }
-function change5(date){
-	chart5(data5,date);
+function change5(name){
+	chart5(data5,name);
 }
 
-function chart5(data,date){
-	var val = data[date];
+function chart5(data,name){
+	var val = data[name];
 	var option =  {
 			grid: {
 				left: '3%',
@@ -727,6 +741,21 @@ function change6(date){
 function chart6(data,date){
 	var xData = data.legend;
 	var value = data.data[date];
+	
+	var val = value;
+	//排序，名称data[2]，数据data[3]
+    var dataArray = [];
+    for(var i=0; i<val[0].length; i++){
+        dataArray.push({"name": xData[i], "value": val[1][i],"value1":val[0][i]})
+    }
+    dataArray.sort(function(a,b){
+        return b.value - a.value
+    });
+    for(var i=0; i<dataArray.length; i++){
+    	xData[i] = dataArray[i].name;
+        val[0][i] = dataArray[i].value1;
+        val[1][i] = dataArray[i].value;
+    }
 	var option =  {
 		grid: {
 			left: '3%',
@@ -800,33 +829,6 @@ function chart6(data,date){
 			splitLine: {
 				show: false
 			}
-		},{
-			type: "value",
-			position: 'right',
-			axisLine: {
-				lineStyle:{
-					color: '#fff'
-				}
-			},
-			axisTick: {
-				show: true
-			},
-			axisLine: {
-				lineStyle:{
-					color: '#0177d4'
-				}
-			},
-			splitLine: {
-				show: false
-			},
-			axisLabel: {
-				show: true,
-				textStyle: {
-					color: '#fff',
-					fontSize:10
-				},
-				formatter: '{value}%'	
-			}
 		}],
 		series: [{
 			name: "本月用电量",
@@ -850,27 +852,6 @@ function chart6(data,date){
 				},
 			},
 			data: value[1]
-		}, {
-			name: "本月同比",
-			type: "line",
-			yAxisIndex: 1,
-			itemStyle: {
-				normal: {
-					color: '#4138e1'
-				},
-			},
-			data: value[2]
-
-		}, {
-			name: "本年同比",
-			type: "line",
-			yAxisIndex: 1,
-			itemStyle: {
-				normal: {
-					color: '#4ad08d'
-				},
-			},
-			data: value[3]
 		}]
 	};
 	var myChart = echarts.init($('#chart6')[0]);
