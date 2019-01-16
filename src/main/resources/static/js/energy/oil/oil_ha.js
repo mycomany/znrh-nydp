@@ -762,7 +762,7 @@ function chart4(data, selectName){
                 var res = params[0].name;
 
                 for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + (params[i].value ? params[i].value : '0') + " %";
+                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " %";
                 }
                 return res;
 
@@ -772,7 +772,7 @@ function chart4(data, selectName){
             top:'10%',
             left:'5%',
             right:'5%',
-            bottom:'10%',
+            bottom:'20%',
             containLabel: true
         },
         xAxis: {
@@ -823,8 +823,8 @@ function chart4(data, selectName){
             },
         ],
         legend:{
-            show:false,
-            bottom : 10,
+            show:true,
+            bottom : 0,
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{
@@ -836,6 +836,7 @@ function chart4(data, selectName){
         },
         series: [
             {
+                name: data[1][0],
                 type: 'line',
                 smooth: true,
                 showSymbol: false,
@@ -844,7 +845,7 @@ function chart4(data, selectName){
                         color: '#2baffb'
                     }
                 },
-                data: data[3][selectName]["开采效率"],
+                data: data[3][data[1][0]][selectName],
                 areaStyle: { //区域填充样式
                     normal: {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
@@ -868,6 +869,7 @@ function chart4(data, selectName){
                 },
             },
             {
+                name: data[1][1],
                 type: 'line',
                 smooth: true,
                 showSymbol: false,
@@ -876,7 +878,7 @@ function chart4(data, selectName){
                         color: '#40eaf9'
                     }
                 },
-                data: data[3][selectName]["加工效率"],
+                data: data[3][data[1][1]][selectName],
                 areaStyle: { //区域填充样式
                     normal: {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ //填充的颜色。
