@@ -25,12 +25,11 @@
 
                 <div class="w12 h6">
                     <div class="qpanel">
-                        <!--<div class="qs_header"><span class="qs_title1">&nbsp;</span><span class="qs_title2">中国石油开采综合能耗对比</span></div>-->
-                        <div class="tabbtn check_btn_grp check_btn_grp_float_left" style="float:none;z-index:10"><!-- 35PX -->
-                            <div onclick="changeMap('nh')" id = "nh" class="c check_btn_option_status_l check_btn_option_checked">能耗</div>
-                            <div onclick="changeMap('dh')" id = "dh" class="c check_btn_option_status_r ">电耗</div>
+                        <div class="qs_header">
+                            <span class="qs_title1">&nbsp;</span><span class="qs_title2">原油开采效率与加工效率历史趋势</span>
+                            <div id = "select_chart4" class = "change"></div>
                         </div>
-                        <div id="chart1" class="w12 h12 qpanel0"></div>
+                        <div id="chart4" class="w12 h12 qpanel0"></div>
                     </div>
                 </div>
 
@@ -73,10 +72,10 @@
             <div class="w8 h12">
                 <div class="qpanel">
                     <div class="qs_header">
-                        <span class="qs_title1">&nbsp;</span><span class="qs_title2">原油开采效率与加工效率历史趋势</span>
-                        <div id = "select_chart4" class = "change"></div>
+                        <span class="qs_title1">&nbsp;</span><span class="qs_title2">中国石油开采综合能耗对比</span>
                     </div>
-                    <div id="chart4" class="qs_body"></div>
+                    <div id="chart1_nh" class="qs_body w6 h12"></div>
+                    <div id="chart1_dh" class="qs_body w6 h12"></div>
                 </div>
             </div>
 
