@@ -210,12 +210,12 @@ div.qpanel div{z-index:1;}*/
     position: absolute;
     margin: 0;
     padding: 0;
-    top: 0px;
-    height: 100vh;
+    top: 40px;
+    height: calc(100vh - 50px);
     z-index: 100;
 }
 .sidenav{
-    padding: 54px 10px 6px 0;
+    padding: 6px 10px 6px 0;
     margin:0;
     list-style: initial;
     top: 0;

@@ -450,5 +450,8 @@ function initSelect(data,id,shouValue){
     if(tbody) tbody.innerHTML = str;
     $("#"+id).find(".selectpicker").selectpicker();
 }
-var __top = [{"name":"能源指标监控",url:"/module/produce/index"},{"name":"安全态势感知",url:"/module/sys/portal"},{"name":"实时运营监测",url:"/module/sys/motion"},{"name":"能源市场分析",url:"/module/statecn/index"},{"name":"国际能源态势",url:"/module/pattern/index"}];
-
+var __top = [{"name":"能源指标监控",url:"/module/produce/index"},{"name":"安全态势感知",url:"/module/sys/portal"},{"name":"实时运营监测",url:"/module/sys/motion1"},{"name":"能源市场分析",url:"/module/statecn/index"},{"name":"国际能源态势",url:"/module/pattern/index"}];
+function showMenu(){
+    var w = '220px';
+    $('.qmenu').toggle();
+}

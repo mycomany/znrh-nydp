@@ -114,19 +114,6 @@
 			var u = __menu[t][m];
 			if(u) gourl('${host}'+u);
 		}
-		function showMenu(){
-			var w = '220px';
-			$('.qmenu').toggle();
-			if($('.qmenu').is(":hidden")){
-				$(".qbody").css("overflow","auto");
-				$(".qheader").css("margin-left",0);
-				$(".qmain").css("margin-left",0);
-			}else{
-				$(".qbody").css("overflow","hidden");
-				$(".qheader").css("margin-left",w);
-				$(".qmain").css("margin-left",w);
-			}
-		}
 		$(document).ready(function(){
 			initMenu();
 			initNav();
