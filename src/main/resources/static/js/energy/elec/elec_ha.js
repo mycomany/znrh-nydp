@@ -82,10 +82,8 @@ function main(){
             }
         },
         symbolSize: function(val) {
-//	    	if (val[3]>60) {
-//	    		return 60;
-//			}
-            return val[2]/10000*5;
+            var showsize = val[2]/10000*5;
+            return showsize < 8 ? 8 : showsize;
         },
         itemStyle: {
             normal: {
