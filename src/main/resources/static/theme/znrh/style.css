@@ -2,6 +2,7 @@
 .qbody{
     background-size: 100% 100%;padding: 0;
     background: url(bg.jpg);
+    font-size:1vw;
 }
 .qheader{
     height:80px;
@@ -209,12 +210,12 @@ div.qpanel div{z-index:1;}*/
     position: absolute;
     margin: 0;
     padding: 0;
-    top: 47px;
-    height: calc(100vh - 47px);
+    top: 0px;
+    height: 100vh;
     z-index: 100;
 }
 .sidenav{
-    padding: 6px 10px 6px 0;
+    padding: 54px 10px 6px 0;
     margin:0;
     list-style: initial;
     top: 0;
@@ -222,9 +223,11 @@ div.qpanel div{z-index:1;}*/
     height: 100%;
     background-image: linear-gradient(90deg,#061638 75%,rgba(19,21,36,0));
 }
-.sidenav li {list-style-type: none;height:30px;line-height: 30px; }
-.sidenav a { color: #fff; text-decoration: none; }
-.sidenav i {  display: block; width: 50px; float: left;  font-size: 16px; line-height: 30px; text-align: center;  }
+.sidenav li {list-style-type: none;height:50px;line-height: 50px; }
+.sidenav a { color: #fff; text-decoration: none; font-size:1.2vw; }
+
+.sidenav i {  display: block; width: 50px; line-height: 50px; float: left;  font-size: 16px; text-align: center;  }
+
 /*.sidenav li:before {height:30px;line-height:30px;width:0px;content:'';position:absolute;left:0;background-color:blue;transition: all 0.2s ease-in; }
 .sidenav li:hover:before {  width: 80%;  }*/
 .circlebox{margin:auto;width:130px;height:100%; line-height:100%; color:#fff;display: flex;justify-content:center;align-items:center;}

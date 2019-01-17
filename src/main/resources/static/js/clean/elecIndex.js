@@ -668,28 +668,7 @@ function chart5(data, ix){
 				data: data.data[ix][0],
 			},
 			{
-				name: "本月止累计",
-				type: "bar",
-				barWidth: '30%',
-				itemStyle: {
-					normal: {
-						barBorderRadius: 50,
-					},
-				},
-				data: data.data[ix][1],
-			},
-			{
 				name: "本月同比",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-					},
-				},
-				data: data.data[ix][2],
-			},
-			{
-				name: "去年累计同比",
 				type: "line",
 				smooth:true,
 				yAxisIndex: 1,
@@ -697,8 +676,9 @@ function chart5(data, ix){
 					normal: {
 					},
 				},
-				data: data.data[ix][3],
+				data: data.data[ix][2],
 			},
+
 		]
 	};
 	$chart.init('#chart5', option);

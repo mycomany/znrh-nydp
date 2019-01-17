@@ -20,7 +20,7 @@
 		var dt = [{"name":"能源平台",url:"/module/produce/index"},{"name":"国际篇",url:"/module/pattern/index"},{"name":"国内篇",url:"/module/statecn/index"}];
 		var str = [];
 		for(var i = 0; i <dt.length; i++){
-			str.push('<li>','<a href="${host}', dt[i].url,'"><i class="fa fa-fw fa-file-o"></i>', dt[i].name , '</a>','</li>');
+			str.push('<li>','<a href="${host}', dt[i].url,'"><i class="fa fa-fw fa-file-o"></i><span>', dt[i].name , '</span></a>','</li>');
 		}
 		$("#appmenu").html(str.join(''));
 	}
@@ -49,6 +49,20 @@
 		var t = tp || _mnt, m = mod == -1 ? _mnm : mod;
 		var u = __menu[t][m];
 		if(u) gourl('${host}'+u);
+	}
+	function showMenu(){
+		var w = '220px';
+		$('.qmenu').toggle();
+		if($('.qmenu').is(":hidden")){
+			$(".qbody").css("overflow","auto");
+			$(".qheader").css("margin-left",0);
+			$(".qmain").css("margin-left",0);
+		}else{
+			$(".qbody").css("overflow","hidden");
+			$(".qheader").css("margin-left",w);
+			$(".qmain").css("margin-left",w);
+		}
+
 	}
 	$(document).ready(function(){
 		initMenu();

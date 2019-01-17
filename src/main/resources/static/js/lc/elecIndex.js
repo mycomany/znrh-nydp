@@ -1,57 +1,28 @@
 $(document).ready(function(){
 	getdata('/lc/elecIndex/chart1.json',chart1);
-	getdatax('/lc/elecIndex/chart2.json',chart2);
+	//getdatax('/lc/elecIndex/chart2.json',chart2);
 	getdata('/lc/elecIndex/chart3.json',chart3);
 	getdatax('/lc/elecIndex/chart4.json',chart4);
 	getdatax('/lc/elecIndex/chart5.json',chart5,{sidx:2});
 	getdata('/lc/elecIndex/main.json',main);
 });
 function main(data){
-	var chart = am4core.createFromConfig({
-		data: data[3],
-		legend: {
-			labels:{
-				text:'{category}',
-				fill:'none',
-				stroke:'#fff',
-				fontSize:12,
-				fontFamily: 'sans-serif',
-				fontWeight:100,
-			}
-		},
-		angle:32,
-		depth:220,
-		innerRadius: "10%",
-		series: [{
-			"type": "PieSeries3D",
-			"legendSettings": {
-				"valueText": "{valueY.close}"
-			},
-			"labels":{
-				stroke:'#fff',
-				fontSize:12,
-				fontFamily: 'sans-serif',
-				fontWeight:100,
-				//"disabled":true
-			},
-			"ticks":{
-				"disabled":true
-			},
-			"slices":{
-				"strokeWidth":0,
-				"cornerRadius":5,
-			},
-			"colors":{
-				"step":3
-			},
-			"dataFields": {
-				"value": "value",
-				"depthValue":"value",
-				"category": "name"
-			}
-		}]
-	}, "main", "PieChart3D");
-	$("#id-43-title").parent().hide();
+	$(".mainc .node").each(function(){
+		var n = $(this), i = n.attr("index");
+		n.html('<div class="text"><a href="javascript:void(0);">'+ data[3][i].name +'</a></div>');
+		n.data("d", data[3][i]);
+		drawTip(n, data[3][i]);
+		n.on('mouseover',function(e){
+			this.tip.show();
+		}).on('mouseout',function(e){
+			this.tip.hide();
+		});
+	});
+}
+function drawTip(n, x){
+	var div = '<div class="tip" style="">{0}<br><span class="ball" style="background-color:#2b88ff;"></span>{1}: {2}<br><span class="ball" style="background-color:#5acbff;"></span>{3}: {4}</div>'
+	n.append(div.format(x.name,'脱硝效率', x.value, '同比', x.tb + '%'));
+	n[0].tip = n.find(".tip");
 }
 //煤气联合循环发电量趋势
 function chart1(data){
@@ -77,6 +48,7 @@ function chart1(data){
 			type: 'category',
 			gridIndex: 0,
 			data: data[1],
+			boundaryGap: false,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -311,6 +283,7 @@ function chart3(data){
 			type: 'category',
 			gridIndex: 0,
 			data: data[1],
+			boundaryGap: false,
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -372,22 +345,22 @@ function chart3(data){
 				name: "排放量",
 				type: "line",
 				smooth:true,
-				itemStyle: {
-					normal: {
-					},
+				areaStyle: {
+					normal: {type: 'default',
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0.3,
+							color: 'rgba(43,136,255,0.2)'
+						}, {
+							offset: 0.7,
+							color: 'rgba(43,136,255,0.4)'
+						}, {
+							offset: 1,
+							color: 'rgba(43,136,255, 1)'
+						}], false)
+					}
 				},
 				data: data[2],
 			},
-			/*{
-				name: "本月同比",
-				type: "line",
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-					},
-				},
-				data: data[3],
-			},*/
 		]
 	};
 	$chart.init('#chart3', option);
@@ -431,6 +404,7 @@ function chart4(data, ix){
 			type: 'category',
 			gridIndex: 0,
 			data: data.xData,
+
 			axisLine: {
 				lineStyle: {
 					color: '#38b8ff'
@@ -590,4 +564,52 @@ function chart5(data, ix){
 		]
 	};
 	$chart.init('#chart5', option);
+}
+
+function mainOld(data){
+	var chart = am4core.createFromConfig({
+		data: data[3],
+		legend: {
+			labels:{
+				text:'{category}',
+				fill:'none',
+				stroke:'#fff',
+				fontSize:12,
+				fontFamily: 'sans-serif',
+				fontWeight:100,
+			}
+		},
+		angle:32,
+		depth:220,
+		innerRadius: "10%",
+		series: [{
+			"type": "PieSeries3D",
+			"legendSettings": {
+				"valueText": "{valueY.close}"
+			},
+			"labels":{
+				stroke:'#fff',
+				fontSize:12,
+				fontFamily: 'sans-serif',
+				fontWeight:100,
+				//"disabled":true
+			},
+			"ticks":{
+				"disabled":true
+			},
+			"slices":{
+				"strokeWidth":0,
+				"cornerRadius":5,
+			},
+			"colors":{
+				"step":3
+			},
+			"dataFields": {
+				"value": "value",
+				"depthValue":"value",
+				"category": "name"
+			}
+		}]
+	}, "main", "PieChart3D");
+	$("#id-43-title").parent().hide();
 }
