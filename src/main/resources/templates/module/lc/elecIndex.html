@@ -4,26 +4,44 @@
     <script src="${host}/static/js/lc/elecIndex.js"></script>
     <style>
         .mainc{
-            margin: 0 auto;position:relative;
-            background: url('${host}/static/theme/znrh/elec/tree.png');padding:0;background-size: 100% 100%;
+            margin: 0 auto;position:relative;padding:0;
+            background: url('${host}/static/theme/znrh/elec/tree.png') no-repeat 50% 50%;background-size: 100% 80%;
         }
-        .mainc .node{position: absolute;height:50px;display:flex;align-items:center;/*justify-content:center;*/text-align: justify;cursor:pointer;}
-        .mainc .node1{left:49.1%;top:5.7%;}
-        .mainc .node2{left:28.2%;%;top:11.5%;}
-        .mainc .node3{left:10%;top:19.1%;}
-        .mainc .node4{left:19%;top:40.1%;}
-        .mainc .node5{left:36.5%;top:50.5%;}
-        .mainc .node6{left:4%;top:59%;}
-        .mainc .node7{left:69%;top:30.5%;}
-        .mainc .node8{left:88%;top:45.5%;}
-        .mainc .node9{left:72.6%;top:10.5%;}
-        .mainc .node10{left:71.6%;top:55.5%;}
-        .mainc .text a{color:#efefef;font-size:1.09em;}
+        .mainc .node{position: absolute;height:80px;width:80px;display:flex;align-items:center;justify-content:center;text-align: justify;cursor:pointer;
+            background: url('${host}/static/theme/znrh/elec/leaf.png') no-repeat 50% 50%;background-size: 100% 100%;padding:0;
+        }
+        .mainc .node1{left:41.1%;top:-2.3%;}
+        .mainc .node2{left:16.2%;%;top:5.5%;}
+        .mainc .node3{left:1%;top:12.1%;}
+        .mainc .node4{left:5.5%;top:34.1%;}
+        .mainc .node5{left:22.5%;top:44.5%;}
+        .mainc .node6{left:-3%;top:52%;}
+        .mainc .node7{left:54%;top:16.1%;}
+        .mainc .node8{left:86%;top:38.5%;}
+        .mainc .node9{left:66.7%;top:3.5%;}
+        .mainc .node10{left:63.6%;top:31.5%;}
+        .mainc .text a{color:#efefef;font-size:1.05em;text-align:center;}
         .mainc .text a:hover,.mainc a:visited{color:#2ab7ff;}
         .mainc .tip{position:absolute;display: none;white-space: nowrap;z-index: 9999999;background-color: rgba(50, 50, 50, 0.7);
             border: 0px solid rgb(51, 51, 51);border-radius: 4px;transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             font-size: 14px;font-family:Microsoft YaHei;line-height: 21px;padding: 5px;left: 71px;top: 5px;color: rgb(255, 255, 255);}
         .ball{display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;}
+        .ring{
+            position: absolute;bottom:-30%;
+            width: 100%;  height: 100%;
+            background-image: url("${host}/static/theme/znrh/elec/ring.png");  background-size: 100% 100%;
+            backface-visibility:hidden;
+            animation: rotate1 5s linear 0s infinite;
+        }
+
+        @keyframes rotate1 {
+            0% {
+                transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
+            }
+            100% {
+                transform: rotateX(80deg) rotateY(0deg) rotateZ(-360deg);
+            }
+        }
     </style>
 </#macro>
 
@@ -50,7 +68,7 @@
         <div class="w8 h12">
             <div id="main" class="w12 h12 qpanel0">
                 <div style="width:100%;height:10%;"></div>
-                <div class="mainc" style="width:74%;height:90%;">
+                <div class="mainc" style="width:60%;height:90%;">
                     <div class="qs_header">
                         <span class="qs_title2">二氧化碳减排贡献</span>
                         <div id="main_comb" class="qs_comb"><select class="selectpicker form-control"><option selected>2018-11</option></select></div>
@@ -65,13 +83,16 @@
                     <div class="node node8" index="7"></div>
                     <div class="node node9" index="8"></div>
                     <div class="node node10" index="9"></div>
+                    <div class="ring"></div>
                 </div>
             </div>
         </div>
         <div class="gi-right x9 w3 h10">
             <div class="w12 h5">
                 <div class="qpanel">
-                    <div class="qs_header"><span class="qs_title2">CO<sub>2</sub>排放量趋势</span></div>
+                    <div class="qs_header"><span class="qs_title2">CO<sub>2</sub>排放量趋势</span>
+                        <div id="chart3_comb" class="qs_comb"><select class="selectpicker form-control"><option selected>2018-11</option></select></div>
+                    </div>
                     <div id="chart3" class="qs_body"></div>
                 </div>
             </div>

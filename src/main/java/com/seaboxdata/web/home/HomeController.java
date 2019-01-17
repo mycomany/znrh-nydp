@@ -21,7 +21,7 @@ public class HomeController {
      */
     @RequestMapping(value = "/")
     public String index(){
-        return "redirect:module/pattern/index";
+        return "redirect:module/produce/index";
     }
 
     @RequestMapping(value = "/portal")
