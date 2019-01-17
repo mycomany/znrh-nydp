@@ -7,7 +7,7 @@ $(document).ready(function(){
 	//getdata('/consume/elec/chart2.json',getChart2);
 	getdatax('/consume/elec/chart2.json',chart2);
 	getdata('/consume/elec/chart3.json',chart3);
-	getdatax('/consume/elec/chart4.json',chart4);
+	getdata('/consume/elec/chart4.json',chart4);
 	//getdata('/consume/elec/chart5.json',getChart5);
 	getdatax('/consume/elec/chart5.json',chart5);
 	getdatax('/consume/elec/chart6.json',chart6);
@@ -56,6 +56,7 @@ function chart1(data){
 		},
 		tooltip: {
 			trigger: 'axis',
+			position:['50%','50%'],  
 			axisPointer: { // 坐标轴指示器，坐标轴触发有效
 				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
 			}
@@ -224,6 +225,7 @@ function chart2(data,date,a,name){
 		    color: color[a-1],
 		    tooltip: {
 		        trigger: 'item',
+		        position:'right',
 		        formatter: function (v){
 		        	//alert(JSON.stringify(v));
 		        	var va = v.name+' : '+v.data.value+' 万千瓦时<br/> 占比 ： '+v.percent +' %';
@@ -235,7 +237,7 @@ function chart2(data,date,a,name){
 		            type: 'pie',
 		            //selectedMode: 'single',
 		            radius: [0, '60%'],
-		            center:['50%','50%'],
+		            center:['50%','54%'],
 		            label: {
 		                normal: {
 		                    show: false,
@@ -258,7 +260,7 @@ function chart2(data,date,a,name){
 		        {
 		            type: 'pie',
 		            radius: ['65%', '68%'],
-		            center:['50%','50%'],
+		            center:['50%','54%'],
 		            label: {
 		                normal: {
 		                    formatter: '{b|{b}}\n{hr|}\n{c|{c}}{d|({d}%)}',
@@ -342,6 +344,7 @@ function chart3(data){
 		},
 		tooltip: {
 			trigger: 'axis',
+			position:['30%', '50%'], 
 			axisPointer: { // 坐标轴指示器，坐标轴触发有效
 				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
 			}
@@ -366,10 +369,10 @@ function chart3(data){
 		}],
 		yAxis: [
 			{
-				name:'元',
+				name:'元/千瓦时',
 	    		nameGap:-5,
 	    		nameTextStyle:{
-			    	padding:[0,0,0,20],
+			    	padding:[0,0,0,60],
 			    	align:'center',
 			    	color:'#fff',
 				},
@@ -473,27 +476,26 @@ function chart3(data){
     myChart.setOption(option);
 }
 
-function chart4(data,name){
-	var val = data.data[name];
+function chart4(data){
 	var option = {
 		tooltip : {
 		  trigger: 'axis'
 		},
 		grid: {
 			  left: '3%',
-			  right:'10%',
+			  right:'3%',
 			  top:'10%',
-			  bottom:'8%',
+			  bottom:'18%',
 			 containLabel: true
 			 },
 		legend: { //图例组件，颜色和名字
-			show:false,
+			show:true,
 		   itemGap: 12, //图例每项之间的间隔
 		   itemWidth: 16,
 		   itemHeight: 8,
 		   x:'center',
 		   bottom:'2%',
-		   data: data[0],
+		   data: data.legend,
 		   textStyle: {
 		     color: '#fff',
 		     fontSize: 10,
@@ -554,11 +556,37 @@ function chart4(data,name){
 		             },
 		             formatter: '{value}',
 		         }
-		        }],
+		        },{
+			    	 type: 'value',
+			         axisTick: {
+			             show: true
+			         },
+			         axisLine: {
+			             show: true,
+			             lineStyle: {
+			                 color: '#38b8ff',
+			             }
+			         },
+			         splitLine: {
+			        	 show: false,
+			             lineStyle: {
+			                 color: '#fff',
+			             }
+			         },
+			         axisLabel: {
+			             textStyle: {
+			                 color: '#fff',
+			                 fontWeight: 'normal',
+			                 fontSize: 10
+			             },
+			             formatter: '{value}',
+			         }
+			        }],
 		    series : [
 		        {
-		            name:'获得电力指数',
+		            name:'排名',
 		            type:'line',
+		            yAxisIndex: 1,
 		            areaStyle: {
 		                normal: {type: 'default',
 		                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -576,7 +604,40 @@ function chart4(data,name){
 		                	color:'#2b88ff',
 		                	areaStyle: {type: 'default'}}    
 		            },
-		            data:val
+		            data:data.data[0]
+		        },{
+		            name:'获得电力指数',
+		            type:'line',
+		            areaStyle: {
+		                normal: {type: 'default',
+		                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+		                        offset: 0,
+		                        color: 'rgba(43, 136, 255,0.4)'
+		                    }, {
+		                        offset: 1,
+		                        color: 'rgba(43, 136, 255,0.4)'
+		                    }], false)
+		                }
+		            },
+		            smooth:true,
+		            itemStyle: {
+						normal: {
+							color: 'rgb(77,243,243)',
+							barBorderRadius: 50,
+						},
+					},
+					areaStyle: {
+		                normal: {type: 'default',
+		                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+		                        offset: 0,
+		                        color: 'rgba(77,243,243,0.4)'
+		                    }, {
+		                        offset: 1,
+		                        color: 'rgba(77,243,243,0.4)'
+		                    }], false)
+		                }
+		            },
+		            data:data.data[1]
 		        }
 		    ]
 		};
@@ -1184,6 +1245,7 @@ function getMain(data){
 }
 
 function main(data,type,date){
+	$("#main canvas").empty();
 	$(".c"). removeClass("check_btn_option_checked");
 	$("#c1"). addClass("check_btn_option_checked");
 		 var province = data.province, db = data.pie;
@@ -1263,31 +1325,31 @@ function main(data,type,date){
     },{
     	min: -8,
         max: -7,
-        color: '#7db4fa'
+        color: '#7483f0'
     }, {
         min: -7,
         max: -6,
-        color: '#2ba8ff'
+        color: '#62c4d7'
     }, {
         min: -6,
         max: -5,
-        color: '#175ff2'
+        color: ''
     }, {
         min: -5,
         max: -4,
-        color: '#173bf2'
+        color: ''
     }, {
         min: -4,
         max: -3,
-        color: '#69a8f8'
+        color: ''
     },{
         min: -3,
         max: -2,
-        color: 'red'
+        color: ''
     },{
         min: -2,
         max: -1,
-        color: 'red'
+        color: ''
     },{
         min: -1,
         max: 0,
@@ -1315,6 +1377,21 @@ function main(data,type,date){
 	var das = [];
 	if (type == "1") {
 		das = data.valueIn[date][0];
+		das[0].push(
+				[{
+					"name": "进口"
+				}, {
+					"name": "进口",
+					"data": 0,
+					"value": 0
+				}],
+				[{
+					"name": "进口1"
+				}, {
+					"name": "进口1",
+					"data": 0,
+					"value": 0
+				}]);
 	}else{
 		das = data.valueOut[date][0];
 	}
@@ -1360,10 +1437,10 @@ function main(data,type,date){
 		var series = [];
 		[['华北', data1], ['东北', data2], ['华东', data3], ['华中', data4], ['西北', data5], ['西南', data6], ['华南', data7]].forEach(function (item, i) {
 		    //console.log(item,i);
-		    series.push(
+		    series.push(	
 		    {
 		        type: 'lines',
-		        zlevel: 1,
+		        zlevel: 2,
 		        symbol: ['none', 'arrow'],
 		        symbolSize: 10,
 		        visualMapIndex:9,
@@ -1373,12 +1450,12 @@ function main(data,type,date){
 		            trailLength: 0,
 		            color:'#ff3000',
 		            symbol: 'pin',
-		            symbolSize: 15
+		            symbolSize: 12
 		            
 		        },
 		        lineStyle: {
 		            normal: {
-		                width: 3,
+		                width: 2,
 		                opacity: 0.6,
 		                curveness: 0.2,
 		               color: 'red'
@@ -1386,6 +1463,31 @@ function main(data,type,date){
 		        },
 		        data: convertData(item[1])
 		    },
+		   /*{
+		        type: 'lines',
+		        zlevel: 1,
+		        symbol: ['none', 'arrow'],
+		        symbolSize: 10,
+		        visualMapIndex:9,
+		        effect: {
+		        	show: true, // 动效是否显示
+		            period: 6, // 特效动画时间
+		            trailLength: 0.7, // 特效尾迹的长度
+		            color: '#ffef00', // 特效颜色
+		            symbol: 'pin',
+		            symbolSize: 11 // 特效大小
+		            
+		        },
+		        lineStyle: {
+		            normal: {
+		                width: 2,
+		                opacity: 0.6,
+		                curveness: 0.2,
+		               color: 'red'
+		            }
+		        },
+		        data: convertData(item[1])
+		    },*/
 		    {
 		        type: 'effectScatter',
 		        coordinateSystem: 'geo',
@@ -1414,7 +1516,7 @@ function main(data,type,date){
 		            }
 		        },
 		        symbolSize: function (val) {
-		            return 18;//val[2] / 8;
+		            return 25;//val[2] / 8;
 		        },
 		        itemStyle: {
 		            emphasis:{
@@ -1447,7 +1549,8 @@ function main(data,type,date){
             },
             itemStyle:{
             	normal: {
-            		 borderColor:'#fff'
+            		 borderColor:'#fff',
+	                 areaColor: '#4c70f7'
                 },
             	 emphasis: {
 	            	 borderColor:'#55e6fc',
@@ -1493,11 +1596,15 @@ function main(data,type,date){
 		                	data = data7;
 						}
 		            if(params.seriesType=="effectScatter") {
-		                var vs =  params.data.name+"地区"+(type==1?"输出":"输入")+"电量";
+		                var vs = ''; 
+		                var vd =	params.data.name+"地区"+(type==1?"输出":"输入")+"电量";
 		                if ((params.data.name == '进口'||params.data.name == '进口1')||(params.data.name == '出口'||params.data.name == '出口1')) {
 		                	vs =  "";//params.data.name+"电量";
-						}//params.data.name+"地区";
+		                	vd =  "";
+						}
+		                var num = 0;
 		                for (var i = 0; i < data.length; i++) {
+		                	num = num +data[i][1].value;
 		                	if(data[i][0].name != data[i][1].name){
 		                		var a = data[i][1].name;
 		                		var b = data[i][0].name;
@@ -1516,7 +1623,12 @@ function main(data,type,date){
 		                		vs = vs+'<br/>'+name2+" 万千瓦时";
 		                	}
 						}
-		                return vs;
+		                if (num<1) {
+							num = "";
+						}else{
+							num =": "+num+' 万千瓦时';
+						}
+		                return vd +num+vs;
 		            }else if(params.seriesType=="lines"){
 		                var va = '';
 		                for (var i = 0; i < data.length; i++) {
@@ -1548,6 +1660,7 @@ function main(data,type,date){
                 show: false,
                 pieces: pieces1,
                 itemHeight:10,
+                //seriesIndex: [1,],
                 itemWidth:15,
                 left: 'left',
                 top: 'bottom',
@@ -1557,6 +1670,16 @@ function main(data,type,date){
                /* inRange: {
                     color: ["#aeb2f7","#3c68f3","#061ae1" ]
                 },*/
+                itemStyle:{
+                	normal: {
+                		 borderColor:'rgba(1,11,1,0)',
+                		 areaColor: 'rgba(1,11,1,0)'
+                    },
+                	 emphasis: {
+    	            	 borderColor:'rgba(1,11,1,0)',
+    	                 areaColor: 'rgba(1,11,1,0)'
+    	            }
+                },
                 textStyle:{
                     color:'#fff'
                 },
@@ -1572,16 +1695,16 @@ function main(data,type,date){
 		        zoom:1.2, 
 		        aspectScale:0.9,  
 		        roam: false,
-		        itemStyle: {
-		            normal: {
-		                areaColor: '#59b6f4',
-		                borderColor: '#59b6f4'
-		            },
-		            emphasis: {
-		            	 borderColor:'#fff',
-		                    areaColor: 'red',
+		        itemStyle:{
+	            	normal: {
+	            		 borderColor:'grba(1,1,1,0)',
+		                 areaColor: 'grba(1,1,1,0)'
+	                },
+	            	 emphasis: {
+		            	 borderColor:'grba(1,1,1,0)',
+		                 areaColor: 'grba(1,1,1,0)'
 		            }
-		        }
+	            }
 		    },
 		    series: series
 		};

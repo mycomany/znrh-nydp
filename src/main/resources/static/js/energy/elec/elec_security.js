@@ -1,8 +1,8 @@
 $(document).ready(function(){
-	 var d = ["国电投","国能投","华能","大唐","华电","中核","中广核","三峡","国投电力","华润电力"];
+	 var d = ["全国","国电投","国能投","华能","大唐","华电","中核","中广核","三峡","国投电力","华润电力"];
 	 var d2 = ["2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10","2018-11"];
-	    creatSelect(d,'select_chart1','国电投',"change1");
-	    creatSelect(d,'select_chart5','国电投',"change5");
+	    creatSelect(d,'select_chart1','全国',"change1");
+	    creatSelect(d,'select_chart5','全国',"change5");
 	    creatSelect(d2,'select_chart2','2018-11',"change2");
 	    creatSelect(d2,'select_chart3','2018-11',"change3");
 	    creatSelect(d2,'select_chart4','2018-11',"change4");
@@ -42,7 +42,7 @@ function changeMap(param){
 var data1 = [];
 function getChart1(data){
 	data1 = data;
-	chart1(data,"国电投");
+	chart1(data,"全国");
 }
 function change1(name){
 	chart1(data1,name);
@@ -516,23 +516,12 @@ function chart4(data,date){
                 }
             }
         ],
-        "tooltip": {
-            "trigger": "axis",
-            "axisPointer": {
-                "type": "cross",
-                "crossStyle": {
-                    "color": "#384757"
-                }
-            },
-            formatter: function(params, ticket, callback) {
-                var res = params[0].name;
-                for (var i = 0, l = params.length; i < l; i++) {
-                    res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " " + data[1][0];
-                }
-                return res;
-
-            }
-        },
+        tooltip: {
+			trigger: 'axis',
+			axisPointer: { // 坐标轴指示器，坐标轴触发有效
+				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
         series: [
             {
                 name: data.legend[0],
@@ -561,7 +550,7 @@ function chart4(data,date){
 var data5 = [];
 function getChart5(data){
 	data5 = data;
-	chart5(data,"国电投");
+	chart5(data,"全国");
 }
 function change5(name){
 	chart5(data5,name);
