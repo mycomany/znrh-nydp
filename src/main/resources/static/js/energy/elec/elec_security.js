@@ -288,8 +288,17 @@ function chart2(data,date){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2b88ff',
-						// barBorderRadius: 50,
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(43,136,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(43,136,255,0.2)'
+	                            }
+	                        ]
+	                    )
 					},
 				},
 				data: val[0]
@@ -301,8 +310,17 @@ function chart2(data,date){
 				yAxisIndex: 1,
 				itemStyle: {
 					normal: {
-						color: '#4df3f3',
-						//barBorderRadius: 50,
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(77,243,243,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(77,243,243,0.2)'
+	                            }
+	                        ]
+	                    )
 					},
 				},
 				data: val[1]
@@ -412,8 +430,17 @@ function chart3(data,date){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
-						color: '#2b88ff',
-						// barBorderRadius: 50,
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(43,136,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(43,136,255,0.2)'
+	                            }
+	                        ]
+	                    )
 					},
 				},
 				data: val			}
@@ -633,6 +660,7 @@ function chart5(data,name){
 				name: "设备较大事故起数",
 				type: "line",
 				barWidth: '18%',
+				smooth: true,
 				itemStyle: {
 					normal: {
 						color: '#2b88ff',
@@ -644,6 +672,7 @@ function chart5(data,name){
 				name: "核电厂INES三级及以上事件数",
 				type: "line",
 				barWidth: '18%',
+				 smooth: true,
 				itemStyle: {
 					normal: {
 						color: '#5ed7ee',
@@ -655,6 +684,7 @@ function chart5(data,name){
 				name: "水库、灰库和尾矿库大坝溃坝事故起数",
 				type: "line",
 				barWidth: '18%',
+				 smooth: true,
 				itemStyle: {
 					normal: {
 						color: '#00ffc4',
@@ -666,6 +696,7 @@ function chart5(data,name){
 				name: "较大及以上电力安全事故起数",
 				type: "line",
 				barWidth: '18%',
+				 smooth: true,
 				itemStyle: {
 					normal: {
 						color: '#f6cf57',

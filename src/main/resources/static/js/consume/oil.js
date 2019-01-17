@@ -261,7 +261,7 @@ function chart1(datas){
 		    		                            },
 		    		                            {
 		    		                                offset: 1,
-		    		                                color: 'rgba(37,228,163,0.7)'
+		    		                                color: 'rgba(37,228,163,0.2)'
 		    		                            }
 		    		                        ]
 		    		                    )
@@ -601,7 +601,7 @@ function chart3(data){
 			                            },
 			                            {
 			                                offset: 1,
-			                                color: 'rgba(97,255,255,0.7)'
+			                                color: 'rgba(97,255,255,0.2)'
 			                            }
 			                        ]
 			                    )
@@ -624,7 +624,7 @@ function chart3(data){
 			                            },
 			                            {
 			                                offset: 1,
-			                                color: 'rgba(40,116,255,0.7)'
+			                                color: 'rgba(40,116,255,0.2)'
 			                            }
 			                        ]
 			                    )
@@ -899,7 +899,7 @@ function chart5(data){
 	                            },
 	                            {
 	                                offset: 1,
-	                                color: 'rgba(97,255,255,0.7)'
+	                                color: 'rgba(97,255,255,0.2)'
 	                            }
 	                        ]
 	                    )
