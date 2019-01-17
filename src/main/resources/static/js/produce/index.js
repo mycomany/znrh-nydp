@@ -317,41 +317,58 @@ function makeOrders(orderDatas,selectPoint,point){
     let lineName = ""
     let xObject = {}
 
+
+    orderDatas.sort(compare('value'))
+
+
     orderDatas.forEach(powerMakedData=>{
         const companyName = powerMakedData["companyName"]//每家公司名称
-        const type = powerMakedData["type"]//类型：水、风、火、光伏、核能
-        const year = powerMakedData["year"]//
-        const month = powerMakedData["month"]
-        const val = powerMakedData["val"]//量
-        const ratio = powerMakedData["ratio"]//同比
-
-        if((year+'-'+month)===selectPoint) {
-            if(xObject[companyName]==null){xObject[companyName]='SCQ'}
-            if(barObject[type]!=null){
-                barObject[type].push(val)
-            }else{
-                barObject[type] = []
-                barObject[type].push(val)
-            }
-            if(type==='总量'||type==='上网电量'){
-                lineArray.push(ratio)
-            }
-        }
+        // const type = powerMakedData["type"]//类型：水、风、火、光伏、核能
+        // const year = powerMakedData["year"]//
+        // const month = powerMakedData["month"]
+        const val = powerMakedData["value"]//量
+        // const ratio = powerMakedData["ratio"]//同比
+        barObject[companyName]= val
+        // if((year+'-'+month)===selectPoint) {
+        //     if(xObject[companyName]==null){xObject[companyName]='SCQ'}
+        //     if(barObject[type]!=null){
+        //         barObject[type].push(val)
+        //     }else{
+        //         barObject[type] = []
+        //         barObject[type].push(val)
+        //     }
+        //     if(type==='总量'||type==='上网电量'){
+        //         lineArray.push(ratio)
+        //     }
+        // }
     })
 
     let seriesData = [];
 
-    Object.keys(barObject).forEach((barName)=>{
-        const barArray = barObject[barName]
-        const o = {
-            name:barName,
-            type:'bar',
-            stack: 'stackBars',
-            barWidth:15,
-            data:barArray
-        };
-        seriesData.push(o)
-    })
+    const o = {
+        // name:"",
+        type:'bar',
+        stack: 'stackBars',
+        barWidth:15,
+        data:Object.values(barObject)
+    };
+
+
+
+    seriesData.push(o)
+
+
+    // Object.keys(barObject).forEach((barName)=>{
+    //     const barArray = barObject[barName]
+    //     const o = {
+    //         name:barName,
+    //         type:'bar',
+    //         stack: 'stackBars',
+    //         barWidth:15,
+    //         data:barArray
+    //     };
+    //     seriesData.push(o)
+    // })
 
     // seriesData.push({
     //     name:'同比',
@@ -408,7 +425,7 @@ function makeOrders(orderDatas,selectPoint,point){
                 show:true
             },
             type: 'category',
-            data:Object.keys(xObject)
+            data:Object.keys(barObject)
         },
         yAxis: [{
             name:'  '+point,
@@ -1091,12 +1108,13 @@ function cleanPowerMake(datas,selectPoint){
 
     $(".main_order_name_val").hide()
 
-    function compare(property){
-        return function(obj1,obj2){
-            var value1 = obj1[property];
-            var value2 = obj2[property];
-            return value2 - value1;     // 降
-        }
+
+}
+function compare(property){
+    return function(obj1,obj2){
+        var value1 = obj1[property];
+        var value2 = obj2[property];
+        return value2 - value1;     // 降
     }
 }
 

@@ -9,7 +9,7 @@ $(document).ready(function(){
 function main(data){
 	$(".mainc .node").each(function(){
 		var n = $(this), i = n.attr("index");
-		n.html('<div class="text"><a href="javascript:void(0);">'+ data[3][i].name +'</a></div>');
+		n.html('<div class="text"><a href="javascript:void(0);"><div>'+ data[3][i].name + '</div><div>' + data[3][i].value +'</div></a></div>');
 		n.data("d", data[3][i]);
 		drawTip(n, data[3][i]);
 		n.on('mouseover',function(e){
