@@ -65,27 +65,6 @@ function chart1(data, ix){
 						color: '#0177d4'
 					}
 				}
-			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
-				},
-				axisLine: {
-					lineStyle: {
-						color: '#38b8ff'
-					}
-				},
-				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
-					formatter: '{value}%'
-				},
-				splitLine: {
-					show:false,
-					lineStyle: {
-						color: '#0177d4'
-					}
-				}
 			}],
 		series: [
 			{
@@ -94,6 +73,17 @@ function chart1(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(43,136,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(43,136,255,0.7)'
+	                            }
+	                        ]
+	                    ),
 						barBorderRadius: 50,
 					},
 				},
@@ -105,33 +95,22 @@ function chart1(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(90,203,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(90,203,255,0.6)'
+	                            }
+	                        ]
+	                    ),
 						barBorderRadius: 50,
 					},
 				},
 				data: data.data[ix][1],
-			},
-			{
-				name: "本月同比",
-				type: "line",
-				smooth:true,
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-					},
-				},
-				data: data.data[ix][2],
-			},
-			{
-				name: "本月止累计同比",
-				type: "line",
-				smooth:true,
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-					},
-				},
-				data: data.data[ix][3],
-			},
+			}
 		]
 	};
 	$chart.init('#chart1', option);
@@ -242,6 +221,55 @@ function chart2(data){
 //污染物排放完成率
 function chart3(data){
 	var option = {
+	series: [{
+        type: 'liquidFill',
+        color:['#0082ff','#00d6ff'],
+        data:  [0.25,  0.19],
+        radius: '47%',
+        label: {
+            formatter: data[2].name+'\n\n\n'+data[2].value.toFixed(2),
+            textStyle: {
+                fontSize: 20,
+                fontFamily: 'Lobster Two'
+            }
+        },
+        center:['16%','50%'],
+        outline: {
+            show: false
+        }
+    },{
+        type: 'liquidFill',
+        data:[0.45,  0.42,0.35,0.30],
+        radius: '70%',
+        label: {
+            formatter: data[0].name+'\n\n\n\n'+data[0].value.toFixed(2),
+            textStyle: {
+                fontSize: 20,
+                fontFamily: 'Lobster Two'
+            }
+        },
+        center:['50%','50%'],
+        outline: {
+            show: true
+        }
+    },{
+        type: 'liquidFill',
+        data: [0.3711,  0.33,0.30,0.28],
+        radius: '47%',
+        label: {
+            formatter: data[1].name+'\n\n\n'+data[1].value.toFixed(2),
+            textStyle: {
+                fontSize: 20,
+                fontFamily: 'Lobster Two'
+            }
+        },
+        center:['84%','50%'],
+        outline: {
+            show: false
+        }
+    }]
+	}
+	/*var option = {
 		//title:[{
 		//	text:'污染物排放完成率',
 		//	top:'3%',
@@ -444,7 +472,7 @@ function chart3(data){
 				]
 			}
 		]
-	};
+	};*/
 	$chart.init('#chart3', option,'pie');
 }
 //污染物排放趋势
@@ -633,27 +661,6 @@ function chart5(data, ix){
 						color: '#0177d4'
 					}
 				}
-			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
-				},
-				axisLine: {
-					lineStyle: {
-						color: '#38b8ff'
-					}
-				},
-				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
-					formatter: '{value}%'
-				},
-				splitLine: {
-					show:false,
-					lineStyle: {
-						color: '#0177d4'
-					}
-				}
 			}],
 		series: [
 			{
@@ -662,23 +669,22 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(43,136,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(43,136,255,0.7)'
+	                            }
+	                        ]
+	                    ),
 						barBorderRadius: 50,
 					},
 				},
 				data: data.data[ix][0],
-			},
-			{
-				name: "本月同比",
-				type: "line",
-				smooth:true,
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-					},
-				},
-				data: data.data[ix][2],
-			},
-
+			}
 		]
 	};
 	$chart.init('#chart5', option);
@@ -739,27 +745,6 @@ function chart6(data, ix){
 						color: '#0177d4'
 					}
 				}
-			},{
-				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
-				},
-				axisLine: {
-					lineStyle: {
-						color: '#38b8ff'
-					}
-				},
-				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
-					formatter: '{value}%'
-				},
-				splitLine: {
-					show:false,
-					lineStyle: {
-						color: '#0177d4'
-					}
-				}
 			}],
 		series: [
 			{
@@ -768,22 +753,22 @@ function chart6(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(43,136,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(43,136,255,0.7)'
+	                            }
+	                        ]
+	                    ),
 						barBorderRadius: 50,
 					},
 				},
 				data: data.data[ix][0],
-			},
-			{
-				name: "本月同比",
-				type: "line",
-				smooth:true,
-				yAxisIndex: 1,
-				itemStyle: {
-					normal: {
-					},
-				},
-				data: data.data[ix][1],
-			},
+			}
 		]
 	};
 	$chart.init('#chart6', option);

@@ -1,14 +1,14 @@
 {
   "index":["2018-11"],
   "data": [{"type":"全国","year":"2018","month":"11","val":"80","ratio":"6.6"},
-    {"type":"国电投","year":"2018","month":"11","val":"42","ratio":"6.6"},
-    {"type":"华能","year":"2018","month":"11","val":"54","ratio":"8.6"},
-    {"type":"大唐","year":"2018","month":"11","val":"55","ratio":"6.6"},
-    {"type":"华电","year":"2018","month":"11","val":"48","ratio":"6.6"},
-    {"type":"国电","year":"2018","month":"11","val":"43","ratio":"3.6"},
-    {"type":"国投","year":"2018","month":"11","val":"42","ratio":"4.6"},
-    {"type":"国华","year":"2018","month":"11","val":"55","ratio":"3.6"},
-    {"type":"华润","year":"2018","month":"11","val":"46","ratio":"5.6"},
-    {"type":"中广核","year":"2018","month":"11","val":"46","ratio":"6.6"},
-    {"type":"神华","year":"2018","month":"11","val":"40","ratio":"7.6"}]
+   {"type":"国投电力","year":"2018","month":"11","val":"56.5"},
+    {"type":"中核","year":"2018","month":"11","val":"50"},
+    {"type":"三峡","year":"2018","month":"11","val":"50"},
+    {"type":"华润","year":"2018","month":"11","val":"50"},
+    {"type":"中广核","year":"2018","month":"11","val":"50"},
+    {"type":"国电投","year":"2018","month":"11","val":"45.14"},
+    {"type":"华电","year":"2018","month":"11","val":"38.63"},
+    {"type":"大唐","year":"2018","month":"11","val":"33.92"},
+    {"type":"华能","year":"2018","month":"11","val":"30.99"},
+    {"type":"国能投","year":"2018","month":"11","val":"24"}]
 }
