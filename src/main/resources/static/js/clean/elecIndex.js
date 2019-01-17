@@ -73,6 +73,17 @@ function chart1(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(43,136,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(43,136,255,0.7)'
+	                            }
+	                        ]
+	                    ),
 						barBorderRadius: 50,
 					},
 				},
@@ -84,6 +95,17 @@ function chart1(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(90,203,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(90,203,255,0.6)'
+	                            }
+	                        ]
+	                    ),
 						barBorderRadius: 50,
 					},
 				},
@@ -203,7 +225,7 @@ function chart3(data){
         type: 'liquidFill',
         color:['#0082ff','#00d6ff'],
         data:  [0.25,  0.19],
-        radius: '60%',
+        radius: '47%',
         label: {
             formatter: data[2].name+'\n\n\n'+data[2].value.toFixed(2),
             textStyle: {
@@ -218,7 +240,7 @@ function chart3(data){
     },{
         type: 'liquidFill',
         data:[0.45,  0.42,0.35,0.30],
-        radius: '80%',
+        radius: '70%',
         label: {
             formatter: data[0].name+'\n\n\n\n'+data[0].value.toFixed(2),
             textStyle: {
@@ -233,7 +255,7 @@ function chart3(data){
     },{
         type: 'liquidFill',
         data: [0.3711,  0.33,0.30,0.28],
-        radius: '60%',
+        radius: '47%',
         label: {
             formatter: data[1].name+'\n\n\n'+data[1].value.toFixed(2),
             textStyle: {
@@ -647,6 +669,17 @@ function chart5(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(43,136,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(43,136,255,0.7)'
+	                            }
+	                        ]
+	                    ),
 						barBorderRadius: 50,
 					},
 				},
@@ -720,6 +753,17 @@ function chart6(data, ix){
 				barWidth: '30%',
 				itemStyle: {
 					normal: {
+						color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(43,136,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(43,136,255,0.7)'
+	                            }
+	                        ]
+	                    ),
 						barBorderRadius: 50,
 					},
 				},
