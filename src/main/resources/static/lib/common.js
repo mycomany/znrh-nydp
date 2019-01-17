@@ -219,7 +219,7 @@ function creatSelect(data,id,shouValue,mo){
 }
 
 var RollingPlay = {
-    ts : 11,
+    ts : 6,
     uri:['market/finance','pattern/gasIndex','pattern/gasStore','statecn/index','statecn/opinions','statecn/gasIndex','statecn/gasSecurity','pattern/index','pattern/gasMarket'],
     rollPlayInit:function(id){
         this.timespan = this.ts;
@@ -292,17 +292,23 @@ var RollingPlay = {
         }
     }
 };
-function RollingPlayNew(menu){
+function RollingPlayNew(menu, g, curm){
     RollingPlay.uri = menu;
-    RollingPlay.group = ['elec','oil','gas'];
+    RollingPlay.group = g;
+    RollingPlay.curr = curm;
     RollingPlay.goNext = function(){
-        var curr = location.href.replace(__host,''), uri = this.uri, nextu = '', b = false, i = -1, tp = '';
-        for(var m in uri){
-            i = uri[m].indexOf(curr);
-            if(i>-1){
-                b = true;
-                tp = m;
-                break;
+        var curr = location.href.replace(__host,''), uri = this.uri, nextu = '', b = false, i = -1, tp = '', curm = this.curr;
+        if(curm && uri[curm] && (i = uri[curm].indexOf(curr))>-1){
+            b = true;
+            tp = curm;
+        }else{
+            for(var m in uri){
+                i = uri[m].indexOf(curr);
+                if(i>-1){
+                    b = true;
+                    tp = m;
+                    break;
+                }
             }
         }
         if(b){
@@ -444,4 +450,5 @@ function initSelect(data,id,shouValue){
     if(tbody) tbody.innerHTML = str;
     $("#"+id).find(".selectpicker").selectpicker();
 }
+var __top = [{"name":"能源指标监控",url:"/module/produce/index"},{"name":"安全态势感知",url:"/module/sys/portal"},{"name":"实时运营监测",url:"/module/sys/motion"},{"name":"能源市场分析",url:"/module/statecn/index"},{"name":"国际能源态势",url:"/module/pattern/index"}];
 

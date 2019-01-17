@@ -254,13 +254,17 @@ function chart1(datas){
 		                        itemStyle: {
 		                            normal: {
 		                                barBorderRadius: 50,
-		                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-		                                	 offset: 0,
-			                                    color: '#16d393'
-			                                }, {
-			                                    offset: 1,
-			                                    color: '#25e4a3'
-		                                }]),
+		                                color:new echarts.graphic.LinearGradient(
+		    			                        0, 0, 0, 1, [{
+		    		                                offset: 0,
+		    		                                color: 'rgba(37,228,163,1)'
+		    		                            },
+		    		                            {
+		    		                                offset: 1,
+		    		                                color: 'rgba(37,228,163,0.7)'
+		    		                            }
+		    		                        ]
+		    		                    )
 		                            }
 		                        }
 		                    };
@@ -590,7 +594,17 @@ function chart3(data){
 		                barWidth: "30%",
 		                itemStyle: {
 		                    normal: {
-		                        color: '#61ffff'
+		                    	color:new echarts.graphic.LinearGradient(
+				                        0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color: 'rgba(97,255,255,1)'
+			                            },
+			                            {
+			                                offset: 1,
+			                                color: 'rgba(97,255,255,0.7)'
+			                            }
+			                        ]
+			                    )
 		                    },
 		                },
 		                zlevel:0,
@@ -603,7 +617,17 @@ function chart3(data){
 		                yAxisIndex:0,
 		                itemStyle: {
 		                    normal: {
-		                        color: '#2874ff'
+		                    	color:new echarts.graphic.LinearGradient(
+				                        0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color: 'rgba(40,116,255,1)'
+			                            },
+			                            {
+			                                offset: 1,
+			                                color: 'rgba(40,116,255,0.7)'
+			                            }
+			                        ]
+			                    )
 		                    },
 		                },
 		                zlevel:0,
@@ -868,7 +892,17 @@ function chart5(data){
                 yAxisIndex:0,
                 itemStyle: {
                     normal: {
-                        color: '#61ffff'
+                    	color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(97,255,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(97,255,255,0.7)'
+	                            }
+	                        ]
+	                    )
                     },
                 },
                 data: data[2]
@@ -879,7 +913,17 @@ function chart5(data){
                 yAxisIndex:0,
                 itemStyle: {
                     normal: {
-                        color: '#2874ff'
+                    	color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(40,116,255,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(40,116,255,0.3)'
+	                            }
+	                        ]
+	                    )
                     },
                 },
                 data: data[3]
