@@ -53,7 +53,8 @@ function main(data, selectName){
 //	    	if (val[3]>60) {
 //	    		return 60;
 //			}
-            return val[2]/data["nm"][selectName];
+            var showsize = val[2]/data["nm"][selectName];
+            return showsize < 8 ? 8 : showsize;
         },
         itemStyle: {
             normal: {

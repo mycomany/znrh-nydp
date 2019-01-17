@@ -1133,16 +1133,16 @@ function loadTabInfo(jsonData,selectedCompanyName,selectDate){
         if((year+'-'+month)===selectDate) {
             const companyName = cleanPowerDetail['companyName']
             if(companyName===selectedCompanyName){
-                if(cleanPowerDetail['type']==='弃光率'){
+                if(cleanPowerDetail['type']==='弃光'){
                     $("#qg").empty()
                     $("#qg").html(cleanPowerDetail['val'])
-                }else if(cleanPowerDetail['type']==='弃风率'){
+                }else if(cleanPowerDetail['type']==='弃风'){
                     $("#qf").empty()
                     $("#qf").html(cleanPowerDetail['val'])
-                }else if(cleanPowerDetail['type']==='弃水率'){
+                }else if(cleanPowerDetail['type']==='弃水'){
                     $("#qs").empty()
                     $("#qs").html(cleanPowerDetail['val'])
-                }else if(cleanPowerDetail['type']==='弃核率'){
+                }else if(cleanPowerDetail['type']==='弃核'){
                     $("#qhn").empty()
                     $("#qhn").html(cleanPowerDetail['val'])
                 }

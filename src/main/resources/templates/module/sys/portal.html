@@ -35,22 +35,21 @@
                       'http://10.80.48.187/website/国家电投/中电国际/平圩三电/5号机组风烟系统图.html',
                       'http://10.80.48.187/website/国家电投/中电国际/平圩三电/5号机组制粉系统图.html'
                       ];
-		 branch 'master' of https://github.com/dfjxps2/znrh-nydp
         var _mnm = -1, _mnt = '';
         function initMenu(){
-            var dt = [{"name":"能源平台",url:"/module/clean/elecIndex"},{"name":"国际篇",url:"/module/pattern/index"},{"name":"国内篇",url:"/module/statecn/index"}];
+            var dt = __top;
             var str = [];
             for(var i = 0; i <dt.length; i++){
-                str.push('<li>','<a href="${host}', dt[i].url,'"><i class="fa fa-fw fa-file-o"></i>', dt[i].name , '</a>','</li>');
+                str.push('<li>','<a href="${host}', dt[i].url,'"><i class="fa fa-fw fa-file-o"></i><span>', dt[i].name , '</span></a>','</li>');
             }
             $("#appmenu").html(str.join(''));
         }
         function initNav(){
             var it = dui.imgtab;
-            it(".qnav");
+            it(".qnav1");
+            it(".qnav2");
         }
         function gopage(k,i){
-
             var u = __menu[i];
             if(u) $("#mainframe").attr("src", u);
         }
@@ -61,6 +60,19 @@
             RollingPlay.rollPlayInit('rollingBtn');
             $style.setTheme('${goods!"elec"}');
         });
+        function showMenu(){
+            var w = '220px';
+            $('.qmenu').toggle();
+            if($('.qmenu').is(":hidden")){
+                $(".qbody").css("overflow","auto");
+                $(".qheader").css("margin-left",0);
+                $(".qmain").css("margin-left",0);
+            }else{
+                $(".qbody").css("overflow","hidden");
+                $(".qheader").css("margin-left",w);
+                $(".qmain").css("margin-left",w);
+            }
+        }
     </script>
 
     <script type="text/javascript">
@@ -73,44 +85,65 @@
 <body class="qbody">
 <div class="qheader clearfix">
     <div class="qheader0">
-        <div class="qheader-title1"><img src="${host}/static/theme/znrh/logo.png" style="width:32px;height:32px;margin-right:10px;" />国家智慧能源平台</div>
+        <div class="qheader-title1">能源智慧信息平台</div>
+    </div>
+    <div class="qheader1" style="position: relative;">
+        <div class="qmenu-ico" onclick="showMenu();"><img src="${host}/static/theme/znrh/menu.png" /></div>
+        <div class="clearfix" style="width:100%;margin-top:30px;">
+            <div class="qlogo left">&emsp;</div>
+            <div class="left" style="width:calc(100% - 353px);">
+                <div class="qnav0" style="width:100%;">
+                    <ul class="qnav1 clearfix">
+                        <li class="active">
+                            <a href="javascript:void(0);" onclick="gopage('elec',0)"><div>电力</div></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="gopage('oil',1)"><div>石油</div></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="gopage('gas',2)"><div>天然气</div></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="gopage('gas',3)"><div>煤炭</div></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="qheader1">
-        <div class="left" style="width:50px;">
-            <div class="qmenu-ico" onclick="$('.qmenu').toggle();"><img src="${host}/static/theme/znrh/menu.png" style="width:32px;height:32px;" /></div>
+        <div class="clearfix" style="width:100%;height:30px;padding-right:10px;padding-top:5px;">
+            <div class="rollingDiv right"><div id="rollingBtn" class="rollingBtn"><div class="rollingStop">轮播</div><div class="rollingPlay"><span class="rollingTime">60</span>秒</div></div></div>
         </div>
-        <ul class="qnav left" style="margin-right:120px;">
-            <li class="active">
-                <a href="javascript:void(0);" onclick="gopage('',0)"><img src="${host}/static/theme/znrh/ico_produce.png" /><span>火电</span></a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" onclick="gopage('',1)"><img src="${host}/static/theme/znrh/ico_consume.png" /><span>水电</span></a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" onclick="gopage('',2)"><img src="${host}/static/theme/znrh/ico_clean.png" /><span>核电</span></a>
-            </li>
-        </ul>
-    </div>
-    <div class="qheader1">
-        <ul class="qnav left" style="margin-left:120px;">
-            <li>
-                <a href="javascript:void(0);" onclick="gopage('',3)"><img src="${host}/static/theme/znrh/ico_lc.png" /><span>低碳</span></a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" onclick="gopage('',4)"><img src="${host}/static/theme/znrh/ico_security.png" /><span>安全</span></a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" onclick="gopage('',5)"><img src="${host}/static/theme/znrh/ico_ha.png" /><span>高效</span></a>
-            </li>
-        </ul>
-        <div class="left" style="width:50px;">
-            <div class="rollingDiv"><div id="rollingBtn" class="rollingBtn"><div class="rollingStop">轮播</div><div class="rollingPlay"><span class="rollingTime">60</span>秒</div></div></div>
+        <div style="width:100%;height:50px;">
+            <ul class="qnav2 clearfix right" style="margin-left:0px;">
+                <li class="active">
+                    <a href="javascript:void(0);" onclick="gopage('',0)"><span>生产</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="gopage('',1)"><span>消费</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="gopage('',2)"><span>清洁</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="gopage('',3)"><span>低碳</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="gopage('',4)"><span>安全</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="gopage('',5)"><span>高效</span></a>
+                </li>
+            </ul>
+            <div class="clear"></div>
         </div>
+        <div class="clear"></div>
     </div>
 </div>
 <div class="qmenu" style="display:none;"><ul id="appmenu" class="sidenav"></ul></div>
 <div class="qmain animated fadeInRight">
-    <iframe id="mainframe" src="http://www.baidu.com" scrolling="yes" frameborder="0" style="width: 100%; height: 100%; overflow: visible;"></iframe>
+    <iframe id="mainframe" scrolling="yes" frameborder="0" style="width: 100%; height: 100%; overflow: visible;"></iframe>
 </div>
 </body>
 </html>

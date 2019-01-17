@@ -17,7 +17,7 @@
 	var __menu = {'elec':['/module/produce/index','/module/consume/elec','/module/clean/elecIndex','/module/lc/elecIndex','/energy/elec/security','/energy/elec/ha'],'oil':['/module/produce/oilIndex','/module/consume/oil','/module/clean/oilIndex','/module/lc/oilIndex','/energy/oil/security','/energy/oil/ha'],'gas':['/module/produce/gasIndex','/module/consume/gas','/module/clean/gasIndex','/module/lc/gasIndex','/energy/gas/security','/energy/gas/ha'],'coal':['','','','','','']};
 	var _mnm = -1, _mnt = '';
 	function initMenu(){
-		var dt = [{"name":"能源平台",url:"/module/produce/index"},{"name":"国际篇",url:"/module/pattern/index"},{"name":"国内篇",url:"/module/statecn/index"}];
+		var dt = __top;
 		var str = [];
 		for(var i = 0; i <dt.length; i++){
 			str.push('<li>','<a href="${host}', dt[i].url,'"><i class="fa fa-fw fa-file-o"></i><span>', dt[i].name , '</span></a>','</li>');
@@ -62,14 +62,13 @@
 			$(".qheader").css("margin-left",w);
 			$(".qmain").css("margin-left",w);
 		}
-
 	}
 	$(document).ready(function(){
 		initMenu();
 		initNav();
 		setCurrPage();
 		//localStorage.RollingPlay_ply = "false";//
-		RollingPlayNew(__menu);
+		RollingPlayNew(__menu,['elec','oil','gas'], _mnt);
 		$style.setTheme('${goods!"elec"}');
 	});
 </script>

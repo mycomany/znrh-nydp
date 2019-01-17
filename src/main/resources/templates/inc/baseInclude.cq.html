@@ -1,9 +1,10 @@
-<title>国家智慧能源平台</title>
+<title>能源智慧信息平台</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link href="${host}/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="${host}/static/font/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="${host}/static/css/style.css" rel="stylesheet" type="text/css" />
-<link href="${host}/static/theme/green/style.css" rel="stylesheet" type="text/css" />
+<!--<link href="${host}/static/theme/green/style.css" rel="stylesheet" type="text/css" />-->
+<link href="${host}/static/theme/znrh/style.css" rel="stylesheet" type="text/css" />
 <link href="${host}/static/theme/green/${goods!"oil"}/style.css" rel="stylesheet" type="text/css" />
 <script src="${host}/static/lib/jquery.min.js" type="text/javascript"></script>
 <script src="${host}/static/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -12,18 +13,33 @@
 <!--<link href="${host}/static/css/animate.min.css" rel="stylesheet">-->
 <script type="text/javascript">
 	var __host = '${host}';/*{"name":"重庆篇",url:"/motion/state"}*/
+	var __menu = {'oil':['/module/pattern/index','/module/pattern/supply','/module/pattern/require','/module/pattern/store','/module/market/index','/module/market/finance'],'gas':['/module/pattern/gasIndex','/module/pattern/gasSupply','/module/pattern/gasRequire','/module/pattern/gasStore','/module/market/index','/module/market/finance']};
+	var _mnm = -1, _mnt = '';
 	function initMenu(){
-		var dt = [{"name":"能源平台",url:"/module/clean/elecIndex"},{"name":"国际篇",url:"/module/pattern/index"},{"name":"国内篇",url:"/module/statecn/index"}]
+		var dt = __top;
 		var str = [];
 		for(var i = 0; i <dt.length; i++){
-			str.push('<li>','<a href="${host}', dt[i].url,'"><i class="fa fa-fw fa-file-o"></i>', dt[i].name , '</a>','</li>');
+			str.push('<li>','<a href="${host}', dt[i].url,'"><i class="fa fa-fw fa-file-o"></i><span>', dt[i].name , '</span></a>','</li>');
 		}
 		$("#appmenu").html(str.join(''));
+	}
+	function showMenu(){
+		var w = '220px';
+		$('.qmenu').toggle();
+		if($('.qmenu').is(":hidden")){
+			$(".qbody").css("overflow","auto");
+			$(".qheader").css("margin-left",0);
+			$(".qmain").css("margin-left",0);
+		}else{
+			$(".qbody").css("overflow","hidden");
+			$(".qheader").css("margin-left",w);
+			$(".qmain").css("margin-left",w);
+		}
 	}
 	$(document).ready(function(){
 		initMenu();
 		//localStorage.RollingPlay_ply = "false";//
-		RollingPlay.rollPlayInit('rollingBtn');
+		RollingPlayNew(__menu);
 		$style.setTheme('${goods!"oil"}');
 	});
 </script>
