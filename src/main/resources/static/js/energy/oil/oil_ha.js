@@ -7,6 +7,7 @@ $(document).ready(function(){
     getdata('/energy/oil/ha/chart4.json' + __time,getChart4);
     getdata('/energy/oil/ha/main.json' + __time,getMain);
 });
+var fontsize = 9;
 
 function changeMainDate(v){
     console.log(v);
@@ -41,7 +42,7 @@ function main(data, selectName){
             normal: {
                 show: false,
                 //position: 'bottom',
-                color:'#fff',
+                color:'#c2c8cf',
                 fontSize:14,
                 formatter: function(v){
                     //alert(JSON.stringify(v));
@@ -76,7 +77,7 @@ function main(data, selectName){
             right:"40%",
             top: 0,
             textStyle : {
-                color: '#a4d6fe',
+                color: '#2b88ff',
                 fontSize: 15
             }
         },
@@ -186,9 +187,9 @@ function chart1_nh(data){
             itemWidth: 10,
             itemHeight: 8,
             textStyle:{
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
-                fontSize: 12,
+                fontSize: 10,
             },
             data: data[0][2]
         },
@@ -203,7 +204,8 @@ function chart1_nh(data){
             boundaryGap: false,
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             splitLine: {
@@ -224,7 +226,8 @@ function chart1_nh(data){
                 nameTextStyle:{
                     padding:[0,0,0,55],
                     align:'center',
-                    color:'#fff',
+                    color:'#c2c8cf',
+                    fontSize: fontsize
                 },
                 axisLine: {
                     lineStyle: {
@@ -233,8 +236,8 @@ function chart1_nh(data){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -346,9 +349,9 @@ function chart1_dh(data){
             itemWidth: 10,
             itemHeight: 8,
             textStyle:{
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
-                fontSize: 12,
+                fontSize: 10,
             },
             data: data[1][2]
         },
@@ -363,7 +366,8 @@ function chart1_dh(data){
             boundaryGap: false,
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             splitLine: {
@@ -384,7 +388,8 @@ function chart1_dh(data){
             nameTextStyle:{
                 padding:[0,0,0,55],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             axisLine: {
                 lineStyle: {
@@ -393,8 +398,8 @@ function chart1_dh(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             //去掉辅助线
@@ -501,7 +506,8 @@ function chart2(data){
             boundaryGap: false,
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             splitLine: {
@@ -522,7 +528,8 @@ function chart2(data){
             nameTextStyle:{
                 padding:[0,0,0,55],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             axisLine: {
                 lineStyle: {
@@ -531,8 +538,8 @@ function chart2(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 // formatter: data[1][0]
             },
@@ -555,7 +562,7 @@ function chart2(data){
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -686,13 +693,13 @@ function chart3(data, selectName){
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
-                fontSize: 12,
+                fontSize: 10,
             },
             data: [selectName]
         },
-        color: ['#2baffb', '#313443', '#fff'],
+        color: ['#2baffb', '#313443', '#c2c8cf'],
         tooltip: {
             show: true,
             formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -793,7 +800,8 @@ function chart4(data, selectName){
             boundaryGap: false,
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             splitLine: {
@@ -816,7 +824,8 @@ function chart4(data, selectName){
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
-                    color:'#fff',
+                    color:'#c2c8cf',
+                    fontSize: fontsize
                 },
                 axisLine: {
                     lineStyle: {
@@ -825,8 +834,8 @@ function chart4(data, selectName){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     },
                     formatter: "{value}%"
                 },
@@ -842,7 +851,7 @@ function chart4(data, selectName){
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },

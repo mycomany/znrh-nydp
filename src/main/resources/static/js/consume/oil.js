@@ -19,7 +19,7 @@ function chart1(datas){
 		var seriesData = sourceBar.seriesData;
 		var tooltip = sourceBar.tooltip
 		// var backgroundList = ['#0068b7', '#8c97cb', '#aa89bd', '#f6b37f', '#e27e34'];
-		var color = ['#00bfff', '#38a97d']
+		var color = ['#00bc2c8cf', '#38a97d']
 		
 		var data = {};
 		for (var k in itemData) {
@@ -58,7 +58,7 @@ function chart1(datas){
 		        padding: [8, 10], //内边距
 		        extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
 		    },
-		    color:['#00bfff', '#38a97d'],
+		    color:['#00bc2c8cf', '#38a97d'],
 		    legend: { //图例组件，颜色和名字
 		        itemGap: 12, //图例每项之间的间隔
 		        itemWidth: 16,
@@ -67,7 +67,7 @@ function chart1(datas){
 		        bottom:'0%',
 		        data: data[0],
 		        textStyle: {
-		            color: '#fff',
+		            color: '#c2c8cf',
 		            fontSize: 10,
 		        }
 		    },    
@@ -77,15 +77,15 @@ function chart1(datas){
 		        nameTextStyle: {
 		            fontSize: 14,
 		            fontFamily: 'Microsoft YaHei',
-		            color: '#fff'
+		            color: '#c2c8cf'
 		        },*/
 		        type: 'category',
 		        nameLocation: 'end',
 		        nameGap: 8,
 		        axisLabel: {
-		            fontSize: 10,
+		            fontSize: 9,
 		            fontFamily: 'Microsoft YaHei',
-		            color: "#fff",
+		            color: "#c2c8cf",
 		            //interval: 0,
 		            //margin: 16,
 		            formatter: function(params) {
@@ -150,16 +150,16 @@ function chart1(datas){
 	    		nameTextStyle:{
 			    	padding:[0,0,0,45],
 			    	align:'center',
-			    	color:'#fff',
+			    	color:'#c2c8cf',
 				},
 		        splitLine: {
 		            show: false
 		        },
 		        axisLabel: {
 		            show: true,
-		            fontSize: 10,
+		            fontSize: 9,
 		            fontFamily: 'Arial',
-		            color: "#fff"
+		            color: "#c2c8cf"
 		        },
 		        axisLine: {
 		            show: true,
@@ -182,14 +182,14 @@ function chart1(datas){
 		         splitLine: {
 		        	 show: false,
 		             lineStyle: {
-		                 color: '#fff',
+		                 color: '#c2c8cf',
 		             }
 		         },
 		         axisLabel: {
 		             textStyle: {
-		                 color: '#fff',
+		                 color: '#c2c8cf',
 		                 fontWeight: 'normal',
-		                 fontSize: 10
+		                 fontSize: 9
 		             },
 		             formatter: '{value}%'
 		         }
@@ -347,7 +347,7 @@ function chart2(data){
 			bottom:'2%',
 			data: data[0],
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10,
 			}
 		},
@@ -363,8 +363,8 @@ function chart2(data){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: 9,
 				},
 				//rotate: 30,
 			},
@@ -383,13 +383,13 @@ function chart2(data){
 	    		nameTextStyle:{
 			    	padding:[0,0,0,45],
 			    	align:'center',
-			    	color:'#fff',
+			    	color:'#c2c8cf',
 				},
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontStyle: 'normal',
-					fontSize:10
+					fontSize: 9,
 				}
 			},
 			axisLine: {
@@ -516,7 +516,7 @@ function chart3(data){
 			        type:'scroll',
 			        data: data[0],
 			        textStyle: {
-			            color: '#fff',
+			            color: '#c2c8cf',
 			            fontSize: 10,
 			        }
 			    }, 
@@ -529,9 +529,9 @@ function chart3(data){
 			        axisLabel: {
 			            inside: false,
 			            textStyle: {
-			                color: '#fff',
+			                color: '#c2c8cf',
 			                fontWeight: 'normal',
-			                fontSize: 10
+			                fontSize: 9,
 			            },
 			        },
 		            splitLine: {
@@ -546,7 +546,7 @@ function chart3(data){
 		    		nameTextStyle:{
 				    	padding:[0,0,0,45],
 				    	align:'center',
-				    	color:'#fff',
+				    	color:'#c2c8cf',
 					},
 		        	axisLine: {
 			            lineStyle: {
@@ -556,9 +556,9 @@ function chart3(data){
 			        axisLabel: {
 			            inside: false,
 			            textStyle: {
-			                color: '#fff',
+			                color: '#c2c8cf',
 			                fontWeight: 'normal',
-			                fontSize: 10
+			                fontSize: 9,
 			            },
 			        },
 		            splitLine:{
@@ -574,9 +574,9 @@ function chart3(data){
 			        axisLabel: {
 			            inside: false,
 			            textStyle: {
-			                color: '#fff',
+			                color: '#c2c8cf',
 			                fontWeight: 'normal',
-			                fontSize: 10
+			                fontSize: 9,
 			            },
 			            formatter:function(v){
 		                    return v + '%';
@@ -693,7 +693,7 @@ function chart4(data){
 			bottom:'2%',
 			data: data[0],
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10,
 			}
 		},
@@ -709,8 +709,8 @@ function chart4(data){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: 9,
 				},
 				//rotate: 30,
 			},
@@ -729,9 +729,9 @@ function chart4(data){
 			position: 'left',
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontStyle: 'normal',
-					fontSize:10
+					fontSize: 9,
 				}
 			},
 			axisLine: {
@@ -821,7 +821,7 @@ function chart5(data){
 	        bottom:'2%',
 	        data: data[0],
 	        textStyle: {
-	            color: '#fff',
+	            color: '#c2c8cf',
 	            fontSize: 10,
 	        }
 	    }, 
@@ -834,8 +834,8 @@ function chart5(data){
 	        axisLabel: {
 	            inside: false,
 	            textStyle: {
-	                color: '#fff',
-	                fontSize: 10
+	                color: '#c2c8cf',
+	                fontSize: 9,
 	            }
 	        },
             splitLine: {
@@ -850,7 +850,7 @@ function chart5(data){
     		nameTextStyle:{
 		    	padding:[0,0,0,45],
 		    	align:'center',
-		    	color:'#fff',
+		    	color:'#c2c8cf',
 			},
         	axisLine: {
 	            lineStyle: {
@@ -860,8 +860,8 @@ function chart5(data){
 	        axisLabel: {
 	            inside: false,
 	            textStyle: {
-	                color: '#fff',
-	                fontSize: 10
+	                color: '#c2c8cf',
+	                fontSize: 9,
 	            }
 	        },
             splitLine:{
@@ -878,8 +878,8 @@ function chart5(data){
 	            inside: false,
 	            formatter: '{value}%',
 	            textStyle: {
-	                color: '#fff',
-	                fontSize: 10
+	                color: '#c2c8cf',
+	                fontSize: 9,
 	            }
 	        },
             splitLine:{
@@ -977,7 +977,7 @@ function chart6(data){
 	        type:'scroll',
 	        data: data[0],
 	        textStyle: {
-	            color: '#fff',
+	            color: '#c2c8cf',
 	            fontSize: 10,
 	        }
 	    },  
@@ -992,8 +992,8 @@ function chart6(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: 9,
                 }
             },
             //去掉辅助线
@@ -1012,8 +1012,8 @@ function chart6(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: 9,
                 },
                 formatter: '{value}%'
             },
@@ -1127,7 +1127,7 @@ function chart7(data){
 			        bottom:'1%',
 			        data: data[0],
 			        textStyle: {
-			            color: '#fff',
+			            color: '#c2c8cf',
 			            fontSize: 10,
 			        }
 			    },    
@@ -1162,8 +1162,8 @@ function chart7(data){
 		            axisLabel: {
 		                interval: 0,
 		                textStyle: {
-		                    color: '#fff',
-		                    fontSize:10
+		                    color: '#c2c8cf',
+		                    fontSize: 9,
 		                },
 		               rotate: 30,
 		            },
@@ -1180,7 +1180,7 @@ function chart7(data){
 		    		nameTextStyle:{
 				    	padding:[0,0,0,45],
 				    	align:'center',
-				    	color:'#fff',
+				    	color:'#c2c8cf',
 					},
 					type: "value",
 					splitNumber:3,
@@ -1198,8 +1198,8 @@ function chart7(data){
 					axisLabel: {
 						show: true,
 						textStyle: {
-							color: '#fff',
-							fontSize:10
+							color: '#c2c8cf',
+							fontSize: 9,
 						}
 					}
 				},{
@@ -1209,8 +1209,8 @@ function chart7(data){
 		            axisLabel: {
 		            	formatter:'{value}%',
 		                textStyle: {
-		                    color: '#fff',
-		                    fontSize:10
+		                    color: '#c2c8cf',
+		                    fontSize: 9,
 		                }
 		            },
 		            axisLine: {
@@ -1322,7 +1322,7 @@ var placeHolderStyle = {
     }
 };
 var data = [];
-var color=['#00ffff','#00cfff','#006ced','#ffe000','#ffa800','#ff5b00','#ff3000']
+var color=['#00c2c8cff','#00cc2c8cf','#006ced','#ffe000','#ffa800','#ff5b00','#ff3000']
 for (var i = 0; i < scaleData.length; i++) {
     data.push({
         value: scaleData[i].value,
@@ -1368,7 +1368,7 @@ var seriesObj = [{
                 length:10,
                 length2:10,
                 show: true,
-                color:'#00ffff'
+                color:'#00c2c8cff'
             }
         }
     },
@@ -1450,7 +1450,7 @@ function main(){
                             "name": "汽油",
                             value: db[i][1],
                             itemStyle:{
-                                color:'#61ffff'
+                                color:'#61c2c8cff'
                             }
                         },
                         {
@@ -1499,8 +1499,8 @@ function main(){
                         name: name,
                         show:true,
                         nameStyle: {
-                            color: '#fff',
-                            fontSize: 10
+                            color: '#c2c8cf',
+                            fontSize: 9,
                         },
                         nameLocation: 'middle',
                         nameGap: 3,
@@ -1510,7 +1510,7 @@ function main(){
                         axisLine: {
                             onZero: false,
                             lineStyle: {
-                                color: '#fff'
+                                color: '#c2c8cf'
                             }
                         },
                         data: xData,
@@ -1525,7 +1525,7 @@ function main(){
                         axisLabel: {show: false},
                         axisLine: {
                             lineStyle: {
-                                color: '#fff'
+                                color: '#c2c8cf'
                             }
                         },
                         z: 9
@@ -1602,7 +1602,7 @@ function main(){
                     fontSize:16,
                 },
                 subtextStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                     fontSize:10,
                 }
             }],
@@ -1613,7 +1613,7 @@ function main(){
                 itemHeight: 8, //图例高度
                 bottom:'2%',
                 textStyle:{
-                    color:'#fff'
+                    color:'#c2c8cf'
                 },
                 z: 9
             },
@@ -1641,7 +1641,7 @@ function main(){
                     color: ["#aeb2f7","#3c68f3","#061ae1" ]
                 },
                 textStyle:{
-                    color:'#fff'
+                    color:'#c2c8cf'
                 },
             },
             series: [{

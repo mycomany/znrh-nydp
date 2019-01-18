@@ -42,36 +42,36 @@
 					"name": "华北"
 				}, {
 					"name": "华东",
-					"data": 0,
-					"value": 211155
+					"value": 0,
+					"data": 211155
 				}],
 				[{
 					"name": "华北"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 42994
+					"value": 0,
+					"data": 42994
 				}],
 				[{
 					"name": "华北"
 				}, {
 					"name": "西北",
-					"data": 0,
-					"value": 22397
+					"value": 0,
+					"data": 22397
 				}],
 				[{
 					"name": "华北"
 				}, {
 					"name": "东北",
-					"data": 0,
-					"value": 22397
+					"value": 0,
+					"data": 22397
 				}],
 				[{
 					"name": "华北"
 				}, {
 					"name": "出口",
-					"data": 0,
-					"value": 11282
+					"value": 0,
+					"data": 11282
 				}]
 			],
 			[
@@ -79,22 +79,22 @@
 					"name": "东北"
 				}, {
 					"name": "华北",
-					"data": 0,
-					"value": 166052
+					"value": 0,
+					"data": 166052
 				}],
 				[{
 					"name": "东北"
 				}, {
 					"name": "东北",
-					"data": 0,
-					"value": 0
+					"value": 0,
+					"data": 0
 				}],
 				[{
 					"name": "东北"
 				}, {
 					"name": "出口",
-					"data": 0,
-					"value": 3
+					"value": 0,
+					"data": 3
 				}]
 			],
 			[
@@ -102,8 +102,8 @@
 					"name": "华东"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 26
+					"value": 0,
+					"data": 26
 				}]
 			],
 			[
@@ -111,36 +111,36 @@
 					"name": "华中"
 				}, {
 					"name": "华北",
-					"data": 0,
-					"value": 1
+					"value": 0,
+					"data": 1
 				}],
 				[{
 					"name": "华中"
 				}, {
 					"name": "华东",
-					"data": 0,
-					"value": 151357
+					"value": 0,
+					"data": 151357
 				}],
 				[{
 					"name": "华中"
 				}, {
 					"name": "西北",
-					"data": 0,
-					"value": 7
+					"value": 0,
+					"data": 7
 				}],
 				[{
 					"name": "华中"
 				}, {
 					"name": "西南",
-					"data": 0,
-					"value": 11066
+					"value": 0,
+					"data": 11066
 				}],
 				[{
 					"name": "华中"
 				}, {
 					"name": "华南",
-					"data": 0,
-					"value": 115824
+					"value": 0,
+					"data": 115824
 				}]
 			],
 			[
@@ -148,36 +148,36 @@
 					"name": "西北"
 				}, {
 					"name": "华北",
-					"data": 0,
-					"value": 281872
+					"value": 0,
+					"data": 281872
 				}],
 				[{
 					"name": "西北"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 180180
+					"value": 0,
+					"data": 180180
 				}],
 				[{
 					"name": "西北"
 				}, {
 					"name": "华东",
-					"data": 0,
-					"value": 474537
+					"value": 0,
+					"data": 474537
 				}],
 				[{
 					"name": "西北"
 				}, {
 					"name": "西南",
-					"data": 0,
-					"value": 165789
+					"value": 0,
+					"data": 165789
 				}],
 				[{
 					"name": "西北"
 				}, {
 					"name": "出口",
-					"data": 0,
-					"value": 51
+					"value": 0,
+					"data": 51
 				}]
 			],
 			[
@@ -185,22 +185,22 @@
 					"name": "西南"
 				}, {
 					"name": "华东",
-					"data": 0,
-					"value": 390952
+					"value": 0,
+					"data": 390952
 				}],
 				[{
 					"name": "西南"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 12066
+					"value": 0,
+					"data": 12066
 				}],
 				[{
 					"name": "西南"
 				}, {
 					"name": "华南",
-					"data": 0,
-					"value": 18238
+					"value": 0,
+					"data": 18238
 				}]
 			],
 			[
@@ -208,22 +208,22 @@
 					"name": "华南"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 57695
+					"value": 0,
+					"data": 57695
 				}],
 				[{
 					"name": "华南"
 				}, {
 					"name": "西南",
-					"data": 0,
-					"value": 105790
+					"value": 0,
+					"data": 105790
 				}],
 				[{
 					"name": "华南"
 				}, {
 					"name": "出口1",
-					"data": 0,
-					"value": 145979
+					"value": 0,
+					"data": 145979
 				}]
 			]
 		],
@@ -234,29 +234,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 298260
+						"value": 0,
+						"data": 298260
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 44220
+						"value": 0,
+						"data": 44220
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 19845
+						"value": 0,
+						"data": 19845
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 10078
+						"value": 0,
+						"data": 10078
 					}]
 				],
 				[
@@ -264,22 +264,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 290140
+						"value": 0,
+						"data": 290140
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 0
+						"value": 0,
+						"data": 0
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 8
+						"value": 0,
+						"data": 8
 					}]
 				],
 				[
@@ -290,29 +290,29 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 1
+						"value": 0,
+						"data": 1
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 140954
+						"value": 0,
+						"data": 140954
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 51846
+						"value": 0,
+						"data": 51846
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 157538
+						"value": 0,
+						"data": 157538
 					}]
 				],
 				[
@@ -320,36 +320,36 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 477314
+						"value": 0,
+						"data": 477314
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 596973
+						"value": 0,
+						"data": 596973
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 246231
+						"value": 0,
+						"data": 246231
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 217015
+						"value": 0,
+						"data": 217015
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 47
+						"value": 0,
+						"data": 47
 					}]
 				],
 				[
@@ -357,22 +357,22 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 417898
+						"value": 0,
+						"data": 417898
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 12966
+						"value": 0,
+						"data": 12966
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 58
+						"value": 0,
+						"data": 58
 					}]
 				],
 				[
@@ -380,22 +380,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 79157
+						"value": 0,
+						"data": 79157
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 138182
+						"value": 0,
+						"data": 138182
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 158210
+						"value": 0,
+						"data": 158210
 					}]
 				]
 			]
@@ -407,29 +407,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 252886
+						"value": 0,
+						"data": 252886
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 42593
+						"value": 0,
+						"data": 42593
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 20096
+						"value": 0,
+						"data": 20096
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 10562
+						"value": 0,
+						"data": 10562
 					}]
 				],
 				[
@@ -437,22 +437,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 317249
+						"value": 0,
+						"data": 317249
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 0
+						"value": 0,
+						"data": 0
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 13
+						"value": 0,
+						"data": 13
 					}]
 				],
 				[
@@ -460,15 +460,15 @@
 						"name": "华东"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 11
+						"value": 0,
+						"data": 11
 					}],
 					[{
 						"name": "华东"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 7
+						"value": 0,
+						"data": 7
 					}]
 				],
 				[
@@ -476,36 +476,36 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 2
+						"value": 0,
+						"data": 2
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 246468
+						"value": 0,
+						"data": 246468
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 0.04
+						"value": 0,
+						"data": 0.04
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 14615
+						"value": 0,
+						"data": 14615
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 112158
+						"value": 0,
+						"data": 112158
 					}]
 				],
 				[
@@ -513,36 +513,36 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 423247
+						"value": 0,
+						"data": 423247
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 381380
+						"value": 0,
+						"data": 381380
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 266329
+						"value": 0,
+						"data": 266329
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 187351
+						"value": 0,
+						"data": 187351
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 89
+						"value": 0,
+						"data": 89
 					}]
 				],
 				[
@@ -550,15 +550,15 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 351324
+						"value": 0,
+						"data": 351324
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 18897
+						"value": 0,
+						"data": 18897
 					}]
 				],
 				[
@@ -566,22 +566,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 55447
+						"value": 0,
+						"data": 55447
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 114621
+						"value": 0,
+						"data": 114621
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 136892
+						"value": 0,
+						"data": 136892
 					}]
 				]
 			]
@@ -593,29 +593,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 245326
+						"value": 0,
+						"data": 245326
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 24790
+						"value": 0,
+						"data": 24790
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 20629
+						"value": 0,
+						"data": 20629
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 9732
+						"value": 0,
+						"data": 9732
 					}]
 				],
 				[
@@ -623,22 +623,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 295877
+						"value": 0,
+						"data": 295877
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 0
+						"value": 0,
+						"data": 0
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 12
+						"value": 0,
+						"data": 12
 					}]
 				],
 				[
@@ -646,15 +646,15 @@
 						"name": "华东"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 28
+						"value": 0,
+						"data": 28
 					}],
 					[{
 						"name": "华东"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 51
+						"value": 0,
+						"data": 51
 					}]
 				],
 				[
@@ -662,36 +662,36 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 21756
+						"value": 0,
+						"data": 21756
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 367757
+						"value": 0,
+						"data": 367757
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 6.00
+						"value": 0,
+						"data": 6.00
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 12052
+						"value": 0,
+						"data": 12052
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 241134
+						"value": 0,
+						"data": 241134
 					}]
 				],
 				[
@@ -699,36 +699,36 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 478064
+						"value": 0,
+						"data": 478064
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 474698
+						"value": 0,
+						"data": 474698
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 246590
+						"value": 0,
+						"data": 246590
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 39007
+						"value": 0,
+						"data": 39007
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 43
+						"value": 0,
+						"data": 43
 					}]
 				],
 				[
@@ -736,22 +736,22 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 619813
+						"value": 0,
+						"data": 619813
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 39004
+						"value": 0,
+						"data": 39004
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 58610
+						"value": 0,
+						"data": 58610
 					}]
 				],
 				[
@@ -759,22 +759,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 52422
+						"value": 0,
+						"data": 52422
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 154115
+						"value": 0,
+						"data": 154115
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 175358
+						"value": 0,
+						"data": 175358
 					}]
 				]
 			]
@@ -786,22 +786,22 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 269075
+						"value": 0,
+						"data": 269075
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 22591
+						"value": 0,
+						"data": 22591
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 10984
+						"value": 0,
+						"data": 10984
 					}]
 				],
 				[
@@ -809,22 +809,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 317792
+						"value": 0,
+						"data": 317792
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 0
+						"value": 0,
+						"data": 0
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 12
+						"value": 0,
+						"data": 12
 					}]
 				],
 				[
@@ -832,22 +832,22 @@
 						"name": "华东"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 1
+						"value": 0,
+						"data": 1
 					}],
 					[{
 						"name": "华东"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 57
+						"value": 0,
+						"data": 57
 					}],
 					[{
 						"name": "华东"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 231
+						"value": 0,
+						"data": 231
 					}]
 				],
 				[
@@ -855,36 +855,36 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 58288
+						"value": 0,
+						"data": 58288
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 326797
+						"value": 0,
+						"data": 326797
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 1.66
+						"value": 0,
+						"data": 1.66
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 2346
+						"value": 0,
+						"data": 2346
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 215822
+						"value": 0,
+						"data": 215822
 					}]
 				],
 				[
@@ -892,29 +892,29 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 402613
+						"value": 0,
+						"data": 402613
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 419034
+						"value": 0,
+						"data": 419034
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 323100
+						"value": 0,
+						"data": 323100
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 41
+						"value": 0,
+						"data": 41
 					}]
 				],
 				[
@@ -922,29 +922,29 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 902154
+						"value": 0,
+						"data": 902154
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 11722
+						"value": 0,
+						"data": 11722
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 122075
+						"value": 0,
+						"data": 122075
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 75587
+						"value": 0,
+						"data": 75587
 					}]
 				],
 				[
@@ -952,22 +952,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 54444
+						"value": 0,
+						"data": 54444
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 191434
+						"value": 0,
+						"data": 191434
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 194187
+						"value": 0,
+						"data": 194187
 					}]
 				]
 			]
@@ -979,22 +979,22 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 438844
+						"value": 0,
+						"data": 438844
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 15424
+						"value": 0,
+						"data": 15424
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 10345
+						"value": 0,
+						"data": 10345
 					}]
 				],
 				[
@@ -1002,22 +1002,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 386846
+						"value": 0,
+						"data": 386846
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 0
+						"value": 0,
+						"data": 0
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 14
+						"value": 0,
+						"data": 14
 					}]
 				],
 				[
@@ -1025,8 +1025,8 @@
 						"name": "华东"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 153
+						"value": 0,
+						"data": 153
 					}]
 				],
 				[
@@ -1034,29 +1034,29 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 49722
+						"value": 0,
+						"data": 49722
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 643827
+						"value": 0,
+						"data": 643827
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 9184
+						"value": 0,
+						"data": 9184
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 289385
+						"value": 0,
+						"data": 289385
 					}]
 				],
 				[
@@ -1064,29 +1064,29 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 518497
+						"value": 0,
+						"data": 518497
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 526245
+						"value": 0,
+						"data": 526245
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 377195
+						"value": 0,
+						"data": 377195
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 34
+						"value": 0,
+						"data": 34
 					}]
 				],
 				[
@@ -1094,29 +1094,29 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 1242341
+						"value": 0,
+						"data": 1242341
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 10890
+						"value": 0,
+						"data": 10890
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 142405
+						"value": 0,
+						"data": 142405
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 40198
+						"value": 0,
+						"data": 40198
 					}]
 				],
 				[
@@ -1124,22 +1124,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 93988
+						"value": 0,
+						"data": 93988
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 241904
+						"value": 0,
+						"data": 241904
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 184503
+						"value": 0,
+						"data": 184503
 					}]
 				]
 			]
@@ -1151,22 +1151,22 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 437325
+						"value": 0,
+						"data": 437325
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 15087
+						"value": 0,
+						"data": 15087
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 9334
+						"value": 0,
+						"data": 9334
 					}]
 				],
 				[
@@ -1174,22 +1174,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 379906
+						"value": 0,
+						"data": 379906
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 0
+						"value": 0,
+						"data": 0
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 18
+						"value": 0,
+						"data": 18
 					}]
 				],
 				[
@@ -1197,8 +1197,8 @@
 						"name": "华东"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 102
+						"value": 0,
+						"data": 102
 					}]
 				],
 				[
@@ -1206,36 +1206,36 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 53610
+						"value": 0,
+						"data": 53610
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 570316
+						"value": 0,
+						"data": 570316
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 12.00
+						"value": 0,
+						"data": 12.00
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 9359
+						"value": 0,
+						"data": 9359
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 296928
+						"value": 0,
+						"data": 296928
 					}]
 				],
 				[
@@ -1243,29 +1243,29 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 519269
+						"value": 0,
+						"data": 519269
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 659024
+						"value": 0,
+						"data": 659024
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 407703
+						"value": 0,
+						"data": 407703
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 39
+						"value": 0,
+						"data": 39
 					}]
 				],
 				[
@@ -1273,29 +1273,29 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 1448557
+						"value": 0,
+						"data": 1448557
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 66216
+						"value": 0,
+						"data": 66216
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 133458
+						"value": 0,
+						"data": 133458
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 117
+						"value": 0,
+						"data": 117
 					}]
 				],
 				[
@@ -1303,22 +1303,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 84064
+						"value": 0,
+						"data": 84064
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 267865
+						"value": 0,
+						"data": 267865
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 188534
+						"value": 0,
+						"data": 188534
 					}]
 				]
 			]
@@ -1330,29 +1330,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 366997
+						"value": 0,
+						"data": 366997
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 18504
+						"value": 0,
+						"data": 18504
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 103900
+						"value": 0,
+						"data": 103900
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 10962
+						"value": 0,
+						"data": 10962
 					}]
 				],
 				[
@@ -1360,22 +1360,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 217921
+						"value": 0,
+						"data": 217921
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 21
+						"value": 0,
+						"data": 21
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value":0
+						"value": 0,
+						"data":0
 					}]
 				],
 				[
@@ -1383,15 +1383,15 @@
 						"name": "华东"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 2
+						"value": 0,
+						"data": 2
 					}],
 					[{
 						"name": "华东"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 266
+						"value": 0,
+						"data": 266
 					}]
 				],
 				[
@@ -1399,29 +1399,29 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 38015
+						"value": 0,
+						"data": 38015
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 422078
+						"value": 0,
+						"data": 422078
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 6247
+						"value": 0,
+						"data": 6247
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 253967
+						"value": 0,
+						"data": 253967
 					}]
 				],
 				[
@@ -1429,29 +1429,29 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 491568
+						"value": 0,
+						"data": 491568
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 434150
+						"value": 0,
+						"data": 434150
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 361606
+						"value": 0,
+						"data": 361606
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 43
+						"value": 0,
+						"data": 43
 					}]
 				],
 				[
@@ -1459,22 +1459,22 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 1340095
+						"value": 0,
+						"data": 1340095
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 69214
+						"value": 0,
+						"data": 69214
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 208031
+						"value": 0,
+						"data": 208031
 					}]
 				],
 				[
@@ -1482,22 +1482,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 66075
+						"value": 0,
+						"data": 66075
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 238139
+						"value": 0,
+						"data": 238139
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 175904
+						"value": 0,
+						"data": 175904
 					}]
 				]
 			]
@@ -1509,29 +1509,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 259815
+						"value": 0,
+						"data": 259815
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 17346
+						"value": 0,
+						"data": 17346
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 102488
+						"value": 0,
+						"data": 102488
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 10737
+						"value": 0,
+						"data": 10737
 					}]
 				],
 				[
@@ -1539,22 +1539,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 156414
+						"value": 0,
+						"data": 156414
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 20
+						"value": 0,
+						"data": 20
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 0
+						"value": 0,
+						"data": 0
 					}]
 				],
 				[
@@ -1562,8 +1562,8 @@
 						"name": "华东"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 71
+						"value": 0,
+						"data": 71
 					}]
 				],
 				[
@@ -1571,29 +1571,29 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 25178
+						"value": 0,
+						"data": 25178
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 330281
+						"value": 0,
+						"data": 330281
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 4054
+						"value": 0,
+						"data": 4054
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 212171
+						"value": 0,
+						"data": 212171
 					}]
 				],
 				[
@@ -1601,36 +1601,36 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 413408
+						"value": 0,
+						"data": 413408
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 408611
+						"value": 0,
+						"data": 408611
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 348731
+						"value": 0,
+						"data": 348731
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 617
+						"value": 0,
+						"data": 617
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 44
+						"value": 0,
+						"data": 44
 					}]
 				],
 				[
@@ -1638,29 +1638,29 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 1392284
+						"value": 0,
+						"data": 1392284
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 2161
+						"value": 0,
+						"data": 2161
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 209570
+						"value": 0,
+						"data": 209570
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 81406
+						"value": 0,
+						"data": 81406
 					}]
 				],
 				[
@@ -1668,22 +1668,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 56773
+						"value": 0,
+						"data": 56773
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 235158
+						"value": 0,
+						"data": 235158
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 167047
+						"value": 0,
+						"data": 167047
 					}]
 				]
 			]
@@ -1695,29 +1695,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 437109
+						"value": 0,
+						"data": 437109
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 51336
+						"value": 0,
+						"data": 51336
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 16893
+						"value": 0,
+						"data": 16893
 					}],
 					[{
 						"name": "华北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 11129
+						"value": 0,
+						"data": 11129
 					}]
 				],
 				[
@@ -1725,22 +1725,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 241895
+						"value": 0,
+						"data": 241895
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 20
+						"value": 0,
+						"data": 20
 					}],
 					[{
 						"name": "东北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 0
+						"value": 0,
+						"data": 0
 					}]
 				],
 				[
@@ -1748,22 +1748,22 @@
 						"name": "华东"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 6
+						"value": 0,
+						"data": 6
 					}],
 					[{
 						"name": "华东"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 5
+						"value": 0,
+						"data": 5
 					}],
 					[{
 						"name": "华东"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 103
+						"value": 0,
+						"data": 103
 					}]
 				],
 				[
@@ -1771,29 +1771,29 @@
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 12097
+						"value": 0,
+						"data": 12097
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 207823
+						"value": 0,
+						"data": 207823
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 20184
+						"value": 0,
+						"data": 20184
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 236605
+						"value": 0,
+						"data": 236605
 					}]
 				],
 				[
@@ -1801,36 +1801,36 @@
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 375746
+						"value": 0,
+						"data": 375746
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 516625
+						"value": 0,
+						"data": 516625
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 582812
+						"value": 0,
+						"data": 582812
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 8801
+						"value": 0,
+						"data": 8801
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "出口",
-						"data": 0,
-						"value": 60
+						"value": 0,
+						"data": 60
 					}]
 				],
 				[
@@ -1838,22 +1838,22 @@
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 849262
+						"value": 0,
+						"data": 849262
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 15105
+						"value": 0,
+						"data": 15105
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 68951
+						"value": 0,
+						"data": 68951
 					}]
 				],
 				[
@@ -1861,22 +1861,22 @@
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 67694
+						"value": 0,
+						"data": 67694
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 170598
+						"value": 0,
+						"data": 170598
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "出口1",
-						"data": 0,
-						"value": 163186
+						"value": 0,
+						"data": 163186
 					}]
 				]
 			]
@@ -1889,15 +1889,15 @@
 					"name": "东北"
 				}, {
 					"name": "华北",
-					"data": 0,
-					"value": 300038
+					"value": 0,
+					"data": 300038
 				}],
 				[{
 					"name": "西北"
 				}, {
 					"name": "华北",
-					"data": 0,
-					"value": 271513
+					"value": 0,
+					"data": 271513
 				}]
 			],
 			[
@@ -1905,15 +1905,15 @@
 					"name": "华北"
 				}, {
 					"name": "东北",
-					"data": 0,
-					"value": 33171
+					"value": 0,
+					"data": 33171
 				}],
 				[{
 					"name": "进口"
 				}, {
 					"name": "东北",
-					"data": 0,
-					"value": 11266
+					"value": 0,
+					"data": 11266
 				}]
 			],
 			[
@@ -1921,29 +1921,29 @@
 					"name": "华北"
 				}, {
 					"name": "华东",
-					"data": 0,
-					"value": 208412
+					"value": 0,
+					"data": 208412
 				}],
 				[{
 					"name": "华中"
 				}, {
 					"name": "华东",
-					"data": 0,
-					"value": 146303
+					"value": 0,
+					"data": 146303
 				}],
 				[{
 					"name": "西北"
 				}, {
 					"name": "华东",
-					"data": 0,
-					"value": 175203
+					"value": 0,
+					"data": 175203
 				}],
 				[{
 					"name": "西南"
 				}, {
 					"name": "华东",
-					"data": 0,
-					"value": 373310
+					"value": 0,
+					"data": 373310
 				}]
 			],
 			[
@@ -1951,29 +1951,29 @@
 					"name": "华北"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 42702
+					"value": 0,
+					"data": 42702
 				}],
 				[{
 					"name": "西北"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 450042
+					"value": 0,
+					"data": 450042
 				}],
 				[{
 					"name": "西南"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 18081
+					"value": 0,
+					"data": 18081
 				}],
 				[{
 					"name": "华南"
 				}, {
 					"name": "华中",
-					"data": 0,
-					"value": 100598
+					"value": 0,
+					"data": 100598
 				}]
 			],
 			[
@@ -1981,8 +1981,8 @@
 					"name": "华北"
 				}, {
 					"name": "西北",
-					"data": 0,
-					"value": 23702
+					"value": 0,
+					"data": 23702
 				}]
 			],
 			[
@@ -1990,22 +1990,22 @@
 					"name": "华中"
 				}, {
 					"name": "西南",
-					"data": 0,
-					"value": 9797
+					"value": 0,
+					"data": 9797
 				}],
 				[{
 					"name": "西北"
 				}, {
 					"name": "西南",
-					"data": 0,
-					"value": 160287
+					"value": 0,
+					"data": 160287
 				}],
 				[{
 					"name": "华南"
 				}, {
 					"name": "西南",
-					"data": 0,
-					"value": 97903
+					"value": 0,
+					"data": 97903
 				}]
 			],
 			[
@@ -2013,15 +2013,15 @@
 					"name": "华中"
 				}, {
 					"name": "华南",
-					"data": 0,
-					"value": 114648
+					"value": 0,
+					"data": 114648
 				}],
 				[{
 					"name": "进口1"
 				}, {
 					"name": "华南",
-					"data": 0,
-					"value": 8809
+					"value": 0,
+					"data": 8809
 				}]
 			]
 		],
@@ -2032,15 +2032,15 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 334037
+						"value": 0,
+						"data": 334037
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 457476
+						"value": 0,
+						"data": 457476
 					}]
 				],
 				[
@@ -2048,15 +2048,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 22241
+						"value": 0,
+						"data": 22241
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 17821
+						"value": 0,
+						"data": 17821
 					}]
 				],
 				[
@@ -2064,29 +2064,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 293276
+						"value": 0,
+						"data": 293276
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 135891
+						"value": 0,
+						"data": 135891
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 239319
+						"value": 0,
+						"data": 239319
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 401503
+						"value": 0,
+						"data": 401503
 					}]
 				],
 				[
@@ -2094,29 +2094,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 43868
+						"value": 0,
+						"data": 43868
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 568296
+						"value": 0,
+						"data": 568296
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 9
+						"value": 0,
+						"data": 9
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 116780
+						"value": 0,
+						"data": 116780
 					}]
 				],
 				[
@@ -2124,8 +2124,8 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 21352
+						"value": 0,
+						"data": 21352
 					}]
 				],
 				[
@@ -2133,22 +2133,22 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 52476
+						"value": 0,
+						"data": 52476
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 208574
+						"value": 0,
+						"data": 208574
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 114042
+						"value": 0,
+						"data": 114042
 					}]
 				],
 				[
@@ -2156,15 +2156,15 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 135273
+						"value": 0,
+						"data": 135273
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 15750
+						"value": 0,
+						"data": 15750
 					}]
 				]
 			]
@@ -2176,15 +2176,15 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 382522
+						"value": 0,
+						"data": 382522
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 406431
+						"value": 0,
+						"data": 406431
 					}]
 				],
 				[
@@ -2192,15 +2192,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 25266
+						"value": 0,
+						"data": 25266
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 30297
+						"value": 0,
+						"data": 30297
 					}]
 				],
 				[
@@ -2208,29 +2208,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 247555
+						"value": 0,
+						"data": 247555
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 236503
+						"value": 0,
+						"data": 236503
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 258264
+						"value": 0,
+						"data": 258264
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 336855
+						"value": 0,
+						"data": 336855
 					}]
 				],
 				[
@@ -2238,29 +2238,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 42239
+						"value": 0,
+						"data": 42239
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 359510
+						"value": 0,
+						"data": 359510
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 12204
+						"value": 0,
+						"data": 12204
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 89201
+						"value": 0,
+						"data": 89201
 					}]
 				],
 				[
@@ -2268,8 +2268,8 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 28881
+						"value": 0,
+						"data": 28881
 					}]
 				],
 				[
@@ -2277,22 +2277,22 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 15699
+						"value": 0,
+						"data": 15699
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 180204
+						"value": 0,
+						"data": 180204
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 86682
+						"value": 0,
+						"data": 86682
 					}]
 				],
 				[
@@ -2300,15 +2300,15 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 110162
+						"value": 0,
+						"data": 110162
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 14122
+						"value": 0,
+						"data": 14122
 					}]
 				]
 			]
@@ -2320,22 +2320,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 380165
+						"value": 0,
+						"data": 380165
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 21346
+						"value": 0,
+						"data": 21346
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 457723
+						"value": 0,
+						"data": 457723
 					}]
 				],
 				[
@@ -2343,15 +2343,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 40351
+						"value": 0,
+						"data": 40351
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 18179
+						"value": 0,
+						"data": 18179
 					}]
 				],
 				[
@@ -2359,29 +2359,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 243061
+						"value": 0,
+						"data": 243061
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 349611
+						"value": 0,
+						"data": 349611
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 239162
+						"value": 0,
+						"data": 239162
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 582199
+						"value": 0,
+						"data": 582199
 					}]
 				],
 				[
@@ -2389,29 +2389,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 24654
+						"value": 0,
+						"data": 24654
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 437889
+						"value": 0,
+						"data": 437889
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 28318
+						"value": 0,
+						"data": 28318
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 59073
+						"value": 0,
+						"data": 59073
 					}]
 				],
 				[
@@ -2419,15 +2419,15 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 20963
+						"value": 0,
+						"data": 20963
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 57226
+						"value": 0,
+						"data": 57226
 					}]
 				],
 				[
@@ -2435,22 +2435,22 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 10807
+						"value": 0,
+						"data": 10807
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 37965
+						"value": 0,
+						"data": 37965
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 134050
+						"value": 0,
+						"data": 134050
 					}]
 				],
 				[
@@ -2458,15 +2458,15 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 223841
+						"value": 0,
+						"data": 223841
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 14062
+						"value": 0,
+						"data": 14062
 					}]
 				]
 			]
@@ -2478,22 +2478,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 428067
+						"value": 0,
+						"data": 428067
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 57524
+						"value": 0,
+						"data": 57524
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 386518
+						"value": 0,
+						"data": 386518
 					}]
 				],
 				[
@@ -2501,15 +2501,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 41071
+						"value": 0,
+						"data": 41071
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 18179
+						"value": 0,
+						"data": 18179
 					}]
 				],
 				[
@@ -2517,29 +2517,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 266680
+						"value": 0,
+						"data": 266680
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 312572
+						"value": 0,
+						"data": 312572
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 311962
+						"value": 0,
+						"data": 311962
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 836349
+						"value": 0,
+						"data": 836349
 					}]
 				],
 				[
@@ -2547,29 +2547,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 30
+						"value": 0,
+						"data": 30
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 381204
+						"value": 0,
+						"data": 381204
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 74087
+						"value": 0,
+						"data": 74087
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 94397
+						"value": 0,
+						"data": 94397
 					}]
 				],
 				[
@@ -2577,22 +2577,22 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 25702
+						"value": 0,
+						"data": 25702
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 21
+						"value": 0,
+						"data": 21
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 117447
+						"value": 0,
+						"data": 117447
 					}]
 				],
 				[
@@ -2600,15 +2600,15 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 907
+						"value": 0,
+						"data": 907
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 166497
+						"value": 0,
+						"data": 166497
 					}]
 				],
 				[
@@ -2616,15 +2616,15 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 206394
+						"value": 0,
+						"data": 206394
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 15614
+						"value": 0,
+						"data": 15614
 					}]
 				]
 			]
@@ -2636,15 +2636,15 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 189994
+						"value": 0,
+						"data": 189994
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 493852
+						"value": 0,
+						"data": 493852
 					}]
 				],
 				[
@@ -2652,15 +2652,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 65569
+						"value": 0,
+						"data": 65569
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 41105
+						"value": 0,
+						"data": 41105
 					}]
 				],
 				[
@@ -2668,29 +2668,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 432153
+						"value": 0,
+						"data": 432153
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 603088
+						"value": 0,
+						"data": 603088
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 360759
+						"value": 0,
+						"data": 360759
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 1153557
+						"value": 0,
+						"data": 1153557
 					}]
 				],
 				[
@@ -2698,29 +2698,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 257
+						"value": 0,
+						"data": 257
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 479569
+						"value": 0,
+						"data": 479569
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 39928
+						"value": 0,
+						"data": 39928
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 110415
+						"value": 0,
+						"data": 110415
 					}]
 				],
 				[
@@ -2728,15 +2728,15 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 21169
+						"value": 0,
+						"data": 21169
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 137698
+						"value": 0,
+						"data": 137698
 					}]
 				],
 				[
@@ -2744,15 +2744,15 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 8816
+						"value": 0,
+						"data": 8816
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 217982
+						"value": 0,
+						"data": 217982
 					}]
 				],
 				[
@@ -2760,15 +2760,15 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 275015
+						"value": 0,
+						"data": 275015
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 21453
+						"value": 0,
+						"data": 21453
 					}]
 				]
 			]
@@ -2780,22 +2780,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 468468
+						"value": 0,
+						"data": 468468
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 52826
+						"value": 0,
+						"data": 52826
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 494887
+						"value": 0,
+						"data": 494887
 					}]
 				],
 				[
@@ -2803,15 +2803,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 63634
+						"value": 0,
+						"data": 63634
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 33750
+						"value": 0,
+						"data": 33750
 					}]
 				],
 				[
@@ -2819,29 +2819,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 430725
+						"value": 0,
+						"data": 430725
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 537076
+						"value": 0,
+						"data": 537076
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 391171
+						"value": 0,
+						"data": 391171
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 1350929
+						"value": 0,
+						"data": 1350929
 					}]
 				],
 				[
@@ -2849,29 +2849,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 61
+						"value": 0,
+						"data": 61
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 605513
+						"value": 0,
+						"data": 605513
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 53916
+						"value": 0,
+						"data": 53916
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 112348
+						"value": 0,
+						"data": 112348
 					}]
 				],
 				[
@@ -2879,15 +2879,15 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 21372
+						"value": 0,
+						"data": 21372
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 128925
+						"value": 0,
+						"data": 128925
 					}]
 				],
 				[
@@ -2895,15 +2895,15 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 9661
+						"value": 0,
+						"data": 9661
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 236320
+						"value": 0,
+						"data": 236320
 					}]
 				],
 				[
@@ -2911,22 +2911,22 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 284004
+						"value": 0,
+						"data": 284004
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 44
+						"value": 0,
+						"data": 44
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 21655
+						"value": 0,
+						"data": 21655
 					}]
 				]
 			]
@@ -2938,22 +2938,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 313966
+						"value": 0,
+						"data": 313966
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 37453
+						"value": 0,
+						"data": 37453
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 469409
+						"value": 0,
+						"data": 469409
 					}]
 				],
 				[
@@ -2961,15 +2961,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 103900
+						"value": 0,
+						"data": 103900
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 29862
+						"value": 0,
+						"data": 29862
 					}]
 				],
 				[
@@ -2977,29 +2977,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 361712
+						"value": 0,
+						"data": 361712
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 402190
+						"value": 0,
+						"data": 402190
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 348325
+						"value": 0,
+						"data": 348325
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 1250271
+						"value": 0,
+						"data": 1250271
 					}]
 				],
 				[
@@ -3007,29 +3007,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 16
+						"value": 0,
+						"data": 16
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 397130
+						"value": 0,
+						"data": 397130
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 62385
+						"value": 0,
+						"data": 62385
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 113608
+						"value": 0,
+						"data": 113608
 					}]
 				],
 				[
@@ -3037,15 +3037,15 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 24199
+						"value": 0,
+						"data": 24199
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 199314
+						"value": 0,
+						"data": 199314
 					}]
 				],
 				[
@@ -3053,15 +3053,15 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 7389
+						"value": 0,
+						"data": 7389
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 214686
+						"value": 0,
+						"data": 214686
 					}]
 				],
 				[
@@ -3069,22 +3069,22 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 243576
+						"value": 0,
+						"data": 243576
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 319
+						"value": 0,
+						"data": 319
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 22903
+						"value": 0,
+						"data": 22903
 					}]
 				]
 			]
@@ -3096,22 +3096,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 255750
+						"value": 0,
+						"data": 255750
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 37453
+						"value": 0,
+						"data": 37453
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 396056
+						"value": 0,
+						"data": 396056
 					}]
 				],
 				[
@@ -3119,15 +3119,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 102488
+						"value": 0,
+						"data": 102488
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 22680
+						"value": 0,
+						"data": 22680
 					}]
 				],
 				[
@@ -3135,29 +3135,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 289875
+						"value": 0,
+						"data": 289875
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 316523
+						"value": 0,
+						"data": 316523
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 334472
+						"value": 0,
+						"data": 334472
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 1303720
+						"value": 0,
+						"data": 1303720
 					}]
 				],
 				[
@@ -3165,29 +3165,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 74
+						"value": 0,
+						"data": 74
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 374397
+						"value": 0,
+						"data": 374397
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 80814
+						"value": 0,
+						"data": 80814
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 88080
+						"value": 0,
+						"data": 88080
 					}]
 				],
 				[
@@ -3195,15 +3195,15 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 16291
+						"value": 0,
+						"data": 16291
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 200943
+						"value": 0,
+						"data": 200943
 					}]
 				],
 				[
@@ -3211,22 +3211,22 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 3744
+						"value": 0,
+						"data": 3744
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 617
+						"value": 0,
+						"data": 617
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 220735
+						"value": 0,
+						"data": 220735
 					}]
 				],
 				[
@@ -3234,15 +3234,15 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 206301
+						"value": 0,
+						"data": 206301
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 19523
+						"value": 0,
+						"data": 19523
 					}]
 				]
 			]
@@ -3254,22 +3254,22 @@
 						"name": "东北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 315153
+						"value": 0,
+						"data": 315153
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 11738
+						"value": 0,
+						"data": 11738
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华北",
-						"data": 0,
-						"value": 420655
+						"value": 0,
+						"data": 420655
 					}]
 				],
 				[
@@ -3277,15 +3277,15 @@
 						"name": "华北"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 91149
+						"value": 0,
+						"data": 91149
 					}],
 					[{
 						"name": "进口"
 					}, {
 						"name": "东北",
-						"data": 0,
-						"value": 19303
+						"value": 0,
+						"data": 19303
 					}]
 				],
 				[
@@ -3293,29 +3293,29 @@
 						"name": "华北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 430186
+						"value": 0,
+						"data": 430186
 					}],
 					[{
 						"name": "华中"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 199936
+						"value": 0,
+						"data": 199936
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 548690
+						"value": 0,
+						"data": 548690
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华东",
-						"data": 0,
-						"value": 802975
+						"value": 0,
+						"data": 802975
 					}]
 				],
 				[
@@ -3323,29 +3323,29 @@
 						"name": "华北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 51113
+						"value": 0,
+						"data": 51113
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 473039
+						"value": 0,
+						"data": 473039
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 13031
+						"value": 0,
+						"data": 13031
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "华中",
-						"data": 0,
-						"value": 139402
+						"value": 0,
+						"data": 139402
 					}]
 				],
 				[
@@ -3353,15 +3353,15 @@
 						"name": "华北"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 16782
+						"value": 0,
+						"data": 16782
 					}],
 					[{
 						"name": "西南"
 					}, {
 						"name": "西北",
-						"data": 0,
-						"value": 66803
+						"value": 0,
+						"data": 66803
 					}]
 				],
 				[
@@ -3369,22 +3369,22 @@
 						"name": "华中"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 19994
+						"value": 0,
+						"data": 19994
 					}],
 					[{
 						"name": "西北"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 8507
+						"value": 0,
+						"data": 8507
 					}],
 					[{
 						"name": "华南"
 					}, {
 						"name": "西南",
-						"data": 0,
-						"value": 149365
+						"value": 0,
+						"data": 149365
 					}]
 				],
 				[
@@ -3392,15 +3392,15 @@
 						"name": "华中"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 228212
+						"value": 0,
+						"data": 228212
 					}],
 					[{
 						"name": "进口1"
 					}, {
 						"name": "华南",
-						"data": 0,
-						"value": 13614
+						"value": 0,
+						"data": 13614
 					}]
 				]
 			]

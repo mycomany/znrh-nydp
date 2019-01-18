@@ -50,7 +50,7 @@ function chart1(data){
 			bottom:'2%',
 			data: data[0],
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10
 			}
 		},
@@ -67,14 +67,14 @@ function chart1(data){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: 9
 				},
 				rotate: 30,
 			},
 			axisLine:{
 				lineStyle:{
-					color: '#38b8ff'
+					color: '#c2c8cf'
 				}
 			},
 			data: xData,
@@ -84,27 +84,28 @@ function chart1(data){
 				name:'     亿千瓦时',
 	    		nameGap:-5,
 	    		nameTextStyle:{
-			    	padding:[0,0,0,45],
+			    	padding:[0,0,0,30],
 			    	align:'center',
-			    	color:'#fff',
+			    	color:'#c2c8cf',
+			    	fontSize: 9
 				},
 				type: 'value',
 				splitNumber:3,
 				//max:5,
 				axisLabel: {
 					textStyle: {
-						color: '#fff',
+						color: '#c2c8cf',
 						fontStyle: 'normal',
-						fontSize:10
+						fontSize: 9
 					}
 				},
 				axisLine: {
 					lineStyle:{
-						color: '#38b8ff'
+						color: '#c2c8cf'
 					}
 				},
 				axisTick: {
-					color: '#38b8ff',
+					color: '#c2c8cf',
 					show: true
 				},
 				splitLine: {
@@ -118,7 +119,7 @@ function chart1(data){
 				},
 				axisLine: {
 					lineStyle:{
-						color: '#38b8ff'
+						color: '#c2c8cf'
 					}
 				},
 				splitLine: {
@@ -127,8 +128,8 @@ function chart1(data){
 				axisLabel: {
 					show: true,
 					textStyle: {
-						color: '#fff',
-						fontSize:10
+						color: '＃c2c8cf',
+						fontSize: 9
 					},
 					 formatter: '{value}%'
 				}
@@ -263,9 +264,9 @@ function chart2(data,date,a,name){
 		                    position: 'inner',
 		                    formatter: '{d}%',
 		                    textStyle: {
-		                        color: '#fff',
+		                        color: '#c2c8cf',
 		                        fontWeight: 'normal',
-		                        fontSize: 10
+		                        fontSize: 9
 		                    }
 		                }
 		            },
@@ -285,8 +286,8 @@ function chart2(data,date,a,name){
 		                    formatter: '{b|{b}}\n{hr|}\n{c|{c}}{d|({d}%)}',
 		                    rich: {
 		                        b: {
-		                            fontSize: 10,
-		                            color: '#fff',
+		                            fontSize: 9,
+		                            color: '#c2c8cf',
 		                            align: 'left',
 		                            padding: 4
 		                        },
@@ -297,14 +298,14 @@ function chart2(data,date,a,name){
 		                            height: 0
 		                        },
 		                        d: {
-		                            fontSize: 10,
-		                            color: '#fff',
+		                            fontSize: 9,
+		                            color: '#c2c8cf',
 		                            align: 'left',
 		                            padding: 4
 		                        },
 		                        c: {
-		                            fontSize: 10,
-		                            color: '#fff',
+		                            fontSize: 9,
+		                            color: '#c2c8cf',
 		                            align: 'center',
 		                            padding: 4
 		                        }
@@ -314,8 +315,8 @@ function chart2(data,date,a,name){
 		            labelLine: {
 		                normal: {
 		                    show: true,
-		                    length: 3,
-		                    length2: 2,
+		                    length: 7,
+		                    length2: 5,
 		                    lineStyle: {
 		                        type: 'dashed',
 		                        width: 1
@@ -357,7 +358,7 @@ function chart3(data){
 			bottom:'2%',
 			data: data[0],
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10,
 			}
 		},
@@ -374,8 +375,8 @@ function chart3(data){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: 9
 				},
 				//rotate: 30,
 			},
@@ -392,18 +393,19 @@ function chart3(data){
 				name:'元/千瓦时',
 	    		nameGap:-5,
 	    		nameTextStyle:{
-			    	padding:[0,0,0,60],
+			    	padding:[0,0,0,45],
 			    	align:'center',
-			    	color:'#fff',
+			    	color:'#c2c8cf',
+			    	fontSize: 9
 				},
 			type: 'value',
 			splitNumber:4,
 			position: 'left',
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontStyle: 'normal',
-					fontSize:8
+					fontSize: 9
 				}
 			},
 			axisLine: {
@@ -412,8 +414,8 @@ function chart3(data){
 				}
 			},
 	        axisLabel: {
-	            color: '#fff',
-	            fontSize: 10
+	            color: '#c2c8cf',
+	            fontSize: 9
 	        },
 			axisTick: {
 				color: '#0177d4',
@@ -517,7 +519,7 @@ function chart4(data){
 		   bottom:'2%',
 		   data: data.legend,
 		   textStyle: {
-		     color: '#fff',
+		     color: '#c2c8cf',
 		     fontSize: 10,
 		   }
 		},      
@@ -525,13 +527,13 @@ function chart4(data){
 		type: "category",
         axisLine: {
             lineStyle: {
-            	 color: '#38b8ff',
+            	 color: '#c2c8cf',
             }
         },
         splitLine: {
         	show: false,
             lineStyle: {
-                color: '#fff ',
+                color: '#c2c8cf ',
             }
         },
         boundaryGap: false, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
@@ -544,9 +546,9 @@ function chart4(data){
         axisLabel: {
             inside: false,
             textStyle: {
-                color: '#fff',
+                color: '#c2c8cf',
                 fontWeight: 'normal',
-                fontSize: 10
+                fontSize: 9
             },
         },
 		 data : data.xData
@@ -559,20 +561,20 @@ function chart4(data){
 		         axisLine: {
 		             show: true,
 		             lineStyle: {
-		                 color: '#38b8ff',
+		                 color: '#c2c8cf',
 		             }
 		         },
 		         splitLine: {
 		        	 show: false,
 		             lineStyle: {
-		                 color: '#fff',
+		                 color: '#c2c8cf',
 		             }
 		         },
 		         axisLabel: {
 		             textStyle: {
-		                 color: '#fff',
+		                 color: '#c2c8cf',
 		                 fontWeight: 'normal',
-		                 fontSize: 10
+		                 fontSize: 9
 		             },
 		             formatter: '{value}',
 		         }
@@ -584,20 +586,20 @@ function chart4(data){
 			         axisLine: {
 			             show: true,
 			             lineStyle: {
-			                 color: '#38b8ff',
+			                 color: '#c2c8cf',
 			             }
 			         },
 			         splitLine: {
 			        	 show: false,
 			             lineStyle: {
-			                 color: '#fff',
+			                 color: '#c2c8cf',
 			             }
 			         },
 			         axisLabel: {
 			             textStyle: {
-			                 color: '#fff',
+			                 color: '#c2c8cf',
 			                 fontWeight: 'normal',
-			                 fontSize: 10
+			                 fontSize: 9
 			             },
 			             formatter: '{value}',
 			         }
@@ -685,7 +687,7 @@ function chart5(data,name){
 				bottom:'2%',
 				data: data.legend,
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontSize: 10,
 				}
 			},
@@ -701,8 +703,8 @@ function chart5(data,name){
 				axisLabel: {
 					//interval: 0,
 					textStyle: {
-						color: '#fff',
-						fontSize:10
+						color: '#c2c8cf',
+						fontSize: 9
 					},
 					//rotate: 30,
 				},
@@ -717,17 +719,18 @@ function chart5(data,name){
 				name:'     万千瓦时',
 	    		nameGap:-5,
 	    		nameTextStyle:{
-			    	padding:[0,0,0,45],
+			    	padding:[0,0,0,30],
 			    	align:'center',
-			    	color:'#fff',
+			    	color:'#c2c8cf',
+			    	fontSize: 9
 				},
 				type: 'value',
 				position: 'left',
 				axisLabel: {
 					textStyle: {
-						color: '#fff',
+						color: '#c2c8cf',
 						fontStyle: 'normal',
-						fontSize:10
+						fontSize: 9
 					}
 				},
 				axisLine: {
@@ -747,7 +750,7 @@ function chart5(data,name){
 				position: 'right',
 				axisLine: {
 					lineStyle:{
-						color: '#fff'
+						color: '#c2c8cf'
 					}
 				},
 				axisTick: {
@@ -764,8 +767,8 @@ function chart5(data,name){
 				axisLabel: {
 					show: true,
 					textStyle: {
-						color: '#fff',
-						fontSize:10
+						color: '#c2c8cf',
+						fontSize: 9
 					},
 					formatter: '{value}%'	
 				}
@@ -842,7 +845,7 @@ function chart6(data,date){
 			bottom:'2%',
 			data: data[0],
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10,
 			}
 		},
@@ -858,8 +861,8 @@ function chart6(data,date){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: 9
 				},
 				//rotate: 30,
 			},
@@ -874,17 +877,18 @@ function chart6(data,date){
 			name:' 千瓦时',
     		nameGap:-5,
     		nameTextStyle:{
-		    	padding:[0,0,0,45],
+		    	padding:[0,0,0,30],
 		    	align:'center',
-		    	color:'#fff',
+		    	color:'#c2c8cf',
+		    	fontSize: 9
 			},
 			type: 'value',
 			position: 'left',
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontStyle: 'normal',
-					fontSize:10
+					fontSize: 9
 				}
 			},
 			axisLine: {
@@ -1076,8 +1080,8 @@ function main1(data,date){
                     var coord = chart.convertToPixel('geo', geoCoord);
                     var idx = i + '';
                     var val = [
-                        {value:bardb[i][0], itemStyle:{color:'#ff5e00'},visualMap: false},
-                        {value:bardb[i][1], itemStyle:{color:'#27a809'},visualMap: false}
+                        {value:bardb[i][0], itemStyle:{color:'#26e9a7'},visualMap: false},
+                        {value:bardb[i][1], itemStyle:{color:'#f4eb3a'},visualMap: false}
                     ];
                     option.xAxis.push({
                         id: idx,
@@ -1086,8 +1090,8 @@ function main1(data,date){
                         name: name,
                         show:true,
                         nameStyle: {
-                            color: '#fff',
-                            fontSize: 10
+                            color: '#c2c8cf',
+                            fontSize: 9
                         },
                         nameLocation: 'middle',
                         nameGap: 3,
@@ -1097,7 +1101,7 @@ function main1(data,date){
                         axisLine: {
                             onZero: false,
                             lineStyle: {
-                                color: '#fff'
+                                color: '#c2c8cf'
                             }
                         },
                         data: xData,
@@ -1112,7 +1116,7 @@ function main1(data,date){
                         axisLabel: {show: false},
                         axisLine: {
                             lineStyle: {
-                                color: '#fff'
+                                color: '#c2c8cf'
                             }
                         },
                         z: 9
@@ -1160,7 +1164,8 @@ function main1(data,date){
                 map: 'china',
                 label: {
                     normal: {
-                        show: false
+                        show: false,
+                        color: '#c5eaef',
                     },
                     emphasis: {
                         show: false,
@@ -1199,7 +1204,7 @@ function main1(data,date){
                 itemHeight: 8, //图例高度
                 bottom:'2%',
                 textStyle:{
-                    color:'#fff'
+                    color:'#c2c8cf'
                 },
                 z: 9
             },
@@ -1220,31 +1225,31 @@ function main1(data,date){
                 pieces: [{
                     min: 0,
                     max: 1,
-                    color: '#8391fc'
+                    color: '#6f45e9'
                 }, {
                     min: 1,
                     max: 2,
-                    color: '#d0d3e9'
+                    color: '#563eeb'
                 }, {
                     min: 2,
                     max: 3,
-                    color: '#b5cff4'
+                    color: '#3b3be9'
                 }, {
                     min: 3,
                     max: 4,
-                    color: '#b0b7ee'
+                    color: '#445cea'
                 }, {
                     min: 4,
                     max: 5,
-                    color: '#9cccd6'
+                    color: '#467cfa'
                 },{
                     min: 5,
                     max: 6,
-                    color: '#798bf4'
+                    color: '#4898ff'
                 },{
                     min: 6,
                     max: 7,
-                    color: '#cac8d8'
+                    color: '#78b3fe'
                 }],
                 itemHeight:10,
                 itemWidth:15,
@@ -1257,7 +1262,7 @@ function main1(data,date){
                     color: ["#aeb2f7","#3c68f3","#061ae1" ]
                 },*/
                 textStyle:{
-                    color:'#fff'
+                    color:'#c2c8cf'
                 },
             },
             series: [{
@@ -1268,9 +1273,20 @@ function main1(data,date){
                 aspectScale:0.9,  
                 roam: false,
                 showLegendSymbol:false,
+                itemStyle:{
+                	normal: {
+                		 borderColor:'#c2c8cf',
+    	                 areaColor: '#4c70f7'
+                    },
+                	 emphasis: {
+    	            	 borderColor:'#55e6fc',
+    	                 areaColor: '#4c70f7'
+    	            }
+                },
                 label: {
                     normal: {
                         show: false,
+                        color: '#c5eaef',
                     },
                     emphasis: {
                         show: false
@@ -1316,42 +1332,59 @@ function main(data,type,date){
 		    '进口1': [100.487732,19.44585]
 		};
 	
+	
+	
+	var cl1 = '#25e8a6';
+	if (type =='1') {
+		cl1 = '#40eaf9';
+	}
 	var pieces1 = [{
         max: -8,
         color: '#3ab62c'
     },{
     	min: -8,
         max: -7,
-        color: '#cac8d8'
+        color: '#78b3fe'
     }, {
         min: -7,
         max: -6,
-        color: '#798bf4'
+        color: '#4898ff '
     }, {
         min: -6,
         max: -5,
-        color: '#9cccd6'
+        color: '#467cfa'
     }, {
         min: -5,
         max: -4,
-        color: '#b0b7ee'
+        color: '#445cea'
     }, {
         min: -4,
         max: -3,
-        color: '#b5cff4'
+        color: '#3b3be9'
     },{
         min: -3,
         max: -2,
-        color: '#d0d3e9'
+        color: '#563eeb'
     },{
         min: -2,
         max: -1,
-        color: '#8391fc'
+        color: '#6f45e9'
     },{
         min: -1,
         max: 0,
-        color: '#1dc004'
+        color: cl1
     },{
+        min: 0,
+        max: 10,
+        color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+            offset: 0,
+            color: '#ffef00'
+        }, {
+            offset: 1,
+            color: '#ff7500'
+        }])
+    }];
+	/*,{
         min: 0,
         max: 1000,
         color: '#078cda'
@@ -1370,63 +1403,7 @@ function main(data,type,date){
     },{
         min: 500000,
         color: '#ff4f00'
-    }];
-	
-	var pieces2 = [{
-        max: -8,
-        color: '#3ab62c'
-    },{
-    	min: -8,
-        max: -7,
-        color: '#7483f0'
-    }, {
-        min: -7,
-        max: -6,
-        color: '#62c4d7'
-    }, {
-        min: -6,
-        max: -5,
-        color: ''
-    }, {
-        min: -5,
-        max: -4,
-        color: ''
-    }, {
-        min: -4,
-        max: -3,
-        color: ''
-    },{
-        min: -3,
-        max: -2,
-        color: ''
-    },{
-        min: -2,
-        max: -1,
-        color: ''
-    },{
-        min: -1,
-        max: 0,
-        color: '#1dc004'
-    },{
-        min: 0,
-        max: 1000,
-        color: '#078cda'
-    },{
-        min: 1000,
-        max: 10000,
-        color: '#afb506'
-    },{
-        min: 10000,
-        max: 100000,
-        color: '#bc7b06'
-    },{
-        min: 100000,
-        max: 500000,
-        color: '#a800ff'
-    },{
-        min: 500000,
-        color: '#ff4f00'
-    }];
+    }*/
 	var das = [];
 	if (type == "1") {
 		das = data.valueIn[date][0];
@@ -1479,7 +1456,7 @@ function main(data,type,date){
 		                fromName: dataItem[0].name,
 		                toName: dataItem[1].name,
 		                coords: [fromCoord, toCoord],
-		                value: dataItem[1].value
+		                value: dataItem[1].value+1
 		            });
 		        }
 		    }
@@ -1501,9 +1478,9 @@ function main(data,type,date){
 		            show: true,
 		            period: 6,
 		            trailLength: 0,
-		            color:'#ff3000',
+		            color:'#faf13f',
 		            symbol: 'pin',
-		            symbolSize: 12
+		            symbolSize: 10
 		            
 		        },
 		        lineStyle: {
@@ -1516,31 +1493,6 @@ function main(data,type,date){
 		        },
 		        data: convertData(item[1])
 		    },
-		   /*{
-		        type: 'lines',
-		        zlevel: 1,
-		        symbol: ['none', 'arrow'],
-		        symbolSize: 10,
-		        visualMapIndex:9,
-		        effect: {
-		        	show: true, // 动效是否显示
-		            period: 6, // 特效动画时间
-		            trailLength: 0.7, // 特效尾迹的长度
-		            color: '#ffef00', // 特效颜色
-		            symbol: 'pin',
-		            symbolSize: 11 // 特效大小
-		            
-		        },
-		        lineStyle: {
-		            normal: {
-		                width: 2,
-		                opacity: 0.6,
-		                curveness: 0.2,
-		               color: 'red'
-		            }
-		        },
-		        data: convertData(item[1])
-		    },*/
 		    {
 		        type: 'effectScatter',
 		        coordinateSystem: 'geo',
@@ -1555,8 +1507,8 @@ function main(data,type,date){
 		            normal: {
 		                show: true,
 		                position: 'right',
-		                color: '#fff',
-		                fontSize: 16,
+		                color: '#c5eaef',
+		                fontSize: 15,
 		                formatter: function (val) {
 		                	if(val.name == "出口1"){
 		                		return "出口";
@@ -1577,9 +1529,10 @@ function main(data,type,date){
 	                }
 		        },
 		        data: item[1].map(function (dataItem) {
+		        	//alert(JSON.stringify(dataItem));
 		            return {
 		                name: dataItem[1].name,
-		                value: geoCoordMap[dataItem[1].name].concat([dataItem[1].data])
+		                value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
 		            };
 		        })
 		    });
@@ -1602,7 +1555,7 @@ function main(data,type,date){
             },
             itemStyle:{
             	normal: {
-            		 borderColor:'#fff',
+            		 borderColor:'#c2c8cf',
 	                 areaColor: '#4c70f7'
                 },
             	 emphasis: {
@@ -1650,14 +1603,14 @@ function main(data,type,date){
 						}
 		            if(params.seriesType=="effectScatter") {
 		                var vs = ''; 
-		                var vd =	params.data.name+"地区"+(type==1?"输出":"输入")+"电量";
+		                var vd =	params.data.name+"地区"+(type==1?"输入":"输出")+"电量";
 		                if ((params.data.name == '进口'||params.data.name == '进口1')||(params.data.name == '出口'||params.data.name == '出口1')) {
 		                	vs =  "";//params.data.name+"电量";
 		                	vd =  "";
 						}
 		                var num = 0;
 		                for (var i = 0; i < data.length; i++) {
-		                	num = num +data[i][1].value;
+		                	num = num +data[i][1].data;
 		                	if(data[i][0].name != data[i][1].name){
 		                		var a = data[i][1].name;
 		                		var b = data[i][0].name;
@@ -1669,9 +1622,9 @@ function main(data,type,date){
 									a = "进口";
 									b = "进口";
 								}
-		                		var name2 = b+' → '+a+' : '+data[i][1].value;
+		                		var name2 = b+' → '+a+' : '+data[i][1].data;
 		                		if (a == "出口"||a == "进口") {
-		                			 name2 = a+' : '+data[i][1].value;
+		                			 name2 = a+' : '+data[i][1].data;
 								}	
 		                		vs = vs+'<br/>'+name2+" 万千瓦时";
 		                	}
@@ -1686,7 +1639,7 @@ function main(data,type,date){
 		                var va = '';
 		                for (var i = 0; i < data.length; i++) {
 							if (params.data.toName == data[i][1].name) {
-								va = data[i][1].value;
+								va = data[i][1].data;
 							}
 						}
 		                var b = params.data.toName ;
@@ -1734,7 +1687,7 @@ function main(data,type,date){
     	            }
                 },
                 textStyle:{
-                    color:'#fff'
+                    color:'#c2c8cf'
                 },
             }],
 		    geo: {
@@ -1742,7 +1695,7 @@ function main(data,type,date){
 		        label: {
 		            emphasis: {
 		                show: true,
-		                color:'#fff'
+		                color:'#c2c8cf'
 		            }
 		        },
 		        zoom:1.2, 

@@ -219,7 +219,6 @@ select.selectpicker {
 .bootstrap-select .dropdown-menu {
 	background-color: rgba(219,234,240,1);
 	color:#fff;
-	width:60px;
   min-width: 100%;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;

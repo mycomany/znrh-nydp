@@ -16,7 +16,7 @@ $(document).ready(function(){
     getdata('/energy/elec/security/chart4.json', getChart4);
     getdata('/energy/elec/security/chart5.json', getChart5);
 });
-
+var fontsize = 9;
 //判断是否为整数
 function pdInteger(value){
     return value % 1 === 0;
@@ -72,7 +72,7 @@ function chart1(data,name){
 			bottom:'2%',
 			data: data.legend,
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10
 			}
 		},
@@ -88,8 +88,8 @@ function chart1(data,name){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				rotate: 30,
 			},
@@ -107,16 +107,16 @@ function chart1(data,name){
 	    		nameTextStyle:{
 			    	padding:[0,0,0,15],
 			    	align:'center',
-			    	color:'#fff',
+			    	color:'#c2c8cf',
 				},
 				type: 'value',
 				splitNumber:3,
 				//max:5,
 				axisLabel: {
 					textStyle: {
-						color: '#fff',
+						color: '#c2c8cf',
 						fontStyle: 'normal',
-						fontSize:10
+						fontSize: fontsize
 					}
 				},
 				axisLine: {
@@ -205,7 +205,7 @@ function chart2(data,date){
 			bottom:'2%',
 			data: data.legend,
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10
 			}
 		},
@@ -221,8 +221,8 @@ function chart2(data,date){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				rotate: 30,
 			},
@@ -240,9 +240,9 @@ function chart2(data,date){
 				//max:5,
 				axisLabel: {
 					textStyle: {
-						color: '#fff',
+						color: '#c2c8cf',
 						fontStyle: 'normal',
-						fontSize:10
+						fontSize: fontsize
 					},
 					formatter: '{value}%'
 				},
@@ -275,8 +275,8 @@ function chart2(data,date){
 				axisLabel: {
 					show: true,
 					textStyle: {
-						color: '#fff',
-						fontSize:10
+						color: '#c2c8cf',
+						fontSize: fontsize
 					},
 					 formatter: '{value}%'
 				}
@@ -370,7 +370,7 @@ function chart3(data,date){
 			bottom:'2%',
 			data: data.legend,
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10
 			}
 		},
@@ -386,8 +386,8 @@ function chart3(data,date){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				rotate: 30,
 			},
@@ -405,9 +405,9 @@ function chart3(data,date){
 				//max:5,
 				axisLabel: {
 					textStyle: {
-						color: '#fff',
+						color: '#c2c8cf',
 						fontStyle: 'normal',
-						fontSize:10
+						fontSize: fontsize
 					}
 				},
 				axisLine: {
@@ -499,8 +499,8 @@ function chart4(data,date){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cfc2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -517,7 +517,7 @@ function chart4(data,date){
                 nameTextStyle:{
                     padding:[0,0,0,25],
                     align:'center',
-                    color:'#fff',
+                    color:'#c2c8cf',
                 },
                 axisLine: {
                     lineStyle: {
@@ -526,8 +526,8 @@ function chart4(data,date){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     },
                     formatter: function(value){
                         if(pdInteger(value)){
@@ -602,7 +602,7 @@ function chart5(data,name){
 			bottom:'2%',
 			data: data.legend,
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10
 			}
 		},
@@ -618,8 +618,8 @@ function chart5(data,name){
 			axisLabel: {
 				//interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				rotate: 30,
 			},
@@ -637,9 +637,9 @@ function chart5(data,name){
 				//max:5,
 				axisLabel: {
 					textStyle: {
-						color: '#fff',
+						color: '#c2c8cf',
 						fontStyle: 'normal',
-						fontSize:10
+						fontSize: fontsize
 					}
 				},
 				axisLine: {
@@ -818,7 +818,7 @@ function main(data){
 	        normal: {
 	            show: true,
 	            //position: 'center',
-	            color:'#fff',
+	            color:'#c5eaef',
 	            formatter: function(v){
 	            	//alert(JSON.stringify(v));
 	            	return v.name
@@ -856,7 +856,7 @@ function main(data){
 	        normal: {
 	            show: true,
 	            position: 'bottom',
-	            color:'#fff',
+	            color:'#c5eaef',
 	            fontSize:14,
 	            formatter: function(v){
 	            	//alert(JSON.stringify(v));
@@ -914,7 +914,7 @@ function main(data){
 	        left: 'center',
 	        top:'4%',
 	        textStyle : {
-	            color: '#a4d6fe',
+	            color: '#2b88ff',
 	            fontSize: 18
 	        }
 	    },
