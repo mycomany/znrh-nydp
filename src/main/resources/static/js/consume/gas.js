@@ -364,6 +364,7 @@ function chart3(data){
    	                color: '#59ebe8'
    	            }
    	        },
+   	     boundaryGap: false,
    	     axisLabel: {
 	            color: '#fff',
 	            fontSize: 10

@@ -1,13 +1,13 @@
 {
   "index":["2017"],
-  "data": [{"companyName":"国电投","value":"879"},
-    {"companyName":"中国华能集团","value":"905"},
-    {"companyName":"中国大唐集团公司","value":"856"},
-    {"companyName":"中国华电集团公司","value":"799"},
-    {"companyName":"中国国电集团公司","value":"835"},
+  "data": [{"companyName":"国家电投","value":"879"},
+    {"companyName":"华能","value":"905"},
+    {"companyName":"大唐","value":"856"},
+    {"companyName":"华电","value":"799"},
+    {"companyName":"国家能源","value":"835"},
     {"companyName":"国投电力","value":"380"},
-    {"companyName":"国华电力","value":"580"},
+    {"companyName":"三峡","value":"580"},
     {"companyName":"华润电力","value":"583"},
     {"companyName":"中广核","value":"357"},
-    {"companyName":"中国神华","value":"345"}]
+    {"companyName":"中核","value":"345"}]
 }
