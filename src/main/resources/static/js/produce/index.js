@@ -451,25 +451,27 @@ function makeOrders(orderDatas,selectPoint,point){
                 show:true
             },
             type: 'value'
-        },
-            {
-                type: 'value',
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                axisLabel: {
-                    color: '#fff',
-                    fontSize: 10
-                },
-                splitLine: {
-                    show:false,
-                    lineStyle: {
-                        color: '#0177d4'
-                    }
-                }
-            }],
+        }
+        // ,
+        //     {
+        //         type: 'value',
+        //         axisLine: {
+        //             lineStyle: {
+        //                 color: '#38b8ff'
+        //             }
+        //         },
+        //         axisLabel: {
+        //             color: '#fff',
+        //             fontSize: 10
+        //         },
+        //         splitLine: {
+        //             show:false,
+        //             lineStyle: {
+        //                 color: '#0177d4'
+        //             }
+        //         }
+        //     }
+            ],
         series: seriesData
     }
 
