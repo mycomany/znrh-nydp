@@ -379,6 +379,7 @@ function chart3(data){
 				},
 				//rotate: 30,
 			},
+			boundaryGap: false,
 			axisLine:{
 				lineStyle:{
 					color: '#0177d4'
@@ -607,7 +608,7 @@ function chart4(data){
 		            type:'line',
 		            yAxisIndex: 1,
 		            areaStyle: {
-		                normal: {type: 'default',
+		                normal: {//type: 'default',
 		                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 		                        offset: 0,
 		                        color: 'rgba(43, 136, 255,0.4)'
@@ -969,20 +970,23 @@ function change11(date){
 	if (type == 'main1') {
 		main1(main1Dta,date);
 	}else{
-		main(mainDta,1,date);
+		main(mainDta,ty,date);
 	}
 }
 
+var ty = '1';
 function elecMode(d){
      $(".main_show_type").removeClass("main_show_power_checked")
      $(".main_show_type").removeClass("main_show_installed_checked")
      $(".main_show_type").removeClass("main_show_installed")
 
      if(d=='1'){
+    	 ty = '1';
     	 $("#elec_in").addClass("main_show_power main_show_power_checked");
     	 $("#elec_out").addClass("main_show_installed");
     	 main(mainDta,d,'2018-11');
      }else{
+    	 ty = '2';
     	 $("#elec_in").addClass("main_show_installed");
     	 $("#elec_out").addClass("main_show_power main_show_power_checked");
     	 main(mainDta,d,'2018-11');

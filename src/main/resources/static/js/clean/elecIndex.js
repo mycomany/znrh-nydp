@@ -158,7 +158,7 @@ function chart2(data){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 			},
 			data:data[1],
@@ -186,7 +186,7 @@ function chart2(data){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 				formatter: '{value}%'
 			}
@@ -227,9 +227,9 @@ function chart3(data){
         data:  [0.25,  0.19],
         radius: '47%',
         label: {
-            formatter: data[2].name+'\n\n\n'+data[2].value.toFixed(2),
+            formatter: data[2].name+'\n\n\n'+data[2].value.toFixed(2)+'%',
             textStyle: {
-                fontSize: 20,
+                fontSize: 14,
                 fontFamily: 'Lobster Two'
             }
         },
@@ -242,9 +242,9 @@ function chart3(data){
         data:[0.45,  0.42,0.35,0.30],
         radius: '70%',
         label: {
-            formatter: data[0].name+'\n\n\n\n'+data[0].value.toFixed(2),
+            formatter: data[0].name+'\n\n\n\n'+data[0].value.toFixed(2)+'%',
             textStyle: {
-                fontSize: 20,
+                fontSize: 16,
                 fontFamily: 'Lobster Two'
             }
         },
@@ -257,9 +257,9 @@ function chart3(data){
         data: [0.3711,  0.33,0.30,0.28],
         radius: '47%',
         label: {
-            formatter: data[1].name+'\n\n\n'+data[1].value.toFixed(2),
+            formatter: data[1].name+'\n\n\n'+data[1].value.toFixed(2)+'%',
             textStyle: {
-                fontSize: 20,
+                fontSize: 14,
                 fontFamily: 'Lobster Two'
             }
         },
@@ -269,210 +269,6 @@ function chart3(data){
         }
     }]
 	}
-	/*var option = {
-		//title:[{
-		//	text:'污染物排放完成率',
-		//	top:'3%',
-		//	left:'2%',
-		//	textStyle: {
-		//		color: '#59EBE8',
-		//		fontSize:16,
-		//	}
-		//}],
-		tooltip : {
-			formatter: "{a} : {c}%"
-		},
-		legend: {
-			show:true,
-			bottom : '2%',
-			//left:'5%',
-			itemGap: 12, //图例每项之间的间隔
-			itemWidth: 16, //图例宽度
-			itemHeight: 8, //图例高度
-			textStyle: {
-				color:'#fff',
-				fontFamily: '微软雅黑',
-				fontSize: 10,
-			},
-			data: ['安全','基本安全','预警'],
-		},
-		series : [
-			{
-				name: 'SO2',
-				type: 'gauge',
-				z: 3,
-				min: 0,
-				max: 100,
-				splitNumber: 10,
-				//center: ['60%', '55%'],
-				radius: '80%',
-				axisLine: {            // 坐标轴线
-					lineStyle: {
-						color:  [[0.3, '#25e4a3'],[0.5, '#faf13f'],[1, '#f7355e']],// 属性lineStyle控制线条样式
-						width: 10
-					}
-				},
-				axisLabel: {
-					formatter: function(e) {
-						return e+'%';
-					}
-				},
-				axisTick: {            // 坐标轴小标记
-					length: 15,        // 属性length控制线长
-					lineStyle: {       // 属性lineStyle控制线条样式
-						color: 'auto'
-					}
-				},
-				splitLine: {           // 分隔线
-					length: 20,         // 属性length控制线长
-					lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-						color: 'auto'
-					}
-				},
-				title : {
-					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-						//fontWeight: 'bolder',
-						fontSize: 16,
-						color:'#fff'
-					}
-				},
-				detail : {
-					formatter:'{value}%',
-					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-						fontWeight: 'bolder'
-					}
-				},
-				data:[data[0]]
-			},
-			{
-				name: '氮氧化物',
-				type: 'gauge',
-				center: ['20%', '55%'],    // 默认全局居中
-				radius: '65%',
-				min:0,
-				max:100,
-				endAngle:45,
-				splitNumber:4,
-				axisLine: {            // 坐标轴线
-					lineStyle: {       // 属性lineStyle控制线条样式
-						color:  [[0.3, '#25e4a3'],[0.5, '#faf13f'],[1, '#f7355e']],
-						width: 8
-					}
-				},
-				axisTick: {            // 坐标轴小标记
-					length:12,        // 属性length控制线长
-					lineStyle: {       // 属性lineStyle控制线条样式
-						color: 'auto'
-					}
-				},
-				axisLabel: {
-					formatter: function(e) {
-						return e+'%';
-					}
-				},
-				splitLine: {           // 分隔线
-					length:20,         // 属性length控制线长
-					lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-						color: 'auto'
-					}
-				},
-				pointer: {
-					width:5
-				},
-				title: {
-					offsetCenter: [0, '-30%'],
-					textStyle: {
-						color:'#fff',
-						fontSize: 16,
-					}
-				},
-				detail: {
-					formatter:'{value}%',
-					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-						fontWeight: 'bolder'
-					}
-				},
-				data:[data[1]]
-			},
-			{
-				name: '粉尘',
-				type: 'gauge',
-				center: ['79%', '50%'],    // 默认全局居中
-				radius: '55%',
-				min: 0,
-				max: 100,
-				startAngle: 135,
-				endAngle: 45,
-				splitNumber: 2,
-				axisLine: {            // 坐标轴线
-					lineStyle: {       // 属性lineStyle控制线条样式
-						color:  [[0.475, '#25e4a3'],[0.525, '#faf13f'],[1, '#f7355e']],
-						width: 8
-					}
-				},
-				axisTick: {            // 坐标轴小标记
-					splitNumber: 5,
-					length: 10,        // 属性length控制线长
-					lineStyle: {       // 属性lineStyle控制线条样式
-						color: 'auto'
-					}
-				},
-				splitLine: {           // 分隔线
-					length: 15,         // 属性length控制线长
-					lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-						color: 'auto'
-					}
-				},
-				axisLabel: {
-					formatter: function(e) {
-						return e+'%';
-					}
-				},
-				pointer: {
-					width:2
-				},
-				title: {
-					offsetCenter: [0, '-30%'],
-					textStyle: {
-						color:'#fff',
-						fontSize: 16,
-					}
-				},
-				detail: {
-					formatter:'{value}%',
-					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-						fontWeight: 'bolder'
-					}
-				},
-				data:[data[2]]
-			},
-			{
-				type:'pie',
-				radius: 0,
-				center: ['-30%', '-50%'],
-				color: ["#25e4a3","#faf13f", "#f7355e"],
-				itemStyle:{
-					normal: {
-						show:false,
-					}
-				},
-				label: {
-					normal: {
-						show:false,
-					}
-				},
-				labelLine: {
-					normal: {
-						show: false
-					}
-				},
-				data:[{name:"安全",value:1},
-					{name:"基本安全",value:1},
-					{name:"预警",value:1}
-				]
-			}
-		]
-	};*/
 	$chart.init('#chart3', option,'pie');
 }
 //污染物排放趋势
@@ -518,7 +314,7 @@ function chart4(data, ix){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 			},
 			data:data.xData,
@@ -553,7 +349,7 @@ function chart4(data, ix){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 				formatter: '{value}'
 			}

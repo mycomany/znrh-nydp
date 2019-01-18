@@ -139,7 +139,7 @@ function chart2(data, ix){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 			},
 			data:data.xData,
@@ -167,7 +167,7 @@ function chart2(data, ix){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 				formatter: '{value}%'
 			}
@@ -238,7 +238,7 @@ function chart3(data, ix){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 			},
 			data:data.xData,
@@ -266,7 +266,7 @@ function chart3(data, ix){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 				formatter: '{value}%'
 			}
@@ -345,7 +345,7 @@ function chart4(data){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 			},
 			data:data[1],
@@ -380,7 +380,7 @@ function chart4(data){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 				formatter: '{value}'
 			}
@@ -829,7 +829,7 @@ function main1(data){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 			},
 			data:data[1],
@@ -857,7 +857,7 @@ function main1(data){
 				textStyle: {
 					color: '#fff',
 					fontWeight: 'normal',
-					fontSize: 8
+					fontSize: 10
 				},
 				formatter: '{value}%'
 			}
