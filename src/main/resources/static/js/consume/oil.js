@@ -368,6 +368,7 @@ function chart2(data){
 				},
 				//rotate: 30,
 			},
+			boundaryGap: false,
 			axisLine:{
 				lineStyle:{
 					color: '#0177d4'
@@ -713,6 +714,7 @@ function chart4(data){
 				},
 				//rotate: 30,
 			},
+			boundaryGap: false,
 			axisLine:{
 				lineStyle:{
 					color: '#0177d4'
