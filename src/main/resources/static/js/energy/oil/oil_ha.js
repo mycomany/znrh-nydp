@@ -54,7 +54,12 @@ function main(data, selectName){
 //	    		return 60;
 //			}
             var showsize = val[2]/data["nm"][selectName];
-            return showsize < 8 ? 8 : showsize;
+            if(showsize < 10){
+                showsize = 10;
+            }else if(showsize > 45){
+                showsize = 45;
+            }
+            return showsize;
         },
         itemStyle: {
             normal: {

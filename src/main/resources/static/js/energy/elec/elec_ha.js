@@ -83,7 +83,12 @@ function main(){
         },
         symbolSize: function(val) {
             var showsize = val[2]/10000*5;
-            return showsize < 8 ? 8 : showsize;
+            if(showsize < 10){
+                showsize = 10;
+            }else if(showsize > 45){
+                showsize = 45;
+            }
+            return showsize;
         },
         itemStyle: {
             normal: {
@@ -416,7 +421,22 @@ function chart2(data, yf){
                 yAxisIndex:0,
                 itemStyle: {
                     "normal": {
-                        "color": "#2b88ff"
+                        // "color": "#2b88ff"
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#00feff'
+                            },
+                                {
+                                    offset: 0.5,
+                                    color: '#027eff'
+                                },
+                                {
+                                    offset: 1,
+                                    color: '#2b88ff'
+                                }
+                            ]
+                        )
                     }
                 }
             }
@@ -754,7 +774,22 @@ function chart4(data, yf){
                 barWidth: "40%",
                 "itemStyle": {
                     "normal": {
-                        "color": "#40eaf9"
+                        // "color": "#40eaf9"
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#00feff'
+                            },
+                                {
+                                    offset: 0.5,
+                                    color: '#027eff'
+                                },
+                                {
+                                    offset: 1,
+                                    color: '#0286ff'
+                                }
+                            ]
+                        )
                     }
                 },
             }
