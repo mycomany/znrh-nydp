@@ -197,7 +197,6 @@ function chart2(data, ix){
 			barWidth:"20%",
 			itemStyle: {
 				normal: {
-					color: '#00c2c8cfF'
 				},
 			},
 			data: data.data[ix][1]
@@ -821,133 +820,137 @@ function changeMain(param){
 	}
 }
 function main1(data){
+	var data1 = [];
+	for(var i = 0; i < data[1].length; i++){
+		data1.push([data[2][i], data[3][i], data[1][i]]);
+	}
 	var option = {
-		tooltip: {
-			trigger: 'axis'
+		legend: {
+			show:false,
+			data: ['采出废水消耗'],
+			bottom: 10
 		},
-		legend:{
-			data:data[0],
+		/*visualMap: {
+			type: 'piecewise',
+			splitNumber: 3,
+			inverse: true,
+			seriesIndex:0,
+			itemWidth: 20,
+			itemHeight: 12,
+			dimension:1,
+			pieces: [
+			{
+				max: 59,
+				label:'≤59%',
+				color: '#ffffff'
+			}, {
+				min: 60,
+				max: 74,
+				label:'60%-74%',
+				color: '#4e83c4'
+			}, {
+				min: 75,
+				label:'≥75%',
+				color: '#0035ff'
+			}],
+			right: 20,
+			bottom: 120,
 			textStyle: {
-				color: '#c2c8cf',
-				fontSize: 10
+				color: '#fff'
+			}
+		},*/
+		tooltip: {
+			trigger: 'axis',
+			axisPointer:{
+				type:'cross',
+				axis:'x'
+			},
+			formatter: function (v){
+				return v[0].value[2]+'<br/>采油废水回用率：'+v[0].value[0]+'%<br/>采出废水达标排放率：'+v[0].value[1]+'%';
 			}
 		},
-		grid:{
-			top:'10%',
-			bottom:'10%',
-			left:'5%',
-			right:'5%',
-			containLabel:true,
+		grid: {
+			top: 60,
+			bottom: 40
 		},
-		xAxis: [{
-			type: "category",
-			axisLine: {
-				lineStyle: {
-					color: 'rgba(255,255,255,0.6)',
-				}
+		xAxis: {
+			name:'采油废水回用率%',
+			nameGap:-1,
+			nameTextStyle:{
+				padding:[-35,0,0,-35],
+				align:'center',
+				color:'#4cedf9',
 			},
-			splitLine: {
-				show: false,
-				lineStyle: {
-					color: '#c2c8cf ',
-				}
-			},
-			boundaryGap: false, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
-			axisTick: {
-				color: '#0177d4',
-				show: true
-			},
-			splitArea: {
-				show: false
-			},
-			axisLabel: {
-				inside: false,
-				textStyle: {
-					color: '#c2c8cf',
-					fontWeight: 'normal',
-					fontSize: fontsize
-				},
-			},
-			data:data[1],
-		}],
-		yAxis: [{
+			min:60,
+			max:100,
 			type: 'value',
-			splitNumber:3,
-			axisTick: {
-				color: '#0177d4',
-				show: true
-			},
-			axisLine: {
-				show: true,
-				lineStyle: {
-					color: 'rgba(255,255,255,0.6)',
-				}
-			},
 			splitLine: {
-				show: false,
+				show:false,
 				lineStyle: {
-					color: '#c2c8cf',
+					type: 'dashed'
 				}
 			},
 			axisLabel: {
 				textStyle: {
-					color: '#c2c8cf',
-					fontWeight: 'normal',
-					fontSize: fontsize
-				},
-				formatter: '{value}%'
-			}
-		}],
-		series: [{
-			name: '采油废水回用率',
-			type: 'line',
-			smooth: true,
-			showSymbol: false,
-			areaStyle: {
-				normal: {type: 'default',
-					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-						offset: 0.3,
-						color: 'rgba(64, 234, 249,0.2)'
-					}, {
-						offset: 0.7,
-						color: 'rgba(64, 234, 249,0.4)'
-					}, {
-						offset: 1,
-						color: 'rgba(64, 234, 249, 1)'
-					}], false)
+					color: '#fff'
 				}
 			},
-			itemStyle: {
-				normal: {
-					color:'#00F5FF',
-					areaStyle: {type: 'default'}}
-			},
-			data: data[2]
 		},
-		{
-			name: '采出废水达标排放率',
-			type: 'line',
-			smooth: true,
-			showSymbol: false,
-			areaStyle: {
-				normal: {type: 'default',
-					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-						offset: 0.3,
-						color: 'rgba(43, 175, 251,0.2)'
-					}, {
-						offset: 0.7,
-						color: 'rgba(43, 175, 251,0.4)'
-					}, {
-						offset: 1,
-						color: 'rgba(43, 175, 251, 1)'
-					}], false)
+		yAxis: {
+			name:'采出废水达标排放率',
+			nameTextStyle:{
+				align:'center',
+				color:'#4cedf9',
+			},
+			min:60,
+			max:100,
+			type: 'value',
+			splitLine: {
+				show:false,
+				lineStyle: {
+					type: 'dashed'
+				}
+			},
+			axisLabel: {
+				formatter: '{value}%',
+				textStyle: {
+					color: '#fff'
+				}
+			},
+		},
+		series: [{
+			name: '采出废水消耗',
+			type: 'scatter',
+			symbolSize: function(data) {
+				if(data[0]<=60)
+					return 30;
+				return data[0] / 3;//Math.sqrt(data[0]);
+			},
+			label: {
+				normal: {
+					show: true,
+					formatter: function(param) {
+						return param.data[2];
+					},
+					color:'#fff',
+					position: 'top'
 				}
 			},
 			itemStyle: {
 				normal: {
-					color:'#0000FF',
-					areaStyle: {type: 'default'}}},
-			data: data[3]
+					shadowBlur: 10,
+					shadowColor: 'rgba(25, 100, 150, 0.5)',
+					shadowOffsetY: 5,
+					color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+						offset: 0,
+						color: 'rgb(129, 227, 238)'
+					}, {
+						offset: 1,
+						color: 'rgb(25, 183, 207)'
+					}])
+				}
+			},
+			data: data1
 		}]
 	};
 	window.myChart = $chart.init('#main', option);
