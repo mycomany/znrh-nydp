@@ -39,7 +39,7 @@ function main(data){
                 fontSize:16,
             }
         },{
-            x: "20.5%",
+            x: "21%",
             bottom: '22%',
             text: '天然气对外依赖度 (%)',
             textStyle: {
@@ -57,7 +57,7 @@ function main(data){
                 color: "#fff"
             },
         },{
-            x: "3.5%",
+            x: "1%",
             bottom: '16%',
             text: 'PNG进口集中度 (%)',
             textStyle: {
@@ -66,7 +66,7 @@ function main(data){
                 color: "#fff"
             },
         },{
-            x: "80%",
+            x: "79%",
             bottom: '16%',
             text: 'LNG进口集中度 (%)',
             textStyle: {
