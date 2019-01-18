@@ -26,16 +26,13 @@
         var __host = '${host}';
         var __menu = [
                     '${host}/static/img/5号机组风烟系统图.PNG',
-                    '${host}/static/img/5号机组汽水系统图.PNG',
-                    '${host}/static/img/5号机组制粉系统图.PNG',
+                    //'${host}/static/img/5号机组汽水系统图.PNG',
                     '${host}/static/img/江西笔架山风电场电站分布图.PNG',
-                    '${host}/static/img/江西笔架山风电场主接线图.PNG',
-                    '${host}/static/img/江西星子光伏电站光伏矩阵图.PNG'
+                    '${host}/static/img/江西星子光伏电站光伏矩阵图.PNG',
+                    //'${host}/static/img/5号机组制粉系统图.PNG',
+                    //'${host}/static/img/江西笔架山风电场主接线图.PNG',
         ];
-        var __title = [
-                '5号机组风烟系统图','5号机组汽水系统图','5号机组制粉系统图','江西笔架山风电场电站分布图','江西笔架山风电场主接线图','江西星子光伏电站光伏矩阵图'
-        ];
-        var _mnm = -1, _mnt = '';
+        var _mnm = 0, _mnt = '';
         function initMenu(){
             var dt = __top;
             var str = [];
@@ -50,10 +47,15 @@
             it(".qnav2");
         }
         function gopage(k,i){
+            _mnm = i;
             var u = __menu[i];
-            $(".subtitle").text(__title[i]);
             if(u) $("#mainframe").attr("src", u);
         }
+        RollingPlay.goNext = function(){
+            _mnm = _mnm + 1;
+            if(_mnm>__menu.length -1) _mnm = 0;
+            var li = $(".qnav2>li:not(.disabled)").eq(_mnm).find("a").click();
+        };
         $(document).ready(function(){
               initMenu();
               initNav();
@@ -81,7 +83,7 @@
             <div class="qlogo left">&emsp;</div>
             <div class="left" style="width:calc(100% - 353px);">
                 <div class="qnav0" style="width:100%;">
-                    <div class="subtitle">5号机组风烟系统图</div>
+                    <div class="subtitle">实时运营监测</div>
                 </div>
             </div>
         </div>
@@ -95,20 +97,20 @@
                 <li class="active">
                     <a href="javascript:void(0);" onclick="gopage('',0)"><span>火电</span></a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" onclick="gopage('',1)"><span>水电</span></a>
+                <li class="disabled">
+                    <a href="javascript:void(0);"><span>水电</span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" onclick="gopage('',2)"><span>风电</span></a>
+                    <a href="javascript:void(0);" onclick="gopage('',1)"><span>风电</span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" onclick="gopage('',3)"><span>光伏</span></a>
+                    <a href="javascript:void(0);" onclick="gopage('',2)"><span>光伏</span></a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" onclick="gopage('',4)"><span>核能</span></a>
+                <li class="disabled">
+                    <a href="javascript:void(0);"><span>核能</span></a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" onclick="gopage('',5)"><span>环保</span></a>
+                <li class="disabled">
+                    <a href="javascript:void(0);"><span>环保</span></a>
                 </li>
             </ul>
             <div class="clear"></div>

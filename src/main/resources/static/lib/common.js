@@ -219,7 +219,7 @@ function creatSelect(data,id,shouValue,mo){
 }
 
 var RollingPlay = {
-    ts : 11,
+    ts : 5,
     uri:['market/finance','pattern/gasIndex','pattern/gasStore','statecn/index','statecn/opinions','statecn/gasIndex','statecn/gasSecurity','pattern/index','pattern/gasMarket'],
     rollPlayInit:function(id){
         this.timespan = this.ts;
@@ -450,8 +450,21 @@ function initSelect(data,id,shouValue){
     if(tbody) tbody.innerHTML = str;
     $("#"+id).find(".selectpicker").selectpicker();
 }
-var __top = [{"name":"能源指标监控",url:"/module/produce/index"},{"name":"安全态势感知",url:"/module/sys/portal"},{"name":"实时运营监测",url:"/module/sys/motion1"},{"name":"能源市场分析",url:"/module/statecn/index"},{"name":"国际能源态势",url:"/module/pattern/index"}];
+var __top = [{"name":"能源指标监控",url:"/module/produce/index",ico:'ico_mn_motion'},{"name":"安全态势感知",url:"/module/sys/portal",ico:'ico_mn_safe'},{"name":"实时运营监测",url:"/module/sys/motion1",ico:'ico_mn_bi'},{"name":"能源市场分析",url:"/module/statecn/index",ico:'ico_mn_power'},{"name":"国际能源态势",url:"/module/pattern/index",ico:'ico_mn_globe'}];
+function initMenu(){
+    var dt = __top;
+    var str = [];
+    for(var i = 0; i <dt.length; i++){
+        str.push('<li>','<a href="', __host, dt[i].url,'"><img src="',__host,'/static/theme/znrh/', dt[i].ico, '.png" /><span>', dt[i].name , '</span></a>','</li>');
+    }
+    $("#appmenu").html(str.join(''));
+}
 function showMenu(){
-    var w = '220px';
+    var w = '170px';
     $('.qmenu').toggle();
+    if($('.qmenu').is(":hidden")){
+        $(".qmenu-ico").css("margin-left",0);
+    }else{
+        $(".qmenu-ico").css("margin-left",w);
+    }
 }
