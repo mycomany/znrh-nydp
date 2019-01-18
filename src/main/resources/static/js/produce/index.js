@@ -36,47 +36,36 @@ function checkInitDate(checkedSelected){
 
 function mainAreaStyles(){
     const fullWidth = $("#mainSpace").width()
-    const fullHeight = $("#mainSpace").height()
-
-    const mainHeight = $(".main_order_bg").height()
-
-    // const topBaseMargin = 80+30+50+40//页面上方导航栏高度80 当前容器标题高度30 弃水弃电等高度50 背景图距容器顶端20
-
-    // const topPercentArray = [
-    //     0.32,
-    //     0.14,
-    //     0.595,
-    //     0.16,
-    //     0.587,
-    //     0.29,
-    //     0.53,
-    //     0.675,
-    //     0.165,
-    //     0.54,
-    //     0.35]
-
-    // 1-1 9-2 10-3 4-4 7-5 3-9 6-6 5-7 2-10 8-8
-    // const topPercentArray = [60,
-    //     10,45,190,175,65,140,205,0,47,140]
     const topPercentArray = [60,
-        10,47,140,175,205,140,65,0,190,45]
-    //     10,45,190,175,65,140,205,0,47,140]
+        10,47,140,175,205,140,65,-3,190,45]
     const topBaseMargin = 50//弃水弃电等高度50
 
-    // const leftPercentArray = [190,
-    //     350,102 ,115,350,10,30,230,220,420,425]
     const leftPercentArray = [190,350,420,425,350,230,30,10,220,115,102]
     const leftBaseMargin = (fullWidth-500)/2 // 背景图宽度500px 背景图左侧边缘距容器左侧距离为(fullWidth - 500)/2
 
+    const backGroundSizeWidth = $("#mainSpace").innerWidth()-60//背景图的宽度,根据当前背景图所在容器的宽度进行设置。等价于calc(100% - 60px)
+    const backGroundSizeHeight = $("#mainSpace").innerHeight()-120//背景图的高度,根据当前背景图所在容器的宽度进行设置。等价于calc(100% - 120px)
+
+    const baseBackGroundWidth = 500
+    const baseBackGroundHeight = 300
+    const baseBarWidth = 60
+    const baseContryBarWidth = 130
+
+    const heightGrowRatio = (backGroundSizeHeight-baseBackGroundHeight)/baseBackGroundHeight
+    const widthGrowRatio = (backGroundSizeWidth-baseBackGroundWidth)/baseBackGroundWidth
+
     topPercentArray.forEach((topPercent,i)=>{
-        // topPercent = topPercent-0.02
-        // const companyTop = contentDivHeight*topPercent
+        topPercent = topPercent+(topPercent*heightGrowRatio)
+        const leftPercent = leftPercentArray[i]+(leftPercentArray[i]*widthGrowRatio)
         const companyTop = topBaseMargin + topPercent
-        const companyLeft = leftBaseMargin + leftPercentArray[i]
+        const companyLeft = leftBaseMargin + leftPercent
         $(".main_order_name"+i).attr("style","top:"+companyTop+'px;left:'+companyLeft+'px;')
     })
+    $(".main_order_bg").attr('style','background-size:'+backGroundSizeWidth+'px '+backGroundSizeHeight+"px")
+    $(".main_order_name").width(baseBarWidth*(1+widthGrowRatio))
+    $(".main_order_name0").width(baseContryBarWidth*(1+widthGrowRatio))
 
-    $(".main_order_type").css('margin-top',(mainHeight-90)+'px')
+    // $(".main_order_type").css('margin-top',(mainHeight-90)+'px')
 
 }
 
