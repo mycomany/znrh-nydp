@@ -51,6 +51,7 @@ function mainAreaStyles(){
         0.35]
 
     topPercentArray.forEach((topPercent,i)=>{
+        topPercent = topPercent-0.02
         const companyTop = mainHeight*topPercent
         $(".main_order_name"+(i+1)).attr("style","top:"+companyTop+'px')
     })
