@@ -241,12 +241,13 @@ div.qpanel div{z-index:1;}*/
     position: absolute;bottom:0;
     border-image: url(mn_border1.png) 3 stretch;
 }
-.sidenav li {list-style-type: none;height:50px;line-height: 50px;padding-left:10px; }
+.sidenav li {list-style-type: none;height:50px;line-height: 50px;padding-left:10px;position:relative;z-index:2; }
 .sidenav a { color: #2585a7; text-decoration: none; font-size:1.2vw; }
 .sidenav a>span{margin-left:7px;}
 .sidenav li:hover a,.sidenav .active a{color:#fff;}
-.sidenav li:hover{background:#2585a7;}
-.sidenav i {  display: block; width: 50px; line-height: 50px; float: left;  font-size: 16px; text-align: center;  }
+.sidenav li .bbg{content:'';z-index:-1;width: 3px;height:100%; position:absolute;top:0;left:0;background:#2585a7;transition: .5s cubic-bezier(1, 1.78, 0, 0.71);}
+.sidenav li:hover .bbg{ width:100%;}
+.sidenav i {  display: block; width: 50px; line-height: 50px; float: left;font-size: 16px; text-align: center;  }
 
 /*.sidenav li:before {height:30px;line-height:30px;width:0px;content:'';position:absolute;left:0;background-color:blue;transition: all 0.2s ease-in; }
 .sidenav li:hover:before {  width: 80%;  }*/

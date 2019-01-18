@@ -455,7 +455,7 @@ function initMenu(){
     var dt = __top;
     var str = [];
     for(var i = 0; i <dt.length; i++){
-        str.push('<li>','<a href="', __host, dt[i].url,'"><img src="',__host,'/static/theme/znrh/', dt[i].ico, '.png" /><span>', dt[i].name , '</span></a>','</li>');
+        str.push('<li>','<span class="bbg"></span><a href="', __host, dt[i].url,'"><img src="',__host,'/static/theme/znrh/', dt[i].ico, '.png" /><span>', dt[i].name , '</span></a>','</li>');
     }
     $("#appmenu").html(str.join(''));
 }
