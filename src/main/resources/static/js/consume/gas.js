@@ -107,13 +107,17 @@ function chart1(data){
 		        barWidth: '30%',
 		        itemStyle:{
 		            normal:{
-		                color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-		                    offset: 0,
-		                    color: '#25e4a3'
-		                }, {
-		                    offset: 0.8,
-		                    color: '#25e4a3'
-		                }], false)
+		            	color:new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1, [{
+	                                offset: 0,
+	                                color: 'rgba(37,228,163,1)'
+	                            },
+	                            {
+	                                offset: 1,
+	                                color: 'rgba(37,228,163,0.2)'
+	                            }
+	                        ]
+	                    )
 		            }
 		        },
 		        data: data[2]
@@ -429,7 +433,7 @@ function chart4(data){
 	var series = [];
 	
 	    series.push( {
-	        name: '消费量11',
+	        name: '消费量',
 	        type: 'bar',
 	        xAxisIndex: 1,
 	        barGap: '140%',
@@ -437,7 +441,17 @@ function chart4(data){
 	        barWidth: '30%',
 	        itemStyle: {
 	            normal: {
-	                color: '#00ceff',
+	            	color:new echarts.graphic.LinearGradient(
+	                        0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgba(0,206,255,1)'
+                            },
+                            {
+                                offset: 1,
+                                color: 'rgba(0,206,255,0.2)'
+                            }
+                        ]
+                    )
 	            }
 	        },
 	        z: 1
