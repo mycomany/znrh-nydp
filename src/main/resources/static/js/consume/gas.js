@@ -932,7 +932,7 @@ for (var i = 0; i < data.length; i++) {
         max = data[i].value;
     }
 }
-var col = ['#c2c8cf700','#00ffbc','#0026ff'];
+var col = ['#fff700','#00ffbc','#0026ff'];
 option = {
     title: {
         text: '',
@@ -1100,14 +1100,14 @@ function main1(){
                 type: 'piecewise',
                 splitNumber: 3,
                 inverse: true,
-                seriesIndex:0,
+                seriesIndex:2,
                 itemWidth: 20,
     	        itemHeight: 12,
                 dimension:1,
                 pieces: [{
                     max: 11.9,
                     label:'≤12%',
-                    color: '#c2c8cfc2c8cf'
+                    color: '#c2c8cf'
                 }, {
                     min: 12,
                     max: 21.9,
