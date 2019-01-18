@@ -219,7 +219,7 @@ function creatSelect(data,id,shouValue,mo){
 }
 
 var RollingPlay = {
-    ts : 6,
+    ts : 11,
     uri:['market/finance','pattern/gasIndex','pattern/gasStore','statecn/index','statecn/opinions','statecn/gasIndex','statecn/gasSecurity','pattern/index','pattern/gasMarket'],
     rollPlayInit:function(id){
         this.timespan = this.ts;

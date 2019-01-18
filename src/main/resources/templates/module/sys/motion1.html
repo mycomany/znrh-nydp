@@ -20,6 +20,7 @@
             background-image:none;
             background-color:#060c1a;
         }
+        .subtitle{height:40px;line-height: 40px;text-align: center;color:#efefef;font-size:1.5vw;}
     </style>
     <script type="text/javascript">
         var __host = '${host}';
@@ -30,7 +31,10 @@
                     '${host}/static/img/江西笔架山风电场电站分布图.PNG',
                     '${host}/static/img/江西笔架山风电场主接线图.PNG',
                     '${host}/static/img/江西星子光伏电站光伏矩阵图.PNG'
-                      ];
+        ];
+        var __title = [
+                '5号机组风烟系统图','5号机组汽水系统图','5号机组制粉系统图','江西笔架山风电场电站分布图','江西笔架山风电场主接线图','江西星子光伏电站光伏矩阵图'
+        ];
         var _mnm = -1, _mnt = '';
         function initMenu(){
             var dt = __top;
@@ -42,11 +46,12 @@
         }
         function initNav(){
             var it = dui.imgtab;
-            it(".qnav1");
+            //it(".qnav1");
             it(".qnav2");
         }
         function gopage(k,i){
             var u = __menu[i];
+            $(".subtitle").text(__title[i]);
             if(u) $("#mainframe").attr("src", u);
         }
         $(document).ready(function(){
@@ -61,7 +66,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             var w = $(".qmain").width(), h = $(".qmain").height();
-            //$("#mainframe").width(w).height(h);
+            $("#mainframe").width(w).height(h);
         });
     </script>
 </head>
@@ -76,20 +81,7 @@
             <div class="qlogo left">&emsp;</div>
             <div class="left" style="width:calc(100% - 353px);">
                 <div class="qnav0" style="width:100%;">
-                    <ul class="qnav1 clearfix">
-                        <li class="active">
-                            <a href="javascript:void(0);" onclick="gopage('elec',0)"><div>电力</div></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" onclick="gopage('oil',1)"><div>石油</div></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" onclick="gopage('gas',2)"><div>天然气</div></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" onclick="gopage('gas',3)"><div>煤炭</div></a>
-                        </li>
-                    </ul>
+                    <div class="subtitle">5号机组风烟系统图</div>
                 </div>
             </div>
         </div>
@@ -126,7 +118,7 @@
 </div>
 <div class="qmenu" style="display:none;"><ul id="appmenu" class="sidenav"></ul></div>
 <div class="qmain animated fadeInRight">
-    <img id="mainframe" src="${host}/static/img/5号机组风烟系统图.PNG" style="max-width:100%;max-height:100%;" />
+    <img id="mainframe" src="${host}/static/img/5号机组风烟系统图.PNG" style="width:80%;max-height:80%;" />
 </div>
 </body>
 </html>
