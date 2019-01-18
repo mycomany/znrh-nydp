@@ -490,6 +490,8 @@ function chart2(data){
                 name:data[0][1],
                 yAxisIndex:1,
                 type:'line',
+                smooth: true,
+                showSymbol: false,
                 itemStyle:{
                     normal:{
                         color:'#40eaf9'
@@ -777,6 +779,8 @@ function chart4(data){
             name: "自给缺口变化",
             type: "line",
             yAxisIndex: 1,
+            smooth: true,
+            showSymbol: false,
             itemStyle: {
                 normal: {
                     color: '#40eaf9'
@@ -903,6 +907,8 @@ function chart5(data){
                 name:data[0][2],
                 yAxisIndex:1,
                 type:'line',
+                smooth: true,
+                showSymbol: false,
                 itemStyle:{
                     normal:{
                         color:'#40eaf9'
@@ -1053,6 +1059,8 @@ function chart6(data){
             name: "储量接替率",
             type: "line",
             yAxisIndex: 1,
+            smooth: true,
+            showSymbol: false,
             itemStyle: {
                 normal: {
                     color: '#40eaf9'

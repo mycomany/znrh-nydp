@@ -62,8 +62,12 @@ function main(mainData, lx){
         },
         symbolSize: function(val) {
             var showsize = val[2]/mainData[4][lx];
-            var size = showsize < 8 ? 8 : showsize;
-            return size > 30? 30 : size;
+            if(showsize < 10){
+                showsize = 10;
+            }else if(showsize > 30){
+                showsize = 30;
+            }
+            return showsize;
         },
         itemStyle: {
             normal: {

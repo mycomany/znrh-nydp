@@ -51,6 +51,7 @@ function mainAreaStyles(){
         0.35]
 
     topPercentArray.forEach((topPercent,i)=>{
+        topPercent = topPercent-0.02
         const companyTop = mainHeight*topPercent
         $(".main_order_name"+(i+1)).attr("style","top:"+companyTop+'px')
     })
@@ -451,25 +452,27 @@ function makeOrders(orderDatas,selectPoint,point){
                 show:true
             },
             type: 'value'
-        },
-            {
-                type: 'value',
-                axisLine: {
-                    lineStyle: {
-                        color: '#38b8ff'
-                    }
-                },
-                axisLabel: {
-                    color: '#fff',
-                    fontSize: 10
-                },
-                splitLine: {
-                    show:false,
-                    lineStyle: {
-                        color: '#0177d4'
-                    }
-                }
-            }],
+        }
+        // ,
+        //     {
+        //         type: 'value',
+        //         axisLine: {
+        //             lineStyle: {
+        //                 color: '#38b8ff'
+        //             }
+        //         },
+        //         axisLabel: {
+        //             color: '#fff',
+        //             fontSize: 10
+        //         },
+        //         splitLine: {
+        //             show:false,
+        //             lineStyle: {
+        //                 color: '#0177d4'
+        //             }
+        //         }
+        //     }
+            ],
         series: seriesData
     }
 

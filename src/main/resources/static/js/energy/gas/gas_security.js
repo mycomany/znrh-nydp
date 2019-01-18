@@ -39,7 +39,7 @@ function main(data){
                 fontSize:16,
             }
         },{
-            x: "20.5%",
+            x: "21%",
             bottom: '22%',
             text: '天然气对外依赖度 (%)',
             textStyle: {
@@ -57,7 +57,7 @@ function main(data){
                 color: "#fff"
             },
         },{
-            x: "3.5%",
+            x: "1%",
             bottom: '16%',
             text: 'PNG进口集中度 (%)',
             textStyle: {
@@ -66,7 +66,7 @@ function main(data){
                 color: "#fff"
             },
         },{
-            x: "80%",
+            x: "79%",
             bottom: '16%',
             text: 'LNG进口集中度 (%)',
             textStyle: {
@@ -873,6 +873,8 @@ function chart1(data){
             name: "对外依赖度",
             type: "line",
             yAxisIndex: 1,
+            smooth: true,
+            showSymbol: false,
             itemStyle: {
                 normal: {
                     color: '#E9DC37'
@@ -1022,6 +1024,8 @@ function chart2(data){
             name: "储量接替率",
             type: "line",
             yAxisIndex: 1,
+            smooth: true,
+            showSymbol: false,
             itemStyle: {
                 normal: {
                     color: '#fff'
@@ -1041,7 +1045,29 @@ function chart3(data){
         dataShadow.push(yMax);
     }
     var option = {
-        tooltip:{},
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross",
+                "crossStyle": {
+                    "color": "#384757"
+                }
+            },
+            formatter: function(params, ticket, callback) {
+
+                var res = params[0].name;
+
+                for (var i = 0, l = params.length; i < l; i++) {
+                    if(data[0][0] == params[i].seriesName){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " 亿方";
+                    }else if(data[0][1] == params[i].seriesName){
+                        res += '<br/>' + params[i].seriesName + ' : ' + (params[i].value ? params[i].value : '0') + " %";
+                    }
+                }
+                return res;
+
+            }
+        },
         grid:{
             top:'10%',
             left:'5%',
@@ -1156,6 +1182,8 @@ function chart3(data){
                 name:data[0][1],
                 yAxisIndex:1,
                 type:'line',
+                smooth: true,
+                showSymbol: false,
                 itemStyle:{
                     normal:{
                         color:'#8121dd'
@@ -1178,6 +1206,8 @@ function chart4(data){
         var o = {
             name:data[0][i-2],
             type:'line',
+            smooth: true,
+            showSymbol: false,
             data:data[i]
         };
         seriesData.push(o);
@@ -1400,6 +1430,8 @@ function chart5(data){
             name: "工作气量占消费量比重",
             type: "line",
             yAxisIndex: 1,
+            smooth: true,
+            showSymbol: false,
             itemStyle: {
                 normal: {
                     color: '#15BEFB'
@@ -1662,6 +1694,8 @@ function chart7(data){
             name: "中国与美国比较",
             type: "line",
             yAxisIndex: 1,
+            smooth: true,
+            showSymbol: false,
             itemStyle: {
                 normal: {
                     color: '#FFD200'
