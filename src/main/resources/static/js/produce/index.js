@@ -35,28 +35,37 @@ function checkInitDate(checkedSelected){
 }
 
 function mainAreaStyles(){
-    const mainHeight = $(".main_order_bg").height()
+    const fullWidth = $("#mainSpace").width()
+    const topPercentArray = [60,
+        10,47,140,175,205,140,65,-3,190,45]
+    const topBaseMargin = 50//弃水弃电等高度50
 
-    const topPercentArray = [
-        0.28,
-        0.14,
-        0.595,
-        0.16,
-        0.587,
-        0.29,
-        0.53,
-        0.675,
-        0.165,
-        0.54,
-        0.35]
+    const leftPercentArray = [190,350,420,425,350,230,30,10,220,115,102]
+    const leftBaseMargin = (fullWidth-500)/2 // 背景图宽度500px 背景图左侧边缘距容器左侧距离为(fullWidth - 500)/2
+
+    const backGroundSizeWidth = $("#mainSpace").innerWidth()-60//背景图的宽度,根据当前背景图所在容器的宽度进行设置。等价于calc(100% - 60px)
+    const backGroundSizeHeight = $("#mainSpace").innerHeight()-120//背景图的高度,根据当前背景图所在容器的宽度进行设置。等价于calc(100% - 120px)
+
+    const baseBackGroundWidth = 500
+    const baseBackGroundHeight = 300
+    const baseBarWidth = 60
+    const baseContryBarWidth = 130
+
+    const heightGrowRatio = (backGroundSizeHeight-baseBackGroundHeight)/baseBackGroundHeight
+    const widthGrowRatio = (backGroundSizeWidth-baseBackGroundWidth)/baseBackGroundWidth
 
     topPercentArray.forEach((topPercent,i)=>{
-        topPercent = topPercent-0.02
-        const companyTop = mainHeight*topPercent
-        $(".main_order_name"+(i+1)).attr("style","top:"+companyTop+'px')
+        topPercent = topPercent+(topPercent*heightGrowRatio)
+        const leftPercent = leftPercentArray[i]+(leftPercentArray[i]*widthGrowRatio)
+        const companyTop = topBaseMargin + topPercent
+        const companyLeft = leftBaseMargin + leftPercent
+        $(".main_order_name"+i).attr("style","top:"+companyTop+'px;left:'+companyLeft+'px;')
     })
+    $(".main_order_bg").attr('style','background-size:'+backGroundSizeWidth+'px '+backGroundSizeHeight+"px")
+    $(".main_order_name").width(baseBarWidth*(1+widthGrowRatio))
+    $(".main_order_name0").width(baseContryBarWidth*(1+widthGrowRatio))
 
-    $(".main_order_type").css('margin-top',(mainHeight-90)+'px')
+    // $(".main_order_type").css('margin-top',(mainHeight-90)+'px')
 
 }
 
@@ -1103,10 +1112,10 @@ function cleanPowerMake(datas,selectPoint){
     showDatas.sort(compare('val'))
 
     showDatas.forEach((showData,i)=>{
-        $(".main_order_name"+(i+1)).empty()
-        // $(".main_order_name"+(i+1)).html(showData['type']+'<br><span class="main_order_name_val">'+showData['val']+'%</span>')
-        $(".main_order_name"+(i+1)).html(showData['type']+'<br><span class="main_order_name_val">'+showData['val']+'%</span>')
-        // $(".main_order_name"+(i+1)).html(showData['type']+i)
+        $(".main_order_name"+i).empty()
+        // $(".main_order_name"+i).html(showData['type']+i+'<br><span class="main_order_name_val">'+showData['val']+'%</span>')
+        $(".main_order_name"+i).html(showData['type']+'<br><div style="margin-top:20px" class="main_order_name_val">'+showData['val']+'%</div>')
+        // $(".main_order_name"+i).html(showData['type']+i)
     })
 
     $(".main_order_name_val").hide()

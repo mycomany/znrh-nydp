@@ -24,19 +24,15 @@
     </style>
     <script type="text/javascript">
         var __host = '${host}';
-        var __menu = ['http://10.80.48.187/website/新能源/九江生产运营中心/笔架山风电/江西笔架山风电场电站分布图.html',
-                      'http://10.80.48.187/website/新能源/九江生产运营中心/笔架山风电/江西笔架山风电场风机矩阵图.html',
-                      'http://10.80.48.187/website/新能源/九江生产运营中心/笔架山风电/江西笔架山风电场主接线图.html',
-                      'http://10.80.48.187/website/新能源/九江生产运营中心/星子光伏/江西星子光伏电站主接线图.html',
-                      'http://10.80.48.187/website/新能源/九江生产运营中心/星子光伏/江西星子光伏电站光伏矩阵图.html',
-                      'http://10.80.48.187/website/新能源/九江生产运营中心/星子光伏/江西星子光伏电站矩阵分组图.html',
-                      'http://10.80.48.187/website/国家电投/中电国际/平圩三电/5号机组保安段接线图.html',
-                      'http://10.80.48.187/website/国家电投/中电国际/平圩三电/5号机组汽机本体系统图.html',
-                      'http://10.80.48.187/website/国家电投/中电国际/平圩三电/5号机组汽水系统图.html',
-                      'http://10.80.48.187/website/国家电投/中电国际/平圩三电/5号机组风烟系统图.html',
-                      'http://10.80.48.187/website/国家电投/中电国际/平圩三电/5号机组制粉系统图.html'
-                      ];
-        var _mnm = -1, _mnt = '';
+        var __menu = [
+                    '${host}/static/img/5号机组风烟系统图.PNG',
+                    //'${host}/static/img/5号机组汽水系统图.PNG',
+                    '${host}/static/img/江西笔架山风电场电站分布图.PNG',
+                    '${host}/static/img/江西星子光伏电站光伏矩阵图.PNG',
+                    //'${host}/static/img/5号机组制粉系统图.PNG',
+                    //'${host}/static/img/江西笔架山风电场主接线图.PNG',
+        ];
+        var _mnm = 0, _mnt = '';
         function initMenu(){
             var dt = __top;
             var str = [];
@@ -47,13 +43,19 @@
         }
         function initNav(){
             var it = dui.imgtab;
-            it(".qnav1");
+            //it(".qnav1");
             it(".qnav2");
         }
         function gopage(k,i){
+            _mnm = i;
             var u = __menu[i];
             if(u) $("#mainframe").attr("src", u);
         }
+        RollingPlay.goNext = function(){
+            _mnm = _mnm + 1;
+            if(_mnm>__menu.length -1) _mnm = 0;
+            var li = $(".qnav2>li:not(.disabled)").eq(_mnm).find("a").click();
+        };
         $(document).ready(function(){
               initMenu();
               initNav();
@@ -81,7 +83,7 @@
             <div class="qlogo left">&emsp;</div>
             <div class="left" style="width:calc(100% - 353px);">
                 <div class="qnav0" style="width:100%;">
-                    <div class="subtitle">安全态势感知</div>
+                    <div class="subtitle">实时运营监测</div>
                 </div>
             </div>
         </div>
@@ -93,22 +95,22 @@
         <div style="width:100%;height:50px;">
             <ul class="qnav2 clearfix right" style="margin-left:0px;">
                 <li class="active">
-                    <a href="javascript:void(0);" onclick="gopage('',0)"><span>生产</span></a>
+                    <a href="javascript:void(0);" onclick="gopage('',0)"><span>火电</span></a>
+                </li>
+                <li class="disabled">
+                    <a href="javascript:void(0);"><span>水电</span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" onclick="gopage('',1)"><span>消费</span></a>
+                    <a href="javascript:void(0);" onclick="gopage('',1)"><span>风电</span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" onclick="gopage('',2)"><span>清洁</span></a>
+                    <a href="javascript:void(0);" onclick="gopage('',2)"><span>光伏</span></a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" onclick="gopage('',3)"><span>低碳</span></a>
+                <li class="disabled">
+                    <a href="javascript:void(0);"><span>核能</span></a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" onclick="gopage('',4)"><span>安全</span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" onclick="gopage('',5)"><span>高效</span></a>
+                <li class="disabled">
+                    <a href="javascript:void(0);"><span>环保</span></a>
                 </li>
             </ul>
             <div class="clear"></div>
@@ -118,7 +120,7 @@
 </div>
 <div class="qmenu" style="display:none;"><ul id="appmenu" class="sidenav"></ul></div>
 <div class="qmain animated fadeInRight">
-    <iframe id="mainframe" scrolling="yes" frameborder="0" style="width: 100%; height: 100%; overflow: visible;"></iframe>
+    <img id="mainframe" src="${host}/static/img/5号机组风烟系统图.PNG" style="width:80%;max-height:80%;" />
 </div>
 </body>
 </html>

@@ -99,7 +99,7 @@ function main(data){
 				data: data[2],
 			},
 			{
-				name: "增长趋率",
+				name: "气代煤增长",
 				type: "line",
 				smooth:true,
 				yAxisIndex: 1,
@@ -124,7 +124,7 @@ function main(data){
 				data: data[4],
 			},
 			{
-				name: "增长率",
+				name: "气代油增长",
 				type: "line",
 				smooth:true,
 				yAxisIndex: 1,

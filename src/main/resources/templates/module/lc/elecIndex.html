@@ -26,8 +26,9 @@
             border: 0px solid rgb(51, 51, 51);border-radius: 4px;transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             font-size: 14px;font-family:Microsoft YaHei;line-height: 21px;padding: 5px;left: 71px;top: 5px;color: rgb(255, 255, 255);}
         .ball{display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;}
+
         .ring{
-            position: absolute;bottom:-30%;
+            position: absolute;bottom:-25%;
             width: 100%;  height: 100%;
             background-image: url("${host}/static/theme/znrh/elec/ring.png");  background-size: 100% 100%;
             backface-visibility:hidden;
@@ -67,11 +68,13 @@
         </div>
         <div class="w8 h12">
             <div id="main" class="w12 h12 qpanel0">
-                <div style="width:100%;height:10%;"></div>
+                <div style="width:60%;height:10%;margin:0 auto;">
+                    <span class="qs_title2">二氧化碳减排贡献</span>
+                    <div id="main_comb" class="qs_comb"><select class="selectpicker form-control"><option selected>2018-11</option></select></div>
+                </div>
                 <div class="mainc" style="width:60%;height:90%;">
                     <div class="qs_header">
-                        <span class="qs_title2">二氧化碳减排贡献</span>
-                        <div id="main_comb" class="qs_comb"><select class="selectpicker form-control"><option selected>2018-11</option></select></div>
+
                     </div>
                     <div class="node node1" index="0"></div>
                     <div class="node node2" index="1"></div>
@@ -83,7 +86,7 @@
                     <div class="node node8" index="7"></div>
                     <div class="node node9" index="8"></div>
                     <div class="node node10" index="9"></div>
-                    <div class="ring"></div>
+                    <div class="ringpan"><div class="ring"></div></div>
                 </div>
             </div>
         </div>
