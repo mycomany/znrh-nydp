@@ -81,14 +81,6 @@
 		var __host = '${host}';/*{"name":"重庆篇",url:"/motion/state"}*/
 		var __menu = {'oil':['/module/pattern/index','/module/pattern/supply','/module/pattern/require','/module/pattern/store','/module/market/index','/module/market/finance'],'gas':['/module/pattern/gasIndex','/module/pattern/gasSupply','/module/pattern/gasRequire','/module/pattern/gasStore','/module/market/index','/module/market/finance']};
 		var _mnm = -1, _mnt = '';
-		function initMenu(){
-			var dt = __top;
-			var str = [];
-			for(var i = 0; i <dt.length; i++){
-				str.push('<li>','<a href="${host}', dt[i].url,'"><i class="fa fa-fw fa-file-o"></i><span>', dt[i].name , '</span></a>','</li>');
-			}
-			$("#appmenu").html(str.join(''));
-		}
 		function initNav(){
 			var it = dui.imgtab;
 			it(".qnav1");
