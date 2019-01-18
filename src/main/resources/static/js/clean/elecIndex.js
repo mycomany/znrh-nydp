@@ -80,7 +80,7 @@ function chart1(data, ix){
 	                            },
 	                            {
 	                                offset: 1,
-	                                color: 'rgba(43,136,255,0.7)'
+	                                color: 'rgba(43,136,255,0.2)'
 	                            }
 	                        ]
 	                    ),
@@ -102,7 +102,7 @@ function chart1(data, ix){
 	                            },
 	                            {
 	                                offset: 1,
-	                                color: 'rgba(90,203,255,0.6)'
+	                                color: 'rgba(90,203,255,0.2)'
 	                            }
 	                        ]
 	                    ),
@@ -676,7 +676,7 @@ function chart5(data, ix){
 	                            },
 	                            {
 	                                offset: 1,
-	                                color: 'rgba(43,136,255,0.7)'
+	                                color: 'rgba(43,136,255,0.2)'
 	                            }
 	                        ]
 	                    ),
@@ -760,7 +760,7 @@ function chart6(data, ix){
 	                            },
 	                            {
 	                                offset: 1,
-	                                color: 'rgba(43,136,255,0.7)'
+	                                color: 'rgba(43,136,255,0.2)'
 	                            }
 	                        ]
 	                    ),

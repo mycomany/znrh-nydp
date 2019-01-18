@@ -39,7 +39,7 @@ function main(data){
                 fontSize:16,
             }
         },{
-            x: "25.5%",
+            x: "20.5%",
             bottom: '22%',
             text: '天然气对外依赖度 (%)',
             textStyle: {
@@ -57,7 +57,7 @@ function main(data){
                 color: "#fff"
             },
         },{
-            x: "5.5%",
+            x: "3.5%",
             bottom: '16%',
             text: 'PNG进口集中度 (%)',
             textStyle: {
@@ -96,7 +96,7 @@ function main(data){
         },
         series: [{
             type: 'gauge',
-            center: ['34%', '50%'], // 默认全局居中
+            center: ['32%', '50%'], // 默认全局居中
             radius: '50%',
             splitNumber: 10, //刻度数量
             min: 0,
@@ -152,7 +152,7 @@ function main(data){
             startAngle: 220,
             endAngle: -40,
             type: 'gauge',
-            center: ['34%', '50%'], // 默认全局居中
+            center: ['32%', '50%'], // 默认全局居中
             radius: '45%',
             min: 0,
             max: 100,
@@ -197,7 +197,7 @@ function main(data){
             startAngle: 220,
             endAngle: -40,
             radius: '40%',
-            center: ['34%', '50%'], // 默认全局居中
+            center: ['32%', '50%'], // 默认全局居中
             min: 0,
             max: 100,
             axisLine: {
@@ -247,7 +247,7 @@ function main(data){
             }]
         },{
             type: 'gauge',
-            center: ['66%', '50%'], // 默认全局居中
+            center: ['68%', '50%'], // 默认全局居中
             radius: '50%',
             splitNumber: 10, //刻度数量
             min: 200,
@@ -303,7 +303,7 @@ function main(data){
             startAngle: 220,
             endAngle: -40,
             type: 'gauge',
-            center: ['66%', '50%'], // 默认全局居中
+            center: ['68%', '50%'], // 默认全局居中
             radius: '45%',
             min: 200,
             max: 0,
@@ -348,7 +348,7 @@ function main(data){
             startAngle: 220,
             endAngle: -40,
             radius: '40%',
-            center: ['66%', '50%'], // 默认全局居中
+            center: ['68%', '50%'], // 默认全局居中
             min: 200,
             max: 0,
             axisLine: {
@@ -398,7 +398,7 @@ function main(data){
             }]
         },{
             type: 'gauge',
-            center: ['14%', '55%'], // 默认全局居中
+            center: ['12%', '55%'], // 默认全局居中
             radius: '29%',
             splitNumber: 10, //刻度数量
             min: 0,
@@ -452,7 +452,7 @@ function main(data){
             }]
         }, {
             type: 'gauge',
-            center: ['14%', '55%'], // 默认全局居中
+            center: ['12%', '55%'], // 默认全局居中
             radius: '26%',
             min: 0,
             max: 100,
@@ -499,7 +499,7 @@ function main(data){
             startAngle: 280,
             endAngle: 80,
             radius: '23%',
-            center: ['14%', '55%'], // 默认全局居中
+            center: ['12%', '55%'], // 默认全局居中
             min: 0,
             max: 100,
             axisLine: {
@@ -549,7 +549,7 @@ function main(data){
             }]
         }, {
             type: 'gauge',
-            center: ['86%', '55%'], // 默认全局居中
+            center: ['88%', '55%'], // 默认全局居中
             radius: '29%',
             splitNumber: 10, //刻度数量
             min: 100,
@@ -603,7 +603,7 @@ function main(data){
             }]
         }, {
             type: 'gauge',
-            center: ['86%', '55%'], // 默认全局居中
+            center: ['88%', '55%'], // 默认全局居中
             radius: '26%',
             min: 0,
             max: 100,
@@ -650,7 +650,7 @@ function main(data){
             startAngle: 100,
             endAngle: -100,
             radius: '23%',
-            center: ['86%', '55%'], // 默认全局居中
+            center: ['88%', '55%'], // 默认全局居中
 
             min: 0,
             max: 100,

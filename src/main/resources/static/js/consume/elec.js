@@ -147,7 +147,7 @@ function chart1(data){
 	                            },
 	                            {
 	                                offset: 1,
-	                                color: 'rgba(90,203,255,0.6)'
+	                                color: 'rgba(90,203,255,0.2)'
 	                            }
 	                        ]
 	                    ),
@@ -169,7 +169,7 @@ function chart1(data){
 	                            },
 	                            {
 	                                offset: 1,
-	                                color: 'rgba(65,56,225,0.6)'
+	                                color: 'rgba(65,56,225,0.2)'
 	                            }
 	                        ]
 	                    ),
@@ -782,7 +782,7 @@ function chart5(data,name){
 		                            },
 		                            {
 		                                offset: 1,
-		                                color: 'rgba(43,136,255,0.7)'
+		                                color: 'rgba(43,136,255,0.2)'
 		                            }
 		                        ]
 		                    ),	
@@ -912,7 +912,7 @@ function chart6(data,date){
                             },
                             {
                                 offset: 1,
-                                color: 'rgba(0,255,255,0.5)'
+                                color: 'rgba(0,255,255,0.2)'
                             }
                         ]
                     ),
@@ -933,7 +933,7 @@ function chart6(data,date){
                             },
                             {
                                 offset: 1,
-                                color: 'rgba(43,136,255,0.5)'
+                                color: 'rgba(43,136,255,0.2)'
                             }
                         ]
                     ),
