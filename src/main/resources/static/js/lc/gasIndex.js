@@ -6,10 +6,15 @@ $(document).ready(function(){
 	getdatax('/lc/gasIndex/chart5.json',chart5);
 	getdata('/lc/gasIndex/main.json',main);
 });
+var fontsize = 9;
 function main(data){
 	var option =  {
 		legend: {
 			data: data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 12,
+	        }
 		},
 		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		grid: {
@@ -35,7 +40,7 @@ function main(data){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10
 			}
 		}],
@@ -44,9 +49,10 @@ function main(data){
 				name:'亿立方米',
 				nameGap:-1,
 				nameTextStyle:{
-					padding:[0,0,0,65],
+					padding:[0,0,0,55],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: 10
 				},
 				axisLine: {
 					lineStyle: {
@@ -54,8 +60,8 @@ function main(data){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: 11,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -66,8 +72,8 @@ function main(data){
 				}
 			},{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -75,8 +81,8 @@ function main(data){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: 11,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -151,7 +157,11 @@ function chart1(data){
 			}
 		},
 		legend:{
-			data:data[0]
+			data:data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		grid:{
 			top:'10%',
@@ -170,7 +180,7 @@ function chart1(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff ',
+					color: '#c2c8cf ',
 				}
 			},
 			axisTick: {
@@ -183,7 +193,7 @@ function chart1(data){
 			axisLabel: {
 				inside: false,
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
 					fontSize: 8
 				},
@@ -194,9 +204,10 @@ function chart1(data){
 			name:'排放系数',
 			nameGap:-1,
 			nameTextStyle:{
-				padding:[0,0,0,65],
+				padding:[0,0,0,45],
 				align:'center',
-				color:'#fff',
+				color:'#c2c8cf',
+				fontSize: fontsize
 			},
 			type: 'value',
 			splitNumber:3,
@@ -213,12 +224,12 @@ function chart1(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 				}
 			},
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
 					fontSize: 8
 				},
@@ -256,6 +267,10 @@ function chart2(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#FFD743','#2AB7FF','#30FFFE','#216FFF'],
 		grid: {
@@ -281,8 +296,8 @@ function chart2(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -292,7 +307,8 @@ function chart2(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,25],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -300,8 +316,8 @@ function chart2(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 				},
 				splitLine: {
 					show:false,
@@ -312,8 +328,8 @@ function chart2(data, ix){
 			},
 			{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -321,8 +337,8 @@ function chart2(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -395,6 +411,10 @@ function chart3(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		grid: {
 			left: '5%',
@@ -419,8 +439,8 @@ function chart3(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -430,7 +450,8 @@ function chart3(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,25],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -438,8 +459,8 @@ function chart3(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 				},
 				splitLine: {
 					show:false,
@@ -449,8 +470,8 @@ function chart3(data, ix){
 				}
 			},{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -458,8 +479,8 @@ function chart3(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -502,6 +523,10 @@ function chart4(data,ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#2b88ff','#2AB7FF','#30FFFE','#216FFF'],
 		grid: {
@@ -527,8 +552,8 @@ function chart4(data,ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -538,7 +563,8 @@ function chart4(data,ix){
 				nameTextStyle:{
 					padding:[0,0,0,25],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -546,8 +572,8 @@ function chart4(data,ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 				},
 				splitLine: {
 					show:false,
@@ -557,8 +583,8 @@ function chart4(data,ix){
 				}
 			},{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -566,8 +592,8 @@ function chart4(data,ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -609,6 +635,10 @@ function chart5(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color: ['#6ed5ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		grid: {
@@ -634,8 +664,8 @@ function chart5(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -645,7 +675,8 @@ function chart5(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,45],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -653,8 +684,8 @@ function chart5(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				splitLine: {
 					show:false,
@@ -664,8 +695,8 @@ function chart5(data, ix){
 				}
 			},{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -673,8 +704,8 @@ function chart5(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {

@@ -21,6 +21,7 @@ $(document).ready(function(){
     mainAreaLister()
 });
 
+var fontsize = 9;
 
 
 function isSelect(jsonData){
@@ -211,7 +212,7 @@ function installAndGeneration(jsonData,selectPoint){
             itemWidth: 16, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -234,8 +235,8 @@ function installAndGeneration(jsonData,selectPoint){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             //去掉辅助线
@@ -251,7 +252,8 @@ function installAndGeneration(jsonData,selectPoint){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             axisTick: {
                 show: true //是否显示坐标轴刻度
@@ -263,8 +265,8 @@ function installAndGeneration(jsonData,selectPoint){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             //去掉辅助线
@@ -284,7 +286,8 @@ function installAndGeneration(jsonData,selectPoint){
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
-                    color:'#fff',
+                    color:'#c2c8cf',
+                    fontSize: fontsize
                 },
                 axisTick: {
                     show: true //是否显示坐标轴刻度
@@ -297,8 +300,8 @@ function installAndGeneration(jsonData,selectPoint){
                 axisLabel: {
                     formatter: '{value}',
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -407,7 +410,7 @@ function makeOrders(orderDatas,selectPoint,point){
             bottom:'2%',
             data: Object.keys(barObject).concat(['同比']),
             textStyle: {
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 10,
             }
         },
@@ -425,8 +428,8 @@ function makeOrders(orderDatas,selectPoint,point){
                 }
             },
             axisLabel: {
-                color: '#fff',
-                fontSize: 10
+                color: '#c2c8cf',
+                fontSize: fontsize
             },
             splitLine: {
                 show: false
@@ -443,7 +446,8 @@ function makeOrders(orderDatas,selectPoint,point){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             axisLine: {
                 lineStyle: {
@@ -451,8 +455,8 @@ function makeOrders(orderDatas,selectPoint,point){
                 }
             },
             axisLabel: {
-                color: '#fff',
-                fontSize: 10
+                color: '#c2c8cf',
+                fontSize: fontsize
             },
             splitLine: {
                 show: false
@@ -471,8 +475,8 @@ function makeOrders(orderDatas,selectPoint,point){
         //             }
         //         },
         //         axisLabel: {
-        //             color: '#fff',
-        //             fontSize: 10
+        //             color: '#c2c8cf',
+        //             fontSize: fontsize
         //         },
         //         splitLine: {
         //             show:false,
@@ -584,7 +588,7 @@ function deviceUsedRatio(jsonData,selectPoint){
             bottom:'2%',
             data: ['本年','同比'],
             textStyle: {
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 10,
             }
         },
@@ -606,7 +610,7 @@ function deviceUsedRatio(jsonData,selectPoint){
             splitLine: {
                 show: false,
                 lineStyle: {
-                    color: '#fff ',
+                    color: '#c2c8cf ',
                 }
             },
             axisTick: {
@@ -618,9 +622,9 @@ function deviceUsedRatio(jsonData,selectPoint){
             axisLabel: {
                 inside: false,
                 textStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                     fontWeight: 'normal',
-                    fontSize: 10
+                    fontSize: fontsize
                 },
             },
             data : xArray
@@ -633,7 +637,8 @@ function deviceUsedRatio(jsonData,selectPoint){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             //去掉辅助线
             splitLine: {
@@ -646,8 +651,8 @@ function deviceUsedRatio(jsonData,selectPoint){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value}'
             }
@@ -659,7 +664,8 @@ function deviceUsedRatio(jsonData,selectPoint){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             //去掉辅助线
             splitLine: {
@@ -672,8 +678,8 @@ function deviceUsedRatio(jsonData,selectPoint){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value} %'
             }
@@ -817,7 +823,7 @@ function makeWarmingRecord(jsonData,selectPoint){
             bottom:'2%',
             data: legNames,
             textStyle: {
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 10,
             }
         },
@@ -831,7 +837,7 @@ function makeWarmingRecord(jsonData,selectPoint){
         xAxis: {
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf'
                 }
             },
             splitLine: {
@@ -857,7 +863,7 @@ function makeWarmingRecord(jsonData,selectPoint){
             splitNumber:4,
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf'
                 }
             },
             name:'千瓦/千焦',
@@ -865,7 +871,8 @@ function makeWarmingRecord(jsonData,selectPoint){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             type: 'value',
             z:10,
@@ -880,7 +887,7 @@ function makeWarmingRecord(jsonData,selectPoint){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf'
                 },
                 formatter:function(v){
                     return v + '%';
@@ -965,7 +972,7 @@ function consume(jsonData,selectPoint){
             bottom:'2%',
             data: ['消耗量','同比'],
             textStyle: {
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 10,
             }
         },
@@ -986,7 +993,7 @@ function consume(jsonData,selectPoint){
             splitLine: {
                 show: false,
                 lineStyle: {
-                    color: '#fff ',
+                    color: '#c2c8cf ',
                 }
             },
             axisTick: {
@@ -998,9 +1005,9 @@ function consume(jsonData,selectPoint){
             axisLabel: {
                 inside: false,
                 textStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                     fontWeight: 'normal',
-                    fontSize: 10
+                    fontSize: fontsize
                 },
             },
             data : xArray
@@ -1010,9 +1017,10 @@ function consume(jsonData,selectPoint){
             name:'  吨',
             nameGap:0,
             nameTextStyle:{
-                padding:[0,0,0,45],
+                padding:[0,0,0,15],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             //去掉辅助线
             splitLine: {
@@ -1025,8 +1033,8 @@ function consume(jsonData,selectPoint){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value}'
             }
@@ -1036,7 +1044,8 @@ function consume(jsonData,selectPoint){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             //去掉辅助线
             splitLine: {
@@ -1049,8 +1058,8 @@ function consume(jsonData,selectPoint){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value}'
             }

@@ -8,6 +8,7 @@ $(document).ready(function(){
 	getdatax('/lc/oilIndex/chart7.json',chart7);
 	getdata('/lc/oilIndex/main.json',main);
 });
+var fontsize = 9;
 function main(val, ix){
 	 var data = [];
 	 var efData = [];
@@ -273,7 +274,7 @@ function main(val, ix){
 		            },
 		            checkpointStyle: {
 		                color: '#ffc100',
-		                borderColor: '#fff',
+		                borderColor: '#c2c8cf',
 		                borderWidth: 1
 		            },
 		            controlStyle: {
@@ -320,7 +321,7 @@ function main(val, ix){
 			        label: {
 			            emphasis: {
 			                show: true,
-			                color:'#fff'
+			                color:'#c2c8cf'
 			            }
 			        },
 			        top: '10%',
@@ -333,7 +334,7 @@ function main(val, ix){
 			                borderColor: 'rgba(1,1,1,0)'
 			            },
 			            emphasis: {
-			            	 borderColor:'#fff',
+			            	 borderColor:'#c2c8cf',
 			                    areaColor: 'red',
 			            }
 			        }
@@ -353,14 +354,14 @@ function main(val, ix){
 			                borderColor: '#59b6f4'
 			            },
 			            emphasis: {
-			            	 borderColor:'#fff',
+			            	 borderColor:'#c2c8cf',
 			                    areaColor: 'rgba(70,202,239,0.8)',
 			            }
 			        },
 			        label: {
 			            emphasis: {
 			                show: true,
-			                color:'#fff'
+			                color:'#c2c8cf'
 			            }
 			        },
 		            data: []
@@ -395,8 +396,8 @@ function main(val, ix){
 		    	        normal: {
 		    	            show: true,
 		    	            position: 'bottom',
-		    	            color:'#fff',
-		    	            fontSize:10,
+		    	            color:'#c5eaef',
+		    	            fontSize: fontsize,
 		    	            formatter: function(v){
 		    	            	return v.name+'\n'+v.data.value[2].toFixed(2)+'吨';
 		    	            }
@@ -503,6 +504,7 @@ function main(val, ix){
 		            id: 'bar',
 		            label: {
 		                normal: {
+		                	color:'#c5eaef',
 		                    position: 'right',
 		                    formatter: '{b}'
 		                }
@@ -529,7 +531,11 @@ function chart1(data){
 			}
 		},
 		legend:{
-			data:data[0]
+			data:data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		grid:{
 			top:'10%',
@@ -548,7 +554,7 @@ function chart1(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff ',
+					color: '#c2c8cf ',
 				}
 			},
 			axisTick: {
@@ -561,7 +567,7 @@ function chart1(data){
 			axisLabel: {
 				inside: false,
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
 					fontSize: 8
 				},
@@ -574,7 +580,8 @@ function chart1(data){
 			nameTextStyle:{
 				padding:[0,0,0,110],
 				align:'center',
-				color:'#fff',
+				color:'#c2c8cf',
+				fontSize: fontsize
 			},
 			type: 'value',
 			splitNumber:3,
@@ -591,12 +598,12 @@ function chart1(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 				}
 			},
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
 					fontSize: 8
 				},
@@ -661,7 +668,11 @@ function chart2(data){
 			}
 		},
 		legend:{
-			data:data[0]
+			data:data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		grid:{
 			top:'10%',
@@ -680,7 +691,7 @@ function chart2(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff ',
+					color: '#c2c8cf ',
 				}
 			},
 			axisTick: {
@@ -693,7 +704,7 @@ function chart2(data){
 			axisLabel: {
 				inside: false,
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
 					fontSize: 8
 				},
@@ -704,7 +715,8 @@ function chart2(data){
 			nameTextStyle:{
 				padding:[0,0,0,65],
 				align:'center',
-				color:'#fff',
+				color:'#c2c8cf',
+				fontSize: fontsize
 			},
 			type: 'value',
 			splitNumber:3,
@@ -721,12 +733,12 @@ function chart2(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 				}
 			},
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
 					fontSize: 8
 				},
@@ -769,7 +781,11 @@ function chart3(data){
 			}
 		},
 		legend:{
-			data:data[0]
+			data:data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#40eaf9','#2b88ff','#2cffc9','#4138e1','#f5bd3b','#69a8f8', '#9571d8','#e45698','#74edb6'],
 		grid:{
@@ -789,7 +805,7 @@ function chart3(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff ',
+					color: '#c2c8cf ',
 				}
 			},
 			axisTick: {
@@ -802,7 +818,7 @@ function chart3(data){
 			axisLabel: {
 				inside: false,
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
 					fontSize: 8
 				},
@@ -813,7 +829,8 @@ function chart3(data){
 			nameTextStyle:{
 				padding:[0,0,0,65],
 				align:'center',
-				color:'#fff',
+				color:'#c2c8cf',
+				fontSize: fontsize
 			},
 			type: 'value',
 			splitNumber:3,
@@ -830,12 +847,12 @@ function chart3(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 				}
 			},
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
 					fontSize: 8
 				},
@@ -942,6 +959,10 @@ function chart4(data){
 	var option =  {
 		legend: {
 			data: data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#2b88ff','#2cffc9'],
 		grid: {
@@ -970,8 +991,8 @@ function chart4(data){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -981,7 +1002,8 @@ function chart4(data){
 				nameTextStyle:{
 					padding:[0,0,0,25],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -989,8 +1011,8 @@ function chart4(data){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 				},
 				splitLine: {
 					show:false,
@@ -1029,6 +1051,10 @@ function chart5(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#2b88ff','#40eaf9','#fdb91a','#2cffc9'],
 		grid: {
@@ -1054,8 +1080,8 @@ function chart5(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -1065,7 +1091,8 @@ function chart5(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,25],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -1073,8 +1100,8 @@ function chart5(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 				},
 				splitLine: {
 					show:false,
@@ -1084,8 +1111,8 @@ function chart5(data, ix){
 				}
 			},{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -1093,8 +1120,8 @@ function chart5(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -1179,6 +1206,10 @@ function chart6(data, ix){
 		legend: {
 			show:false,
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		grid: {
 			left: '5%',
@@ -1203,8 +1234,8 @@ function chart6(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -1214,7 +1245,8 @@ function chart6(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,25],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -1222,8 +1254,8 @@ function chart6(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 				},
 				splitLine: {
 					show:false,
@@ -1233,8 +1265,8 @@ function chart6(data, ix){
 				}
 			},{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -1242,8 +1274,8 @@ function chart6(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -1286,6 +1318,10 @@ function chart7(data, ix){
 		legend: {
 			show:false,
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color: ['#2b88ff','#ff3a83','#2874ff','#ffa24c','#af59ff'],
 		grid: {
@@ -1311,8 +1347,8 @@ function chart7(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -1322,7 +1358,8 @@ function chart7(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,45],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -1330,8 +1367,8 @@ function chart7(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				splitLine: {
 					show:false,
@@ -1341,8 +1378,8 @@ function chart7(data, ix){
 				}
 			},{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -1350,8 +1387,8 @@ function chart7(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {

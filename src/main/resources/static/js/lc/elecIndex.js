@@ -6,6 +6,7 @@ $(document).ready(function(){
 	getdatax('/lc/elecIndex/chart5.json',chart5,{sidx:2});
 	getdata('/lc/elecIndex/main.json',main);
 });
+var fontsize = 9;
 function main(data){
 	$(".mainc .node").each(function(){
 		var n = $(this), i = n.attr("index");
@@ -29,6 +30,10 @@ function chart1(data){
 	var option =  {
 		legend: {
 			data: data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#2b88ff','#5acbff'],
 		grid: {
@@ -55,8 +60,8 @@ function chart1(data){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -66,7 +71,8 @@ function chart1(data){
 				nameTextStyle:{
 					padding:[0,0,0,45],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -74,8 +80,8 @@ function chart1(data){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				splitLine: {
 					show:false,
@@ -90,7 +96,8 @@ function chart1(data){
 				nameTextStyle:{
 					padding:[0,0,0,-45],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				max:100,
 				axisLine: {
@@ -99,8 +106,8 @@ function chart1(data){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}'
 				},
 				splitLine: {
@@ -141,6 +148,10 @@ function chart2(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#4df3f3','#2b88ff'],
 		grid: {
@@ -166,8 +177,8 @@ function chart2(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -177,7 +188,8 @@ function chart2(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,45],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -185,8 +197,8 @@ function chart2(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				splitLine: {
 					show:false,
@@ -201,7 +213,8 @@ function chart2(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,-45],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -209,8 +222,8 @@ function chart2(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}'
 				},
 				splitLine: {
@@ -264,6 +277,10 @@ function chart3(data){
 	var option = {
 		legend: {
 			data: data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		grid: {
 			left: '5%',
@@ -290,8 +307,8 @@ function chart3(data){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -301,7 +318,8 @@ function chart3(data){
 				nameTextStyle:{
 					padding:[0,0,0,20],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -309,8 +327,8 @@ function chart3(data){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				splitLine: {
 					show:false,
@@ -320,8 +338,8 @@ function chart3(data){
 				}
 			}/*,{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -329,8 +347,8 @@ function chart3(data){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -385,6 +403,10 @@ function chart4(data, ix){
 	var option = {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#5acbff','#2b88ff'],
 		grid: {
@@ -411,8 +433,8 @@ function chart4(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -422,7 +444,8 @@ function chart4(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,65],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -430,8 +453,8 @@ function chart4(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				splitLine: {
 					show:false,
@@ -484,6 +507,10 @@ function chart5(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#2b88ff','#5acbff'],
 		grid: {
@@ -509,8 +536,8 @@ function chart5(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
@@ -520,7 +547,8 @@ function chart5(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,65],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -528,8 +556,8 @@ function chart5(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}'
 				},
 				splitLine: {
@@ -573,7 +601,7 @@ function mainOld(data){
 			labels:{
 				text:'{category}',
 				fill:'none',
-				stroke:'#fff',
+				stroke:'#c2c8cf',
 				fontSize:12,
 				fontFamily: 'sans-serif',
 				fontWeight:100,
@@ -588,7 +616,7 @@ function mainOld(data){
 				"valueText": "{valueY.close}"
 			},
 			"labels":{
-				stroke:'#fff',
+				stroke:'#c2c8cf',
 				fontSize:12,
 				fontFamily: 'sans-serif',
 				fontWeight:100,

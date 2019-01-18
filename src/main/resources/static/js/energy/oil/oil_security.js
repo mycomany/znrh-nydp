@@ -8,6 +8,7 @@ $(document).ready(function(){
     getdata('/energy/oil/security/chart6.json' + __time,chart6);
     getdata('/energy/oil/security/main.json' + __time,main);
 });
+var fontsize = 9;
 
 //判断是否为整数
 function pdInteger(value){
@@ -36,9 +37,9 @@ function main(data){
             itemWidth: 16, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
-                fontSize: 10,
+                fontSize: 12,
             },
             data: ['安全','基本安全','预警'],
         },
@@ -79,7 +80,7 @@ function main(data){
                     textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                         //fontWeight: 'bolder',
                         fontSize: 16,
-                        color:'#fff'
+                        color:'#c2c8cf'
                     }
                 },
                 detail : {
@@ -128,7 +129,7 @@ function main(data){
                 title: {
                     offsetCenter: [0, '-30%'],
                     textStyle: {
-                        color:'#fff',
+                        color:'#c2c8cf',
                         fontSize: 16,
                     }
                 },
@@ -181,7 +182,7 @@ function main(data){
                 title: {
                     offsetCenter: [0, '-30%'],
                     textStyle: {
-                        color:'#fff',
+                        color:'#c2c8cf',
                         fontSize: 16,
                     }
                 },
@@ -242,7 +243,7 @@ function chart1(data){
             itemWidth: 16, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -260,7 +261,7 @@ function chart1(data){
             splitLine: {
                 show: false,
                 lineStyle: {
-                    color: '#fff ',
+                    color: '#c2c8cf ',
                 }
             },
             // boundaryGap: false, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
@@ -279,8 +280,8 @@ function chart1(data){
             axisLabel: {
                 inside: false,
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             data:xData
@@ -294,7 +295,7 @@ function chart1(data){
             splitLine: {
                 show: false,
                 lineStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
             axisLine: {
@@ -304,8 +305,8 @@ function chart1(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value}'
             },
@@ -320,7 +321,7 @@ function chart1(data){
             splitLine: {
                 show: false,
                 lineStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
             axisLine: {
@@ -330,8 +331,8 @@ function chart1(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value}%'
             },
@@ -389,7 +390,7 @@ function chart2(data){
             itemWidth: 16,
             itemHeight: 8,
             textStyle:{
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -398,7 +399,8 @@ function chart2(data){
         xAxis: {
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             splitLine: {
@@ -424,7 +426,8 @@ function chart2(data){
             splitNumber:4,
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             name:'千桶/天',
@@ -432,7 +435,8 @@ function chart2(data){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             type: 'value',
             z:10,
@@ -447,7 +451,8 @@ function chart2(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter:function(v){
                     return v + '%';
@@ -525,7 +530,7 @@ function chart3(data){
             itemWidth: 16, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -547,8 +552,8 @@ function chart3(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             boundaryGap: false, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
@@ -568,7 +573,8 @@ function chart3(data){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             max:1.8,
             axisTick: {
@@ -578,7 +584,7 @@ function chart3(data){
             splitLine: {
                 show: false,
                 lineStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
             axisLine: {
@@ -588,8 +594,8 @@ function chart3(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: function(value){
                     if(pdInteger(value)){
@@ -610,7 +616,7 @@ function chart3(data){
             splitLine: {
                 show: false,
                 lineStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
             axisLine: {
@@ -620,8 +626,8 @@ function chart3(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value}%'
             },
@@ -687,7 +693,7 @@ function chart4(data){
             itemWidth: 16, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -703,8 +709,8 @@ function chart4(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             data: xData,
@@ -716,7 +722,8 @@ function chart4(data){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             //min:36,
             position: 'left',
@@ -727,8 +734,8 @@ function chart4(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             //单位
@@ -756,8 +763,8 @@ function chart4(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value}%'
             },
@@ -814,7 +821,7 @@ function chart5(data){
             bottom:'2%',
             data: data[0],
             textStyle: {
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 10,
             }
         },
@@ -827,8 +834,8 @@ function chart5(data){
             axisLabel: {
                 inside: false,
                 textStyle: {
-                    color: '#fff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             splitLine: {
@@ -843,7 +850,8 @@ function chart5(data){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             axisLine: {
                 lineStyle: {
@@ -853,8 +861,8 @@ function chart5(data){
             axisLabel: {
                 inside: false,
                 textStyle: {
-                    color: '#fff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             splitLine:{
@@ -871,8 +879,8 @@ function chart5(data){
                 inside: false,
                 formatter: '{value}%',
                 textStyle: {
-                    color: '#fff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             splitLine:{
@@ -954,7 +962,7 @@ function chart6(data){
             itemHeight: 8, //图例高度
             type:'scroll',
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -970,8 +978,8 @@ function chart6(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 //rotate: 30
             },
@@ -984,7 +992,8 @@ function chart6(data){
             nameTextStyle:{
                 padding:[0,0,0,42],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             // min:36,
             position: 'left',
@@ -995,8 +1004,8 @@ function chart6(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             //单位
@@ -1024,8 +1033,8 @@ function chart6(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 },
                 formatter: '{value}%'
             },

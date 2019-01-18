@@ -992,7 +992,7 @@ function chart6(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#c2c8cfc2c8cf',
+                    color: '#c2c8cf',
                     fontSize: 9,
                 }
             },
@@ -1012,7 +1012,7 @@ function chart6(data){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#c2c8cfc2c8cf',
+                    color: '#c2c8cf',
                     fontSize: 9,
                 },
                 formatter: '{value}%'

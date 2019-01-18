@@ -17,6 +17,7 @@ $(document).ready(function(){
     // chart5();
 });
 
+var fontsize = 9;
 function isSelect(jsonData){
     if(jsonData!=null&&jsonData==='select'){
         return true
@@ -57,7 +58,7 @@ function chart1(){
             itemWidth: 10, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -80,8 +81,8 @@ function chart1(){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             //去掉辅助线
@@ -97,7 +98,7 @@ function chart1(){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
             },*/
             axisTick: {
                 show: true //是否显示坐标轴刻度
@@ -109,8 +110,8 @@ function chart1(){
             },
             axisLabel: {
                 textStyle: {
-                    color: '#ffffff',
-                    fontSize: 10
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             },
             //去掉辅助线
@@ -129,7 +130,8 @@ function chart1(){
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
-                    color:'#fff',
+                    color:'#c2c8cf',
+                    fontSize: fontsize
                 },
                 axisTick: {
                     show: true //是否显示坐标轴刻度
@@ -142,8 +144,8 @@ function chart1(){
                 axisLabel: {
                     formatter: '{value}',
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -296,7 +298,7 @@ function chart2(){
             itemWidth: 16, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -318,8 +320,8 @@ function chart2(){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -336,7 +338,8 @@ function chart2(){
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
-                    color:'#fff',
+                    color:'#c2c8cf',
+                    fontSize: fontsize
                 },
                 axisLine: {
                     lineStyle: {
@@ -345,8 +348,8 @@ function chart2(){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -372,8 +375,8 @@ function chart2(){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     },
                     formatter: '{value}%'
                 },
@@ -468,7 +471,7 @@ function chart3(data){
             itemWidth: 16, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -493,8 +496,8 @@ function chart3(data){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -511,7 +514,8 @@ function chart3(data){
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
-                    color:'#fff',
+                    color:'#c2c8cf',
+                    fontSize: fontsize
                 },
                 axisLine: {
                     lineStyle: {
@@ -520,8 +524,8 @@ function chart3(data){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //单位
@@ -745,8 +749,8 @@ function main(param){
             left:5,
             bottom:5,
             textStyle:{
-                color:'#fff',
-                fontSize: 10
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             //calculable: true,
             color: ['#041af7','#6875f3','#8b95f9']
@@ -769,8 +773,8 @@ function main(param){
                     label: {
                         show: true,
                         textStyle: {
-                            color: '#ffffff',
-                            fontSize: 10
+                            color: '#c2c8cf',
+                            fontSize: fontsize
                         }
                     }
                 }
@@ -814,7 +818,7 @@ function chart5(){
                 type:'scroll',
                 data: ["采掘业","制造业","电力生产","交运仓储","其他行业","生活消费","批发零售业"],
                 textStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                     fontSize: 10,
                 }
             },
@@ -829,8 +833,8 @@ function chart5(){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -849,8 +853,8 @@ function chart5(){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     },
                     formatter: '{value}%'
                 },
@@ -1057,7 +1061,7 @@ function near10Order(jsonData,selectPoint){
             itemWidth: 16, //图例宽度
             itemHeight: 8, //图例高度
             textStyle: {
-                color:'#fff',
+                color:'#c2c8cf',
                 fontFamily: '微软雅黑',
                 fontSize: 10,
             },
@@ -1078,8 +1082,8 @@ function near10Order(jsonData,selectPoint){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -1096,7 +1100,8 @@ function near10Order(jsonData,selectPoint){
                 nameTextStyle:{
                     padding:[0,0,0,45],
                     align:'center',
-                    color:'#fff',
+                    color:'#c2c8cf',
+                    fontSize: fontsize
                 },
                 axisLine: {
                     lineStyle: {
@@ -1105,8 +1110,8 @@ function near10Order(jsonData,selectPoint){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -1127,7 +1132,8 @@ function near10Order(jsonData,selectPoint){
                 nameTextStyle:{
                     padding:[0,45,0,0],
                     align:'left',
-                    color:'#fff',
+                    color:'#c2c8cf',
+                    fontSize: fontsize
                 },
                 axisLine: {
                     lineStyle: {
@@ -1136,8 +1142,8 @@ function near10Order(jsonData,selectPoint){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#ffffff',
-                        fontSize: 10
+                        color: '#c2c8cf',
+                        fontSize: fontsize
                     }
                 },
                 //去掉辅助线
@@ -1193,7 +1199,8 @@ function cnTop10Order(jsonData){
             axisLabel: {
 
                 textStyle: {
-                    color: '#ffffff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1203,7 +1210,8 @@ function cnTop10Order(jsonData){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             splitLine: {
                 show: false
@@ -1222,7 +1230,8 @@ function cnTop10Order(jsonData){
                 formatter:'{value}',
 
                 textStyle: {
-                    color: '#ffffff',
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1285,7 +1294,8 @@ function worldTop10Order(jsonData){
             axisLabel: {
 
                 textStyle: {
-                    color: '#ffffff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1295,7 +1305,8 @@ function worldTop10Order(jsonData){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             splitLine: {
                 show: false
@@ -1314,7 +1325,8 @@ function worldTop10Order(jsonData){
                 formatter:'{value}',
 
                 textStyle: {
-                    color: '#ffffff',
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1377,7 +1389,8 @@ function machiningTop10Order(jsonData){
             axisLabel: {
 
                 textStyle: {
-                    color: '#ffffff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1387,7 +1400,8 @@ function machiningTop10Order(jsonData){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             splitLine: {
                 show: false
@@ -1406,7 +1420,8 @@ function machiningTop10Order(jsonData){
                 formatter:'{value}',
 
                 textStyle: {
-                    color: '#ffffff',
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1467,7 +1482,8 @@ function worldTop10Machining(jsonData){
             axisLabel: {
 
                 textStyle: {
-                    color: '#ffffff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1477,7 +1493,8 @@ function worldTop10Machining(jsonData){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             splitLine: {
                 show: false
@@ -1496,7 +1513,8 @@ function worldTop10Machining(jsonData){
                 formatter:'{value}',
 
                 textStyle: {
-                    color: '#ffffff',
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1561,7 +1579,8 @@ function machiningCount(jsonData,selectPoint){
             axisLabel: {
 
                 textStyle: {
-                    color: '#ffffff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1571,7 +1590,8 @@ function machiningCount(jsonData,selectPoint){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             splitLine: {
                 show: false
@@ -1590,7 +1610,8 @@ function machiningCount(jsonData,selectPoint){
                 formatter:'{value}',
 
                 textStyle: {
-                    color: '#ffffff',
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -1632,7 +1653,7 @@ function cnTop10OrderBak(jsonData){
         normal: {
             label: {
                 show: true,
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 9,
             },
             labelLine: {
@@ -1643,20 +1664,20 @@ function cnTop10OrderBak(jsonData){
     };
     var labelShow = {
         show: true,
-        color: '#fff',
-        fontSize: 10,
+        color: '#c2c8cf',
+        fontSize: fontsize,
         formatter: [
             '{b| {b} }',
             '{d| {d}% }'
         ].join('\n'),
         rich: {
             d: {
-                fontSize: 10,
-                color: '#fff'
+                fontSize: fontsize,
+                color: '#c2c8cf'
             },
             b: {
                 fontSize: 12,
-                color: '#fff'
+                color: '#c2c8cf'
             },
         }
     };
@@ -1726,10 +1747,10 @@ function cnTop10OrderBak(jsonData){
             type: 'category',
             z: 10,
             axisLine: {
-                color: '#fff',
+                color: '#c2c8cf',
                 lineStyle: {
                     width: 3,
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
         },
@@ -1739,13 +1760,13 @@ function cnTop10OrderBak(jsonData){
             },
             axisLabel: {
                 show: false,
-                color: '#fff'
+                color: '#c2c8cf'
             },
             axisLine: {
                 show: false,
-                color: '#fff',
+                color: '#c2c8cf',
                 lineStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
             splitLine: {
@@ -1780,7 +1801,7 @@ function worldTop10OrderBak(jsonData){
         normal: {
             label: {
                 show: true,
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 9,
             },
             labelLine: {
@@ -1791,20 +1812,20 @@ function worldTop10OrderBak(jsonData){
     };
     var labelShow = {
         show: true,
-        color: '#fff',
-        fontSize: 10,
+        color: '#c2c8cf',
+        fontSize: fontsize,
         formatter: [
             '{b| {b} }',
             '{d| {d}% }'
         ].join('\n'),
         rich: {
             d: {
-                fontSize: 10,
-                color: '#fff'
+                fontSize: fontsize,
+                color: '#c2c8cf'
             },
             b: {
                 fontSize: 12,
-                color: '#fff'
+                color: '#c2c8cf'
             },
         }
     };
@@ -1874,10 +1895,10 @@ function worldTop10OrderBak(jsonData){
             type: 'category',
             z: 10,
             axisLine: {
-                color: '#fff',
+                color: '#c2c8cf',
                 lineStyle: {
                     width: 3,
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
         },
@@ -1887,13 +1908,13 @@ function worldTop10OrderBak(jsonData){
             },
             axisLabel: {
                 show: false,
-                color: '#fff'
+                color: '#c2c8cf'
             },
             axisLine: {
                 show: false,
-                color: '#fff',
+                color: '#c2c8cf',
                 lineStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
             splitLine: {
@@ -1928,7 +1949,7 @@ function machiningTop10OrderBak(jsonData){
         normal: {
             label: {
                 show: true,
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 9,
             },
             labelLine: {
@@ -1939,20 +1960,20 @@ function machiningTop10OrderBak(jsonData){
     };
     var labelShow = {
         show: true,
-        color: '#fff',
-        fontSize: 10,
+        color: '#c2c8cf',
+        fontSize: fontsize,
         formatter: [
             '{b| {b} }',
             '{d| {d}% }'
         ].join('\n'),
         rich: {
             d: {
-                fontSize: 10,
-                color: '#fff'
+                fontSize: fontsize,
+                color: '#c2c8cf'
             },
             b: {
                 fontSize: 12,
-                color: '#fff'
+                color: '#c2c8cf'
             },
         }
     };
@@ -2022,10 +2043,10 @@ function machiningTop10OrderBak(jsonData){
             type: 'category',
             z: 10,
             axisLine: {
-                color: '#fff',
+                color: '#c2c8cf',
                 lineStyle: {
                     width: 3,
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
         },
@@ -2035,13 +2056,13 @@ function machiningTop10OrderBak(jsonData){
             },
             axisLabel: {
                 show: false,
-                color: '#fff'
+                color: '#c2c8cf'
             },
             axisLine: {
                 show: false,
-                color: '#fff',
+                color: '#c2c8cf',
                 lineStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
             splitLine: {
@@ -2088,7 +2109,7 @@ function machiningCountBak(jsonData,selectObj){
         normal: {
             label: {
                 show: true,
-                color: '#fff',
+                color: '#c2c8cf',
                 fontSize: 9,
             },
             labelLine: {
@@ -2099,20 +2120,20 @@ function machiningCountBak(jsonData,selectObj){
     };
     var labelShow = {
         show: true,
-        color: '#fff',
-        fontSize: 10,
+        color: '#c2c8cf',
+        fontSize: fontsize,
         formatter: [
             '{b| {b} }',
             '{d| {d}% }'
         ].join('\n'),
         rich: {
             d: {
-                fontSize: 10,
-                color: '#fff'
+                fontSize: fontsize,
+                color: '#c2c8cf'
             },
             b: {
                 fontSize: 12,
-                color: '#fff'
+                color: '#c2c8cf'
             },
         }
     };
@@ -2180,10 +2201,10 @@ function machiningCountBak(jsonData,selectObj){
             type: 'category',
             z: 10,
             axisLine: {
-                color: '#fff',
+                color: '#c2c8cf',
                 lineStyle: {
                     width: 3,
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
         },
@@ -2193,13 +2214,13 @@ function machiningCountBak(jsonData,selectObj){
             },
             axisLabel: {
                 show: false,
-                color: '#fff'
+                color: '#c2c8cf'
             },
             axisLine: {
                 show: false,
-                color: '#fff',
+                color: '#c2c8cf',
                 lineStyle: {
-                    color: '#fff',
+                    color: '#c2c8cf',
                 }
             },
             splitLine: {
@@ -2247,7 +2268,8 @@ function worldTop10MachiningBak(data){
             axisLabel: {
 
                 textStyle: {
-                    color: '#ffffff'
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
@@ -2257,7 +2279,8 @@ function worldTop10MachiningBak(data){
             nameTextStyle:{
                 padding:[0,0,0,45],
                 align:'center',
-                color:'#fff',
+                color:'#c2c8cf',
+                fontSize: fontsize
             },
             splitLine: {
                 show: false
@@ -2276,7 +2299,8 @@ function worldTop10MachiningBak(data){
                 formatter:'{value}',
 
                 textStyle: {
-                    color: '#ffffff',
+                    color: '#c2c8cf',
+                    fontSize: fontsize
                 }
             }
         }],
