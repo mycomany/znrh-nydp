@@ -398,7 +398,7 @@ function main(val, ix){
 		    	            color:'#fff',
 		    	            fontSize:10,
 		    	            formatter: function(v){
-		    	            	return v.name+'\n'+v.data.value[2].toFixed(2);
+		    	            	return v.name+'\n'+v.data.value[2].toFixed(2)+'吨';
 		    	            }
 		    	        }
 		    	    },
@@ -452,7 +452,7 @@ function main(val, ix){
 		            itemHeight: 80,
 		            min: data[i].data[val.xData.length-1].value[0],
 		            max: data[i].data[0].value[0],
-		            text: ['高', '低'],
+		            text: ['高(百万吨)', '低'],
 		            textStyle: {
 		                color: '#ddd'
 		            },

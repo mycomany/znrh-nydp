@@ -7,11 +7,16 @@ $(document).ready(function(){
 	getdatax('/clean/elecIndex/chart6.json',chart6);
 	getdatax('/clean/elecIndex/chart7.json',chart7);
 });
+var fontsize = 9;
 //非化石能源发电量趋势
 function chart1(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#2b88ff','#5acbff','#4be698','#40eaf9'],
 		grid: {
@@ -37,8 +42,8 @@ function chart1(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize  //ty
 			}
 		}],
 		yAxis: [
@@ -48,7 +53,8 @@ function chart1(data, ix){
 				nameTextStyle:{
 					padding:[0,0,0,45],
 					align:'center',
-					color:'#fff',
+					color:'#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -56,8 +62,8 @@ function chart1(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize  //ty
 				},
 				splitLine: {
 					show:false,
@@ -122,7 +128,11 @@ function chart2(data){
 			trigger: 'axis'
 		},
 		legend:{
-			data:data[0]
+			data:data[0],
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#2b88ff','#4138e1','#4be698','#40eaf9'],
 		grid:{
@@ -142,7 +152,7 @@ function chart2(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff ',
+					color: '#c2c8cf ',
 				}
 			},
 			boundaryGap: false, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
@@ -156,9 +166,9 @@ function chart2(data){
 			axisLabel: {
 				inside: false,
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
-					fontSize: 10
+					fontSize: fontsize
 				},
 			},
 			data:data[1],
@@ -179,14 +189,14 @@ function chart2(data){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 				}
 			},
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
-					fontSize: 10
+					fontSize: fontsize
 				},
 				formatter: '{value}%'
 			}
@@ -278,7 +288,11 @@ function chart4(data, ix){
 			trigger: 'axis'
 		},
 		legend:{
-			data:data.legend
+			data:data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		color:['#50ef9f','#2b88ff','#3ee4f3','#40eaf9'],
 		grid:{
@@ -298,7 +312,7 @@ function chart4(data, ix){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff ',
+					color: '#c2c8cf ',
 				}
 			},
 			boundaryGap: false, //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样
@@ -312,9 +326,9 @@ function chart4(data, ix){
 			axisLabel: {
 				inside: false,
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
-					fontSize: 10
+					fontSize: fontsize
 				},
 			},
 			data:data.xData,
@@ -323,9 +337,10 @@ function chart4(data, ix){
 			name:'吨',
 			nameGap:-5,
 			nameTextStyle:{
-				padding:[0,0,0,45],
+				padding:[0,0,0,15],
 				align:'center',
-				color:'#fff',
+				color:'#c2c8cf',
+				fontSize: fontsize
 			},
 			type: 'value',
 			splitNumber:3,
@@ -342,14 +357,14 @@ function chart4(data, ix){
 			splitLine: {
 				show: false,
 				lineStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 				}
 			},
 			axisLabel: {
 				textStyle: {
-					color: '#fff',
+					color: '#c2c8cf',
 					fontWeight: 'normal',
-					fontSize: 10
+					fontSize: fontsize
 				},
 				formatter: '{value}'
 			}
@@ -406,6 +421,10 @@ function chart5(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		grid: {
 			left: '5%',
@@ -431,15 +450,15 @@ function chart5(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
 			{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -447,8 +466,8 @@ function chart5(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -490,6 +509,10 @@ function chart6(data, ix){
 	var option =  {
 		legend: {
 			data: data.legend,
+			textStyle: {
+	            color: '#c2c8cf',
+	            fontSize: 10,
+	        }
 		},
 		grid: {
 			left: '5%',
@@ -515,15 +538,15 @@ function chart6(data, ix){
 				}
 			},
 			axisLabel: {
-				color: '#fff',
-				fontSize: 10
+				color: '#c2c8cf',
+				fontSize: fontsize
 			}
 		}],
 		yAxis: [
 			{
 				nameTextStyle: {
-					color: '#fff',
-					fontSize: 10
+					color: '#c2c8cf',
+					fontSize: fontsize
 				},
 				axisLine: {
 					lineStyle: {
@@ -531,8 +554,8 @@ function chart6(data, ix){
 					}
 				},
 				axisLabel: {
-					color: '#fff',
-					fontSize: 10,
+					color: '#c2c8cf',
+					fontSize: fontsize,
 					formatter: '{value}%'
 				},
 				splitLine: {
@@ -587,7 +610,7 @@ function chart7(data, ix){
 			itemWidth: 16, //图例宽度
 			itemHeight: 8, //图例高度
 			textStyle: {
-				color:'#fff',
+				color:'#c2c8cf',
 				fontFamily: '微软雅黑',
 				fontSize: 10,
 			},
@@ -607,12 +630,19 @@ function chart7(data, ix){
 							//position:'inside',
 							//formatter: '{b} : {c}%' ,
 							textStyle:{
-								color:'#fff',
-								//fontSize: 10
+								color:'#c2c8cf',
+								fontSize: fontsize
 							},
 						}
 					}
-				}
+				},
+			labelLine: {
+                normal: {
+                    show: true,
+                    length: 10,
+                    length2: 7
+                }
+            },
 			}
 		]
 	};

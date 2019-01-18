@@ -26,7 +26,7 @@ function chart1(data){
 			        type:'scroll',
 			        data: data[0],
 			        textStyle: {
-			            color: '#fff',
+			            color: '#c2c8cf',
 			            fontSize: 10,
 			        }
 			    },  
@@ -45,14 +45,14 @@ function chart1(data){
 		            }
 		        },
 		        axisLabel: {
-		            color: '#fff',
-		            fontSize: 10
+		            color: '#c2c8cf',
+		            fontSize: 9
 		        }
 		    },
 		    yAxis: [{
 		        /*name: "（人）",
 		        nameTextStyle: {
-		            color: '#fff',
+		            color: '#c2c8cf',
 		            fontSize: 16
 		        },*/
 		        axisLine: {
@@ -61,8 +61,8 @@ function chart1(data){
 		            }
 		        },
 		        axisLabel: {
-		            color: '#fff',
-		            fontSize: 10
+		            color: '#c2c8cf',
+		            fontSize: 9
 		        },
 		        splitLine: {
 		            show:false,
@@ -78,7 +78,7 @@ function chart1(data){
 				position: 'right',
 				axisLine: {
 					lineStyle:{
-						color: '#fff'
+						color: '#c2c8cf'
 					}
 				},
 				axisTick: {
@@ -96,8 +96,8 @@ function chart1(data){
 					show: true,
 					formatter: '{value}%',
 					textStyle: {
-						color: '#fff',
-						fontSize:8
+						color: '#c2c8cf',
+						fontSize: 9
 					}
 				}
 			}],
@@ -174,7 +174,7 @@ function chart2(data){
 	        bottom:'1%',
 	        data: data[0],
 	        textStyle: {
-	            color: '#fff',
+	            color: '#c2c8cf',
 	            fontSize: 10,
 	        }
 	    },
@@ -190,9 +190,9 @@ function chart2(data){
    	       axisLabel: {
    	            inside: false,
    	            textStyle: {
-   	                color: '#fff',
+   	                color: '#c2c8cf',
    	                fontWeight: 'normal',
-   	                fontSize: 10
+   	                fontSize: 9
    	            },
    	        },
             splitLine: {
@@ -207,9 +207,10 @@ function chart2(data){
         	name:'    亿立方米',
         	nameGap:-5,
     		nameTextStyle:{
-		    	padding:[0,0,0,45],
+		    	padding:[0,0,0,35],
 		    	align:'center',
-		    	color:'#fff',
+		    	color:'#c2c8cf',
+		    	fontSize: 9
 			},
             splitArea: {
                 show: false
@@ -225,9 +226,9 @@ function chart2(data){
   	       axisLabel: {
   	            inside: false,
   	            textStyle: {
-  	                color: '#fff',
+  	                color: '#c2c8cf',
   	                fontWeight: 'normal',
-  	                fontSize: 10
+  	                fontSize: 9
   	            },
   	        }
         }, {
@@ -248,9 +249,9 @@ function chart2(data){
   	       axisLabel: {
   	            inside: false,
   	            textStyle: {
-  	                color: '#fff',
+  	                color: '#c2c8cf',
   	                fontWeight: 'normal',
-  	                fontSize: 10
+  	                fontSize: 9
   	            },
   	        },
         },{
@@ -262,9 +263,9 @@ function chart2(data){
    	       axisLabel: {
    	            inside: false,
    	            textStyle: {
-   	                color: '#fff',
+   	                color: '#c2c8cf',
    	                fontWeight: 'normal',
-   	                fontSize: 10
+   	                fontSize: 9
    	            },
    	         formatter:function(v){
                  return v + '%';
@@ -354,7 +355,7 @@ function chart3(data){
 	        bottom:'1%',
 	        data: data[0],
 	        textStyle: {
-	            color: '#fff',
+	            color: '#c2c8cf',
 	            fontSize: 10,
 	        }
 	    },
@@ -366,8 +367,8 @@ function chart3(data){
    	        },
    	     boundaryGap: false,
    	     axisLabel: {
-	            color: '#fff',
-	            fontSize: 10
+	            color: '#c2c8cf',
+	            fontSize: 9
 	        },
             splitLine: {
                 show: false
@@ -379,9 +380,10 @@ function chart3(data){
         	name:'    亿立方米',
 			nameGap:-5,
 			nameTextStyle:{
-				padding:[0,0,0,45],
+				padding:[0,0,0,35],
 				align:'center',
-				color:'#fff',
+				color:'#c2c8cf',
+				fontSize: 9
 			},
         	axisLine: {
    	            lineStyle: {
@@ -391,9 +393,9 @@ function chart3(data){
    	       axisLabel: {
    	            inside: false,
    	            textStyle: {
-   	                color: '#fff',
+   	                color: '#c2c8cf',
    	                //fontWeight: 'normal',
-   	                fontSize: 10
+   	                fontSize: 9
    	            },
    	         //formatter:function(val){ return val; },
    	        },
@@ -420,7 +422,7 @@ function chart4(data){
 	            return param.value + '%';
 	        },
 	        textStyle: {
-	            color: '#ffffff',
+	            color: '#c2c8cfc2c8cf',
 	            fontSize: '16',
 	        }
 	    }
@@ -507,7 +509,7 @@ function chart4(data){
 			bottom:'1%',
 			data: data[0],
 			textStyle: {
-				color: '#fff',
+				color: '#c2c8cf',
 				fontSize: 10
 			}
 		},
@@ -517,8 +519,8 @@ function chart4(data){
 			axisLabel: {
 				interval: 0,
 				textStyle: {
-					color: '#fff',
-					fontSize:10
+					color: '#c2c8cf',
+					fontSize: 9
 				},
 				rotate: 30,
 			},
@@ -573,9 +575,9 @@ function chart4(data){
 					//max:5,
 					axisLabel: {
 						textStyle: {
-							color: '#fff',
+							color: '#c2c8cf',
 							fontStyle: 'normal',
-							fontSize:10
+							fontSize: 9
 						}
 					},
 					axisLine: {
@@ -607,8 +609,8 @@ function chart4(data){
 					axisLabel: {
 						show: true,
 						textStyle: {
-							color: '#fff',
-							fontSize:10
+							color: '#c2c8cf',
+							fontSize: 9
 						}
 					}
 				}],
@@ -652,7 +654,7 @@ function chart5(data){
 	        data: data[0],
 	        type:'scroll',
 	        textStyle: {
-	            color: '#fff',
+	            color: '#c2c8cf',
 	            fontSize: 10,
 	        }
 	    },
@@ -665,9 +667,9 @@ function chart5(data){
    	       axisLabel: {
    	            inside: false,
    	            textStyle: {
-   	                color: '#fff',
+   	                color: '#c2c8cf',
    	                fontWeight: 'normal',
-   	                fontSize: 10
+   	                fontSize: 9
    	            }
    	        },
             splitLine: {
@@ -680,9 +682,10 @@ function chart5(data){
         	name:'           美元/MMBtu',
         	nameGap:-5,
     		nameTextStyle:{
-		    	padding:[0,0,0,45],
+		    	padding:[0,0,0,35],
 		    	align:'center',
-		    	color:'#fff',
+		    	color:'#c2c8cf',
+		    	fontSize: 9
 			},
         	axisLine: {
    	            lineStyle: {
@@ -692,9 +695,9 @@ function chart5(data){
    	       axisLabel: {
    	            inside: false,
    	            textStyle: {
-   	                color: '#fff',
+   	                color: '#c2c8cf',
    	                fontWeight: 'normal',
-   	                fontSize: 10
+   	                fontSize: 9
    	            }
    	        },
             axisTick:{
@@ -735,7 +738,7 @@ function chart6(data){
 	        bottom:'1%',
 	        data: data[0],
 	        textStyle: {
-	            color: '#fff',
+	            color: '#c2c8cf',
 	            fontSize: 10,
 	        }
 	    },
@@ -748,9 +751,9 @@ function chart6(data){
    	       axisLabel: {
    	            inside: false,
    	            textStyle: {
-   	                color: '#fff',
+   	                color: '#c2c8cf',
    	                fontWeight: 'normal',
-   	                fontSize: 10
+   	                fontSize: 9
    	            }
    	        },
             splitLine: {
@@ -763,9 +766,10 @@ function chart6(data){
         	name:'      元/立方米',
         	nameGap:-5,
     		nameTextStyle:{
-		    	padding:[0,0,0,45],
+		    	padding:[0,0,0,35],
 		    	align:'center',
-		    	color:'#fff',
+		    	color:'#c2c8cf',
+		    	fontSize: 9
 			},
         	axisLine: {
    	            lineStyle: {
@@ -775,9 +779,9 @@ function chart6(data){
    	       axisLabel: {
    	            inside: false,
    	            textStyle: {
-   	                color: '#fff',
+   	                color: '#c2c8cf',
    	                fontWeight: 'normal',
-   	                fontSize: 10
+   	                fontSize: 9
    	            }
    	        },
             splitLine:{
@@ -928,7 +932,7 @@ for (var i = 0; i < data.length; i++) {
         max = data[i].value;
     }
 }
-var col = ['#fff700','#00ffbc','#0026ff'];
+var col = ['#c2c8cf700','#00ffbc','#0026ff'];
 option = {
     title: {
         text: '',
@@ -1000,7 +1004,7 @@ option = {
             hoverAnimation: true,
             label: {
                 normal: {
-                	color: '#fff',
+                	color: '#c2c8cf',
                 	fontSize: 14,
                     formatter: function (val) {
                     	//alert(JSON.stringify(val));
@@ -1103,7 +1107,7 @@ function main1(){
                 pieces: [{
                     max: 11.9,
                     label:'≤12%',
-                    color: '#ffffff'
+                    color: '#c2c8cfc2c8cf'
                 }, {
                     min: 12,
                     max: 21.9,
@@ -1117,7 +1121,7 @@ function main1(){
                 right: 20,
                 top: 40,
                 textStyle: {
-                    color: '#fff'
+                    color: '#c2c8cf'
                 }
             },
             title: [{
@@ -1159,7 +1163,7 @@ function main1(){
                 },
                 axisLabel: {
                     textStyle: {
-                        color: '#fff'
+                        color: '#c2c8cf'
                     }
                 },
             },
@@ -1179,7 +1183,7 @@ function main1(){
                 axisLabel: {
                 	formatter: '{value}%',
                     textStyle: {
-                        color: '#fff'
+                        color: '#c2c8cf'
                     }
                 },
             },
@@ -1195,7 +1199,7 @@ function main1(){
                         formatter: function(param) {
                             return param.data[2];
                         },
-                        color:'#fff',
+                        color:'#c2c8cf',
                         position: 'top'
                     }
                 },
